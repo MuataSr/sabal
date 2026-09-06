@@ -913,6 +913,10 @@ def diagnostic_answer(quiz_id, q_index):
         "topic": q.get("topic", ""),
     })
 
+    # Persist — without this, answers are lost on redirect and the
+    # results page loads an empty-answers quiz (500: study_order[0]).
+    db.save_quiz(quiz_id, quiz)
+
     next_index = q_index + 1
     if next_index >= len(questions):
         return redirect(f"/diagnostic/results/{quiz_id}")
