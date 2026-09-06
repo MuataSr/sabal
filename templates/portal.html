@@ -8,6 +8,12 @@
      app_name, app_slug          branding
      plan, is_premium            entitlement (plan key from PRICING)
      plan_label, plan_price_str  display
+     plan_expiry_note            OPTIONAL — one-time expiry copy for the premium
+                                 badge ("Active until Sep 6, 2027" / "61 days
+                                 left"). Monthly apps omit → generic thanks line.
+     plan_period                 OPTIONAL — small suffix after plan_price_str on
+                                 the free-state card. Monthly apps omit →
+                                 "/month". One-time apps pass "" (no suffix).
      free_daily                  constant
      questions_used_today        int
      questions_remaining         int | None (None = unlimited/premium)
@@ -88,10 +94,14 @@
       {% if is_premium %}
       <div><span class="portal-badge premium">Premium</span></div>
       <div class="portal-value portal-plan-name" style="margin-top:.4rem;">{{ plan_label }}</div>
-      <div style="margin-top:.5rem; color:#1e6b3c; font-size:.88rem;">Unlimited practice unlocked — thank you!</div>
+      {% if plan_expiry_note %}
+      <div style="margin-top:.3rem; font-size:.88rem; color:#1e6b3c;">{{ plan_expiry_note }}</div>
+      {% else %}
+      <div style="margin-top:.5rem; font-size:.88rem; color:#1e6b3c;">Unlimited practice unlocked — thank you!</div>
+      {% endif %}
       {% else %}
       <div><span class="portal-badge free">Free</span></div>
-      <div class="portal-value" style="margin-top:.4rem;">{{ plan_price_str }}<small>/month</small></div>
+      <div class="portal-value" style="margin-top:.4rem;">{{ plan_price_str }}<small>{{ plan_period|default("/month") }}</small></div>
       <div style="margin-top:.3rem; font-size:.88rem; color:#667;">Upgrade for unlimited practice.</div>
       <a class="portal-btn" href="/pricing">Upgrade to {{ plan_label }}</a>
       {% endif %}

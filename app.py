@@ -9,7 +9,7 @@ All data from kb.py (question bank) and db.py (user progress).
 import os
 import uuid
 import random
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from functools import wraps
 from flask import Flask, render_template, redirect, url_for, request, jsonify, session, flash
 import kb
@@ -116,6 +116,41 @@ def _premium_active(user):
     if FREE_LAUNCH:
         return True
     return platform_lib.is_premium(user or {})
+
+
+def _plan_duration_label(info):
+    """'90 days' / '12 months' from a PRICING info dict (FCLE one-time plans)."""
+    days = info.get("duration_days")
+    if days == 365:
+        return "12 months"
+    if days == 90:
+        return "90 days"
+    return f"{days} days" if days else "pass"
+
+
+def _fmt_et_date(utc_iso):
+    """'Sep 6, 2027' (America/New_York) from a UTC ISO premium_until string."""
+    try:
+        from zoneinfo import ZoneInfo
+        dt = datetime.fromisoformat(utc_iso)
+        if dt.tzinfo is None:
+            dt = dt.replace(tzinfo=timezone.utc)
+        return dt.astimezone(ZoneInfo("America/New_York")).strftime("%b %d, %Y")
+    except (TypeError, ValueError):
+        return utc_iso
+
+
+def _expiry_note(user):
+    """Short expiry copy for a one-time premium row: '61 days left' / 'active until ...'."""
+    if not user:
+        return None
+    rem = platform_lib.days_remaining(user)
+    until = platform_lib.premium_until_utc(user)
+    if rem is None or not until:
+        return None
+    if rem <= 90:
+        return f"{rem} day{'s' if rem != 1 else ''} left"
+    return f"active until {_fmt_et_date(until)}"
 
 
 _FREE_LIMIT_MSG = ("You've hit today's free limit of 10 questions. "
@@ -1022,16 +1057,36 @@ def logout():
 
 @app.route("/pricing")
 def pricing():
-    """Pricing / upgrade page. Square checkout is Phase 2 — button is inert."""
+    """Pricing / upgrade page — 3-card layout (Free · Sprint · Annual).
+    Square checkout is Phase 2 — buttons stay inert."""
     user_id = session.get("user_id")
     user = db.get_user(user_id) if user_id else None
     plan = (user or {}).get("plan") or "free"
+    # All FCLE plans in catalog order (sprint then annual); template renders 3 cards
+    # (free is a static first card; paid cards loop over `plans`).
+    fcle_keys = platform_lib.plans_for_app("fcle")
+    fcle_plans = []
+    for key in fcle_keys:
+        info = platform_lib.PRICING[key]
+        fcle_plans.append({
+            "key": key,
+            "name": info["name"],
+            "price_str": "${:,.0f}".format(info["price_cents"] / 100),
+            "duration_label": _plan_duration_label(info),
+            "best_value": info.get("duration_days", 0) >= 365,
+        })
+    # Current paid plan (only if the user genuinely holds a PRICING key)
+    current_key = plan if plan in platform_lib.PRICING else None
     return render_template(
         "premium.html",
         plan=plan,
         is_premium=_premium_active(user),
+        current_plan_key=current_key,
+        current_plan_label=platform_lib.PRICING[current_key]["name"] if current_key else None,
+        current_expiry_note=_expiry_note(user) if current_key else None,
         free_daily=platform_lib.FREE_DAILY_QUESTIONS,
-        plan_price=platform_lib.PRICING[platform_lib.plan_for_app("fcle")],
+        free_daily_ai=platform_lib.FREE_DAILY_AI,
+        plans=fcle_plans,
         launch_free=FREE_LAUNCH,
     )
 
@@ -1060,6 +1115,12 @@ def account():
               for s in _build_recent_sessions(user_id)]
     created = user.get("created_at", "") or ""
 
+    # One-time expiry copy (FCLE): portal premium badge shows plan + expiry.
+    # Monthly apps (TEAS/NCLEX) omit these → shared template falls back to
+    # the generic thanks line + "/month" suffix (unchanged rendering).
+    expiry_note = _expiry_note(user)
+    plan_expiry_note = (expiry_note[:1].upper() + expiry_note[1:]) if expiry_note else None
+
     return render_template("portal.html",
         app_name="FCLE Study Buddy",
         app_slug="fcle",
@@ -1067,6 +1128,8 @@ def account():
         is_premium=is_premium,
         plan_label=pinfo["name"],
         plan_price_str="${:,.2f}".format(pinfo["price_cents"] / 100),
+        plan_expiry_note=plan_expiry_note,
+        plan_period="",  # FCLE sells one-time plans — no "/month" suffix
         free_daily=platform_lib.FREE_DAILY_QUESTIONS,
         questions_used_today=used,
         questions_remaining=rem,

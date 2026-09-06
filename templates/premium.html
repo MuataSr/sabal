@@ -13,32 +13,50 @@
 
   <div class="pricing-header">
     <h1>Unlock unlimited practice</h1>
-    <p class="pricing-sub">Free: {{ free_daily }} questions/day. Go premium for unlimited FCLE practice across all four domains.</p>
+    <p class="pricing-sub">Free: {{ free_daily }} questions/day. Choose a one-time FCLE pass for unlimited practice across all four domains.</p>
   </div>
 
-  {% if is_premium %}
+  {% if is_premium and current_plan_label %}
   <div class="current-plan-badge">
-    You're on the <strong>{{ plan }}</strong> plan — unlimited practice unlocked. Thank you!
+    You're on <strong>{{ current_plan_label }}</strong>{% if current_expiry_note %} — {{ current_expiry_note }}{% endif %}. Thank you!
   </div>
   {% endif %}
 
-  <div class="pricing-grid">
+  <div class="tier-grid">
 
-    <div class="plan-card plan-highlight">
-      <div class="plan-name">{{ plan_price.name }}</div>
-      <div class="plan-price">${{ "%.2f"|format(plan_price.price_cents / 100) }}<span class="plan-period">/month</span></div>
-      <ul class="plan-features">
-        <li>Unlimited practice questions</li>
-        <li>Full progress tracking &amp; readiness scores</li>
-        <li>All four FCLE domains: American Democracy, US Constitution, Founding Documents &amp; Landmark Impact</li>
-        <li>Priority support</li>
+    <div class="tier-card">
+      <div class="tier-name">Free</div>
+      <div class="tier-price">$0</div>
+      <div class="tier-period">Free forever</div>
+      <ul class="tier-features">
+        <li>{{ free_daily }} practice questions/day</li>
+        <li>{{ free_daily_ai }} AI tutor sessions/day</li>
+        <li>Progress tracking &amp; readiness scores</li>
+        <li>All four FCLE domains</li>
       </ul>
-      <button type="button" class="submit-btn plan-cta" disabled>Checkout opens soon</button>
+      <a class="tier-cta tier-cta--go" href="/">Start free</a>
     </div>
+
+    {% for p in plans %}
+    <div class="tier-card {% if p.best_value %}is-featured{% endif %}">
+      {% if p.best_value %}<span class="tier-flag">Best value</span>{% endif %}
+      {% if current_plan_key == p.key and is_premium %}<span class="tier-current">Your plan</span>{% endif %}
+      <div class="tier-name">{{ p.name }}</div>
+      <div class="tier-price">{{ p.price_str }}</div>
+      <div class="tier-period">One-time · {{ p.duration_label }}</div>
+      <ul class="tier-features">
+        <li>Unlimited practice for {{ p.duration_label }}</li>
+        <li>Unlimited AI tutor during your pass</li>
+        <li>Full analytics &amp; readiness drill-down</li>
+        <li>All four FCLE domains</li>
+      </ul>
+      <button type="button" class="tier-cta" disabled>Checkout opens soon</button>
+    </div>
+    {% endfor %}
 
   </div>
 
-  <p class="pricing-note">This plan unlocks FCLE Study only — TEAS Study and NCLEX Study are separate apps with their own plans.</p>
+  <p class="pricing-note">One-time purchase — no subscription, no auto-renew. Your pass unlocks FCLE Study only; TEAS Study and NCLEX Study are separate apps with their own plans.</p>
   <p class="pricing-note"><a href="/">← Back to dashboard</a></p>
 
 </div>
