@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% block title %}FCLE Study Buddy{% endblock %}</title>
+  <title>{% block title %}Sabal — FCLE Exam Prep{% endblock %}</title>
   <link rel="icon" href="{{ url_for('static', filename='img/favicon.ico') }}" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='img/favicon-32.png') }}">
   <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='img/favicon-16.png') }}">
@@ -78,7 +78,7 @@
       <div class="plan-card">
         <div class="plan-title">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 5.6L20 8.6l-4.2 4 1.1 5.8L12 15.5l-4.9 2.9 1.1-5.8L4 8.6l5.6-1z"/></svg>
-          {% if is_premium %}FCLE Premium{% else %}FCLE Study{% endif %}
+          {% if is_premium %}Sabal Premium{% else %}Sabal{% endif %}
           {% if launch_free %}<span class="plan-status">BETA · FREE</span>{% elif is_premium %}<span class="plan-status">ACTIVE</span>{% endif %}
         </div>
         {% if launch_free %}<p>Launch beta — every feature is free right now.</p>
@@ -102,7 +102,7 @@
       <button type="button" class="menu-btn" data-nav-toggle aria-label="Open menu">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg>
       </button>
-      <span class="crumb">FCLE Study &nbsp;/&nbsp; {% block crumb %}Home{% endblock %}</span>
+      <span class="crumb">Sabal &nbsp;/&nbsp; {% block crumb %}Home{% endblock %}</span>
       <div class="topbar-right">
         {% if launch_free %}
         <span class="exam-pill">
@@ -122,11 +122,9 @@
 <div class="standalone-wrap">
   {% if standalone_auth %}
   <div class="auth-brand">
-    <a href="/" class="logo-mark" style="text-decoration:none" aria-label="FCLE Study home">
-      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 5h14v14H5z" fill="currentColor" opacity="0.3"/><circle cx="16.5" cy="7.5" r="2" fill="#FBBF24"/><path d="M7.5 15.5l3.5-3.5 2 2 4-4.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      <span class="gold-dot"></span>
+    <a href="/" style="text-decoration:none;display:block;line-height:0" aria-label="Sabal home">
+      <img src="{{ url_for('static', filename='img/sabal-logo.png') }}" alt="Sabal FCLE Exam Prep" class="sabal-auth-logo">
     </a>
-    <span class="brand-name" style="font-size:18px">FCLE Study</span>
   </div>
   {% endif %}
 {% endif %}
