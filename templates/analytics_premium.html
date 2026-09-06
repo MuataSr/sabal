@@ -1,0 +1,116 @@
+{# ===================================================================
+   analytics_premium.html — Paid-tier analytics (SHARED per-app partial)
+   Canonical: exam-prep-lms/platform/analytics_premium.html
+   Vendored byte-identical into fcle-study-app/templates/,
+   teas-study-app/templates/, nclex-study-app/templates/.
+
+   Included at the bottom of each app's stats.html. Expects context:
+     is_premium        (context processor, all apps)
+     premium_trend     [{day: "MM/DD", pct: int|null}] last 14 days, null=no data
+     premium_weak      [{name, area, pct, url}] weak areas w/ drill-down links
+     premium_weak_note str|None  (optional explanation line)
+   Free users see a locked teaser (funnel); premium sees the analytics.
+   Self-contained <style> — renders identically regardless of app CSS.
+   =================================================================== #}
+<style>
+  .pa-section { margin-top: 2rem; }
+  .pa-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+  .pa-title { font-size: 1.05rem; font-weight: 700; margin: 0; }
+  .pa-badge { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #fff; background: #2d8a4e; padding: 3px 9px; border-radius: 999px; }
+  .pa-locked { border: 1px dashed #c9d2e0; border-radius: 14px; background: #fafbfd; padding: 1.4rem 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1.25rem; flex-wrap: wrap; }
+  .pa-locked h3 { margin: 0 0 .3rem; font-size: 1rem; }
+  .pa-locked p { margin: 0; color: #667; font-size: .9rem; }
+  .pa-btn { display: inline-block; padding: 9px 18px; border-radius: 10px; background: #16324f; color: #fff !important; text-decoration: none; font-weight: 600; font-size: .9rem; white-space: nowrap; }
+  .pa-btn:hover { opacity: .9; text-decoration: none; }
+  .pa-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+  @media (max-width: 720px) { .pa-grid { grid-template-columns: 1fr; } }
+  .pa-card { border: 1px solid #e3e6ee; border-radius: 14px; background: #fff; padding: 1.2rem 1.3rem; }
+  .pa-card h4 { margin: 0 0 .9rem; font-size: .82rem; text-transform: uppercase; letter-spacing: .05em; color: #8a93a6; }
+  .pa-trend { display: flex; align-items: flex-end; gap: 5px; height: 120px; padding-top: 6px; }
+  .pa-trend-col { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; min-width: 0; }
+  .pa-trend-bar { width: 100%; max-width: 26px; border-radius: 5px 5px 2px 2px; background: #16324f; min-height: 3px; }
+  .pa-trend-bar.ok { background: #d69e2e; }
+  .pa-trend-bar.good { background: #2d8a4e; }
+  .pa-trend-bar.low { background: #c0553b; }
+  .pa-trend-bar.nodata { background: #dfe4ec; }
+  .pa-trend-label { font-size: .62rem; color: #8a93a6; margin-top: 4px; white-space: nowrap; }
+  .pa-trend-val { font-size: .66rem; font-weight: 700; color: #445; margin-bottom: 3px; }
+  .pa-empty { color: #8a93a6; font-size: .88rem; padding: .6rem 0; }
+  .pa-weak-row { display: flex; align-items: center; justify-content: space-between; gap: .8rem; padding: .5rem 0; border-bottom: 1px solid #f0f2f6; }
+  .pa-weak-row:last-child { border-bottom: none; }
+  .pa-weak-name { font-weight: 600; font-size: .9rem; }
+  .pa-weak-area { font-size: .78rem; color: #8a93a6; }
+  .pa-weak-right { display: flex; align-items: center; gap: .8rem; }
+  .pa-weak-pct { font-weight: 700; font-size: .9rem; color: #c0553b; }
+  .pa-weak-link { font-size: .8rem; font-weight: 600; color: #16324f; text-decoration: none; white-space: nowrap; }
+  .pa-weak-link:hover { text-decoration: underline; }
+  .pa-note { font-size: .8rem; color: #8a93a6; margin-top: .7rem; }
+</style>
+
+{% if not is_premium %}
+<div class="pa-section">
+  <div class="pa-locked">
+    <div>
+      <h3>📈 Trend &amp; weak-area analytics</h3>
+      <p>Upgrade to see your 14-day readiness trend and drill into the topics dragging your score down.</p>
+    </div>
+    <a class="pa-btn" href="/pricing">Unlock with Premium</a>
+  </div>
+</div>
+
+{% else %}
+
+<div class="pa-section">
+  <div class="pa-head">
+    <h3 class="pa-title">Premium analytics <span class="pa-badge">Premium</span></h3>
+  </div>
+  <div class="pa-grid" style="margin-top: .9rem;">
+
+    <div class="pa-card">
+      <h4>14-day readiness trend</h4>
+      {% if premium_trend and premium_trend|selectattr('pct','ne',None)|list|length > 0 %}
+      <div class="pa-trend">
+        {% for t in premium_trend %}
+        <div class="pa-trend-col" title="{{ t.day }}: {{ t.pct if t.pct is not none else 'no session' }}%">
+          {% if t.pct is not none %}
+          <span class="pa-trend-val">{{ t.pct }}</span>
+          <div class="pa-trend-bar {% if t.pct >= 80 %}good{% elif t.pct >= 60 %}ok{% else %}low{% endif %}"
+               style="height: {{ [t.pct, 4]|max }}%;"></div>
+          {% else %}
+          <div class="pa-trend-bar nodata" style="height: 4%;"></div>
+          {% endif %}
+          <span class="pa-trend-label">{{ t.day }}</span>
+        </div>
+        {% endfor %}
+      </div>
+      <p class="pa-note">Daily average score on finished quizzes. Blank days = no session.</p>
+      {% else %}
+      <div class="pa-empty">Answer a few quizzes and your 14-day trend will show here.</div>
+      {% endif %}
+    </div>
+
+    <div class="pa-card">
+      <h4>Weak areas to target</h4>
+      {% if premium_weak %}
+      {% for w in premium_weak %}
+      <div class="pa-weak-row">
+        <div>
+          <div class="pa-weak-name">{{ w.name }}</div>
+          {% if w.area %}<div class="pa-weak-area">{{ w.area }}</div>{% endif %}
+        </div>
+        <div class="pa-weak-right">
+          <span class="pa-weak-pct">{{ w.pct }}%</span>
+          <a class="pa-weak-link" href="{{ w.url }}">Practice →</a>
+        </div>
+      </div>
+      {% endfor %}
+      {% if premium_weak_note %}<p class="pa-note">{{ premium_weak_note }}</p>{% endif %}
+      {% else %}
+      <div class="pa-empty">No weak areas under 70% — nice work. Keep the streak alive!</div>
+      {% endif %}
+    </div>
+
+  </div>
+</div>
+
+{% endif %}

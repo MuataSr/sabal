@@ -1,0 +1,902 @@
+[
+  {
+    "id": "FCLE-EVAL-001",
+    "domain": 1,
+    "difficulty": "medium",
+    "topic": "Natural rights and social contract",
+    "question": "According to the principles of the social contract and natural rights, why do citizens agree to follow government laws even when they might prefer to live outside of a structured government system?",
+    "correct_answer": "They grant up their natural right to life, liberty, and property in exchange for protection and order provided by the government.",
+    "student_answer": "They accept government authority because the Constitution explicitly commands them to obey all laws."
+  },
+  {
+    "id": "FCLE-EVAL-002",
+    "domain": 1,
+    "difficulty": "hard",
+    "topic": "Media and public opinion",
+    "question": "Cass Sunstein concept of echo chambers and information cocoons suggests that online filter algorithms most dangerously undermine democratic deliberation by:",
+    "correct_answer": "Creating ideologically homogeneous information environments that reduce exposure to opposing viewpoints and increase belief certainty",
+    "student_answer": "Enabling foreign governments to inject propaganda directly into American social media feeds"
+  },
+  {
+    "id": "FCLE-EVAL-003",
+    "domain": 1,
+    "difficulty": "medium",
+    "topic": "Political culture and ideology",
+    "question": "Which of the following best describes the primary purpose of 'sunshine laws' in the context of American political culture?",
+    "correct_answer": "Laws that require government documents and proceedings to be made public",
+    "student_answer": "A yes or no vote by citizens on a law or candidate proposed by the state government"
+  },
+  {
+    "id": "FCLE-EVAL-004",
+    "domain": 1,
+    "difficulty": "medium",
+    "topic": "Political culture and ideology",
+    "question": "The concept of 'American exceptionalism' in political culture refers to:",
+    "correct_answer": "The belief that the United States has a unique role and destiny among nations, rooted in its founding ideals of liberty and democracy",
+    "student_answer": "The economic advantage the United States enjoys due to its geographic isolation and abundant natural resources"
+  },
+  {
+    "id": "FCLE-EVAL-005",
+    "domain": 1,
+    "difficulty": "easy",
+    "topic": "Federalism basics",
+    "question": "Which of the following best describes the role of a 'political machine' in the context of interest groups and political participation?",
+    "correct_answer": "An organization that secures votes for a party's candidates or supports the party in other ways, usually in exchange for political favors such as a job in government",
+    "student_answer": "An independent media outlet that uses sensationalized coverage of scandals to influence public opinion and sway voters."
+  },
+  {
+    "id": "FCLE-EVAL-006",
+    "domain": 1,
+    "difficulty": "medium",
+    "topic": "Citizen participation",
+    "question": "Which of the following best describes how a 'toll good' functions in the context of political interest groups?",
+    "correct_answer": "A good available to many people but used only by those who can pay the price.",
+    "student_answer": "A policy change that is driven solely by the intense preferences of a specific political party."
+  },
+  {
+    "id": "FCLE-EVAL-007",
+    "domain": 1,
+    "difficulty": "hard",
+    "topic": "Citizen participation",
+    "question": "In their study of 'unconventional participation,' McAdam and Boudet found that communities facing environmental threats were more likely to engage in collective action when which condition was present?",
+    "correct_answer": "Pre-existing social networks and community organizations provided mobilizing infrastructure",
+    "student_answer": "Local media outlets provided sustained investigative coverage of the threat"
+  },
+  {
+    "id": "FCLE-EVAL-008",
+    "domain": 1,
+    "difficulty": "medium",
+    "topic": "Federalism basics",
+    "question": "Which of the following best describes the 'iron triangle' in the context of American government structure?",
+    "correct_answer": "A three-way relationship among congressional committees, interest groups, and the bureaucracy",
+    "student_answer": "A situation where some individuals receive benefits without helping to bear the cost of a public good"
+  },
+  {
+    "id": "FCLE-EVAL-009",
+    "domain": 1,
+    "difficulty": "hard",
+    "topic": "Political parties and elections",
+    "question": "In redistricting, 'packing and cracking' are gerrymandering strategies. Which combination best describes how they work together to disadvantage a target group?",
+    "correct_answer": "Packing concentrates the target group voters into few districts to waste their surplus votes, while cracking disperses remaining target voters across multiple districts where they cannot achieve a majority",
+    "student_answer": "Packing creates competitive districts that encourage turnout, while cracking creates safe districts that discourage opposition participation"
+  },
+  {
+    "id": "FCLE-EVAL-010",
+    "domain": 1,
+    "difficulty": "easy",
+    "topic": "Limited government and rule of law",
+    "question": "According to the pluralist theory of political power, where does political power primarily reside?",
+    "correct_answer": "In the hands of various groups of people",
+    "student_answer": "Equally distributed among all citizens regardless of organized groups"
+  },
+  {
+    "id": "FCLE-EVAL-011",
+    "domain": 1,
+    "difficulty": "easy",
+    "topic": "Federalism basics",
+    "question": "According to the principles of direct democracy, how do citizens directly influence legislation rather than through elected representatives?",
+    "correct_answer": "By initiating a ballot measure, often through petitioning, to place a specific policy issue directly on the state or local ballot for a public vote.",
+    "student_answer": "By attending town hall meetings to publicly debate with elected officials about how to vote in the next election cycle."
+  },
+  {
+    "id": "FCLE-EVAL-012",
+    "domain": 1,
+    "difficulty": "medium",
+    "topic": "Political socialization",
+    "question": "Which of the following best describes a 'party-in-the-electorate' within the context of American political parties?",
+    "correct_answer": "Members of the voting public who consider themselves part of a political party or who consistently prefer the candidates of one party over the other",
+    "student_answer": "An interest group that usually consists of dues-paying members who organize around a particular cause or issue"
+  },
+  {
+    "id": "FCLE-EVAL-013",
+    "domain": 1,
+    "difficulty": "medium",
+    "topic": "Political culture and ideology",
+    "question": "Which term best describes a political movement that appears to be driven by ordinary citizens (grassroots) but is actually organized and funded by wealthy interests or elites to influence public opinion?",
+    "correct_answer": "astroturf movement",
+    "student_answer": "minority party"
+  },
+  {
+    "id": "FCLE-EVAL-014",
+    "domain": 1,
+    "difficulty": "easy",
+    "topic": "Federalism basics",
+    "question": "Which term best describes the political phenomenon where a popular presidential candidate helps candidates from their own party win their own elections, even in states where the party was previously not competitive?",
+    "correct_answer": "coattail effect",
+    "student_answer": "incumbency advantage"
+  },
+  {
+    "id": "FCLE-EVAL-015",
+    "domain": 1,
+    "difficulty": "medium",
+    "topic": "Interest groups and lobbying",
+    "question": "A group representing small business owners hires a lobbyist to introduce a bill that lowers taxes on corporate profits. Which concept best describes the relationship between this group and the government in this scenario?",
+    "correct_answer": "The interest group operates under the pluralist theory, as the system allows various organized groups to compete for political power and influence policy outcomes.",
+    "student_answer": "The group's actions reflect the ideology of communism, as they are attempting to promote common ownership of production means to eliminate class exploitation."
+  },
+  {
+    "id": "FCLE-EVAL-016",
+    "domain": 1,
+    "difficulty": "easy",
+    "topic": "Political culture and ideology",
+    "question": "Which concept best describes the widespread belief that a country and its legal system are legitimate, even among citizens who may occasionally be dissatisfied with specific policies or officials?",
+    "correct_answer": "diffuse support",
+    "student_answer": "material incentives"
+  },
+  {
+    "id": "FCLE-EVAL-017",
+    "domain": 1,
+    "difficulty": "easy",
+    "topic": "Political socialization",
+    "question": "Which of the following is typically the earliest and most influential agent of political socialization in a person life?",
+    "correct_answer": "The family",
+    "student_answer": "Social media and the internet"
+  },
+  {
+    "id": "FCLE-EVAL-018",
+    "domain": 1,
+    "difficulty": "easy",
+    "topic": "Popular sovereignty",
+    "question": "Which of the following best describes 'popular sovereignty' as a foundational principle of the U.S. Constitution?",
+    "correct_answer": "The authority of the government is derived from the consent of the governed.",
+    "student_answer": "Political power is held primarily by wealthy elites and special interest groups."
+  },
+  {
+    "id": "FCLE-EVAL-019",
+    "domain": 1,
+    "difficulty": "medium",
+    "topic": "Political parties and elections",
+    "question": "A student observes that two different news stations reported on the same policy debate, but one station framed the story around 'economic freedom' while the other focused on 'public safety.' According to the concept of 'framing,' what is the primary difference between these two reports?",
+    "correct_answer": "They provide different contexts or backgrounds for the same event to shape how voters interpret the issue.",
+    "student_answer": "They represent the 'hypodermic theory' where the audience passively accepts the information without critical thought."
+  },
+  {
+    "id": "FCLE-EVAL-020",
+    "domain": 1,
+    "difficulty": "hard",
+    "topic": "Limited government and rule of law",
+    "question": "The 'nondelegation doctrine' holds that Congress cannot delegate its legislative power to other branches. Why has the Supreme Court applied this doctrine very narrowly since the New Deal era?",
+    "correct_answer": "The complexity of modern governance requires specialized administrative expertise that Congress lacks, making broad delegations practically necessary",
+    "student_answer": "Congress successfully threatened to restrict the Court jurisdiction if it struck down agency delegations"
+  },
+  {
+    "id": "FCLE-EVAL-021",
+    "domain": 1,
+    "difficulty": "hard",
+    "topic": "Political socialization",
+    "question": "Converse concept of 'non-attitudes' challenges the assumption that survey responses reflect stable, genuine policy preferences. His research suggested that:",
+    "correct_answer": "Many citizens lack meaningful, consistent ideological structures and instead construct responses on the spot based on question wording and context",
+    "student_answer": "All political attitudes are genetically determined and remain fixed throughout an individual lifetime"
+  },
+  {
+    "id": "FCLE-EVAL-022",
+    "domain": 1,
+    "difficulty": "medium",
+    "topic": "Citizen participation",
+    "question": "Which of the following best describes the relationship between the 'party-in-the-electorate' and the formal political parties in the United States?",
+    "correct_answer": "The party-in-the-electorate consists of members of the voting public who consider themselves part of a political party or consistently prefer the candidates of one party.",
+    "student_answer": "It describes the specific individuals currently holding elected office who are candidates for re-election in the upcoming cycle."
+  },
+  {
+    "id": "FCLE-EVAL-023",
+    "domain": 1,
+    "difficulty": "medium",
+    "topic": "Political parties and elections",
+    "question": "According to the provided reference materials, why does the United States Congress often face difficulties when members vote based on the concerns of the people living in their specific districts?",
+    "correct_answer": "It frequently pits the interests of people in different parts of the country against one another and favors certain groups over others within the same state.",
+    "student_answer": "Because the government can simply pass a total ban on guns to solve all policy disagreements without needing to balance competing views from different regions."
+  },
+  {
+    "id": "FCLE-EVAL-024",
+    "domain": 1,
+    "difficulty": "medium",
+    "topic": "Political parties and elections",
+    "question": "Which of the following best describes the political ideology of modern conservatism, particularly in the context of government's role in the economy?",
+    "correct_answer": "A political ideology that prioritizes individual liberties and prefers a smaller government that stays out of the economy",
+    "student_answer": "A political ideology based on belief in individual liberties and free will with little to no role for government in any sector of society"
+  },
+  {
+    "id": "FCLE-EVAL-025",
+    "domain": 1,
+    "difficulty": "hard",
+    "topic": "Limited government and rule of law",
+    "question": "According to the reference material on chronic minorities, why do voters belonging to political parties that are not competitive in national elections tend to abstain from voting?",
+    "correct_answer": "They believe their votes will not change the outcome of the election because the party is too small to become a majority or the Electoral College distribution in their state makes the election non-competitive.",
+    "student_answer": "They think media outlets are intentionally manipulating them so they do not feel motivated to participate."
+  },
+  {
+    "id": "FCLE-EVAL-026",
+    "domain": 2,
+    "difficulty": "medium",
+    "topic": "Legislative branch",
+    "question": "Congress passes a bill to expand federal surveillance powers, and the President signs it into law. Later, the President issues a 'signing statement' asserting that the law's provisions regarding electronic monitoring violate the Fourth Amendment's right to privacy and should not be enforced in that manner. If a federal court reviews this dispute, which judicial philosophy is the President most likely advocating for, and how does it differ from the opposing approach?",
+    "correct_answer": "judicial activism; judicial activism involves courts actively interpreting the Constitution to invalidate laws they deem unconstitutional, whereas judicial restraint (the President's stated approach) requires courts to defer to the legislative and executive branches and uphold the law unless it clearly violates the Constitution.",
+    "student_answer": "judicial review; this is the established power of the Supreme Court to declare laws unconstitutional, regardless of the President's interpretation or desire to enforce the statute as written."
+  },
+  {
+    "id": "FCLE-EVAL-027",
+    "domain": 2,
+    "difficulty": "medium",
+    "topic": "Amendment process",
+    "question": "Which amendment was ratified most recently, and how long did it take?",
+    "correct_answer": "The Twenty-Seventh Amendment (congressional pay), ratified in 1992 \u2014 202 years and 7 months after it was proposed in 1789.",
+    "student_answer": "The Second Amendment (right to bear arms), ratified in 1791 after 5 years."
+  },
+  {
+    "id": "FCLE-EVAL-028",
+    "domain": 2,
+    "difficulty": "medium",
+    "topic": "Article structure and content",
+    "question": "What does Article II of the U.S. Constitution establish?",
+    "correct_answer": "Article II establishes the executive branch, defining the powers and duties of the President.",
+    "student_answer": "Article II establishes the judicial branch and the Supreme Court."
+  },
+  {
+    "id": "FCLE-EVAL-029",
+    "domain": 2,
+    "difficulty": "easy",
+    "topic": "Federalism",
+    "question": "Which of the following best describes the constitutional logic underlying the principle of federalism in the United States?",
+    "correct_answer": "Federalism operates on the premise that a central national government is necessary to protect citizens' rights against the potential tyranny of majority rule within individual states, while still allowing states to govern their own internal affairs.",
+    "student_answer": "Federalism is primarily designed to ensure that state governments have absolute control over all local issues to prevent any centralized power from becoming too dominant."
+  },
+  {
+    "id": "FCLE-EVAL-030",
+    "domain": 2,
+    "difficulty": "medium",
+    "topic": "Checks and balances",
+    "question": "State Governors often face political pressure to pass specific legislation quickly to address emerging issues. According to the concept of the spoils system, what is a likely consequence of a Governor who rewards loyal party members with bureaucratic appointments during this period?",
+    "correct_answer": "The Governor may prioritize political loyalty over administrative competence, leading to inefficient state operations.",
+    "student_answer": "The Governor will gain immediate support from the state Legislature to pass all pending bills."
+  },
+  {
+    "id": "FCLE-EVAL-031",
+    "domain": 2,
+    "difficulty": "medium",
+    "topic": "Judicial branch",
+    "question": "How does a case reach the Supreme Court for review?",
+    "correct_answer": "Most commonly through a writ of certiorari, which the Court grants when at least four justices agree to hear the case (the 'Rule of Four').",
+    "student_answer": "The President can order the Supreme Court to hear any case of national importance."
+  },
+  {
+    "id": "FCLE-EVAL-032",
+    "domain": 2,
+    "difficulty": "medium",
+    "topic": "Checks and balances",
+    "question": "The President issues a signing statement regarding a bill that expands federal funding for renewable energy. The statement declares that the President intends to withhold specific funds allocated for projects in states that have recently passed laws restricting abortion access, arguing that the federal law conflicts with state interests. Which concept best describes this presidential action, and what is its constitutional implication regarding the separation of powers?",
+    "correct_answer": "A signing statement; it represents a form of executive oversight where the President attempts to influence the enforcement of laws passed by Congress.",
+    "student_answer": "A line-item veto; this would allow the President to strike out specific portions of a bill while letting the rest pass, but this power has been overturned and does not exist."
+  },
+  {
+    "id": "FCLE-EVAL-033",
+    "domain": 2,
+    "difficulty": "hard",
+    "topic": "Judicial branch",
+    "question": "Consider the following scenario: A state legislature passes a law granting a specific individual immunity from prosecution for actions taken while serving in office, without providing them an opportunity to defend themselves in court. Which constitutional provision would be the primary basis for challenging this legislation, and what concept does it protect?",
+    "correct_answer": "The Bill of Attainder; it prohibits legislative acts that declare guilt and prescribe punishment without a judicial trial.",
+    "student_answer": "The Pocket Veto power, which enables the President to block legislation by failing to sign it before Congress adjourns."
+  },
+  {
+    "id": "FCLE-EVAL-034",
+    "domain": 2,
+    "difficulty": "medium",
+    "topic": "Constitutional Convention",
+    "question": "A city council in Florida passes an ordinance banning all private vehicles from a specific downtown neighborhood to reduce traffic congestion and improve air quality. A neighboring county argues that this ordinance infringes upon its right to manage its own roads and traffic patterns, claiming it should have the final say over regional transportation policies. According to the principle of federalism established in the Constitution, which of the following best describes the legal status of the city's ordinance and the county's argument?",
+    "correct_answer": "The city council has the authority to enact the ordinance as local governments are distinct entities below the state level responsible for specific community issues like traffic, while the county's argument fails because local governments do not possess sovereign power equivalent to state governments.",
+    "student_answer": "The county is correct because, under the doctrine of nullification, any state or local entity can declare an out-of-state or out-of-county law unconstitutional if it disagrees with it."
+  },
+  {
+    "id": "FCLE-EVAL-035",
+    "domain": 2,
+    "difficulty": "easy",
+    "topic": "Amendment process",
+    "question": "According to the Constitution, what is the specific requirement for an amendment to become part of the U.S. Constitution after Congress passes it?",
+    "correct_answer": "It must be ratified by three-fourths of the state legislatures or by ratifying conventions in three-fourths of the states.",
+    "student_answer": "It becomes law immediately upon passing by Congress."
+  },
+  {
+    "id": "FCLE-EVAL-036",
+    "domain": 2,
+    "difficulty": "hard",
+    "topic": "Constitutional principles",
+    "question": "What is the doctrine of 'originalism' in constitutional interpretation, and who is its most prominent modern advocate?",
+    "correct_answer": "Originalism holds that the Constitution should be interpreted based on its original public meaning at the time of ratification; Justice Antonin Scalia was its most prominent advocate.",
+    "student_answer": "Originalism holds that the Constitution should be reinterpreted every generation to reflect modern values."
+  },
+  {
+    "id": "FCLE-EVAL-037",
+    "domain": 2,
+    "difficulty": "medium",
+    "topic": "Legislative branch",
+    "question": "What are the exclusive powers of the Senate that the House does not have?",
+    "correct_answer": "The Senate has the exclusive power to confirm presidential appointments, ratify treaties, and try impeachment cases.",
+    "student_answer": "The Senate exclusively has the power to initiate revenue bills and impeach federal officials."
+  },
+  {
+    "id": "FCLE-EVAL-038",
+    "domain": 2,
+    "difficulty": "medium",
+    "topic": "Executive branch",
+    "question": "During the presidency of Donald Trump, the administration frequently utilized executive orders to bypass congressional gridlock on issues such as immigration and environmental regulations. Based on the reference material regarding the evolution of presidential power, which statement best describes the relationship between the executive branch and the legislative branch in this scenario?",
+    "correct_answer": "The executive branch has expanded its power through the willing assistance of the legislative branch, which has historically collaborated to enhance presidential authority rather than strictly limiting it.",
+    "student_answer": "The president possesses inherent unlimited authority to issue executive orders that do not require legislative approval, effectively making the legislative branch irrelevant to executive policy implementation."
+  },
+  {
+    "id": "FCLE-EVAL-039",
+    "domain": 2,
+    "difficulty": "medium",
+    "topic": "Key amendments",
+    "question": "Under the principle of Dillon's Rule, how does the relationship between the state and local governments in Florida affect a municipality's ability to enact its own zoning laws regarding residential density?",
+    "correct_answer": "The state legislature has the final authority to override any local zoning restrictions, as state power supersedes local government power.",
+    "student_answer": "The local government has equal authority to the state because Florida operates under a system of 'cooperative federalism' where state and local governments must coordinate on all issues."
+  },
+  {
+    "id": "FCLE-EVAL-040",
+    "domain": 2,
+    "difficulty": "medium",
+    "topic": "Bill of Rights",
+    "question": "A state legislature passes a law restricting certain medical procedures. Later, the U.S. Supreme Court rules that this law conflicts with the federal Constitution. According to the principles of federalism and the Supremacy Clause, which of the following best describes the legal outcome for the state law?",
+    "correct_answer": "The state law is invalid and unenforceable because federal law overrides conflicting state law.",
+    "student_answer": "The state law is upheld because the Constitution's amendment process requires a two-thirds vote in both houses of Congress before any change can occur."
+  },
+  {
+    "id": "FCLE-EVAL-041",
+    "domain": 2,
+    "difficulty": "easy",
+    "topic": "Judicial branch",
+    "question": "Which of the following best describes the 'spoils system' and why was it criticized during the post-Jacksonian era?",
+    "correct_answer": "The spoils system rewards political loyalties with bureaucratic appointments, leading to charges of being overly political and corrupt.",
+    "student_answer": "A system where judges select officials based on their legal precedents to ensure impartiality."
+  },
+  {
+    "id": "FCLE-EVAL-042",
+    "domain": 2,
+    "difficulty": "medium",
+    "topic": "Executive branch",
+    "question": "What is the President's role as Commander in Chief, and what limits does Congress place on this power?",
+    "correct_answer": "The President commands the armed forces but Congress has the power to declare war, raise and fund armies, and regulate the military through legislation.",
+    "student_answer": "Congress has complete military authority and the President has no role in military decisions."
+  },
+  {
+    "id": "FCLE-EVAL-043",
+    "domain": 2,
+    "difficulty": "medium",
+    "topic": "Federalism",
+    "question": "What is a concurrent power, and give two examples?",
+    "correct_answer": "Concurrent powers are powers shared by both federal and state governments, such as the power to tax and the power to establish courts.",
+    "student_answer": "Concurrent powers are powers reserved exclusively for state governments, such as conducting elections."
+  },
+  {
+    "id": "FCLE-EVAL-044",
+    "domain": 2,
+    "difficulty": "hard",
+    "topic": "Constitutional principles",
+    "question": "What is 'judicial activism' versus 'judicial restraint,' and why is this distinction politically contested?",
+    "correct_answer": "Judicial activism refers to courts striking down laws and creating new rights; judicial restraint refers to courts deferring to the elected branches. The distinction is contested because 'activism' often means 'rulings I disagree with.'",
+    "student_answer": "Judicial activism is a liberal concept; judicial restraint is a conservative concept, and neither side ever crosses over."
+  },
+  {
+    "id": "FCLE-EVAL-045",
+    "domain": 2,
+    "difficulty": "medium",
+    "topic": "Executive branch",
+    "question": "A student argues that the President's ability to control the federal bureaucracy is limited because Congress can override the President's decisions through the budget process and by controlling the appointment of agency heads. Based on the concepts of implied powers and the separation of powers, which of the following best describes the primary mechanism by which the President exercises executive authority over the bureaucracy to achieve national objectives?",
+    "correct_answer": "The President uses implied powers to direct and manage the executive branch, ensuring that agencies implement policies even when Congress restricts funding or appointments.",
+    "student_answer": "The President has the authority to unilaterally pass new laws that override Congress, thereby expanding the scope of the bureaucracy beyond its statutory limits."
+  },
+  {
+    "id": "FCLE-EVAL-046",
+    "domain": 2,
+    "difficulty": "medium",
+    "topic": "Executive branch",
+    "question": "What is the Electoral College and how does it work?",
+    "correct_answer": "A body of electors equal to each state's congressional delegation that formally elects the President; 270 electoral votes are needed to win.",
+    "student_answer": "A committee of members of Congress who choose the President by majority vote."
+  },
+  {
+    "id": "FCLE-EVAL-047",
+    "domain": 2,
+    "difficulty": "easy",
+    "topic": "Checks and balances",
+    "question": "In the context of federalism and the separation of powers, how does the concept of 'judicial restraint' best describe the approach of federal judges when reviewing actions taken by the executive or legislative branches?",
+    "correct_answer": "Judging against the will of the other branches of government",
+    "student_answer": "Judging with a higher degree of deference to the decisions of the other branches of government"
+  },
+  {
+    "id": "FCLE-EVAL-048",
+    "domain": 2,
+    "difficulty": "hard",
+    "topic": "Bureaucracy",
+    "question": "What is 'iron triangle' in the context of federal bureaucracy, and why is it significant?",
+    "correct_answer": "An iron triangle is the close, mutually beneficial relationship between a bureaucratic agency, a congressional committee, and an interest group that influences policy in a specific area.",
+    "student_answer": "An iron triangle is a type of bureaucratic structure where three agencies share power over a single policy area."
+  },
+  {
+    "id": "FCLE-EVAL-049",
+    "domain": 2,
+    "difficulty": "medium",
+    "topic": "Separation of powers",
+    "question": "Which of the following is an example of the legislative branch checking the executive branch?",
+    "correct_answer": "The Senate's power to confirm or reject presidential appointments, including cabinet secretaries and federal judges.",
+    "student_answer": "The Supreme Court's power to declare executive actions unconstitutional."
+  },
+  {
+    "id": "FCLE-EVAL-050",
+    "domain": 2,
+    "difficulty": "medium",
+    "topic": "Key amendments",
+    "question": "A citizen discovers that a state bureaucrat has been leaking confidential information that harms public safety. The citizen reports this misconduct to the media, and the state attorney general subsequently initiates legal proceedings against the bureaucrat. Which term best describes the citizen's role in this scenario, and what is the primary legal standard the court will apply to evaluate whether the bureaucrat's actions violated the law?",
+    "correct_answer": "whistleblower; criminal law",
+    "student_answer": "common-law right; probable cause"
+  },
+  {
+    "id": "FCLE-EVAL-051",
+    "domain": 3,
+    "difficulty": "easy",
+    "topic": "Enlightenment philosophy",
+    "question": "Which Enlightenment philosopher most directly influenced the Declaration of Independence's assertion of natural rights?",
+    "correct_answer": "John Locke, who argued that all people possess natural rights to life, liberty, and property.",
+    "student_answer": "Jean-Jacques Rousseau, who argued that direct democracy was the only legitimate form of government."
+  },
+  {
+    "id": "FCLE-EVAL-052",
+    "domain": 3,
+    "difficulty": "hard",
+    "topic": "Declaration of Independence",
+    "question": "Why did the Declaration of Independence list 27 grievances against King George III rather than against Parliament?",
+    "correct_answer": "The colonists wanted to frame their dispute as a violation of the social contract by the King, arguing that the King had failed in his duty to protect their rights.",
+    "student_answer": "The colonists were actually loyal to Parliament and blamed only the King for their problems."
+  },
+  {
+    "id": "FCLE-EVAL-053",
+    "domain": 3,
+    "difficulty": "easy",
+    "topic": "Federalist No. 10",
+    "question": "According to the principles outlined in Federalist No. 10, what specific problem regarding the Articles of Confederation did James Madison identify as the primary reason for adopting the new Constitution?",
+    "correct_answer": "The Articles of Confederation failed to create a strong enough central government to effectively control the influence of factions (minorities) and manage domestic unrest, such as Shays' Rebellion.",
+    "student_answer": "The Articles granted too much power to the central government, leading to excessive taxation and infringement on state sovereignty."
+  },
+  {
+    "id": "FCLE-EVAL-054",
+    "domain": 3,
+    "difficulty": "medium",
+    "topic": "Constitution Preamble",
+    "question": "The framers of the U.S. Constitution sought to address the weaknesses of the Articles of Confederation, such as the inability to collect taxes and respond to internal unrest like Shays' Rebellion, by establishing a system where power is shared among distinct branches. How does the principle of 'checks and balances' specifically function within this new framework to prevent any single branch from becoming tyrannical, and how does it differ from the concept of 'separation of powers'?",
+    "correct_answer": "Checks and balances allows specific actions by one branch to limit the powers of another (e.g., the President vetoing a law, the Senate overriding a veto), ensuring that while powers are shared, they remain in constant interaction and check one another, whereas separation of powers merely divides authority into three separate buckets without necessarily defining the mechanism for one to stop another.",
+    "student_answer": "Checks and balances is the method by which the federal government limits the power of the states, whereas separation of powers refers to the division of power between the national government and the states."
+  },
+  {
+    "id": "FCLE-EVAL-055",
+    "domain": 3,
+    "difficulty": "medium",
+    "topic": "Declaration of Independence",
+    "question": "What are the three main sections of the Declaration of Independence?",
+    "correct_answer": "A statement of natural rights and the purpose of government, a list of grievances against King George III, and a formal declaration of independence.",
+    "student_answer": "A preamble, the Articles of Confederation, and the Treaty of Paris."
+  },
+  {
+    "id": "FCLE-EVAL-056",
+    "domain": 3,
+    "difficulty": "easy",
+    "topic": "Bill of Rights origins",
+    "question": "How many amendments are in the Bill of Rights?",
+    "correct_answer": "Ten amendments.",
+    "student_answer": "Twelve amendments."
+  },
+  {
+    "id": "FCLE-EVAL-057",
+    "domain": 3,
+    "difficulty": "medium",
+    "topic": "Constitutional ratification",
+    "question": "After Shays' Rebellion demonstrated the weaknesses of the Articles of Confederation, the Federalists argued that a strong central government was necessary to protect natural rights. Which of the following best explains why the Federalists believed a powerful national government was essential for maintaining order and securing liberty, contrary to the fears of many Anti-Federalists?",
+    "correct_answer": "A strong central government could enforce laws uniformly across states and provide a standing army to prevent internal uprisings like Shays' Rebellion, thereby protecting citizens' natural rights from tyranny by their own state governments.",
+    "student_answer": "Federalists argued that a powerful national government was required to establish a system of direct democracy where every citizen could vote on laws, ensuring that the government remained accountable to the will of the majority."
+  },
+  {
+    "id": "FCLE-EVAL-058",
+    "domain": 3,
+    "difficulty": "medium",
+    "topic": "Federalist No. 78",
+    "question": "Following the failure of the Articles of Confederation and the outbreak of Shays' Rebellion, James Madison and other Federalists argued that the new Constitution needed a specific structural feature to prevent the kind of local political instability seen in Massachusetts. Which concept best describes this structural feature, and how does it specifically address the weaknesses that allowed Shays' Rebellion to occur under the Articles?",
+    "correct_answer": "Separation of powers; It divides authority among three distinct branches (legislative, executive, judicial) with independent powers, ensuring that the federal government can enforce laws and protect property rights through an independent judiciary and executive branch, rather than relying solely on a unicameral legislature where a majority of states could easily override minority interests or ignore state-level enforcement issues.",
+    "student_answer": "Supremacy clause; While this establishes that federal law overrides state law, it addresses conflicts between jurisdictions rather than solving the structural weakness of having no separate executive or judicial branch to enforce national authority."
+  },
+  {
+    "id": "FCLE-EVAL-059",
+    "domain": 3,
+    "difficulty": "medium",
+    "topic": "Constitution Preamble",
+    "question": "Which statement best explains why the delegates at the Constitutional Convention in 1787 abandoned the Articles of Confederation and drafted an entirely new Constitution, rather than simply amending the existing framework?",
+    "correct_answer": "The Articles of Confederation required unanimous consent from all 13 states to make any changes, which proved impossible to achieve, leading the delegates to create a completely new government structure.",
+    "student_answer": "The delegates believed the Articles were too strong and wanted to create a weaker central government to prevent the concentration of power that had threatened the colonies during the Revolution."
+  },
+  {
+    "id": "FCLE-EVAL-060",
+    "domain": 3,
+    "difficulty": "medium",
+    "topic": "Declaration of Independence",
+    "question": "According to the Declaration of Independence, what is the primary purpose of government?",
+    "correct_answer": "To secure the unalienable rights of life, liberty, and the pursuit of happiness.",
+    "student_answer": "To establish a official religion and promote moral virtue."
+  },
+  {
+    "id": "FCLE-EVAL-061",
+    "domain": 3,
+    "difficulty": "medium",
+    "topic": "Constitutional Convention",
+    "question": "What was the Virginia Plan proposed at the Constitutional Convention?",
+    "correct_answer": "A plan for a strong national government with three branches, a bicameral legislature with representation based on state population, and the power to veto state laws.",
+    "student_answer": "A plan for a monarchy with a king as the chief executive and no legislative branch."
+  },
+  {
+    "id": "FCLE-EVAL-062",
+    "domain": 3,
+    "difficulty": "hard",
+    "topic": "Articles of Confederation",
+    "question": "What was Shays' Rebellion, and how did it influence the movement to replace the Articles of Confederation?",
+    "correct_answer": "An armed uprising of Massachusetts farmers protesting debt and taxes that the weak national government could not suppress, convincing many leaders that a stronger federal government was needed.",
+    "student_answer": "A peaceful protest in Virginia that was violently suppressed by the national government, causing public outrage."
+  },
+  {
+    "id": "FCLE-EVAL-063",
+    "domain": 3,
+    "difficulty": "medium",
+    "topic": "Anti-Federalist arguments",
+    "question": "Shays' Rebellion in 1786-1787 occurred when Massachusetts farmers, unable to pay debts and face imprisonment, took to the streets. This event directly undermined the credibility of the Articles of Confederation. How did the Anti-Federalists use the failure to effectively handle Shays' Rebellion to argue against ratifying the new Constitution?",
+    "correct_answer": "They argued that the proposed Constitution still lacked sufficient mechanisms for a strong national government to suppress domestic insurrections and protect the rights of citizens.",
+    "student_answer": "They asserted that the Articles of Confederation were successful in managing the rebellion, so the Constitution was unnecessary because the problem was solved by state militias."
+  },
+  {
+    "id": "FCLE-EVAL-064",
+    "domain": 3,
+    "difficulty": "medium",
+    "topic": "Constitutional ratification",
+    "question": "The Great Compromise resolved a major deadlock during the Constitutional Convention by creating a bicameral legislature. Which specific arrangement in the Great Compromise directly addressed the conflicting interests of large states (like Virginia) and small states (like New Jersey) regarding legislative representation?",
+    "correct_answer": "The House of Representatives uses representation based on population, while the Senate provides equal representation (one vote per state) for all states.",
+    "student_answer": "The compromise created a unicameral body where states delegate voting power to elected delegates who then vote by simple majority of all citizens nationwide."
+  },
+  {
+    "id": "FCLE-EVAL-065",
+    "domain": 3,
+    "difficulty": "medium",
+    "topic": "Federalist No. 78",
+    "question": "According to the arguments presented in Federalist No. 78, why did Alexander Hamilton believe that an independent judiciary is essential to maintaining the separation of powers, and how does this relate to the concept of natural rights?",
+    "correct_answer": "Hamilton argued that an independent judiciary acts as a 'bulwark' of the constitution by interpreting the law and protecting citizens' rights against arbitrary legislative or executive overreach, thereby safeguarding the natural rights of life, liberty, and property that the social contract promises to preserve.",
+    "student_answer": "Hamilton argued that the judiciary is unnecessary for protecting rights because the Bill of Rights explicitly lists all necessary protections and that the separation of powers is best served by having the legislative branch oversee the interpretation of laws."
+  },
+  {
+    "id": "FCLE-EVAL-066",
+    "domain": 3,
+    "difficulty": "easy",
+    "topic": "Enlightenment philosophy",
+    "question": "What is 'natural law' in the context of Enlightenment political philosophy?",
+    "correct_answer": "A universal moral law that exists independently of human legislation and can be discovered through reason.",
+    "student_answer": "A set of laws passed by Parliament that apply to all British colonies."
+  },
+  {
+    "id": "FCLE-EVAL-067",
+    "domain": 3,
+    "difficulty": "medium",
+    "topic": "Declaration of Independence",
+    "question": "Following the failure of the Articles of Confederation to resolve internal unrest like Shays' Rebellion, proponents of the Constitution argued that the new federal government needed specific powers to ensure stability. Which of the following powers explicitly granted to Congress by Article I, Section 8 of the Constitution directly addresses the weakness of the central government under the Articles regarding domestic order, and how does this differ from the Articles' approach?",
+    "correct_answer": "The power to 'raise and support Armies' (and make rules concerning the general good of the United States), which allows the national government to deploy military forces domestically to quell rebellions, whereas the Articles only allowed the national government to request aid from states without the authority to enforce it or raise its own troops.",
+    "student_answer": "The power to regulate interstate commerce, because trade disputes contributed to the economic crisis, but the immediate military threat posed by Shays' Rebellion required the power to raise armies, not just trade regulations."
+  },
+  {
+    "id": "FCLE-EVAL-068",
+    "domain": 3,
+    "difficulty": "hard",
+    "topic": "Declaration of Independence",
+    "question": "How did the concept of 'self-evident truths' in the Declaration reflect Enlightenment philosophy?",
+    "correct_answer": "The idea that certain truths are self-evident \u2014 requiring no proof because they are obvious to any rational person \u2014 reflects the Enlightenment belief in reason as the primary source of knowledge and authority.",
+    "student_answer": "Self-evident truths was a medieval concept that the Founders accidentally included."
+  },
+  {
+    "id": "FCLE-EVAL-069",
+    "domain": 3,
+    "difficulty": "medium",
+    "topic": "English constitutional heritage",
+    "question": "How did the English Bill of Rights (1689) influence the American Bill of Rights?",
+    "correct_answer": "The English Bill of Rights established specific protections (free speech in Parliament, protection against excessive bail, right to petition) that were adapted into the U.S. Bill of Rights.",
+    "student_answer": "The English Bill of Rights established only economic rights, not civil liberties."
+  },
+  {
+    "id": "FCLE-EVAL-070",
+    "domain": 3,
+    "difficulty": "easy",
+    "topic": "Constitution key articles",
+    "question": "According to the Great Compromise, how were seats in the U.S. Senate determined compared to the House of Representatives?",
+    "correct_answer": "The Senate was designed to provide equal representation for each state, while the House of Representatives was designed to provide representation based on state population.",
+    "student_answer": "Both the Senate and the House of Representatives were designed to provide representation based solely on state population."
+  },
+  {
+    "id": "FCLE-EVAL-071",
+    "domain": 3,
+    "difficulty": "medium",
+    "topic": "Federalist No. 78",
+    "question": "According to Alexander Hamilton's arguments in Federalist No. 78, why was the judicial branch of the federal government considered essential for maintaining the stability of the new republic, despite the lack of a strong executive or legislative power?",
+    "correct_answer": "The judiciary serves as the 'bulwark of the people' by interpreting the Constitution and acts as a check on the other branches to prevent tyranny.",
+    "student_answer": "The primary function of the courts was to enforce the New Jersey Plan by guaranteeing each state an equal number of votes regardless of population."
+  },
+  {
+    "id": "FCLE-EVAL-072",
+    "domain": 3,
+    "difficulty": "hard",
+    "topic": "Enlightenment philosophy",
+    "question": "What is the 'state of nature' concept in political philosophy, and why was it important to the American Founding?",
+    "correct_answer": "The state of nature is a hypothetical condition of humanity before government; it was used by Enlightenment philosophers to derive the purpose and limits of government through natural law.",
+    "student_answer": "The state of nature was a concept used exclusively by European monarchs to justify absolute power."
+  },
+  {
+    "id": "FCLE-EVAL-073",
+    "domain": 3,
+    "difficulty": "easy",
+    "topic": "Constitution key articles",
+    "question": "Which group of political thinkers primarily argued that the proposed Constitution under the Articles of Confederation created a government that was too weak to effectively handle national debts and defend the country from foreign threats?",
+    "correct_answer": "The Federalists",
+    "student_answer": "The Shaysite Rebels"
+  },
+  {
+    "id": "FCLE-EVAL-074",
+    "domain": 3,
+    "difficulty": "hard",
+    "topic": "Federalist No. 10",
+    "question": "Based on the arguments presented in Federalist No. 10, how does James Madison propose to manage the 'passions and interests of the people' within the structure of the proposed government, and why does he believe this approach is superior to relying on small, homogeneous communities?",
+    "correct_answer": "By extending the sphere of the republic to a large area and increasing the number of citizens, making it less likely that a majority faction will form, as factions are harder to assemble and more easily divided in a large republic than in a small one.",
+    "student_answer": "By creating a confederation of sovereign states where each state acts as a single voting unit to ensure that state interests always override individual state factions, thereby preventing any single group from gaining too much power."
+  },
+  {
+    "id": "FCLE-EVAL-075",
+    "domain": 3,
+    "difficulty": "medium",
+    "topic": "Federalist No. 78",
+    "question": "According to *Federalist No. 78*, Alexander Hamilton argues that the judicial branch is the least dangerous branch of the government because it possesses neither the 'sword' nor the 'purse.' Based on the separation of powers and the concept of enumerated powers, why does Hamilton believe this characteristic makes the judiciary more dependent on the other branches for its survival than the executive or legislative branches?",
+    "correct_answer": "The judiciary lacks the physical force (the sword) to enforce its decisions and the financial power (the purse) to fund itself or reward/punish, meaning its authority relies entirely on the respect of the other branches and the public.",
+    "student_answer": "The judiciary is less dangerous because judges are lifetime-appointed to prevent them from being influenced by the popular will, unlike elected officials who must answer to the people."
+  },
+  {
+    "id": "FCLE-EVAL-076",
+    "domain": 4,
+    "difficulty": "easy",
+    "topic": "Fourteenth Amendment incorporation",
+    "question": "What clause of the Fourteenth Amendment is primarily used to incorporate Bill of Rights protections against the states?",
+    "correct_answer": "The Due Process Clause.",
+    "student_answer": "The Equal Protection Clause"
+  },
+  {
+    "id": "FCLE-EVAL-077",
+    "domain": 4,
+    "difficulty": "hard",
+    "topic": "Roe v Wade",
+    "question": "What amendment was the basis for the privacy right in Roe v Wade, and what constitutional principle did the Court draw on?",
+    "correct_answer": "The Fourteenth Amendment's Due Process Clause; the Court drew on the substantive due process doctrine, which protects fundamental rights not explicitly listed in the Constitution.",
+    "student_answer": "The First Amendment's free speech clause, applied through the Tenth Amendment."
+  },
+  {
+    "id": "FCLE-EVAL-078",
+    "domain": 4,
+    "difficulty": "easy",
+    "topic": "Plessy v Ferguson",
+    "question": "What amendment did Homer Plessy argue was violated by Louisiana's Separate Car Act in Plessy v Ferguson?",
+    "correct_answer": "The Fourteenth Amendment's Equal Protection Clause.",
+    "student_answer": "The Thirteenth Amendment's prohibition on slavery"
+  },
+  {
+    "id": "FCLE-EVAL-079",
+    "domain": 4,
+    "difficulty": "medium",
+    "topic": "Marbury v Madison",
+    "question": "Which of the following best distinguishes the foreign policy approach of 'isolationism' from the modern concept of 'independence' in the context of U.S. historical debates?",
+    "correct_answer": "Isolationism advocates avoiding foreign entanglements and wars, whereas independence refers to the nation's sovereign right to self-govern without external interference.",
+    "student_answer": "Isolationism means the United States should never sign any treaties or agreements with other nations, regardless of their nature or purpose."
+  },
+  {
+    "id": "FCLE-EVAL-080",
+    "domain": 4,
+    "difficulty": "medium",
+    "topic": "Tinker v Des Moines",
+    "question": "In the context of *Tinker v. Des Moines* and the broader evolution of American civil rights policy, how does the concept of 'direct action' serve as a mechanism to achieve the goals of the Equal Protection Clause, which requires states to treat all residents equally under the law?",
+    "correct_answer": "Direct action campaigns, such as the student marches in *Tinker*, bypassed legislative gridlock and legal delays by using public demonstrations to force immediate confrontation with segregationist practices, thereby compelling the government to act in accordance with constitutional guarantees of equal protection.",
+    "student_answer": "Direct action failed to achieve the goals of the Equal Protection Clause because the Supreme Court ultimately ruled that wearing black armbands constituted a 'material disruption' that justified limiting student speech."
+  },
+  {
+    "id": "FCLE-EVAL-081",
+    "domain": 4,
+    "difficulty": "medium",
+    "topic": "Voting Rights Act 1965",
+    "question": "In the context of the Voting Rights Act of 1965 and its impact on American civil rights, how does the concept of 'de jure segregation' differ from 'de facto segregation,' and why was the federal government uniquely positioned to dismantle de jure barriers that state and local Jim Crow laws had entrenched for nearly a century?",
+    "correct_answer": "De jure segregation refers to segregation mandated by explicit government laws, which the federal government could directly overturn through legislation and enforcement, whereas de facto segregation results from private choices and economic factors that require less direct federal intervention to shift.",
+    "student_answer": "De jure segregation was considered less harmful to Black citizens than de facto segregation because government-enforced laws were seen as more 'fair' than private actions, so the focus of the 1965 legislation was on protecting private economic opportunities."
+  },
+  {
+    "id": "FCLE-EVAL-082",
+    "domain": 4,
+    "difficulty": "easy",
+    "topic": "Executive orders",
+    "question": "Can a future President revoke a previous President's executive orders?",
+    "correct_answer": "Yes, executive orders are not permanent law and can be revoked or modified by subsequent Presidents.",
+    "student_answer": "Executive orders can only be revoked by constitutional amendment."
+  },
+  {
+    "id": "FCLE-EVAL-083",
+    "domain": 4,
+    "difficulty": "easy",
+    "topic": "Executive orders",
+    "question": "What is an executive order?",
+    "correct_answer": "A directive issued by the President that manages operations of the federal government and has the force of law.",
+    "student_answer": "A constitutional amendment proposed by the President."
+  },
+  {
+    "id": "FCLE-EVAL-084",
+    "domain": 4,
+    "difficulty": "medium",
+    "topic": "Tinker v Des Moines",
+    "question": "In the context of landmark cases like Tinker v. Des Moines, students often debate the scope of the 'equal protection clause' regarding free speech rights. Which of the following best describes the legal principle the Supreme Court established in Tinker regarding school officials' ability to censor student expression?",
+    "correct_answer": "School officials may only censor student expression if they can demonstrate that the speech would cause a substantial disruption to the school's educational process or invade the rights of others.",
+    "student_answer": "Student expression is completely protected unless the speech is considered 'fighting words' or direct incitement to violence, regardless of the specific school setting."
+  },
+  {
+    "id": "FCLE-EVAL-085",
+    "domain": 4,
+    "difficulty": "hard",
+    "topic": "Mapp v Ohio",
+    "question": "What is the exclusionary rule, and what are the arguments for and against it?",
+    "correct_answer": "The exclusionary rule bars illegally obtained evidence from trial; supporters argue it deters police misconduct, while critics argue it lets guilty defendants go free.",
+    "student_answer": "The exclusionary rule requires all evidence to be presented at trial regardless of how it was obtained."
+  },
+  {
+    "id": "FCLE-EVAL-086",
+    "domain": 4,
+    "difficulty": "medium",
+    "topic": "Fourteenth Amendment incorporation",
+    "question": "Which of the following Bill of Rights protections has NOT been incorporated against the states?",
+    "correct_answer": "The requirement of a grand jury indictment for felony charges (Fifth Amendment).",
+    "student_answer": "The right to counsel in criminal cases (Sixth Amendment)."
+  },
+  {
+    "id": "FCLE-EVAL-087",
+    "domain": 4,
+    "difficulty": "hard",
+    "topic": "Marbury v Madison",
+    "question": "Which of the following best explains why the Supreme Court's decision in *Marbury v. Madison* (1803) is considered the most significant judicial precedent in the history of the United States government?",
+    "correct_answer": "It established the principle of judicial review, granting federal courts the authority to declare acts of Congress or the President unconstitutional.",
+    "student_answer": "It defined the boundaries of the presidency by limiting the President's power to negotiate treaties without the consent of two-thirds of the Senate."
+  },
+  {
+    "id": "FCLE-EVAL-088",
+    "domain": 4,
+    "difficulty": "hard",
+    "topic": "Landmark cases",
+    "question": "How did Griswold v Connecticut (1965) establish a constitutional right to privacy?",
+    "correct_answer": "The Court found a right to privacy in the 'penumbras' of the Bill of Rights, striking down a Connecticut law banning contraceptives for married couples.",
+    "student_answer": "Griswold found a right to privacy only in the Fourth Amendment's search and seizure clause."
+  },
+  {
+    "id": "FCLE-EVAL-089",
+    "domain": 4,
+    "difficulty": "hard",
+    "topic": "Civil rights movement",
+    "question": "How did the Voting Rights Act of 1965 address voting discrimination, and what made it effective?",
+    "correct_answer": "It banned literacy tests and authorized federal oversight of jurisdictions with histories of voting discrimination through a 'preclearance' requirement under Section 5.",
+    "student_answer": "It was a symbolic declaration with no practical effect on voting practices."
+  },
+  {
+    "id": "FCLE-EVAL-090",
+    "domain": 4,
+    "difficulty": "medium",
+    "topic": "Voting Rights Act 1965",
+    "question": "Although the 15th Amendment to the U.S. Constitution (ratified in 1870) prohibited the federal and state governments from denying citizens the right to vote based on 'race, color, or previous condition of servitude,' it did not immediately secure voting rights for African Americans in the South. Why was the Voting Rights Act of 1965 necessary to enforce this constitutional guarantee?",
+    "correct_answer": "The VRA provided federal enforcement power and banned discriminatory practices like literacy tests and poll taxes that Southern states used to disenfranchise Black voters despite the 15th Amendment.",
+    "student_answer": "The Supreme Court ruled that the 15th Amendment only protected voting rights in Northern states, leaving the South outside its jurisdiction until 1965."
+  },
+  {
+    "id": "FCLE-EVAL-091",
+    "domain": 4,
+    "difficulty": "medium",
+    "topic": "Civil Rights Act 1964",
+    "question": "A state legislature passes a new law requiring that all job advertisements for positions involving hiring, firing, and promotion explicitly state that the applicant must be 'at least 18 years old' and 'not a member of the LGBTQ+ community.' An attorney argues this law violates the Equal Protection Clause of the Fourteenth Amendment. Based on intermediate scrutiny, which of the following best describes the government's burden of proof to justify this law?",
+    "correct_answer": "The government must demonstrate that the law serves an important governmental interest and that the classification is substantially related to achieving that interest.",
+    "student_answer": "The government must show that the law serves a compelling governmental interest and that the classification is narrowly tailored to achieve that interest."
+  },
+  {
+    "id": "FCLE-EVAL-092",
+    "domain": 4,
+    "difficulty": "medium",
+    "topic": "Governance",
+    "question": "What is the Supremacy Clause, and what does it establish?",
+    "correct_answer": "Article VI, Clause 2 establishes that the Constitution, federal laws, and treaties are the supreme law of the land, overriding conflicting state laws.",
+    "student_answer": "The Supremacy Clause establishes that the President has supreme authority over all branches of government."
+  },
+  {
+    "id": "FCLE-EVAL-093",
+    "domain": 4,
+    "difficulty": "easy",
+    "topic": "Citizens United v FEC",
+    "question": "What did the Supreme Court rule in Citizens United v FEC (2010)?",
+    "correct_answer": "The Court ruled that corporate spending on independent political communications is protected speech under the First Amendment.",
+    "student_answer": "The Court ruled that corporations cannot make any political contributions whatsoever."
+  },
+  {
+    "id": "FCLE-EVAL-094",
+    "domain": 4,
+    "difficulty": "medium",
+    "topic": "Civil rights movement",
+    "question": "What was the significance of the March on Washington (1963)?",
+    "correct_answer": "It was a massive peaceful demonstration where Dr. Martin Luther King Jr. delivered his 'I Have a Dream' speech, building public support for the Civil Rights Act of 1964.",
+    "student_answer": "It was a small meeting of civil rights leaders with no public audience."
+  },
+  {
+    "id": "FCLE-EVAL-095",
+    "domain": 4,
+    "difficulty": "hard",
+    "topic": "Landmark cases",
+    "question": "What is the distinction between de jure segregation and de facto segregation, and which did Brown v Board address?",
+    "correct_answer": "De jure segregation is segregation required by law; de facto segregation results from social and economic factors. Brown v Board addressed de jure segregation.",
+    "student_answer": "Brown v Board addressed de facto segregation but had no effect on de jure segregation."
+  },
+  {
+    "id": "FCLE-EVAL-096",
+    "domain": 4,
+    "difficulty": "hard",
+    "topic": "Brown v Board of Education",
+    "question": "Which of the following best explains the significant delay between the 1954 Supreme Court ruling in *Brown v. Board of Education* and the widespread desegregation of schools in the Deep South during the mid-1950s, despite the Court's finding that segregation violated the Equal Protection Clause?",
+    "correct_answer": "The Court adopted the vague standard of \"all deliberate speed\" in *Brown II* (1955), which allowed Southern states to legally delay compliance without immediate legal consequence.",
+    "student_answer": "The ruling was overturned shortly after *Brown II* due to intense pressure from state governors who threatened to withdraw cooperation from the federal government."
+  },
+  {
+    "id": "FCLE-EVAL-097",
+    "domain": 4,
+    "difficulty": "medium",
+    "topic": "Gideon v Wainwright",
+    "question": "Under the doctrine of intermediate scrutiny, which of the following scenarios correctly identifies the government's burden of proof when a state law creates a different burden of proof for proving fault in an insurance claim based on the gender of the claimant?",
+    "correct_answer": "The government must demonstrate that the gender-based distinction is substantially related to an important governmental interest.",
+    "student_answer": "The government must prove that the law is rationally related to a legitimate governmental interest, and if it can be justified by any conceivable reason, it is constitutional."
+  },
+  {
+    "id": "FCLE-EVAL-098",
+    "domain": 4,
+    "difficulty": "easy",
+    "topic": "McCulloch v Maryland",
+    "question": "In the context of international relations and the U.S. approach to the Cold War, how is 'hard power' best defined in contrast to 'soft power'?",
+    "correct_answer": "The use or threat of military power to influence the behavior of another country",
+    "student_answer": "The belief that the United States should aggressively use its might to promote its values around the world rather than exercising restraint."
+  },
+  {
+    "id": "FCLE-EVAL-099",
+    "domain": 4,
+    "difficulty": "medium",
+    "topic": "Voting Rights Act 1965",
+    "question": "Which of the following best describes the relationship between the Voting Rights Act of 1965 and the concept of 'de jure segregation' as it existed in the Southern United States prior to the Act?",
+    "correct_answer": "The Voting Rights Act directly dismantled de jure segregation by prohibiting state and local governments from using discriminatory voting practices, such as literacy tests and poll taxes, which were legally mandated mechanisms of racial exclusion.",
+    "student_answer": "The Act was designed to prevent the grandfather clause from being used to disenfranchise newly enfranchised citizens in the North."
+  },
+  {
+    "id": "FCLE-EVAL-100",
+    "domain": 4,
+    "difficulty": "easy",
+    "topic": "Mapp v Ohio",
+    "question": "What did the Supreme Court rule in Mapp v Ohio (1961)?",
+    "correct_answer": "Evidence obtained through unreasonable searches and seizures cannot be used in state courts (the exclusionary rule applies to states).",
+    "student_answer": "The Fourth Amendment does not apply to searches of private residences."
+  }
+]

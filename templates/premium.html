@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Upgrade — FCLE Study Buddy{% endblock %}
+
+{% block content %}
+<div class="pricing-page">
+
+  <div class="pricing-header">
+    <h1>Unlock unlimited practice</h1>
+    <p class="pricing-sub">Free: {{ free_daily }} questions/day. Go premium for unlimited FCLE practice across all four domains.</p>
+  </div>
+
+  {% if is_premium %}
+  <div class="current-plan-badge">
+    You're on the <strong>{{ plan }}</strong> plan — unlimited practice unlocked. Thank you!
+  </div>
+  {% endif %}
+
+  <div class="pricing-grid">
+
+    <div class="plan-card plan-highlight">
+      <div class="plan-name">{{ plan_price.name }}</div>
+      <div class="plan-price">${{ "%.2f"|format(plan_price.price_cents / 100) }}<span class="plan-period">/month</span></div>
+      <ul class="plan-features">
+        <li>Unlimited practice questions</li>
+        <li>Full progress tracking &amp; readiness scores</li>
+        <li>All four FCLE domains: American Democracy, US Constitution, Founding Documents &amp; Landmark Impact</li>
+        <li>Priority support</li>
+      </ul>
+      <button type="button" class="submit-btn plan-cta" disabled>Checkout opens soon</button>
+    </div>
+
+  </div>
+
+  <p class="pricing-note">This plan unlocks FCLE Study only — TEAS Study and NCLEX Study are separate apps with their own plans.</p>
+  <p class="pricing-note"><a href="/">← Back to dashboard</a></p>
+
+</div>
+{% endblock %}

@@ -1,0 +1,130 @@
+#!/usr/bin/env python3
+"""Add 21 new D1 questions: Topics 4-6"""
+import sqlite3, json
+from datetime import datetime, timezone
+
+db = sqlite3.connect('/home/muatasr/.nanobot/workspace/fcle-study-app/data/fcle.db')
+cur = db.cursor()
+ts = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S')
+
+WA = json.dumps  # shorthand
+
+Q = [
+    # TOPIC: Limited government and rule of law
+    (1, "Limited government and rule of law", "easy",
+     "The principle of 'limited government' in the U.S. system means that:",
+     "Government power is restricted by a constitution that defines what government can and cannot do",
+     WA(["The government is limited to passing no more than fifty laws per congressional session", "State governments can veto any federal law they consider an overreach of national authority", "Citizens are limited to participating in government only through their elected representatives"]),
+     "Limited government means that government authority is constrained by a written constitution that establishes boundaries on governmental power. The U.S. Constitution enumerates specific powers delegated to the federal government and reserves all others to the states or people (Tenth Amendment). This differs from unlimited or authoritarian systems where the government has no defined legal limits. It does not impose numerical limits on legislation, grant states veto power over federal law, or restrict citizen participation to representative channels only."),
+    (1, "Limited government and rule of law", "medium",
+     "The concept of 'substantive due process' differs from 'procedural due process' in that substantive due process:",
+     "Protects fundamental rights from government interference regardless of the fairness of procedures used",
+     WA(["Requires the government to follow fair procedures before depriving a person of life, liberty, or property", "Applies only to criminal proceedings and not to civil or administrative contexts", "Guarantees that all laws must be written in clear and accessible language"]),
+     "Substantive due process protects fundamental rights (like privacy, marriage, and family autonomy) from government interference, even if fair procedures are followed. It asks whether the government action is itself justified, not whether procedures were fair. Procedural due process requires fair legal proceedings before the government can deprive someone of life, liberty, or property, focusing on how the government acts, not what it does. Landmark substantive due process cases include Roe v. Wade (1973) and Obergefell v. Hodges (2015)."),
+    (1, "Limited government and rule of law", "medium",
+     "Which of the following best illustrates the concept of 'rule of law' as distinct from 'rule by law'?",
+     "A court rules against the government because a law authorizing government action violates constitutional protections for individual rights",
+     WA(["A legislature passes a law requiring all citizens to follow traffic regulations without exception", "A police officer enforces a law against a government official who committed the same violation as a private citizen", "A judge applies a statute to a case using the plain meaning of its text without considering legislative intent"]),
+     "Rule of law means that no one, including the government itself, is above the law, and laws must conform to fundamental legal principles. When a court strikes down a government action for violating constitutional rights, it demonstrates that even the government is subject to legal constraints. Rule by law means the government uses law as an instrument of control but may serve its own interests rather than limiting its power. Equal enforcement of traffic laws or plain-text statutory interpretation can exist under both systems."),
+    (1, "Limited government and rule of law", "medium",
+     "John Locke's social contract theory directly influenced the American principle of limited government by arguing that:",
+     "Government exists by the consent of the governed and its legitimate power is limited to protecting natural rights",
+     WA(["Government should be as small as possible and provide no services beyond national defense", "The people have no right to revolt against a government that violates their rights", "Natural law is irrelevant to the formation of legitimate political systems"]),
+     "Locke argued that individuals in a state of nature consent to form a government to protect their natural rights (life, liberty, and property). This government power is limited to that protective function; when it exceeds those limits, the people may legitimately alter or abolish it. Locke did not advocate minimal government in the modern libertarian sense; he supported a government robust enough to protect rights. Crucially, he explicitly affirmed the right of revolution, unlike Hobbes who denied it. Locke theory directly informed Jefferson language in the Declaration of Independence."),
+    (1, "Limited government and rule of law", "hard",
+     "The 'nondelegation doctrine' holds that Congress cannot delegate its legislative power to other branches. Why has the Supreme Court applied this doctrine very narrowly since the New Deal era?",
+     "The complexity of modern governance requires specialized administrative expertise that Congress lacks, making broad delegations practically necessary",
+     WA(["The Constitution explicitly permits Congress to delegate any legislative function through the Necessary and Proper Clause", "The Court has held that the nondelegation doctrine was judicially invented and has no basis in constitutional text", "Congress successfully threatened to restrict the Court jurisdiction if it struck down agency delegations"]),
+     "Since the New Deal, the Supreme Court has allowed broad congressional delegations to administrative agencies because modern regulatory challenges like environmental protection, financial regulation, and public health require technical expertise that Congress cannot practically possess. The Court requires only an intelligible principle to guide agency discretion (J.W. Hampton v. United States, 1928), an extremely permissive standard. The Court has never held that the Constitution explicitly permits unlimited delegation, and the narrowing was driven by pragmatic governance needs, not jurisdiction-stripping threats."),
+    (1, "Limited government and rule of law", "hard",
+     "In Youngstown Sheet and Tube Co. v. Sawyer (1952), Justice Jackson concurrence outlined a three-tier framework for presidential power. Which tier did the steel seizure fall under?",
+     "Tier 3, the President acted in absence of both congressional authorization and constitutional authority",
+     WA(["Tier 1, the President acted with express congressional authorization", "Tier 2, the President acted in a zone of twilight where congressional authority was ambiguous", "Tier 2, the President acted with implicit congressional authorization through prior legislation"]),
+     "Justice Jackson famous concurrence established three tiers: (1) When the President acts with express or implied congressional authorization, his authority is at its maximum. (2) When Congress is silent, the President acts in a zone of twilight. (3) When the President acts contrary to congressional will, his power is at its lowest ebb. Truman steel seizure fell into Tier 3 because Congress had specifically considered and rejected giving the President seizure authority in the Taft-Hartley Act. The Court ruled 6-3 that the seizure was unconstitutional."),
+    (1, "Limited government and rule of law", "hard",
+     "The concept of 'judicial review' as established in Marbury v. Madison (1803) has been criticized on democratic grounds because it allows:",
+     "Unelected judges to overturn laws passed by democratically elected legislatures, creating a counter-majoritarian difficulty",
+     WA(["The executive branch to ignore judicial rulings it considers politically motivated", "State courts to invalidate federal statutes without Supreme Court review", "Congress to regulate the jurisdiction of federal courts to achieve preferred policy outcomes"]),
+     "Alexander Bickel coined the term counter-majoritarian difficulty to describe the tension between judicial review and democratic governance. Federal judges, who are appointed rather than elected and serve lifetime terms, can invalidate laws passed by elected representatives. Critics argue this creates a democratic deficit since unelected officials can override the will of the majority. Defenders counter that judicial review protects minority rights against majority tyranny and ensures government stays within constitutional boundaries. This tension remains a central debate in constitutional theory."),
+
+    # TOPIC: Media and public opinion
+    (1, "Media and public opinion", "easy",
+     "Which media development is most responsible for the decline of the gatekeeping role that traditional newspapers once held?",
+     "The rise of the internet and social media, which allow anyone to publish and distribute information without editorial oversight",
+     WA(["The consolidation of media ownership into a small number of large corporations", "The shift from afternoon to morning newspaper delivery schedules", "The introduction of the 24-hour cable news cycle by CNN in 1980"]),
+     "Gatekeeping refers to the traditional media role in deciding what information reaches the public. Newspapers filtered news through editorial judgment. The internet and social media fundamentally disrupted this model by allowing anyone to publish directly to large audiences without editorial review. While media consolidation and 24-hour cable news changed media dynamics, neither eliminated gatekeeping since both still involved editorial decisions. Social media peer-to-peer communication is what truly ended gatekeeping as a controlling force."),
+    (1, "Media and public opinion", "medium",
+     "The agenda-setting function of the media refers to the media ability to:",
+     "Influence which issues the public considers important by emphasizing certain topics over others",
+     WA(["Tell the public what to think about specific policy proposals and candidates", "Control the outcome of elections through biased coverage and endorsements", "Determine the specific policy solutions that Congress will adopt for national problems"]),
+     "Agenda-setting theory, developed by McCombs and Shaw (1972), holds that the media does not tell people what to think, but rather what to think about. By giving more coverage to certain issues, the media elevates their perceived importance in the public mind. This is distinct from priming (influencing evaluation standards for politicians) and framing (influencing how an issue is understood). The media cannot control election outcomes or dictate congressional policy, but research consistently shows that media coverage patterns strongly influence public issue priorities."),
+    (1, "Media and public opinion", "medium",
+     "Which factor has most contributed to the increase in affective polarization in American politics since the 1990s?",
+     "Partisan news media that frames political conflict in moral terms and portrays the opposing party as a threat",
+     WA(["The introduction of primary elections that allow extreme candidates to bypass party leadership screening", "The growing ideological distance between the Democratic and Republican party platforms on economic issues", "The decline in newspaper readership that reduced citizens exposure to factual political information"]),
+     "Affective polarization, the tendency to dislike and distrust members of the opposing party, has grown dramatically even as ideological polarization has remained more modest. Research by Iyengar, Sood, and Lelkes (2012) and subsequent studies identify partisan media as a key driver. Cable news and social media frame political differences in moral and existential terms, encouraging negative stereotypes of the out-party. While primary elections and platform differences play roles, media framing is the most significant accelerant of emotional hostility between partisans."),
+    (1, "Media and public opinion", "medium",
+     "The spiral of silence theory, developed by Elisabeth Noelle-Neumann, suggests that:",
+     "People are less likely to express opinions they believe are in the minority, causing minority viewpoints to appear even less prevalent",
+     WA(["Media coverage increasingly focuses on extreme viewpoints, pushing public opinion toward the political center", "Public opinion gradually shifts toward the majority position as people conform to social pressure", "The media creates a false consensus by only covering opinions held by the political elite"]),
+     "Noelle-Neumann theory proposes that individuals assess the climate of opinion through media coverage and personal interactions. When people believe their views are in the minority, they withhold them to avoid social isolation. This silencing effect makes minority viewpoints appear even less common than they actually are, creating a self-reinforcing cycle. The theory explains why public opinion can appear more one-sided than it truly is, and why certain perspectives may be underrepresented in public discourse even when privately held by significant numbers of people."),
+    (1, "Media and public opinion", "hard",
+     "The hostile media effect describes the phenomenon where:",
+     "Partisans perceive identical media coverage as biased against their own side, regardless of the coverage actual objectivity",
+     WA(["Media organizations systematically favor one political party over the other in their news reporting", "Citizens who consume partisan media develop increasingly extreme political views over time", "Journalists unconsciously frame stories to align with the political preferences of their editors"]),
+     "The hostile media effect, documented by Vallone, Ross, and Lepper (1985), shows that partisans on both sides of an issue perceive the same neutral media coverage as biased against their position. This is a perceptual bias, not an objective media bias. Even when researchers control for coverage neutrality, partisans consistently judge content as hostile to their views. This complicates efforts to achieve balanced coverage since partisans will perceive bias regardless. The effect is stronger for highly committed partisans and on issues central to group identity."),
+    (1, "Media and public opinion", "hard",
+     "Cass Sunstein concept of echo chambers and information cocoons suggests that online filter algorithms most dangerously undermine democratic deliberation by:",
+     "Creating ideologically homogeneous information environments that reduce exposure to opposing viewpoints and increase belief certainty",
+     WA(["Deliberately suppressing factual information in favor of emotionally engaging but misleading content", "Prioritizing advertising revenue over news accuracy, causing a decline in journalistic standards", "Enabling foreign governments to inject propaganda directly into American social media feeds"]),
+     "Sunstein work argues that algorithmic filtering creates information cocoons where citizens encounter only views that reinforce their existing beliefs. This ideological isolation leads to more extreme positions, greater confidence in those positions, and reduced understanding of opposing arguments. While foreign propaganda and advertising-driven content quality decline are real problems, Sunstein specific concern is the structural effect of self-selected homogeneous discourse on democratic deliberation, the ability of citizens to understand and engage with legitimate disagreement."),
+    (1, "Media and public opinion", "hard",
+     "The priming effect in political communication differs from framing in that priming:",
+     "Influences which criteria citizens use to evaluate political figures by making certain issues more accessible in memory",
+     WA(["Changes the actual content of media coverage to favor one political party over another", "Directly alters citizens core ideological beliefs through repeated exposure to partisan messaging", "Determines the order in which candidates appear on election ballots to advantage incumbents"]),
+     "Priming, based on Iyengar and Kinder research, occurs when media emphasis on particular issues makes those issues the standards citizens use to judge political leaders. For example, heavy crime coverage primes citizens to evaluate the president based on crime rates. Framing, by contrast, influences how an issue is understood by emphasizing certain aspects over others. Priming changes the evaluation criteria; framing changes the issue interpretation. Neither directly alters core ideology or involves ballot manipulation."),
+
+    # TOPIC: Natural rights and social contract
+    (1, "Natural rights and social contract", "easy",
+     "Which Enlightenment philosopher concept of natural rights most directly influenced the language of the Declaration of Independence?",
+     "John Locke",
+     WA(["Thomas Hobbes", "Jean-Jacques Rousseau", "Montesquieu"]),
+     "John Locke Two Treatises of Government directly influenced Thomas Jefferson drafting of the Declaration. Locke argued that all individuals possess natural rights to life, liberty, and property, which governments are created to protect. Jefferson adapted this to life, liberty, and the pursuit of happiness. Hobbes believed people surrendered all rights to an absolute sovereign, Rousseau emphasized the general will over individual rights, and Montesquieu focused on separation of powers rather than natural rights. Locke framework is the clearest philosophical ancestor of the Declaration opening arguments."),
+    (1, "Natural rights and social contract", "medium",
+     "Thomas Hobbes and John Locke both developed social contract theories but reached fundamentally different conclusions about the scope of government power. What best explains this difference?",
+     "Hobbes viewed the state of nature as a violent war of all against all, while Locke saw it as relatively peaceful but lacking impartial dispute resolution",
+     WA(["Hobbes believed in natural rights while Locke rejected the concept of rights existing outside government", "Locke was writing in response to the American Revolution while Hobbes wrote before any democratic experiments existed", "Hobbes supported representative democracy while Locke favored absolute monarchy"]),
+     "The key divergence is their characterization of the state of nature. Hobbes, writing during the English Civil War, described it as solitary, poor, nasty, brutish, and short, a condition of perpetual violence requiring a strong, nearly absolute sovereign to escape. Locke, writing after the Glorious Revolution, imagined a more benign state of nature where natural law governed human conduct but lacked an impartial judge to resolve disputes. This led Hobbes to advocate near-absolute authority while Locke argued for limited government with the right of revolution when natural rights are violated."),
+    (1, "Natural rights and social contract", "medium",
+     "The Ninth Amendment to the U.S. Constitution addresses a potential problem with enumerating specific rights by stating that:",
+     "The enumeration of certain rights in the Constitution shall not be construed to deny or disparage others retained by the people",
+     WA(["All rights not explicitly listed in the Constitution are reserved exclusively to the states", "New rights may be added to the Constitution only through the formal amendment process", "The Supreme Court has the exclusive authority to determine which unenumerated rights exist"]),
+     "The Ninth Amendment responds to concerns that listing specific rights might imply that the government retains all powers not explicitly restricted. James Madison argued that enumerating some rights could create a dangerous inference that the people surrender all others. The Ninth Amendment prevents this by affirming that the people retain unenumerated rights. It differs from the Tenth Amendment, which addresses powers reserved to the states. The Ninth does not assign the Supreme Court exclusive authority over unenumerated rights, though the Court has referenced it in privacy and personal autonomy decisions."),
+    (1, "Natural rights and social contract", "medium",
+     "Rousseau concept of the general will differs from simple majority rule in that the general will:",
+     "Represents the collective interest of all citizens, which may differ from what any individual or faction actually wants",
+     WA(["Requires unanimous consent from all citizens before any law can take effect", "Is expressed exclusively through direct democracy and cannot function in a representative system", "Applies only to economic policy decisions and not to matters of individual liberty"]),
+     "Rousseau general will is not the will of the majority or the sum of individual preferences. It represents the common good that transcends particular interests. Citizens may individually want policies that harm the collective, so the general will can differ from what any faction demands. Rousseau distinguished between the will of all (aggregate of private interests) and the general will (the common interest). It does not require unanimity, is theoretically applicable to representative systems, and covers all matters of governance, not just economic policy."),
+    (1, "Natural rights and social contract", "hard",
+     "The debate between positive liberty and negative liberty (Isaiah Berlin framework) is central to understanding different conceptions of rights. Which statement best captures the positive liberty position?",
+     "True freedom requires not just the absence of external constraints but the presence of enabling conditions and capabilities to achieve one potential",
+     WA(["Freedom is exclusively the absence of government interference in individual choices and actions", "Government has no legitimate role in promoting citizen welfare because all state action is inherently coercive", "Individual liberty is best protected by minimizing all forms of collective authority, including democratic majorities"]),
+     "Berlin Two Concepts of Liberty (1958) distinguished negative liberty (freedom from interference) from positive liberty (freedom to achieve self-realization). Positive liberty theorists argue that poverty, ignorance, and lack of opportunity are as constraining as government coercion, true freedom requires the capacity to act, not just the absence of obstacles. This framework underpins debates about the welfare state, education, and healthcare. Negative libertarians see government programs as threats to freedom, while positive liberty advocates see them as necessary enablers of meaningful freedom."),
+    (1, "Natural rights and social contract", "hard",
+     "The Declaration of Independence states that governments derive their just powers from the consent of the governed. This principle creates a theoretical tension with which aspect of the original U.S. Constitution?",
+     "The indirect election of senators (before the Seventeenth Amendment) and the Electoral College, which inserted layers between citizens and governing authority",
+     WA(["The Bill of Rights, which places specific limits on what majorities can do through government", "The Supremacy Clause, which establishes federal law over state law regardless of state-level consent", "The amendment process, which requires supermajorities that go beyond simple majority consent"]),
+     "The consent-of-the-governed principle suggests that legitimate authority flows directly from the people. Yet the original Constitution featured several indirect mechanisms. Senators were chosen by state legislatures (not popularly elected until the Seventeenth Amendment in 1913), and the Electoral College inserts electors between voters and presidential selection. The Federalist Papers defended these as refinements that would filter public passion through enlightened representatives. The Bill of Rights and Supremacy Clause do not create this tension."),
+    (1, "Natural rights and social contract", "hard",
+     "The concept of unalienable rights in the Declaration of Independence implies that these rights:",
+     "Cannot be legitimately surrendered, transferred, or revoked, not even by the individual who holds them",
+     WA(["Can only be modified through a constitutional amendment approved by three-fourths of the states", "Are automatically protected by all governments regardless of whether those governments recognize them", "Apply equally to all persons worldwide and create binding obligations under international law"]),
+     "The term unalienable (Jefferson spelling, now commonly inalienable) means that certain rights are inherent to human beings and cannot be given away, sold, or revoked. This distinguishes them from alienable rights, like property, which can be transferred. The philosophical point is that natural rights are not grants from government that can be rescinded, they preexist government. The Declaration asserts this as a moral truth, not a legal mechanism. It does not create enforceable international obligations, nor does it guarantee automatic protection by governments that fail to recognize these rights."),
+]
+
+for q in Q:
+    cur.execute('INSERT INTO questions (fcle_domain, topic, difficulty, question, correct_answer, wrong_answers, explanation, stimulus, created_at) VALUES (?,?,?,?,?,?,?,NULL,?)', (q[0], q[1], q[2], q[3], q[4], q[5], q[6], ts))
+
+db.commit()
+print(f"Inserted {len(Q)} D1 questions (batch 2: Limited gov, Media, Natural rights)")
+db.close()

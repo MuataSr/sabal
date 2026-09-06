@@ -1,0 +1,352 @@
+[
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Marbury gave courts power to strike down laws they consider unwise or unfair policy.",
+    "correction": "Judicial review only allows courts to invalidate laws violating the Constitution, not merely because judges disagree with the policy wisdom.",
+    "difficulty": "hard",
+    "fcle_domain": 4
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The 14th Amendment immediately incorporated the entire Bill of Rights against the states upon ratification.",
+    "correction": "Incorporation occurred gradually over decades through selective application of individual rights via the Due Process Clause, not all at once in 1868.",
+    "difficulty": "hard",
+    "fcle_domain": 4
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Roe v Wade established an absolute, unlimited right to abortion throughout all nine months of pregnancy.",
+    "correction": "Roe created a trimester framework balancing reproductive choice against state interests, permitting increasing state regulation as pregnancy advanced.",
+    "difficulty": "hard",
+    "fcle_domain": 4
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Brown v Board explicitly overturned Plessy's separate but equal doctrine in all public contexts.",
+    "correction": "Brown rejected separate but equal only in public education; subsequent rulings extended this principle to other facilities and contexts over time.",
+    "difficulty": "hard",
+    "fcle_domain": 4
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "McCulloch v Maryland established that Congress possesses unlimited implied powers via the Necessary and Proper Clause.",
+    "correction": "The ruling recognized broad implied powers, but these must be rationally related to executing enumerated powers, not unlimited legislative authority.",
+    "difficulty": "hard",
+    "fcle_domain": 4
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The Equal Protection Clause requires government to treat all individuals and groups identically under the law.",
+    "correction": "Equal protection employs tiered scrutiny: strict scrutiny for suspect classifications, intermediate for gender, and rational basis for most others.",
+    "difficulty": "hard",
+    "fcle_domain": 4
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Selective incorporation has now fully applied all Bill of Rights protections against the states entirely.",
+    "correction": "Most but not all Bill of Rights provisions have been incorporated; the Third Amendment and grand jury indictment requirement remain unincorporated.",
+    "difficulty": "hard",
+    "fcle_domain": 4
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Gideon v Wainwright guaranteed the right to appointed counsel in all criminal proceedings without exception.",
+    "correction": "Gideon established this right for felonies; extension to misdemeanors carrying potential jail time came through later cases like Argersinger v Hamlin.",
+    "difficulty": "hard",
+    "fcle_domain": 4
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Supreme Court constitutional interpretations can only be reversed through formal constitutional amendment.",
+    "correction": "The Court can overrule its own precedents through later decisions, as when Brown reversed Plessy without any constitutional amendment being adopted.",
+    "difficulty": "hard",
+    "fcle_domain": 4
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Incorporation doctrine applies Bill of Rights protections to states through the Equal Protection Clause.",
+    "correction": "Incorporation operates primarily through the 14th Amendment's Due Process Clause, applying rights deemed fundamental to the concept of ordered liberty.",
+    "difficulty": "hard",
+    "fcle_domain": 4
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Brandenburg overturned Schenck and made all political speech absolutely protected",
+    "correction": "Brandenburg refined the standard for incitement to 'imminent lawless action,' but political speech can still be restricted under narrow circumstances like true threats or incitement to imminent violence.",
+    "difficulty": "hard",
+    "fcle_domain": 4
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The Lemon test remains the definitive framework for all Establishment Clause cases today",
+    "correction": "The Supreme Court has increasingly abandoned or limited Lemon, using historical practices and tradition tests instead in cases like Kennedy v. Bremerton School District (2022).",
+    "difficulty": "hard",
+    "fcle_domain": 4
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Tinker's substantial disruption test applies equally to all student expression regardless of context",
+    "correction": "Courts have narrowed Tinker, allowing schools to restrict lewd speech (Bethel), school-sponsored speech (Hazelwood), and pro-drug banners (Morse) under different standards.",
+    "difficulty": "hard",
+    "fcle_domain": 4
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Engel v. Vitale's prohibition only applies to mandatory, state-composed religious exercises in schools",
+    "correction": "Engel established that government cannot compose official prayers for recitation, but subsequent cases like Lee v. Weisman extended this principle to clergy-led prayer at graduation ceremonies.",
+    "difficulty": "hard",
+    "fcle_domain": 4
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Barnette established that the Free Speech Clause protects against all forms of compelled expression",
+    "correction": "Barnette specifically addressed compelled flag salutes. The broader compelled speech doctrine developed through later cases like Wooley v. Maynard and Janus v. AFSCME.",
+    "difficulty": "hard",
+    "fcle_domain": 4
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "NY Times v. Sullivan's actual malice standard applies to all defamation cases involving any plaintiff",
+    "correction": "The actual malice standard applies only to public officials and public figures. Private individuals need only prove negligence, as established in Gertz v. Robert Welch (1974).",
+    "difficulty": "hard",
+    "fcle_domain": 4
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The Miller test's community standards clause means obscenity law is uniform across entire states",
+    "correction": "Community standards can vary by region within a state, and the Miller test also requires evaluating whether work lacks serious literary, artistic, political, or scientific value.",
+    "difficulty": "hard",
+    "fcle_domain": 4
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Employment Division v. Smith eliminated all strict scrutiny for laws that burden religious exercise",
+    "correction": "Smith held that neutral, generally applicable laws need not meet strict scrutiny. However, RFRA restored strict scrutiny for federal laws, and many states enacted similar protections.",
+    "difficulty": "hard",
+    "fcle_domain": 4
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Hazelwood v. Kuhlmeier overturned Tinker and eliminated student press rights in all school contexts",
+    "correction": "Hazelwood created a separate standard for school-sponsored expressive activities. Tinker still applies to personal student expression, but school-controlled media receives less protection.",
+    "difficulty": "hard",
+    "fcle_domain": 4
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The First Amendment was incorporated against the states through a single Supreme Court decision",
+    "correction": "First Amendment clauses were incorporated piecemeal over decades: free speech (Gitlow, 1925), press (Near, 1931), free exercise (Cantwell, 1940), and assembly (DeJonge, 1937).",
+    "difficulty": "hard",
+    "fcle_domain": 4
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Miranda warnings are required whenever police question anyone.",
+    "correction": "Miranda applies only to custodial interrogation\u2014questioning while detained or arrested, not voluntary conversations with police.",
+    "difficulty": "hard",
+    "fcle_domain": 4
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The Fourth Amendment explicitly creates the exclusionary rule for illegally obtained evidence.",
+    "correction": "The exclusionary rule is a judicially created remedy, not explicitly stated in the Constitution. Courts created it to deter Fourth Amendment violations.",
+    "difficulty": "hard",
+    "fcle_domain": 4
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Mapp v. Ohio was the first Supreme Court case to create the exclusionary rule.",
+    "correction": "Weeks v. US (1914) established the federal exclusionary rule. Mapp v. Ohio (1961) incorporated this doctrine to state courts through the Fourteenth Amendment.",
+    "difficulty": "hard",
+    "fcle_domain": 4
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Gideon v. Wainwright guaranteed counsel for all criminal defendants regardless of charge severity.",
+    "correction": "Gideon applied specifically to felony cases. The right to counsel for misdemeanors resulting in imprisonment was extended through Argersinger v. Hamlin (1972).",
+    "difficulty": "hard",
+    "fcle_domain": 4
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Miranda violations require exclusion of all physical evidence discovered as a result.",
+    "correction": "Miranda violations only exclude testimonial evidence. Physical evidence found through voluntary, unwarned statements may be admissible under United States v. Patane (2004).",
+    "difficulty": "hard",
+    "fcle_domain": 4
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Escobedo v. Illinois established the modern framework for the right to counsel during police interrogation.",
+    "correction": "Escobedo was a narrow Sixth Amendment ruling. Miranda v. Arizona (1966) established the broader Fifth Amendment custodial interrogation framework that governs today.",
+    "difficulty": "hard",
+    "fcle_domain": 4
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The good faith exception effectively nullified the exclusionary rule for modern policing.",
+    "correction": "The good faith exception only applies when officers reasonably rely on a defective warrant. The exclusionary rule still applies to warrantless searches without probable cause.",
+    "difficulty": "hard",
+    "fcle_domain": 4
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Evidence excluded in criminal trials is also inadmissible in grand jury and civil proceedings.",
+    "correction": "The exclusionary rule primarily applies to criminal trials. Excluded evidence can still be used in grand jury proceedings, civil cases, parole hearings, and immigration proceedings.",
+    "difficulty": "hard",
+    "fcle_domain": 4
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Once Miranda warnings are given, suspects cannot voluntarily waive their rights and speak with police.",
+    "correction": "Suspects may voluntarily, knowingly, and intelligently waive Miranda rights. The waiver must be clear and uncoerced, and suspects can invoke rights at any point during questioning.",
+    "difficulty": "hard",
+    "fcle_domain": 4
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Escobedo v. Illinois remains the primary precedent governing police interrogation rights today.",
+    "correction": "Escobedo's narrow Sixth Amendment framework was largely superseded by Miranda's Fifth Amendment protections. Escobedo is now rarely cited as independent grounds for relief.",
+    "difficulty": "hard",
+    "fcle_domain": 4
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The Civil Rights Act of 1964 relied exclusively on the 14th Amendment for its constitutional authority.",
+    "correction": "Title II's public accommodations provisions were based on the Commerce Clause, upheld in Heart of Atlanta Motel v. US (1964), not the Equal Protection Clause.",
+    "difficulty": "hard",
+    "fcle_domain": 4
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The Voting Rights Act of 1965 applied uniform preclearance requirements to all 50 states equally.",
+    "correction": "Section 5 preclearance targeted specific jurisdictions with histories of discrimination, determined by Section 4(b)'s coverage formula based on voter registration data.",
+    "difficulty": "hard",
+    "fcle_domain": 4
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The ADA's employment provisions apply to all employers regardless of company size.",
+    "correction": "Title I of the ADA only applies to employers with 15 or more employees, mirroring Title VII of the Civil Rights Act's jurisdictional threshold for federal coverage.",
+    "difficulty": "hard",
+    "fcle_domain": 4
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Shelby County v. Holder (2013) struck down the VRA's preclearance requirement entirely.",
+    "correction": "The Court invalidated Section 4(b)'s coverage formula, not Section 5 itself. Preclearance remains constitutionally valid but inoperable without a new formula from Congress.",
+    "difficulty": "hard",
+    "fcle_domain": 4
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The Civil Rights Act of 1964 was the first federal statute addressing employment discrimination.",
+    "correction": "Section 1981 of the 1866 Civil Rights Act prohibited race-based employment discrimination through equal contract rights, though it was rarely enforced before 1964.",
+    "difficulty": "hard",
+    "fcle_domain": 4
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The ADA established the first federal prohibition on disability discrimination in American law.",
+    "correction": "Section 504 of the Rehabilitation Act of 1973 prohibited disability discrimination by entities receiving federal funds, establishing foundational principles the ADA later expanded nationally.",
+    "difficulty": "hard",
+    "fcle_domain": 4
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Title II of the Civil Rights Act was grounded in the Equal Protection Clause of the 14th Amendment.",
+    "correction": "Congress anchored Title II in the Commerce Clause, as the Supreme Court affirmed in Katzenbach v. McClung (1964), because it granted broader regulatory authority over private businesses.",
+    "difficulty": "hard",
+    "fcle_domain": 4
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The Voting Rights Act of 1965 derived its authority exclusively from the 15th Amendment.",
+    "correction": "While the 15th Amendment was central, Congress also drew on enforcement powers from the 14th Amendment's Equal Protection Clause and Article I's Elections Clause for certain provisions.",
+    "difficulty": "hard",
+    "fcle_domain": 4
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Title VII of the Civil Rights Act prohibits all employers from discriminating in employment practices.",
+    "correction": "Title VII exempts employers with fewer than 15 employees, religious organizations regarding ministerial roles, and private clubs, reflecting legislative compromises during enactment.",
+    "difficulty": "hard",
+    "fcle_domain": 4
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The ADA requires employers to provide reasonable accommodation without exception for any disability claim.",
+    "correction": "Employers can invoke 'undue hardship' when accommodation imposes significant difficulty or expense relative to their size and resources. Courts apply this as a fact-specific, balancing standard.",
+    "difficulty": "hard",
+    "fcle_domain": 4
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Executive orders have the same constitutional authority as congressional legislation.",
+    "correction": "Executive orders derive solely from implied executive power and courts can invalidate them if they exceed presidential authority or conflict with statutory or constitutional law.",
+    "difficulty": "hard",
+    "fcle_domain": 4
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The Supreme Court immediately upheld FDR's expansion of federal commerce power.",
+    "correction": "The Court struck down key New Deal programs in Schechter Poultry (1935) and Carter Coal (1936) before shifting in 1937 amid FDR's court-packing threat, a shift called 'the switch in time.'",
+    "difficulty": "hard",
+    "fcle_domain": 4
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The Supreme Court overturned Korematsu shortly after World War II ended.",
+    "correction": "Korematsu was never formally overturned until Trump v. Hawaii (2018) repudiated its reasoning, though lower courts and scholars had condemned it for decades as a grave constitutional error.",
+    "difficulty": "hard",
+    "fcle_domain": 4
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The War Powers Resolution requires congressional approval before deploying troops abroad.",
+    "correction": "The War Powers Resolution permits 60 days of troop deployment without congressional authorization. Presidents from Nixon onward have argued it unconstitutionally infringes on executive commander-in-chief power.",
+    "difficulty": "hard",
+    "fcle_domain": 4
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Great Society programs relied on the same Commerce Clause basis as New Deal laws.",
+    "correction": "Great Society legislation drew authority from multiple constitutional sources, including the Spending Power, the Fourteenth Amendment's Equal Protection Clause, and the Commerce Clause.",
+    "difficulty": "hard",
+    "fcle_domain": 4
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "FDR's court-packing plan passed and expanded the Supreme Court to fifteen justices.",
+    "correction": "The 1937 court-packing bill failed in Congress. However, the Court began upholding New Deal programs anyway\u2014a constitutional shift often called 'the switch in time that saved nine.'",
+    "difficulty": "hard",
+    "fcle_domain": 4
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The Supreme Court upheld Social Security under Congress's commerce power.",
+    "correction": "In Helvering v. Davis (1937), the Court upheld Social Security under the General Welfare Clause of Article I, Section 8's taxing and spending power, not the Commerce Clause.",
+    "difficulty": "hard",
+    "fcle_domain": 4
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Japanese internment was solely FDR's action through Executive Order 9066\u2014Congress never authorized it.",
+    "correction": "Congress authorized exclusion and internment through Public Law 503. Korematsu thus represents deference to combined war powers of both political branches, not unilateral executive action.",
+    "difficulty": "hard",
+    "fcle_domain": 4
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The Civil Rights Act of 1964 relied exclusively on the Fourteenth Amendment for constitutional authority.",
+    "correction": "The Act drew authority from both the Commerce Clause and the Fourteenth Amendment. Title II's public accommodations provisions were primarily justified by federal power over interstate commerce.",
+    "difficulty": "hard",
+    "fcle_domain": 4
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Executive agreements allow presidents to completely bypass Senate treaty ratification requirements.",
+    "correction": "Executive agreements are valid for certain purposes but cannot override existing federal statutes. Their constitutional limits remain disputed, and Congress retains authority to constrain their use.",
+    "difficulty": "hard",
+    "fcle_domain": 4
+  }
+]

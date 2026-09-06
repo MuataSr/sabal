@@ -1,0 +1,396 @@
+{
+  "timestamp": "2026-05-04 09:28:31",
+  "rubric": "v1-4dim-fcle-socratic",
+  "dimensions": [
+    "grounded_ref",
+    "consistency",
+    "mistake_catching",
+    "socratic_hint"
+  ],
+  "results": [
+    {
+      "id": "FCLE-EVAL-001",
+      "domain": 1,
+      "difficulty": "medium",
+      "score": 83,
+      "max": 100,
+      "pct": 83.0,
+      "time": 56.1,
+      "details": {
+        "grounded_ref": 25,
+        "consistency": 18,
+        "mistake_catching": 18,
+        "socratic_hint": 22
+      },
+      "response": "That is a great starting point for a student who is trying to connect the **Social Contract** and **Natural Rights** with the actual practice of citizenship. However, I need to gently challenge the idea that the Constitution *explicitly commands* citizens to obey all laws as the primary reason they agree to the system.\n\nLet's break this down using the Socratic method:\n\n**1. Let's look at the Founding Documents first.**\nJohn Locke, a major influence on the Founders, argued in his *Second Treatise"
+    },
+    {
+      "id": "FCLE-EVAL-002",
+      "domain": 1,
+      "difficulty": "hard",
+      "score": 79,
+      "max": 100,
+      "pct": 79.0,
+      "time": 55.9,
+      "details": {
+        "grounded_ref": 18,
+        "consistency": 18,
+        "mistake_catching": 18,
+        "socratic_hint": 25
+      },
+      "response": "That is a great starting point for a discussion, but let's take a moment to examine the connection between Sunstein's specific theories and the mechanism you've proposed.\n\nFirst, let's clarify what Sunstein actually argues regarding \"echo chambers\" and \"information cocoons.\" When Sunstein discusses these concepts, he is focusing on how algorithms and user preferences create environments where people are primarily exposed to views that reinforce their own existing beliefs. He often cites the phen"
+    },
+    {
+      "id": "FCLE-EVAL-003",
+      "domain": 1,
+      "difficulty": "medium",
+      "score": 72,
+      "max": 100,
+      "pct": 72.0,
+      "time": 49.5,
+      "details": {
+        "grounded_ref": 25,
+        "consistency": 10,
+        "mistake_catching": 22,
+        "socratic_hint": 15
+      },
+      "response": "That is a great starting point for a student, but let's take a closer look at the definition they've provided and see if it aligns with what we know about \"sunshine laws.\"\n\nYou mentioned the answer is \"A yes or no vote by citizens on a law or candidate proposed by the state government.\" In political science terms, that specific process is called a **referendum** or **initiative**. While these are important tools in American democracy, they are distinct from \"sunshine laws.\"\n\nLet's break down the"
+    },
+    {
+      "id": "FCLE-EVAL-004",
+      "domain": 1,
+      "difficulty": "medium",
+      "score": 76,
+      "max": 100,
+      "pct": 76.0,
+      "time": 85.7,
+      "details": {
+        "grounded_ref": 18,
+        "consistency": 18,
+        "mistake_catching": 18,
+        "socratic_hint": 22
+      },
+      "response": "That is a great starting point for analyzing the term, but let's dig deeper to see if that definition fits the historical and political context of \"American Exceptionalism.\"\n\nFirst, consider the origin of the phrase. When Thomas Jefferson and other Founders used the term \"exceptional,\" what were they primarily contrasting the United States against?\n\n*   *They were contrasting it against the \"Old World\" monarchies and the rigid class structures of Europe.*\n*   *They were contrasting it against th"
+    },
+    {
+      "id": "FCLE-EVAL-005",
+      "domain": 1,
+      "difficulty": "easy",
+      "score": 65,
+      "max": 100,
+      "pct": 65.0,
+      "time": 52.7,
+      "details": {
+        "grounded_ref": 22,
+        "consistency": 18,
+        "mistake_catching": 0,
+        "socratic_hint": 25
+      },
+      "response": "That is a great starting point for your study session, Alex! Let's take a closer look at that definition you've proposed and see if it fits the historical and theoretical context of \"political machines\" and \"interest groups.\"\n\nFirst, let's look at the definition you provided: *\"An independent media outlet that uses sensationalized coverage of scandals to influence public opinion and sway voters.\"*\n\nIf we compare this to the concept of a **political machine**, does this definition align with how "
+    },
+    {
+      "id": "FCLE-EVAL-006",
+      "domain": 1,
+      "difficulty": "medium",
+      "score": 78,
+      "max": 100,
+      "pct": 78.0,
+      "time": 57.6,
+      "details": {
+        "grounded_ref": 25,
+        "consistency": 10,
+        "mistake_catching": 18,
+        "socratic_hint": 25
+      },
+      "response": "That is a great starting point for a student who wants to engage deeply with the material! However, let's take a moment to look closer at the definition they've proposed and see if it fits the specific economic and political theory we use to describe \"toll goods.\"\n\nFirst, let's break down the term **\"toll good.\"** In political science and economics, a toll good is a public good that is non-rivalrous (one person's use doesn't reduce another's) but **excludable** (we can charge people to use it). "
+    },
+    {
+      "id": "FCLE-EVAL-007",
+      "domain": 1,
+      "difficulty": "hard",
+      "score": 86,
+      "max": 100,
+      "pct": 86.0,
+      "time": 56.3,
+      "details": {
+        "grounded_ref": 25,
+        "consistency": 18,
+        "mistake_catching": 18,
+        "socratic_hint": 25
+      },
+      "response": "That is a great question to tackle, and it shows you are diving deep into the sociology of political participation. However, before we confirm or adjust your answer, let's look at the core argument made by scholars like Doug McAdam and Sidney Tarrow regarding \"unconventional\" collective action.\n\nWhen we talk about the conditions that make communities *more likely* to engage in collective action against a threat, we usually look at the structural triggers that mobilize people.\n\n**Let's start with"
+    },
+    {
+      "id": "FCLE-EVAL-008",
+      "domain": 1,
+      "difficulty": "medium",
+      "score": 75,
+      "max": 100,
+      "pct": 75.0,
+      "time": 54.4,
+      "details": {
+        "grounded_ref": 22,
+        "consistency": 10,
+        "mistake_catching": 18,
+        "socratic_hint": 25
+      },
+      "response": "That is a great starting point! You've correctly identified that the \"iron triangle\" involves a specific type of relationship where benefits are given out without corresponding costs being borne. However, let's dig deeper to see if we can pinpoint exactly *who* is involved in this dynamic and *where* it happens.\n\nThink about the three main branches of the federal government: the Legislative (Congress), the Executive (President/Administration), and the Judicial (Courts).\n\n1.  If we look at the **"
+    },
+    {
+      "id": "FCLE-EVAL-009",
+      "domain": 1,
+      "difficulty": "hard",
+      "score": 86,
+      "max": 100,
+      "pct": 86.0,
+      "time": 57.8,
+      "details": {
+        "grounded_ref": 25,
+        "consistency": 18,
+        "mistake_catching": 18,
+        "socratic_hint": 25
+      },
+      "response": "That is a great starting point for identifying the terms, but let's dig deeper into the *mechanism* of how these strategies actually function to dilute voting power.\n\nYou mentioned that **packing** creates \"competitive districts.\" Let's test that premise. If you take a large, concentrated population of a specific group (let's say a minority group) and you shove them all into a single district, what is the likely outcome for that group's ability to elect candidates of their choice?\n\n*   If you pu"
+    },
+    {
+      "id": "FCLE-EVAL-010",
+      "domain": 1,
+      "difficulty": "easy",
+      "score": 68,
+      "max": 100,
+      "pct": 68.0,
+      "time": 45.2,
+      "details": {
+        "grounded_ref": 18,
+        "consistency": 10,
+        "mistake_catching": 18,
+        "socratic_hint": 22
+      },
+      "response": "That is a great starting point, and it shows you are thinking about the ideal of equality. However, let's look closer at the definition of **Pluralism** itself to see if that fits.\n\nIf we look at the core tenets of Pluralist theory, does it suggest that power is held by individuals *alone*, or does it suggest something different?\n\nConsider this: Pluralism views society as a collection of many different **interest groups** (like labor unions, business associations, environmental groups, religious"
+    },
+    {
+      "id": "FCLE-EVAL-011",
+      "domain": 1,
+      "difficulty": "easy",
+      "score": 87,
+      "max": 100,
+      "pct": 87.0,
+      "time": 59.9,
+      "details": {
+        "grounded_ref": 22,
+        "consistency": 18,
+        "mistake_catching": 22,
+        "socratic_hint": 25
+      },
+      "response": "That is a thoughtful observation, and it shows you understand the importance of civic engagement! However, let's dig deeper into the specific mechanism you are describing to see if it aligns with the strict definition of **direct democracy** versus **representative democracy**.\n\nYou mentioned attending town hall meetings to debate with officials to influence the *next election cycle*. While that is a vital part of holding representatives accountable, does that actually allow citizens to *directl"
+    },
+    {
+      "id": "FCLE-EVAL-012",
+      "domain": 1,
+      "difficulty": "medium",
+      "score": 90,
+      "max": 100,
+      "pct": 90.0,
+      "time": 57.4,
+      "details": {
+        "grounded_ref": 25,
+        "consistency": 18,
+        "mistake_catching": 22,
+        "socratic_hint": 25
+      },
+      "response": "That is a great starting point for identifying a concept, but let's look closer at the definition you've provided and see if it fits the specific term \"party-in-the-electorate.\"\n\nYou defined it as an **interest group** consisting of **dues-paying members** organizing around a **cause or issue**.\n\nNow, let's test that definition against the two main types of political parties in the US:\n1.  The **Party-in-Office** (the national party organization).\n2.  The **Party-in-the-Electorate** (the voters "
+    },
+    {
+      "id": "FCLE-EVAL-013",
+      "domain": 1,
+      "difficulty": "medium",
+      "score": 83,
+      "max": 100,
+      "pct": 83.0,
+      "time": 66.0,
+      "details": {
+        "grounded_ref": 22,
+        "consistency": 18,
+        "mistake_catching": 18,
+        "socratic_hint": 25
+      },
+      "response": "That is a great starting point for your study session! Let's unpack this scenario together using the Socratic method.\n\nFirst, let's look at the definition of the term the student chose: **\"Minority Party.\"**\n*   What does the term \"minority\" imply in the context of American political parties?\n*   Does a \"minority party\" typically have the financial backing of wealthy elites, or is it usually the party that is *not* currently holding the majority of seats in Congress or the Presidency?\n*   If a p"
+    },
+    {
+      "id": "FCLE-EVAL-014",
+      "domain": 1,
+      "difficulty": "easy",
+      "score": 83,
+      "max": 100,
+      "pct": 83.0,
+      "time": 69.1,
+      "details": {
+        "grounded_ref": 22,
+        "consistency": 18,
+        "mistake_catching": 18,
+        "socratic_hint": 25
+      },
+      "response": "That is a great starting point for thinking about political dynamics! Let's take a moment to unpack the definition you've offered and see if it fits the scenario you described.\n\nYou mentioned **\"incumbency advantage.\"** In political science, this term specifically refers to the benefit a candidate receives from holding the office they are seeking to retain. Think about the resources, name recognition, and established relationships an *incumbent* (someone currently in power) has.\n\nHowever, the sc"
+    },
+    {
+      "id": "FCLE-EVAL-015",
+      "domain": 1,
+      "difficulty": "medium",
+      "score": 87,
+      "max": 100,
+      "pct": 87.0,
+      "time": 54.2,
+      "details": {
+        "grounded_ref": 22,
+        "consistency": 22,
+        "mistake_catching": 18,
+        "socratic_hint": 25
+      },
+      "response": "That is a great starting point for a misconception to address, but let's take a closer look at the specific details of the scenario you described.\n\nFirst, let's look at the action: The group is hiring a **lobbyist** to introduce a bill that **lowers taxes on corporate profits**.\n\nIf we apply the definition of **communism** that you mentioned\u2014promoting common ownership of production means and eliminating class exploitation\u2014does lowering corporate taxes actually align with that?\n\n*   **Question:**"
+    },
+    {
+      "id": "FCLE-EVAL-016",
+      "domain": 1,
+      "difficulty": "easy",
+      "score": 73,
+      "max": 100,
+      "pct": 73.0,
+      "time": 55.0,
+      "details": {
+        "grounded_ref": 22,
+        "consistency": 18,
+        "mistake_catching": 18,
+        "socratic_hint": 15
+      },
+      "response": "That is a great starting point for a student, but let's take a closer look at the definition they are using.\n\nYou mentioned the student believes the answer is **\"material incentives.\"** Let's unpack what that term actually means in a political science context.\n\n*   **Material incentives** usually refer to tangible rewards or punishments\u2014like money, jobs, or avoiding fines\u2014that motivate people to follow rules or support a government.\n*   If a citizen follows the law *only* because they want a tax"
+    },
+    {
+      "id": "FCLE-EVAL-017",
+      "domain": 1,
+      "difficulty": "easy",
+      "score": 78,
+      "max": 100,
+      "pct": 78.0,
+      "time": 65.5,
+      "details": {
+        "grounded_ref": 25,
+        "consistency": 10,
+        "mistake_catching": 18,
+        "socratic_hint": 25
+      },
+      "response": "That is a great starting point for your study session! Let's explore this together using the Socratic method.\n\nYou mentioned that **social media and the internet** are typically the earliest and most influential agents of political socialization. Let's test that idea against what we know about human development and the timeline of a life.\n\n**Question 1:** If we look at a typical person's life, when do they first encounter political ideas, rules, and social norms? Is it usually when they are a to"
+    },
+    {
+      "id": "FCLE-EVAL-018",
+      "domain": 1,
+      "difficulty": "easy",
+      "score": 78,
+      "max": 100,
+      "pct": 78.0,
+      "time": 45.1,
+      "details": {
+        "grounded_ref": 25,
+        "consistency": 10,
+        "mistake_catching": 18,
+        "socratic_hint": 25
+      },
+      "response": "That is a great starting point for a discussion, but let's take a moment to examine that definition closely.\n\nYou mentioned that popular sovereignty means political power is held primarily by **wealthy elites and special interest groups**. Does that definition actually align with the phrase \"popular sovereignty\"?\n\nLet's break down the word \"popular.\" In the context of the Founding Documents and our government, what does \"popular\" refer to? Is it referring to the rich, the powerful, or the organi"
+    },
+    {
+      "id": "FCLE-EVAL-019",
+      "domain": 1,
+      "difficulty": "medium",
+      "score": 69,
+      "max": 100,
+      "pct": 69.0,
+      "time": 51.7,
+      "details": {
+        "grounded_ref": 18,
+        "consistency": 18,
+        "mistake_catching": 18,
+        "socratic_hint": 15
+      },
+      "response": "That is a great starting point for identifying a concept, but let's take a closer look at the definitions you've used to see if they fit the scenario perfectly.\n\nFirst, let's examine the student's proposed answer: **Hypodermic Theory** (also known as the \"Magic Bullet\" theory).\n*   *Question:* Does the Hypodermic Theory suggest that media outlets actively choose different angles to highlight specific issues like \"economic freedom\" versus \"public safety\"?\n*   *Reflection:* The Hypodermic Theory a"
+    },
+    {
+      "id": "FCLE-EVAL-020",
+      "domain": 1,
+      "difficulty": "hard",
+      "score": 65,
+      "max": 100,
+      "pct": 65.0,
+      "time": 52.6,
+      "details": {
+        "grounded_ref": 0,
+        "consistency": 22,
+        "mistake_catching": 18,
+        "socratic_hint": 25
+      },
+      "response": "That is a great starting point, but let's dig deeper into *why* the Court's approach shifted and whether the threat of jurisdiction restriction was actually the primary driver.\n\nFirst, let's look at the timeline. You mentioned the \"New Deal era.\" Before that, in cases like *Panama Refining Co. v. Ryan* (1935), the Court did strike down delegations. But after the New Deal, specifically following the *Schechter Poultry Corp. v. United States* (1935) decision, the Court began a significant retreat "
+    },
+    {
+      "id": "FCLE-EVAL-021",
+      "domain": 1,
+      "difficulty": "hard",
+      "score": 79,
+      "max": 100,
+      "pct": 79.0,
+      "time": 49.7,
+      "details": {
+        "grounded_ref": 18,
+        "consistency": 18,
+        "mistake_catching": 18,
+        "socratic_hint": 25
+      },
+      "response": "Let's begin by unpacking the core idea here. You mentioned \"non-attitudes.\" In political science, we often distinguish between *attitudes* (deep-seated beliefs about specific issues or groups) and *non-attitudes* (responses to questions where the respondent has no real opinion, perhaps because they don't understand the issue, the term is unfamiliar, or the question is hypothetical).\n\nIf a student's research suggests that survey responses do **not** reflect stable, genuine policy preferences, wha"
+    },
+    {
+      "id": "FCLE-EVAL-022",
+      "domain": 1,
+      "difficulty": "medium",
+      "score": 83,
+      "max": 100,
+      "pct": 83.0,
+      "time": 45.9,
+      "details": {
+        "grounded_ref": 22,
+        "consistency": 18,
+        "mistake_catching": 18,
+        "socratic_hint": 25
+      },
+      "response": "That is a great starting point, and you have correctly identified that the \"party-in-the-electorate\" involves people who are actually running for office. However, let's dig deeper into the distinction between the *groups* of people and the *individuals* holding power.\n\nConsider this: If we look at the definition of a formal political party, it is an organization with a structure, a platform, and a goal to win elections. Now, think about the phrase \"party-in-the-electorate.\" Does this term refer "
+    },
+    {
+      "id": "FCLE-EVAL-023",
+      "domain": 1,
+      "difficulty": "medium",
+      "score": 71,
+      "max": 100,
+      "pct": 71.0,
+      "time": 50.6,
+      "details": {
+        "grounded_ref": 18,
+        "consistency": 10,
+        "mistake_catching": 18,
+        "socratic_hint": 25
+      },
+      "response": "That is a very interesting perspective you've offered, and it touches on a fundamental tension in our system of government. However, let's take a moment to unpack the logic there before we look at the reference materials.\n\nYou mentioned that the government could simply pass a \"total ban on guns\" to solve policy disagreements. If we look at the **Founding Documents** and the **US Constitution**, does a total ban actually solve the problem of differing regional views?\n\nConsider the **10th Amendmen"
+    },
+    {
+      "id": "FCLE-EVAL-024",
+      "domain": 1,
+      "difficulty": "medium",
+      "score": 83,
+      "max": 100,
+      "pct": 83.0,
+      "time": 63.2,
+      "details": {
+        "grounded_ref": 25,
+        "consistency": 18,
+        "mistake_catching": 18,
+        "socratic_hint": 22
+      },
+      "response": "That is a great starting point for identifying the *goals* of conservatism, but let's dig deeper into the specific wording you used to see if it aligns perfectly with the modern definition, especially regarding the role of government in the economy.\n\nYou mentioned: *\"little to no role for government in **any** sector of society.\"*\n\nLet's test that claim. If a political ideology truly believed that government should have **no** role in *any* sector, would they support things like:\n1.  A military "
+    }
+  ]
+}

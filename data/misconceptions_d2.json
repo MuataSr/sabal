@@ -1,0 +1,352 @@
+[
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Article I establishes the executive branch first because the framers considered it the most important branch.",
+    "correction": "Article I establishes the legislative branch, reflecting the framers' intent that Congress be the primary and most powerful branch. The order signals constitutional priority, not historical drafting sequence.",
+    "difficulty": "hard",
+    "fcle_domain": 2
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Article III's 'good behaviour' clause means federal judges can be removed for making unpopular rulings.",
+    "correction": "The 'good behaviour' clause provides life tenure, meaning judges can only be removed through impeachment for 'high crimes and misdemeanors,' not for ideological or unpopular decisions.",
+    "difficulty": "hard",
+    "fcle_domain": 2
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Article VI's Supremacy Clause only applies to the federal government's enumerated powers, not to implied powers.",
+    "correction": "The Supremacy Clause applies to all constitutional federal powers — both enumerated and implied (via the Necessary and Proper Clause). Federal law supreme within its constitutional scope.",
+    "difficulty": "hard",
+    "fcle_domain": 2
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Article II gives the president unlimited authority to issue executive orders that have the force of law.",
+    "correction": "Executive orders direct federal agencies and officials; they cannot create new law or appropriate funds. They are subject to judicial review and can be overridden by congressional legislation.",
+    "difficulty": "hard",
+    "fcle_domain": 2
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Article V makes ratifying a constitutional amendment easier than passing a federal statute because state legislatures can do it.",
+    "correction": "Article V sets the highest bar in the Constitution: two-thirds of both houses of Congress or a convention, then three-fourths of the states. This is far more difficult than ordinary legislation.",
+    "difficulty": "hard",
+    "fcle_domain": 2
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The Senate's advice and consent role means it can reject any cabinet nominee for any reason without justification.",
+    "correction": "While the Senate has broad discretion, the advice and consent power is constitutionally bounded. It cannot impose qualifications not in Article II, though political motivations are generally unreviewable.",
+    "difficulty": "hard",
+    "fcle_domain": 2
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The Commerce Clause has always been interpreted broadly to give Congress power over all economic activity.",
+    "correction": "Commerce Clause interpretation has fluctuated significantly — from narrow pre-1937 rulings (Gibbons, Hammer v. Dagenhart) to the broad New Deal era (Wickard v. Filburn) to recent limits (United States v. Lopez).",
+    "difficulty": "hard",
+    "fcle_domain": 2
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "A filibuster is a constitutionally mandated protection for minority rights in the Senate.",
+    "correction": "The filibuster is not in the Constitution. It emerged from Senate rule changes and the elimination of the 'previous question' motion. The Constitution only requires a simple majority, except where specified.",
+    "difficulty": "hard",
+    "fcle_domain": 2
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The House has the sole power of impeachment, so it alone can remove a president from office.",
+    "correction": "The House impeaches (brings charges), but only the Senate can convict and remove. Conviction requires a two-thirds supermajority — a deliberately high bar for removal.",
+    "difficulty": "hard",
+    "fcle_domain": 2
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The Reapportionment Act of 1929 violated the Constitution by freezing the House at 435 members.",
+    "correction": "The Constitution sets a maximum of one representative per 30,000 people but does not fix the total size. Congress has constitutional authority to set its own size via statute.",
+    "difficulty": "hard",
+    "fcle_domain": 2
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The unitary executive theory means the president has sole constitutional authority over all foreign policy decisions.",
+    "correction": "While the unitary executive theory argues for strong presidential control of the executive branch, the Constitution divides foreign policy: the Senate ratifies treaties, Congress declares war, and funds military operations.",
+    "difficulty": "hard",
+    "fcle_domain": 2
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Executive privilege is explicitly stated in the Constitution as a presidential power.",
+    "correction": "Executive privilege is not mentioned in the Constitution. It is a judicially recognized implied power derived from separation of powers principles (U.S. v. Nixon, 1974), not a textual right.",
+    "difficulty": "hard",
+    "fcle_domain": 2
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The War Powers Resolution of 1973 solved the constitutional ambiguity about who can commit troops to combat.",
+    "correction": "The Resolution has not resolved the tension. Presidents of both parties have routinely violated its 60-day reporting requirement, arguing it unconstitutionally infringes on their commander-in-chief authority.",
+    "difficulty": "hard",
+    "fcle_domain": 2
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The Electoral College was designed to reflect the popular will and has functioned that way throughout history.",
+    "correction": "The Electoral College was designed as a compromise between direct election and congressional selection. Electors were originally intended to exercise independent judgment, not merely mirror popular vote results.",
+    "difficulty": "hard",
+    "fcle_domain": 2
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The Twenty-Fifth Amendment's disability provision has always been the constitutional mechanism for presidential succession during illness.",
+    "correction": "Before the Twenty-Fifth Amendment (1967), there was no clear constitutional process for temporary transfer of power during presidential disability, creating dangerous ambiguities during presidential illnesses.",
+    "difficulty": "hard",
+    "fcle_domain": 2
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The Supreme Court's original jurisdiction under Article III means it hears most cases first before any lower court.",
+    "correction": "Original jurisdiction is narrow and limited to specific cases like disputes between states or cases involving ambassadors. Over 99% of cases reach the Court through appellate jurisdiction only.",
+    "difficulty": "hard",
+    "fcle_domain": 2
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Judicial review was explicitly written into Article III by the framers as a core feature of the judiciary.",
+    "correction": "Judicial review is not mentioned in the Constitution. It was established by Chief Justice Marshall in Marbury v. Madison (1803) as an inferred power necessary for the judiciary to fulfill its constitutional role.",
+    "difficulty": "hard",
+    "fcle_domain": 2
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Stare decisis means the Supreme Court can never overturn its own previous rulings.",
+    "correction": "Stare decisis is a doctrine of precedent, not an absolute rule. The Court has overturned numerous precedents (e.g., Brown v. Board overturning Plessy) when it determines prior rulings were fundamentally wrong.",
+    "difficulty": "hard",
+    "fcle_domain": 2
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Federal judges are confirmed by the full Congress, just like Supreme Court justices.",
+    "correction": "Only Supreme Court justices and other Article III judges require Senate confirmation. Lower federal judges are nominated by the president and confirmed by the Senate alone — the House plays no role.",
+    "difficulty": "hard",
+    "fcle_domain": 2
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The doctrine of sovereign immunity means the federal government can never be sued by private citizens under any circumstances.",
+    "correction": "Federal sovereign immunity has significant exceptions: citizens can sue the government when it consents (via the Federal Tort Claims Act) or when Congress waives immunity through specific legislation.",
+    "difficulty": "hard",
+    "fcle_domain": 2
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Dual federalism means state and federal governments have always operated in completely separate policy spheres.",
+    "correction": "Even during the dual federalism era, there was overlap. The clean division between state and federal spheres was more theoretical than practical — commerce, taxation, and regulation always created friction.",
+    "difficulty": "hard",
+    "fcle_domain": 2
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Cooperative federalism began with the New Deal and has been the dominant model continuously since the 1930s.",
+    "correction": "While the New Deal accelerated cooperative federalism, it has evolved through distinct phases — creative federalism (Great Society), new federalism (Reagan devolution), and coercive federalism (unfunded mandates).",
+    "difficulty": "hard",
+    "fcle_domain": 2
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The Tenth Amendment reserves all powers to the states unless the federal government explicitly claims them.",
+    "correction": "The Tenth Amendment reserves powers not delegated to the federal government nor prohibited to the states. However, the Necessary and Proper Clause and Commerce Clause give Congress implied powers that limit state sovereignty.",
+    "difficulty": "hard",
+    "fcle_domain": 2
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "McCulloch v. Maryland established that states can tax federal operations within their borders.",
+    "correction": "McCulloch (1819) held the opposite: states cannot tax federal instruments. The ruling established that 'the power to tax is the power to destroy,' protecting federal supremacy from state interference.",
+    "difficulty": "hard",
+    "fcle_domain": 2
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Unfunded mandates are unconstitutional because the federal government cannot force states to spend money.",
+    "correction": "Unfunded mandates are constitutionally permissible under the Spending and Commerce Clauses. The Unfunded Mandates Reform Act (1995) requires cost analysis but does not make them unconstitutional.",
+    "difficulty": "hard",
+    "fcle_domain": 2
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Checks and balances means each branch can veto any action by the other two branches equally.",
+    "correction": "Checks are asymmetric — Congress has the most expansive checks (power of the purse, impeachment, confirmation, override veto), while the judiciary's primary check is judicial review of legislative and executive actions.",
+    "difficulty": "hard",
+    "fcle_domain": 2
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Separation of powers and checks and balances are essentially the same constitutional concept.",
+    "correction": "Separation of powers divides governmental authority into distinct branches with assigned functions. Checks and balances are the mechanisms each branch uses to limit the others — they are complementary but distinct concepts.",
+    "difficulty": "hard",
+    "fcle_domain": 2
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The signing statement is a constitutional tool presidents use to formally veto parts of legislation they disagree with.",
+    "correction": "Signing statements are not vetoes. They are presidential pronouncements on interpreting statutes. While controversial, they do not nullify law — Congress can still override, and courts may disregard them.",
+    "difficulty": "hard",
+    "fcle_domain": 2
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Legislative veto provisions, where Congress can overturn executive agency actions by a simple resolution, are constitutional.",
+    "correction": "The Supreme Court ruled in INS v. Chadha (1983) that legislative vetoes violate the bicameralism and presentment requirements of Article I, making them unconstitutional regardless of how widely they were used.",
+    "difficulty": "hard",
+    "fcle_domain": 2
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The nondelegation doctrine prevents Congress from giving any of its lawmaking authority to executive agencies.",
+    "correction": "While the nondelegation doctrine theoretically limits congressional delegation, the Court has upheld broad delegations if Congress provides an 'intelligible principle' to guide agencies. The doctrine has been largely dormant since 1935.",
+    "difficulty": "hard",
+    "fcle_domain": 2
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "A constitutional convention called by two-thirds of the states could only consider the specific amendments the states requested.",
+    "correction": "Article V is silent on whether a convention is limited to specific topics. Legal scholars debate whether a convention could propose wholesale constitutional revision — this is called the 'runaway convention' problem.",
+    "difficulty": "hard",
+    "fcle_domain": 2
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The Equal Rights Amendment was never ratified because it failed to get the required three-fourths of state legislatures.",
+    "correction": "The ERA did achieve ratification by the required number of states, but the congressional deadline expired before the final ratifications. Legal disputes continue over whether the deadline is enforceable.",
+    "difficulty": "hard",
+    "fcle_domain": 2
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Once an amendment is proposed by Congress, it remains pending indefinitely until enough states ratify it.",
+    "correction": "Congress typically sets ratification deadlines for amendments. The Supreme Court ruled in Coleman v. Miller (1939) that Congress has authority over the ratification process, including time limits.",
+    "difficulty": "hard",
+    "fcle_domain": 2
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The Twenty-Seventh Amendment proves that amendments can be ratified centuries after being proposed without any time limit.",
+    "correction": "The 27th Amendment's 202-year ratification was historically unique and legally disputed. While it established a precedent, it does not definitively settle whether all pending amendments remain perpetually viable.",
+    "difficulty": "hard",
+    "fcle_domain": 2
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "State conventions for ratifying amendments are just informal advisory bodies with no real legal authority.",
+    "correction": "Ratifying conventions are constitutionally equivalent to state legislatures under Article V. They have full legal authority to ratify or reject amendments, and their decision is binding.",
+    "difficulty": "hard",
+    "fcle_domain": 2
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The Bill of Rights originally applied to all government actions — federal, state, and local — from the beginning.",
+    "correction": "The Bill of Rights initially constrained only the federal government. Most provisions were extended to the states through the Fourteenth Amendment's Due Process Clause via 'incorporation' — a process spanning decades.",
+    "difficulty": "hard",
+    "fcle_domain": 2
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The Second Amendment's right to bear arms has always been interpreted as an individual right unrelated to militia service.",
+    "correction": "For most of American history, courts interpreted the Second Amendment as linked to militia service. The individual right interpretation was established by the Supreme Court only in District of Columbia v. Heller (2008).",
+    "difficulty": "hard",
+    "fcle_domain": 2
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The Establishment Clause requires strict separation of all religious expression from public life.",
+    "correction": "The Establishment Clause has been interpreted through multiple tests (Lemon test, coercion test, endorsement test) with shifting standards. It prohibits government endorsement of religion but does not require erasing all religious references from public life.",
+    "difficulty": "hard",
+    "fcle_domain": 2
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The Ninth Amendment is a meaningless catch-all with no practical legal effect on constitutional interpretation.",
+    "correction": "The Ninth Amendment has been cited in privacy rights cases (Griswold v. Connecticut) and serves as a rule of construction: the enumeration of rights does not deny or disparage other unenumerated rights retained by the people.",
+    "difficulty": "hard",
+    "fcle_domain": 2
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The incorporation doctrine was established immediately after the Fourteenth Amendment was ratified in 1868.",
+    "correction": "Incorporation began gradually with Gitlow v. New York (1925) and accelerated in the 1940s–1960s. Even today, some Bill of Rights provisions (like the grand jury requirement of the 5th Amendment) are not fully incorporated.",
+    "difficulty": "hard",
+    "fcle_domain": 2
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The Tenth Amendment to the Bill of Rights is the most litigated amendment because it protects broad state sovereignty.",
+    "correction": "Despite its broad language, the Tenth Amendment was considered a 'truism' for decades (United States v. Darby, 1941). It gained teeth only in the 1990s (New York v. United States, Printz v. United States) as a limit on federal commandeering.",
+    "difficulty": "hard",
+    "fcle_domain": 2
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "State constitutions are basically simplified copies of the US Constitution with the same structure and rights.",
+    "correction": "State constitutions vary enormously in length, structure, and content. Many are far longer and more detailed than the federal Constitution, containing provisions on education, environment, and policy that the federal document omits.",
+    "difficulty": "hard",
+    "fcle_domain": 2
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Home rule gives local governments constitutional autonomy independent of state control.",
+    "correction": "Home rule is granted by state constitutions or statutes and can be modified or revoked by the state. Local governments are creatures of the state with no independent constitutional existence (Dillon's Rule).",
+    "difficulty": "hard",
+    "fcle_domain": 2
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "State supreme courts must follow US Supreme Court precedent on matters of state constitutional law.",
+    "correction": "State supreme courts are the final interpreters of their own state constitutions and can provide greater protections than the federal Constitution requires, as long as they do not violate federal minimum standards.",
+    "difficulty": "hard",
+    "fcle_domain": 2
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "City charters function the same way as state constitutions and provide the same level of governmental authority.",
+    "correction": "City charters are municipal governing documents granted by the state, not constitutions. They define local government structure but remain subordinate to both state and federal law.",
+    "difficulty": "hard",
+    "fcle_domain": 2
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Interstate compacts are unconstitutional agreements between states that violate federal supremacy.",
+    "correction": "The Constitution explicitly permits interstate compacts (Article I, Section 10) with congressional consent. Major examples include the Port Authority of New York and the Colorado River Compact.",
+    "difficulty": "hard",
+    "fcle_domain": 2
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The federal bureaucracy is a fourth branch of government with its own constitutional foundation.",
+    "correction": "The bureaucracy has no constitutional foundation as a separate branch. Federal agencies are creations of Congress under Article I and Article II, and all agency power derives from statutory delegation, not the Constitution itself.",
+    "difficulty": "hard",
+    "fcle_domain": 2
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Independent regulatory agencies like the FCC and SEC are fully controlled by the president because they are part of the executive branch.",
+    "correction": "Independent agencies are designed to be insulated from presidential control. Commissioners serve fixed staggered terms and can only be removed 'for cause,' unlike cabinet secretaries who serve at presidential pleasure.",
+    "difficulty": "hard",
+    "fcle_domain": 2
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Administrative law judges (ALJs) are regular federal judges appointed under Article III of the Constitution.",
+    "correction": "ALJs are executive branch employees, not Article III judges. They conduct hearings for federal agencies but their decisions are reviewable by the actual federal judiciary and do not have the same independence.",
+    "difficulty": "hard",
+    "fcle_domain": 2
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Iron triangles — the alliance between agencies, interest groups, and congressional committees — are formally established in the Constitution.",
+    "correction": "Iron triangles are informal political relationships that emerged organically. They are not constitutionally created or sanctioned; they are a descriptive theory of how policy subsystems develop and resist change.",
+    "difficulty": "hard",
+    "fcle_domain": 2
+  }
+]

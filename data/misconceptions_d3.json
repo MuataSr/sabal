@@ -1,0 +1,352 @@
+[
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Declaration establishes Hobbesian social contract surrendering all rights to sovereign",
+    "correction": "The Declaration reflects Lockean theory where government authority derives from consent, and citizens retain the right to abolish tyrannical government.",
+    "difficulty": "hard",
+    "fcle_domain": 3
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Jefferson invented entirely original philosophical arguments in the Declaration",
+    "correction": "Jefferson synthesized ideas from Locke's Second Treatise, British Whig tradition, and Enlightenment philosophy rather than creating novel political theory.",
+    "difficulty": "hard",
+    "fcle_domain": 3
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The Declaration functioned as a governing charter establishing American institutions",
+    "correction": "The Declaration is a philosophical justification for separation and statement of principles, not a constitutional framework creating political institutions.",
+    "difficulty": "hard",
+    "fcle_domain": 3
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The grievances against George III were purely emotional rhetoric without legal basis",
+    "correction": "The grievances constitute a formal legal indictment citing specific violations of British constitutional law, colonial charter rights, and established governance norms.",
+    "difficulty": "hard",
+    "fcle_domain": 3
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Self-evident truths require no philosophical reasoning to understand",
+    "correction": "Jefferson used self-evident in the Enlightenment epistemological sense: truths accessible through rational inquiry and natural reason, not mere empirical observation.",
+    "difficulty": "hard",
+    "fcle_domain": 3
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Locke's influence on Declaration limited to 'life, liberty, pursuit of happiness'",
+    "correction": "Lockean philosophy pervades the Declaration's entire structure: natural rights theory, consent of the governed, right of revolution, and government's purpose.",
+    "difficulty": "hard",
+    "fcle_domain": 3
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Consent of the governed means direct democracy requiring every citizen's vote",
+    "correction": "Consent means legitimate political authority derives from the people collectively through representation, not that each individual must approve every governmental action.",
+    "difficulty": "hard",
+    "fcle_domain": 3
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Declaration completely rejected British political tradition and philosophy",
+    "correction": "The Declaration appealed to British constitutional principles and rights of Englishmen, arguing George III violated the very traditions colonists claimed as birthright.",
+    "difficulty": "hard",
+    "fcle_domain": 3
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The Articles' weakness was an accidental drafting flaw",
+    "correction": "The weakness was deliberate, reflecting Revolutionary philosophy that centralized power inevitably leads to tyranny, informed by colonial experience under British rule.",
+    "difficulty": "hard",
+    "fcle_domain": 3
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The Articles achieved nothing of lasting significance",
+    "correction": "The Northwest Ordinance of 1787 established the framework for territorial expansion, banning slavery in the Northwest Territory and creating the statehood admission process still used today.",
+    "difficulty": "hard",
+    "fcle_domain": 3
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "States ignored requisitions simply out of laziness",
+    "correction": "States refused requisitions because the Confederation had no enforcement power, revealing a structural flaw in a system relying on voluntary state compliance for national revenue.",
+    "difficulty": "hard",
+    "fcle_domain": 3
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The Articles lacked an executive branch by oversight",
+    "correction": "The absence of an executive was deliberate, reflecting Revolutionary fears of monarchical power and a philosophical commitment to legislative supremacy over executive authority.",
+    "difficulty": "hard",
+    "fcle_domain": 3
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The requisition system effectively funded national government",
+    "correction": "The requisition system was an economic failure because states frequently underpaid or ignored federal requests entirely, leaving the national government unable to pay war debts.",
+    "difficulty": "hard",
+    "fcle_domain": 3
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The Articles successfully managed foreign policy",
+    "correction": "Britain refused to evacuate frontier forts and Spain blocked Mississippi River navigation, exposing the Confederation's inability to enforce treaties or compel foreign compliance.",
+    "difficulty": "hard",
+    "fcle_domain": 3
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The Northwest Ordinance merely divided western land",
+    "correction": "The Ordinance prohibited slavery in the Northwest Territory, established a path to equal statehood, and guaranteed civil liberties that influenced later constitutional development.",
+    "difficulty": "hard",
+    "fcle_domain": 3
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The Confederation Congress could enforce its own laws",
+    "correction": "Congress under the Articles could declare war and make treaties but could not compel state compliance, lacking an executive branch to enforce and a national judiciary to interpret laws.",
+    "difficulty": "hard",
+    "fcle_domain": 3
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The Commerce Clause granted Congress unlimited power to regulate all economic activity nationwide.",
+    "correction": "The Commerce Clause primarily aimed to prevent interstate trade wars and create a national free trade zone. It addressed collective action problems among states, not blanket regulatory authority over all economic activity.",
+    "difficulty": "hard",
+    "fcle_domain": 3
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The Necessary and Proper Clause is an independent grant of unlimited legislative power to Congress.",
+    "correction": "The Necessary and Proper Clause is a means-ends instrument that requires connection to an enumerated power. It amplifies federal authority but cannot independently create new legislative powers beyond those enumerated.",
+    "difficulty": "hard",
+    "fcle_domain": 3
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Implied powers represent unconstitutional federal overreach beyond the Framers' original design.",
+    "correction": "The Framers deliberately embedded implied powers through the Necessary and Proper Clause. Federalists argued this flexibility was essential for governance, while Anti-Federalists feared it as a path to consolidation.",
+    "difficulty": "hard",
+    "fcle_domain": 3
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The Supremacy Clause makes all federal laws automatically supreme over state laws in every area.",
+    "correction": "The Supremacy Clause only elevates federal laws made 'in pursuance thereof'\u2014laws exceeding enumerated powers lack supremacy. This maintains the federalism balance by limiting national authority to constitutional bounds.",
+    "difficulty": "hard",
+    "fcle_domain": 3
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Article V's difficult amendment process was an unintentional design flaw causing harmful rigidity.",
+    "correction": "Article V's rigor was deliberately crafted to balance stability with adaptability. Madison designed it to prevent both hyper-malleability under passion and petrification, requiring broad consensus for fundamental change.",
+    "difficulty": "hard",
+    "fcle_domain": 3
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "'We the People' meant the Constitution was ratified through direct democratic popular vote.",
+    "correction": "The Constitution was ratified through specially convened state conventions, not referenda. 'We the People' asserted popular sovereignty bypassing state legislatures\u2014a radical theoretical claim Anti-Federalists fiercely contested.",
+    "difficulty": "hard",
+    "fcle_domain": 3
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The Preamble is purely decorative with no significance for constitutional interpretation or meaning.",
+    "correction": "While not granting enumerated powers, the Preamble articulates six constitutional purposes and establishes an interpretive framework. Courts reference it to discern the document's fundamental aims and commitments.",
+    "difficulty": "hard",
+    "fcle_domain": 3
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The Necessary and Proper Clause and Supremacy Clause together eliminate state sovereignty completely.",
+    "correction": "These clauses enhance federal power but preserve dual sovereignty. States retain independent constitutional authority in reserved powers, and the Tenth Amendment explicitly confirms this federalism framework.",
+    "difficulty": "hard",
+    "fcle_domain": 3
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Madison sought to eliminate factions through government regulation",
+    "correction": "Madison argued factions cannot be eliminated without destroying liberty itself; the extended republic controls faction effects through diversity and competition among interests.",
+    "difficulty": "hard",
+    "fcle_domain": 3
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Madison believed small republics better control factional violence",
+    "correction": "Madison inverted classical republican theory, arguing large republics control factions better because geographic and interest diversity prevents any single faction from dominating.",
+    "difficulty": "hard",
+    "fcle_domain": 3
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Fed 10 advocates pure democracy for authentic popular rule",
+    "correction": "Madison explicitly condemns pure democracy, arguing representative government filters popular passions through deliberation, protecting minority rights against majority faction tyranny.",
+    "difficulty": "hard",
+    "fcle_domain": 3
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Representatives should directly mirror their constituents' views",
+    "correction": "Madison argues representatives should 'refine and enlarge' public views through deliberation, acting as filters of popular passion rather than mere mirrors of constituent opinion.",
+    "difficulty": "hard",
+    "fcle_domain": 3
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Fed 10 assumes social unity can overcome factional division",
+    "correction": "Madison identifies faction causes as inherent in human nature and liberty; eliminating factions requires destroying freedom, making diversity-based control the only viable solution.",
+    "difficulty": "hard",
+    "fcle_domain": 3
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Madison's pluralism expects factions to cooperate for common good",
+    "correction": "Madison relied not on cooperation but on competition among numerous factions, preventing any single faction from achieving majority dominance and oppressing others.",
+    "difficulty": "hard",
+    "fcle_domain": 3
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The extended republic requires cultural homogeneity to function",
+    "correction": "The extended republic works precisely because of heterogeneity - diverse competing interests, factions, and sects prevent any group from consolidating power over others.",
+    "difficulty": "hard",
+    "fcle_domain": 3
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Fed 10's representation amplifies popular will in governance",
+    "correction": "Representation deliberately tempers popular will through institutional mediation, allowing cooler deliberation to moderate the passions and self-interest of majority factions.",
+    "difficulty": "hard",
+    "fcle_domain": 3
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "\"Ambition counteracts ambition\" means leaders must be virtuous",
+    "correction": "Madison assumes the opposite: leaders are self-interested. Institutional design channels ambition to preserve liberty rather than relying on virtue.",
+    "difficulty": "hard",
+    "fcle_domain": 3
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Separation of powers and checks and balances are identical concepts",
+    "correction": "They are distinct. Separation divides functions into branches. Checks and balances allows branches to interfere in each other's powers, creating tension between the two principles.",
+    "difficulty": "hard",
+    "fcle_domain": 3
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The compound republic means federal government controls the states",
+    "correction": "Madison's compound republic means citizens are regulated by two distinct governments (state and federal), each sovereign in its sphere. Power is divided vertically, not consolidated.",
+    "difficulty": "hard",
+    "fcle_domain": 3
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Federalist 51 advocates limiting government power by keeping it weak",
+    "correction": "Madison argues government must first be strong enough to control the governed, then structural mechanisms like separation of powers limit that strength to protect liberty.",
+    "difficulty": "hard",
+    "fcle_domain": 3
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Madison's institutional design assumes human nature is generally good",
+    "correction": "Federalist 51 is profoundly pessimistic: \"if men were angels, no government would be necessary.\" Madison designs institutions precisely because humans are self-interested and power-hungry.",
+    "difficulty": "hard",
+    "fcle_domain": 3
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Checks and balances requires each branch to have exactly equal power",
+    "correction": "Equal power isn't required. Each branch needs sufficient ability to resist encroachment by others, creating mutual vulnerability rather than strict equality.",
+    "difficulty": "hard",
+    "fcle_domain": 3
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Federalist 51's \"double security\" refers only to bicameralism",
+    "correction": "Double security refers to federalism: power divided between state and federal governments, THEN separated into distinct departments within each level, creating two layers of protection.",
+    "difficulty": "hard",
+    "fcle_domain": 3
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Madison believed institutions alone prevent tyranny without civic participation",
+    "correction": "Federalist 51 states \"a dependence on the people is...the primary control on the government.\" Institutions supplement but cannot replace an engaged citizenry as the foundation.",
+    "difficulty": "hard",
+    "fcle_domain": 3
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Anti-Federalists lacked coherent political theory",
+    "correction": "Anti-Federalists drew on Montesquieu and classical republicanism, arguing republics require civic virtue preserved only in small, homogeneous communities with shared values.",
+    "difficulty": "hard",
+    "fcle_domain": 3
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Brutus feared presidential tyranny most",
+    "correction": "Brutus primarily warned of judicial tyranny through lifetime appointments and broad jurisdiction, predicting federal courts would swallow state courts and become oligarchic.",
+    "difficulty": "hard",
+    "fcle_domain": 3
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Anti-Federalists opposed adding a Bill of Rights",
+    "correction": "Anti-Federalists demanded a Bill of Rights as their fundamental objection, arguing without explicit protections the federal government would expand beyond its enumerated powers.",
+    "difficulty": "hard",
+    "fcle_domain": 3
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Standing army concerns were about wartime only",
+    "correction": "Anti-Federalists specifically warned against peacetime standing armies as instruments of tyranny enabling federal consolidation and oppression, violating core republican principles.",
+    "difficulty": "hard",
+    "fcle_domain": 3
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Cato and Centinel supported Madison's large republic theory",
+    "correction": "Cato and Centinel challenged Madison's extended republic theory, arguing from classical principles that large republics destroy civic virtue and accountability necessary for self-government.",
+    "difficulty": "hard",
+    "fcle_domain": 3
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Anti-Federalists wanted states abolished for national unity",
+    "correction": "Anti-Federalists defended state sovereignty as essential bulwarks against tyranny, believing consolidated government would inevitably oppress regardless of constitutional separation of powers.",
+    "difficulty": "hard",
+    "fcle_domain": 3
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Brutus supported judicial review as democratic check",
+    "correction": "Brutus warned judicial review would make the Supreme Court supreme over legislature and executive, creating an unelected oligarchy through lifetime appointments unaccountable to citizens.",
+    "difficulty": "hard",
+    "fcle_domain": 3
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Anti-Federalists agreed diversity controls factions",
+    "correction": "Anti-Federalists believed republics require shared civic virtue possible only in small homogeneous communities, arguing Madison's diversity would breed corruption rather than control factions.",
+    "difficulty": "hard",
+    "fcle_domain": 3
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Electoral College designed primarily to protect slaveholding interests",
+    "correction": "Federalist 68 explains the Electoral College's primary rationale was preventing demagoguery by using informed electors to select qualified presidents, though it incidentally bolstered slave state power through the three-fifths clause.",
+    "difficulty": "hard",
+    "fcle_domain": 3
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The Federalist Papers are objective, dispassionate political theory",
+    "correction": "The Federalist was strategic propaganda authored under 'Publius' to persuade New York's ratifying convention, functioning as urgent political persuasion literature rather than detached philosophical treatises.",
+    "difficulty": "hard",
+    "fcle_domain": 3
+  }
+]

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Welcome — FCLE Study Buddy{% endblock %}
+{% block bottom_nav %}{% endblock %}
+
+{% block content %}
+<div class="auth-card">
+  <h1>Let's Get Started</h1>
+  <p class="subtitle">A few quick questions to personalize your FCLE study plan.</p>
+
+  <form method="POST" action="/onboarding">
+    <div class="form-group">
+      <label for="display_name">What should we call you?</label>
+      <input type="text" id="display_name" name="display_name"
+             placeholder="Your first name"
+             value="{{ user.display_name if user and user.display_name != 'Student' else '' }}">
+    </div>
+    <div class="form-group">
+      <label for="exam_date">When is your FCLE exam?</label>
+      <input type="date" id="exam_date" name="exam_date"
+             value="{{ user.exam_date if user and user.exam_date else '' }}">
+    </div>
+    <div class="form-group">
+      <label for="target_score">Target score: <strong id="target-display">{{ user.target_score if user else 80 }}</strong>%</label>
+      <input type="range" id="target_score" name="target_score"
+             min="0" max="100" value="{{ user.target_score if user else 80 }}"
+             style="width: 100%; accent-color: var(--navy);"
+             oninput="document.getElementById('target-display').textContent = this.value">
+    </div>
+    <button type="submit" class="submit-btn" style="margin-top: 8px;">Get Started</button>
+  </form>
+
+  <p class="auth-link"><a href="/">Skip for now</a></p>
+</div>
+{% endblock %}

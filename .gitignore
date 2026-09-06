@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+venv/
+.env
+*.log
+
+# Pre-refactor backups (historical noise)
+*.bak.pre-progress
+
+# Runtime / user data (never commit)
+data/user_progress.db
+data/fcle_kb.db
+data/fcle_questions.db
+fcle_questions.db
+
+# OS
+.DS_Store

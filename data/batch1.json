@@ -1,0 +1,72 @@
+[
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Marbury established judicial review for state courts, not just federal statutes.",
+    "correction": "While Marbury established federal judicial review, later cases like Martin v. Hunter's Lessee affirmed the Supreme Court's power to review state court decisions involving federal law.",
+    "difficulty": "hard",
+    "fcle_domain": 4
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Selective incorporation currently relies on the 14th Amendment's Privileges or Immunities Clause instead of Due Process.",
+    "correction": "Following the Slaughterhouse Cases, the Supreme Court effectively gutted the Privileges or Immunities Clause, relying almost exclusively on the 14th Amendment's Due Process Clause for incorporation.",
+    "difficulty": "hard",
+    "fcle_domain": 4
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Roe v. Wade grounded the right to an abortion exclusively in the 14th Amendment's Equal Protection Clause.",
+    "correction": "Roe primarily relied on the 14th Amendment's substantive due process right to privacy, though later cases like Casey heavily incorporated equal protection arguments before Roe was overturned.",
+    "difficulty": "hard",
+    "fcle_domain": 4
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "McCulloch v. Maryland established that the Necessary and Proper Clause is an independent source of congressional power.",
+    "correction": "McCulloch clarified that the Necessary and Proper Clause is not an independent grant of power, but grants Congress the authority to execute its enumerated powers effectively.",
+    "difficulty": "hard",
+    "fcle_domain": 4
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Brown v. Board rejected 'separate but equal' because the 14th Amendment explicitly mandates a colorblind Constitution.",
+    "correction": "Brown ruled segregated schools are inherently unequal based on concrete psychological realities of segregation, not because the 14th Amendment strictly bans all race-conscious state action.",
+    "difficulty": "hard",
+    "fcle_domain": 4
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Shaw v. Reno established that any consideration of race in redistricting inherently violates the Equal Protection Clause.",
+    "correction": "Shaw held that race cannot be the predominant factor in redistricting unless it passes strict scrutiny; compact majority-minority districts are routinely upheld by the Court.",
+    "difficulty": "hard",
+    "fcle_domain": 4
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Baker v. Carr required federal courts to resolve all political gerrymandering claims under the Equal Protection Clause.",
+    "correction": "Baker established malapportionment claims as justiciable, but the Court later ruled partisan gerrymandering is a non-justiciable political question left to state legislatures.",
+    "difficulty": "hard",
+    "fcle_domain": 4
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Incorporation prevents state courts from using their own state constitutions to provide rights beyond the federal baseline.",
+    "correction": "Incorporation sets a minimum federal standard. State supreme courts can independently interpret their own constitutions to grant broader civil liberties than the US Supreme Court.",
+    "difficulty": "hard",
+    "fcle_domain": 4
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Justice Cardozo's Palko v. Connecticut decision implemented total incorporation of the Bill of Rights to the states.",
+    "correction": "Palko established selective incorporation, reasoning only fundamental rights essential to ordered liberty apply to the states, a framework later expanded to cover most of the Bill of Rights.",
+    "difficulty": "hard",
+    "fcle_domain": 4
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Overturning Roe v. Wade completely eliminated the doctrine of substantive due process from American constitutional law.",
+    "correction": "The Dobbs decision rejected the specific right to abortion under substantive due process, but explicitly reaffirmed other substantive due process rights like contraception and marriage.",
+    "difficulty": "hard",
+    "fcle_domain": 4
+  }
+]

@@ -1,0 +1,352 @@
+[
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Locke's natural rights are identical to the legal rights granted by the Constitution.",
+    "correction": "Natural rights (life, liberty, property) exist independently of government in Locke's philosophy. The Constitution creates legal rights that protect natural rights, but they are not the same concept.",
+    "difficulty": "hard",
+    "fcle_domain": 1
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Montesquieu invented the separation of powers, and the Founders copied his model directly.",
+    "correction": "Separation of powers has roots in ancient Greek and Roman political thought. Montesquieu articulated its modern form in The Spirit of the Laws, but the Founders adapted and modified it significantly.",
+    "difficulty": "hard",
+    "fcle_domain": 1
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Locke believed natural rights are granted by the government to protect citizens.",
+    "correction": "Locke argued that natural rights exist in the state of nature prior to any government. Government is formed specifically to secure pre-existing natural rights, not to create them.",
+    "difficulty": "hard",
+    "fcle_domain": 1
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The Declaration's 'pursuit of happiness' was Locke's original phrasing for natural rights.",
+    "correction": "Jefferson replaced Locke's 'property' with 'pursuit of happiness,' broadening the concept beyond material possessions. This was a deliberate philosophical modification, not a direct quote.",
+    "difficulty": "hard",
+    "fcle_domain": 1
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Montesquieu's separation of powers means each branch operates independently with no checks on the others.",
+    "correction": "Montesquieu argued for checks and balances alongside separation. The branches must be distinct but also serve to restrain one another to prevent any single branch from dominating.",
+    "difficulty": "hard",
+    "fcle_domain": 1
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Locke's state of nature was chaotic and violent, which is why people needed government.",
+    "correction": "Locke's state of nature was generally peaceful and governed by natural law. People formed government not to escape chaos but to resolve disputes more impartially and protect property rights.",
+    "difficulty": "hard",
+    "fcle_domain": 1
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The social contract is a literal written document that citizens sign when they become adults.",
+    "correction": "The social contract is a philosophical concept describing an implicit agreement among citizens and between citizens and government. It is not a physical document but a theoretical framework for political legitimacy.",
+    "difficulty": "hard",
+    "fcle_domain": 1
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Once a social contract is formed, it cannot be broken or altered by the people.",
+    "correction": "Locke explicitly argued that if government violates the trust placed in it, the people retain the right to dissolve the social contract and form a new government — a right reflected in the Declaration of Independence.",
+    "difficulty": "hard",
+    "fcle_domain": 1
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The U.S. Constitution is based on Rousseau's version of the social contract.",
+    "correction": "The American system draws primarily from Locke's social contract, which emphasizes individual rights and consent. Rousseau's concept of the 'general will' prioritizing collective interests was less influential.",
+    "difficulty": "hard",
+    "fcle_domain": 1
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Social contract theory means citizens must always obey government, even when it becomes tyrannical.",
+    "correction": "Locke's social contract includes a right of revolution. Government authority is conditional on protecting rights; when it fails, citizens are justified in resisting — this is a core Founding principle.",
+    "difficulty": "hard",
+    "fcle_domain": 1
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The social contract and the Constitution are interchangeable terms for the same concept.",
+    "correction": "The social contract is a philosophical justification for government's legitimacy. The Constitution is a specific legal document that operationalizes social contract principles into binding law.",
+    "difficulty": "hard",
+    "fcle_domain": 1
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Hobbes and Locke fundamentally agreed about human nature in the state of nature.",
+    "correction": "Hobbes viewed the state of nature as 'war of all against all' requiring absolute authority. Locke saw it as relatively peaceful, requiring only limited government to protect pre-existing rights.",
+    "difficulty": "hard",
+    "fcle_domain": 1
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Limited government means the government is too weak to accomplish significant national goals.",
+    "correction": "Limited government constrains government authority through constitutional checks, not capacity. The federal government can still exercise significant power within constitutionally defined boundaries.",
+    "difficulty": "hard",
+    "fcle_domain": 1
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The rule of law means laws never change, regardless of new circumstances or societal needs.",
+    "correction": "The rule of law means government action is constrained by established legal principles, not that laws are static. Laws can and should change through legitimate democratic processes.",
+    "difficulty": "hard",
+    "fcle_domain": 1
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The Bill of Rights created limited government — before it, the federal government had unlimited power.",
+    "correction": "The Constitution itself established limited government through enumerated powers and separation of powers. The Bill of Rights was added as additional explicit protections against federal overreach.",
+    "difficulty": "hard",
+    "fcle_domain": 1
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Limited government and small government are the same political concept.",
+    "correction": "Limited government means government authority is constitutionally constrained. Small government refers to the size and scope of government programs. One can support limited government but robust federal action within its proper sphere.",
+    "difficulty": "hard",
+    "fcle_domain": 1
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Judicial review is explicitly stated in the Constitution as a check on legislative power.",
+    "correction": "Judicial review was established in Marbury v. Madison (1803) through Chief Justice Marshall's reasoning. The Constitution never explicitly grants courts this power, though it is implied by judicial independence.",
+    "difficulty": "hard",
+    "fcle_domain": 1
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Popular sovereignty means the people vote directly on every law and policy decision.",
+    "correction": "Popular sovereignty means ultimate political authority resides with the people, exercised through elected representatives. The U.S. is a republic, not a direct democracy — citizens govern indirectly.",
+    "difficulty": "hard",
+    "fcle_domain": 1
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Popular sovereignty was a concept invented entirely by the American Founders.",
+    "correction": "Popular sovereignty has roots in Enlightenment philosophy (Locke, Rousseau) and earlier democratic traditions. The Founders adapted it but did not create it from scratch.",
+    "difficulty": "hard",
+    "fcle_domain": 1
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The Electoral College contradicts popular sovereignty because it can override the national popular vote.",
+    "correction": "The Electoral College is a mechanism of popular sovereignty operating at the state level. Each state's citizens choose electors, so the president is elected through indirect popular sovereignty.",
+    "difficulty": "hard",
+    "fcle_domain": 1
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Popular sovereignty means majority rule with no protections for minority rights.",
+    "correction": "American popular sovereignty is constitutionally constrained. Majority rule coexists with protections for minority rights through checks like the Bill of Rights and judicial review.",
+    "difficulty": "hard",
+    "fcle_domain": 1
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The preamble's 'We the People' is purely symbolic language with no real legal significance.",
+    "correction": "While the preamble is not itself enforceable law, 'We the People' establishes the constitutional principle of popular sovereignty as the source of government legitimacy.",
+    "difficulty": "hard",
+    "fcle_domain": 1
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The U.S. has always had universal suffrage — the Founders intended for everyone to vote from the start.",
+    "correction": "Voting was initially restricted to white male property owners. Suffrage expanded incrementally over centuries — eliminating property requirements, extending voting to Black men (15th), women (19th), and 18-year-olds (26th).",
+    "difficulty": "hard",
+    "fcle_domain": 1
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Voter turnout in the U.S. is low because Americans are inherently less political than other citizens.",
+    "correction": "U.S. turnout is lower due to structural factors: voter registration hurdles, election-day-only voting in many states, and fewer national holidays on election day compared to other democracies.",
+    "difficulty": "hard",
+    "fcle_domain": 1
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The National Voter Registration Act solved the voter registration problem completely.",
+    "correction": "The NVRA (1993) increased registration rates but did not eliminate barriers. Many eligible citizens remain unregistered, and registration does not guarantee turnout on election day.",
+    "difficulty": "hard",
+    "fcle_domain": 1
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Closed primaries are undemocratic because they prevent independent voters from having any influence.",
+    "correction": "Closed primaries allow party members to select their own nominees, which is a form of associational freedom. Open primaries raise concerns about crossover voting, so states balance competing democratic values differently.",
+    "difficulty": "hard",
+    "fcle_domain": 1
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Midterm elections have lower turnout because they don't matter as much as presidential elections.",
+    "correction": "Midterms determine control of Congress, which directly shapes legislation, oversight, and budgeting. Their policy impact is enormous; lower turnout reflects mobilization differences, not diminished importance.",
+    "difficulty": "hard",
+    "fcle_domain": 1
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Compulsory voting would be unconstitutional because it violates the First Amendment.",
+    "correction": "No court has ruled compulsory voting unconstitutional. Many democracies require voting, and while the U.S. protects free speech, courts have upheld other compulsory civic duties like jury service.",
+    "difficulty": "hard",
+    "fcle_domain": 1
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The secret ballot (Australian ballot) was part of American elections from the founding era.",
+    "correction": "The secret ballot was not adopted in the U.S. until the late 1880s. Early American elections used voice votes or party-printed ballots, making voter choices publicly observable.",
+    "difficulty": "hard",
+    "fcle_domain": 1
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The Founders intended for political parties to be a central part of American democracy.",
+    "correction": "Washington and Madison warned against factional parties in their writings. Political parties emerged despite Founders' intentions, driven by disagreements over federal power and governance during the 1790s.",
+    "difficulty": "hard",
+    "fcle_domain": 1
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Interest groups are undemocratic because they only represent wealthy or corporate interests.",
+    "correction": "Interest groups span the ideological spectrum — labor unions, environmental organizations, civil rights groups, and grassroots movements represent diverse constituencies, not just corporate wealth.",
+    "difficulty": "hard",
+    "fcle_domain": 1
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Realignment and dealignment refer to the same process of partisan change in the electorate.",
+    "correction": "Realignment is a major, enduring shift in party coalitions (like the 1932 New Deal realignment). Dealignment is a weakening of party loyalty where voters become independent — these are distinct phenomena.",
+    "difficulty": "hard",
+    "fcle_domain": 1
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The Federalists and Anti-Federalists were the first political parties, functioning like Democrats and Republicans today.",
+    "correction": "The Federalist/Anti-Federalist split was primarily over ratifying the Constitution, not a stable party system. The first true parties (Federalists and Democratic-Republicans) emerged from governance disputes in the 1790s.",
+    "difficulty": "hard",
+    "fcle_domain": 1
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Interest groups always support one political party exclusively and never work across party lines.",
+    "correction": "Many interest groups are bipartisan, lobbying both parties simultaneously. Groups like AARP, the Chamber of Commerce, and defense contractors cultivate relationships across the political spectrum.",
+    "difficulty": "hard",
+    "fcle_domain": 1
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "A dealignment means a political party has permanently collapsed and will never recover.",
+    "correction": "Dealignment describes declining voter attachment to parties, not party collapse. Voters become independents rather than switching to another party, and realignment can later reorganize the party system.",
+    "difficulty": "hard",
+    "fcle_domain": 1
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Lobbying is inherently corrupt — there is no legitimate constitutional basis for citizens to petition government.",
+    "correction": "The First Amendment explicitly protects the right to petition government. Lobbying is a constitutionally protected form of political participation, though the revolving door and campaign finance raise legitimate concerns.",
+    "difficulty": "hard",
+    "fcle_domain": 1
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The bandwagon effect in polling proves polls should be banned to protect democracy.",
+    "correction": "While the bandwagon effect exists, polls also serve democratic functions by informing candidates about public preferences and helping voters assess competitiveness. Banning polls would reduce political transparency.",
+    "difficulty": "hard",
+    "fcle_domain": 1
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Public opinion is too unstable to be a reliable guide for democratic governance.",
+    "correction": "While opinions on specific issues fluctuate, core values and ideological orientations remain relatively stable over time. Scholars distinguish between volatile issue opinions and stable political attitudes.",
+    "difficulty": "hard",
+    "fcle_domain": 1
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Agenda-setting means the media tells people what to think about political issues.",
+    "correction": "Agenda-setting theory holds that media influences what issues the public considers important (what to think about), not what position to take. Framing theory more directly addresses how media shapes opinion.",
+    "difficulty": "hard",
+    "fcle_domain": 1
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "A sampling error of ±3% means the poll is wrong 3% of the time it is conducted.",
+    "correction": "Sampling error (margin of error) means the true population value likely falls within ±3% of the reported result, 95% of the time. It is a measure of precision, not an error rate.",
+    "difficulty": "hard",
+    "fcle_domain": 1
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Social media has completely replaced traditional media as the primary agenda-setter in politics.",
+    "correction": "Traditional media still sets the initial agenda for most political stories. Social media amplifies and filters these stories but often relies on legacy news organizations as original sources.",
+    "difficulty": "hard",
+    "fcle_domain": 1
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Public opinion polls become more accurate in election years because more people are paying attention.",
+    "correction": "Higher political engagement can introduce selection bias if certain demographics participate more than others. Accuracy depends on methodology, not simply the volume of public attention.",
+    "difficulty": "hard",
+    "fcle_domain": 1
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Initiatives and referendums are the same thing — both let citizens directly create new laws.",
+    "correction": "Initiatives allow citizens to propose new laws by petition. Referendums are measures referred to voters by the legislature, often for approval of laws already passed or constitutional amendments.",
+    "difficulty": "hard",
+    "fcle_domain": 1
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Direct democracy mechanisms like initiatives and recalls are available in all 50 states.",
+    "correction": "Only about half of U.S. states allow citizen-initiated ballot measures. The availability and rules for initiatives, referendums, and recalls vary significantly by state.",
+    "difficulty": "hard",
+    "fcle_domain": 1
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Recall elections violate representative democracy because voters should wait until the next election to remove officials.",
+    "correction": "Recalls are an accountability mechanism that complements representative democracy. They provide a check on officials who commit serious misconduct between regular election cycles.",
+    "difficulty": "hard",
+    "fcle_domain": 1
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "The initiative process is purely democratic and never influenced by wealthy donors or special interests.",
+    "correction": "Initiatives are frequently funded by wealthy individuals, corporations, or interest groups who hire firms to collect signatures and run campaigns. Money significantly shapes which measures reach the ballot.",
+    "difficulty": "hard",
+    "fcle_domain": 1
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Referendums are always about constitutional amendments and cannot be used for ordinary legislation.",
+    "correction": "Referendums can cover a wide range of questions including bond issues, tax changes, policy approvals, and constitutional amendments. Their scope depends on state law, not just constitutional matters.",
+    "difficulty": "hard",
+    "fcle_domain": 1
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Direct democracy tools like initiatives make representative government unnecessary.",
+    "correction": "Direct democracy mechanisms supplement but cannot replace representative government. Most governance — budgeting, administration, complex legislation — requires the institutional capacity that representatives provide.",
+    "difficulty": "hard",
+    "fcle_domain": 1
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Locke's natural rights philosophy applies only to American citizens, not to all human beings.",
+    "correction": "Locke's theory of natural rights is universal — all humans possess them by virtue of being human, regardless of citizenship. The Declaration of Independence echoes this universalist claim.",
+    "difficulty": "hard",
+    "fcle_domain": 1
+  },
+  {
+    "benchmark_code": "FCLE",
+    "misconception": "Gerrymandering is a modern problem that didn't exist during the Founding era.",
+    "correction": "The term 'gerrymander' dates to 1812 (Elbridge Gerry + salamander), but manipulating district boundaries for political advantage existed early. Patrick Henry gerrymandered a district against James Madison in 1788.",
+    "difficulty": "hard",
+    "fcle_domain": 1
+  }
+]
