@@ -4,6 +4,13 @@
 {% block content %}
 <div class="pricing-page">
 
+  {% if launch_free %}
+  <div class="launch-banner">
+    <strong>Launch beta</strong> — every feature is free right now. No card, no catch.
+    We'll announce well before anything changes.
+  </div>
+  {% endif %}
+
   <div class="pricing-header">
     <h1>Unlock unlimited practice</h1>
     <p class="pricing-sub">Free: {{ free_daily }} questions/day. Go premium for unlimited FCLE practice across all four domains.</p>

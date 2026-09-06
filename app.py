@@ -80,9 +80,26 @@ def inject_paywall():
     return {
         "current_user": _get_current_user(),
         "plan": plan,
-        "is_premium": platform_lib.is_premium(plan),
+        "is_premium": _premium_active(plan),
         "free_daily": platform_lib.FREE_DAILY_QUESTIONS,
     }
+
+
+# ---------------------------------------------------------------------------
+# Launch mode
+#
+# FREE LAUNCH (Sep 2026): FCLE ships free while we line up hosting + Square.
+# When FREE_LAUNCH is truthy, every user is treated as premium (unlimited
+# questions, full analytics) and paywall redirects are disabled. Flip to paid
+# by running with FCLE_FREE_LAUNCH=0 — no code changes needed.
+FREE_LAUNCH = os.environ.get("FCLE_FREE_LAUNCH", "1") == "1"
+
+
+def _premium_active(plan):
+    """Effective premium state — always true during free launch."""
+    if FREE_LAUNCH:
+        return True
+    return platform_lib.is_premium(plan)
 
 
 _FREE_LIMIT_MSG = ("You've hit today's free limit of 10 questions. "
@@ -91,7 +108,9 @@ _FREE_LIMIT_MSG = ("You've hit today's free limit of 10 questions. "
 
 def _questions_left_today():
     """Remaining free questions today for the current session.
-    Returns None when unlimited (paid plan); else int >= 0."""
+    Returns None when unlimited (free launch or paid plan); else int >= 0."""
+    if FREE_LAUNCH:
+        return None
     user_id = session.get("user_id")
     if not user_id:
         return platform_lib.FREE_DAILY_QUESTIONS
@@ -991,9 +1010,10 @@ def pricing():
     return render_template(
         "premium.html",
         plan=plan,
-        is_premium=platform_lib.is_premium(plan),
+        is_premium=_premium_active(plan),
         free_daily=platform_lib.FREE_DAILY_QUESTIONS,
         plan_price=platform_lib.PRICING[platform_lib.plan_for_app("fcle")],
+        launch_free=FREE_LAUNCH,
     )
 
 
@@ -1004,7 +1024,7 @@ def account():
     user_id = session.get("user_id", 1)
     user = _get_current_user() or {}
     plan = db.get_plan(user_id)
-    is_premium = platform_lib.is_premium(plan)
+    is_premium = _premium_active(plan)
     plan_key = platform_lib.plan_for_app("fcle")
     pinfo = platform_lib.PRICING[plan_key]
     used = db.count_answers_today(user_id)

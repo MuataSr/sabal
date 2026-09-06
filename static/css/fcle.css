@@ -790,3 +790,19 @@
 .plan-cta:disabled { opacity: 0.55; cursor: not-allowed; }
 .pricing-note { text-align: center; color: #667; font-size: 0.92rem; margin: 0.5rem 0; }
 .pricing-note a { color: var(--navy); }
+
+.pricing-note a { color: var(--navy); }
+
+/* Launch-beta banner (Sep 2026 free launch) */
+.launch-banner {
+  border: 1px solid var(--navy);
+  background: #F0F4F8;
+  color: var(--navy);
+  padding: 0.85rem 1.1rem;
+  margin: 0 auto 1.4rem;
+  max-width: 640px;
+  text-align: center;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+.launch-banner strong { text-transform: uppercase; letter-spacing: 0.06em; }
