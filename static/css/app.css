@@ -408,3 +408,9 @@ input:focus, select:focus, textarea:focus { border-color: var(--a-navy-500); box
 /* Misc chips/cards on diagnostic & stimulus pages */
 .pa-card, .stimulus-card { background: #fff; border: 1px solid var(--a-gray-200); border-radius: var(--a-radius); box-shadow: var(--a-shadow-sm); padding: 18px; }
 .pa-empty, .pa-note { color: var(--a-gray-500); }
+
+/* ── ID/specificity cleanups (beat legacy.css) ─────────────────── */
+#submit-btn, .submit-btn:disabled, #submit-btn:disabled {
+  background: var(--a-navy-600) !important; color: #fff !important; opacity: .55; cursor: not-allowed;
+}
+#submit-btn:not(:disabled) { opacity: 1; }
