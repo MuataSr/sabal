@@ -390,10 +390,11 @@ def _premium_weak_areas(user_id):
 
 
 @app.route("/")
-@login_required
 def dashboard():
-    user_id = session["user_id"]
     user = _get_current_user()
+    if user is None:
+        return render_template("landing.html")
+    user_id = user["id"]
     stats = db.get_overall_stats(user_id)
     overall_pct = stats.get("overall_readiness", 0) or 0
 
