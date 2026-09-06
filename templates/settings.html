@@ -6,7 +6,7 @@
 
 <div class="settings-page">
 
-  {% if current_user and current_user.is_authenticated %}
+  {% if current_user and not current_user.get('is_anonymous') %}
 
   <!-- Profile -->
   <div class="settings-section">

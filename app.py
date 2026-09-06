@@ -35,6 +35,11 @@ app.secret_key = os.environ.get("FLASK_SECRET", os.urandom(24).hex())
 # Active quiz state now in SQLite (see db.py)
 db.init_active_quizzes_table()
 
+# Schema migrations (users.access_token, plan, etc.) must run on EVERY boot —
+# not only under `python3 app.py` __main__ — or gunicorn/wsgi entry points
+# serve a DB without the access_token column and signup crashes.
+db.init_db()
+
 # ---------------------------------------------------------------------------
 
 # ---------------------------------------------------------------------------
@@ -47,27 +52,48 @@ db.init_active_quizzes_table()
 # ---------------------------------------------------------------------------
 
 
-def _get_current_user_id():
-    user_id = session.get("user_id")
-    if not user_id:
-        user = db.create_anonymous_user()
-        session["user_id"] = user["id"]
-        session.permanent = True
-        return user["id"]
-    return user_id
-
-
 def _get_current_user():
+    """Resolve the current REGISTERED user (ORDER-portal style).
+
+    Order of resolution:
+      1. session['user_id'] — only if that row is a registered user
+         (is_anonymous=0). Stale or anonymous ids are dropped.
+      2. ?token= query param — validated against users.access_token
+         (the dashboard link).
+      3. access_token cookie — same validation.
+
+    Never creates anonymous users. A successful token/cookie lookup
+    establishes the Flask session so the internal session-based routes
+    keep working unchanged.
+    """
     user_id = session.get("user_id")
     if user_id:
-        return db.get_user(user_id)
+        user = db.get_user(user_id)
+        if user and not user.get("is_anonymous"):
+            return user
+        session.pop("user_id", None)
+
+    token = request.args.get("token") or request.cookies.get("access_token")
+    if token:
+        user = db.get_user_by_token(token)
+        if user:
+            session["user_id"] = user["id"]
+            session.permanent = True
+            return user
     return None
+
+
+def _get_current_user_id():
+    """Registered user id for this request, or None. Never auto-creates."""
+    user = _get_current_user()
+    return user["id"] if user else None
 
 
 def login_required(f):
     @wraps(f)
     def decorated(*args, **kwargs):
-        _get_current_user_id()
+        if _get_current_user_id() is None:
+            return redirect(url_for("login", next=request.path))
         return f(*args, **kwargs)
     return decorated
 
@@ -75,8 +101,7 @@ def login_required(f):
 @app.context_processor
 def inject_paywall():
     """Expose plan / premium state / free limits to all templates."""
-    user_id = session.get("user_id")
-    user = _get_current_user() if user_id else None
+    user = _get_current_user()
     plan = (user or {}).get("plan") or "free"
     return {
         "current_user": user,
@@ -91,12 +116,12 @@ def inject_paywall():
         # auth pages, and the question/answer/results screens of every
         # assessment flow. Dashboard/hub/tutor keep the shell.
         "standalone": request.endpoint in {
-            "login", "signup", "onboarding",
+            "login", "signup", "registered", "onboarding",
             "quiz_question", "quiz_answer", "quiz_results",
             "diagnostic_question", "diagnostic_answer", "diagnostic_results",
             "stimulus_practice_question", "stimulus_practice_results",
         },
-        "standalone_auth": request.endpoint in {"login", "signup", "onboarding"},
+        "standalone_auth": request.endpoint in {"login", "signup", "registered", "onboarding"},
     }
 
 
@@ -367,7 +392,7 @@ def _premium_weak_areas(user_id):
 @app.route("/")
 @login_required
 def dashboard():
-    user_id = session.get("user_id", 1)
+    user_id = session["user_id"]
     user = _get_current_user()
     stats = db.get_overall_stats(user_id)
     overall_pct = stats.get("overall_readiness", 0) or 0
@@ -406,7 +431,7 @@ def dashboard():
 @app.route("/quiz/<domain_slug>")
 @login_required
 def quiz_start(domain_slug):
-    user_id = session.get("user_id", 1)
+    user_id = session["user_id"]
     if domain_slug == "mixed":
         return quiz_start_mixed()
 
@@ -446,7 +471,7 @@ def quiz_start(domain_slug):
 
 
 def quiz_start_mixed():
-    user_id = session.get("user_id", 1)
+    user_id = session["user_id"]
     count = request.args.get("count", 10, type=int)
     count = min(count, 20)
 
@@ -520,7 +545,7 @@ def quiz_answer(domain_slug, quiz_id, q_index):
         flash(_FREE_LIMIT_MSG, "info")
         return redirect("/pricing")
 
-    user_id = quiz.get("user_id", session.get("user_id", 1))
+    user_id = quiz.get("user_id", session["user_id"])
     questions = quiz["questions"]
     if q_index < 0 or q_index >= len(questions):
         return redirect("/")
@@ -714,7 +739,7 @@ def quiz_results(domain_slug, quiz_id):
 @app.route("/stats")
 @login_required
 def stats():
-    user_id = session.get("user_id", 1)
+    user_id = session["user_id"]
     overall_stats = db.get_overall_stats(user_id)
     overall_readiness = int(overall_stats.get("overall_readiness", 0) or 0)
 
@@ -814,7 +839,7 @@ def _build_diagnostic_questions():
 @app.route("/diagnostic", methods=["GET", "POST"])
 @login_required
 def diagnostic():
-    user_id = session.get("user_id", 1)
+    user_id = session["user_id"]
     already = db.has_diagnostic(user_id)
 
     if request.method == "POST":
@@ -903,7 +928,7 @@ def diagnostic_results(quiz_id):
 
     answers = quiz["answers"]
     taken_at = quiz["started_at"]
-    user_id = session.get("user_id", 1)
+    user_id = session["user_id"]
 
     # Build per-domain and per-topic results
     domain_results = {}
@@ -977,10 +1002,20 @@ def diagnostic_results(quiz_id):
     )
 
 
+@app.route("/settings/exam-date", methods=["POST"])
+@login_required
+def settings_exam_date():
+    user_id = session["user_id"]
+    exam_date = request.form.get("exam_date", "").strip() or None
+    db.update_user(user_id, exam_date=exam_date)
+    flash("Exam date saved.", "success")
+    return redirect("/settings")
+
+
 @app.route("/settings/reset", methods=["POST"])
 @login_required
 def settings_reset():
-    user_id = session.get("user_id", 1)
+    user_id = session["user_id"]
     db.reset_all_progress(user_id)
     flash("All progress has been reset.", "success")
     return redirect("/settings")
@@ -1002,22 +1037,30 @@ def settings_reset():
 def signup():
     if request.method == "POST":
         email = request.form.get("email", "").strip().lower()
-        password = request.form.get("password", "")
         display_name = request.form.get("display_name", "").strip() or "Student"
 
-        if not email or not password:
-            flash("Email and password are required.", "error")
+        if not email or "@" not in email or "." not in email:
+            flash("A valid email is required.", "error")
             return render_template("signup.html")
-        if len(password) < 8:
-            flash("Password must be at least 8 characters.", "error")
+        if len(display_name) > 60:
+            flash("Display name is too long.", "error")
             return render_template("signup.html")
 
         try:
-            user = db.create_user(email=email, password=password, display_name=display_name)
+            user = db.create_user(email=email, display_name=display_name)
+            if not user:
+                flash("Account could not be created. Please try again.", "error")
+                return render_template("signup.html")
+            # Account is provisioned & ready the moment registration completes —
+            # the dashboard link IS the entry. Personalization (exam date, target)
+            # stays optional in /settings; nothing blocks the dashboard.
+            db.update_user(user["id"], onboarding_done=1)
             session["user_id"] = user["id"]
             session.permanent = True
-            flash("Account created! Welcome to FCLE Study Buddy.", "success")
-            return redirect("/")
+            # ORDER-faithful: registration completes → user is issued their
+            # personal dashboard link automatically and taken to the page
+            # that hands it to them (no password anywhere in the flow).
+            return redirect("/registered")
         except ValueError as e:
             flash(str(e), "error")
             return render_template("signup.html")
@@ -1025,25 +1068,82 @@ def signup():
     return render_template("signup.html")
 
 
+def _try_email_dashboard_link(user, link):
+    """Email the user their dashboard link — ONLY if SMTP creds are configured.
+
+    FCLE has no email infrastructure yet (no SMTP creds, no .env). Until Mister K
+    supplies creds at deploy time this returns False and the on-screen link is the
+    only delivery channel. Never pretend an email was sent.
+    """
+    host = os.environ.get("SMTP_HOST")
+    if not host:
+        return False
+    try:
+        import smtplib
+        from email.mime.text import MIMEText
+        port = int(os.environ.get("SMTP_PORT", "587"))
+        sender = os.environ.get("SMTP_FROM") or os.environ.get("SMTP_USER")
+        recipient = (user or {}).get("email")
+        if not sender or not recipient:
+            return False
+        msg = MIMEText(
+            f"Hi {(user or {}).get('display_name') or 'Student'},\n\n"
+            f"Your FCLE Study Buddy dashboard link:\n\n{link}\n\n"
+            f"Open it and you'll land straight on your dashboard. Keep it safe — "
+            f"it's how you log in.\n\n— FCLE Study Buddy (Mu2 Solutions)",
+            "plain", "utf-8",
+        )
+        msg["Subject"] = "Your FCLE Study Buddy dashboard link"
+        msg["From"] = sender
+        msg["To"] = recipient
+        with smtplib.SMTP(host, port, timeout=15) as s:
+            s.starttls()
+            user_env = os.environ.get("SMTP_USER")
+            pwd = os.environ.get("SMTP_PASS")
+            if user_env:
+                s.login(user_env, pwd or "")
+            s.sendmail(sender, [recipient], msg.as_string())
+        return True
+    except Exception:
+        return False
+
+
+@app.route("/registered")
+@login_required
+def registered():
+    """Post-registration / returning-user handoff: show the user their
+    personal dashboard link (the link IS the login, ORDER-portal style)."""
+    user = _get_current_user()
+    if not user or not user.get("access_token"):
+        return redirect(url_for("login"))
+    link = request.url_root.rstrip("/") + "/?token=" + user["access_token"]
+    nxt = request.args.get("next") or "/"
+    email_sent = _try_email_dashboard_link(user, link)
+    return render_template("registered.html", user=user, dashboard_link=link,
+                           returning=request.args.get("r") == "1", next=nxt,
+                           email_sent=email_sent)
+
+
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
         email = request.form.get("email", "").strip().lower()
-        password = request.form.get("password", "")
 
-        if not email or not password:
-            flash("Email and password are required.", "error")
+        if not email:
+            flash("Enter your email to get your dashboard link.", "error")
             return render_template("login.html")
 
-        user = db.verify_login(email, password)
-        if not user:
-            flash("Invalid email or password.", "error")
+        user = db.get_user_by_email(email)
+        if not user or user.get("is_anonymous"):
+            flash("No account found with that email — create one below.", "error")
             return render_template("login.html")
 
+        # No password: the account's access link is the credential. Establish
+        # the session and take them to the page that re-issues their link.
         session["user_id"] = user["id"]
         session.permanent = True
-        flash(f"Welcome back, {user['display_name']}!", "success")
-        return redirect("/")
+        nxt = request.args.get("next") or ""
+        return redirect("/registered?r=1" + (f"&next={nxt}" if nxt else ""))
 
     return render_template("login.html")
 
@@ -1052,7 +1152,7 @@ def login():
 def logout():
     session.clear()
     flash("Logged out. See you next time!", "success")
-    return redirect("/")
+    return redirect("/login")
 
 
 @app.route("/pricing")
@@ -1095,7 +1195,7 @@ def pricing():
 @login_required
 def account():
     """Student account portal — shared portal.html (see exam-prep-lms/platform)."""
-    user_id = session.get("user_id", 1)
+    user_id = session["user_id"]
     user = _get_current_user() or {}
     plan = user.get("plan") or "free"
     is_premium = _premium_active(user)
@@ -1151,7 +1251,7 @@ def account():
 @app.route("/onboarding", methods=["GET", "POST"])
 @login_required
 def onboarding():
-    user_id = session.get("user_id", 1)
+    user_id = session["user_id"]
     user = _get_current_user()
 
     if user and user.get("onboarding_done"):
@@ -1364,8 +1464,9 @@ def stimulus_practice_results(quiz_id):
 _tutor = tutor_engine.TutorEngine()
 
 @app.route('/tutor')
+@login_required
 def tutor_page():
-    user_id = session.get("user_id", 1)
+    user_id = session["user_id"]
     has_diagnostic = db.has_diagnostic(user_id)
     
     # Build domain progress
@@ -1431,6 +1532,7 @@ def tutor_page():
     )
 
 @app.route('/tutor/chat', methods=['POST'])
+@login_required
 def tutor_chat():
     data = request.get_json(force=True)
     message = data.get('message', '').strip()
@@ -1438,7 +1540,7 @@ def tutor_chat():
         return jsonify({'error': 'Empty message'}), 400
     domain = data.get('domain')
     history = data.get('history', [])
-    user_id = session.get("user_id", 1)
+    user_id = session["user_id"]
     
     # Save student message
     import sqlite3 as _sq
@@ -1471,9 +1573,10 @@ def tutor_status():
 
 
 @app.route('/tutor/history')
+@login_required
 def tutor_history():
     """Load persistent chat history for the current user."""
-    user_id = session.get("user_id", 1)
+    user_id = session["user_id"]
     limit = request.args.get("limit", 50, type=int)
     import sqlite3 as _sq
     try:

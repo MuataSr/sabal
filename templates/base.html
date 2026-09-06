@@ -143,9 +143,9 @@
     {% endwith %}
 
     {# ── Onboarding Redirect ── #}
-    {% if current_user and current_user.is_authenticated
-       and request.endpoint not in ['onboarding', 'login', 'signup']
-       and current_user.get('onboarding_done', current_user.onboarding_done if current_user.onboarding_done is defined else 1) == 0 %}
+    {% if current_user and not current_user.get('is_anonymous')
+       and request.endpoint not in ['onboarding', 'login', 'signup', 'registered', 'pricing']
+       and current_user.get('onboarding_done', 1) == 0 %}
     <script>window.location.href = "/onboarding";</script>
     {% endif %}
 

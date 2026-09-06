@@ -35,6 +35,7 @@ def init_db():
                 id              INTEGER PRIMARY KEY AUTOINCREMENT,
                 email           TEXT UNIQUE,
                 password_hash   TEXT,
+                access_token    TEXT,
                 display_name    TEXT NOT NULL DEFAULT 'Student',
                 exam_date       TEXT,
                 target_score    INTEGER DEFAULT 80,
@@ -102,6 +103,10 @@ def init_db():
 
         _migrate_add_column(conn, "users", "plan", "TEXT NOT NULL DEFAULT 'free'")
         _migrate_add_column(conn, "users", "premium_until", "TEXT")
+        _migrate_add_column(conn, "users", "access_token", "TEXT")
+
+        # ORDER-style unique token index (registered-user dashboard links).
+        conn.execute("CREATE UNIQUE INDEX IF NOT EXISTS idx_users_access_token ON users(access_token)")
 
         # FCLE one-time pricing flip (Sep 6, 2026): map any legacy fcle_monthly
         # grants to annual for goodwill (expect 0 — free-launch shipped no grants).
@@ -111,15 +116,6 @@ def init_db():
             conn.execute(
                 "UPDATE users SET plan='fcle_annual_12', premium_until=? WHERE plan='fcle_monthly'",
                 (until,),
-            )
-
-        # Ensure anonymous default user exists
-        row = conn.execute("SELECT id FROM users WHERE id=1").fetchone()
-        if not row:
-            now = datetime.utcnow().isoformat()
-            conn.execute(
-                "INSERT INTO users (id, email, display_name, is_anonymous, created_at) VALUES (1, NULL, 'Student', 1, ?)",
-                (now,),
             )
 
         conn.commit()
@@ -409,32 +405,45 @@ def _verify_password(password, stored):
     return hashlib.sha256(f"{salt}{password}".encode()).hexdigest() == hashed
 
 
+def generate_access_token():
+    """32-char sha256 token, ORDER-portal style (raw hex, exact-match lookup)."""
+    return hashlib.sha256(secrets.token_bytes(32)).hexdigest()[:32]
+
+
 def create_user(email=None, password=None, display_name="Student"):
+    """Create a REGISTERED user (never anonymous).
+
+    ORDER-faithful auth (FCLE Option 1): every user is a real account with an
+    access_token — the dashboard link. `password` is accepted for backward
+    compatibility with legacy callers but is no longer the auth mechanism;
+    it is stored (hashed) only if provided.
+    """
     now = datetime.utcnow().isoformat()
     password_hash = _hash_password(password) if password else None
+    token = generate_access_token()
     with _get_conn() as conn:
         if email:
-            existing = conn.execute("SELECT id FROM users WHERE email=?", (email,)).fetchone()
+            existing = conn.execute("SELECT id FROM users WHERE email=? AND is_anonymous=0", (email,)).fetchone()
             if existing:
                 raise ValueError("Email already registered")
         cur = conn.execute(
-            "INSERT INTO users (email, password_hash, display_name, is_anonymous, created_at) VALUES (?, ?, ?, 0, ?)",
-            (email, password_hash, display_name, now),
+            "INSERT INTO users (email, password_hash, access_token, display_name, is_anonymous, created_at) "
+            "VALUES (?, ?, ?, ?, 0, ?)",
+            (email, password_hash, token, display_name, now),
         )
         conn.commit()
         return get_user(cur.lastrowid)
 
 
-def create_anonymous_user():
-    now = datetime.utcnow().isoformat()
-    anon_id = secrets.token_hex(8)[:12].upper()
+def get_user_by_token(token):
+    """Look up a REGISTERED user by access_token (dashboard link login)."""
+    if not token:
+        return None
     with _get_conn() as conn:
-        cur = conn.execute(
-            "INSERT INTO users (display_name, is_anonymous, created_at) VALUES (?, 1, ?)",
-            (f"Student-{anon_id}", now),
-        )
-        conn.commit()
-        return get_user(cur.lastrowid)
+        row = conn.execute(
+            "SELECT * FROM users WHERE access_token=? AND is_anonymous=0", (token,)
+        ).fetchone()
+        return dict(row) if row else None
 
 
 def get_user(user_id):
@@ -451,7 +460,7 @@ def get_user_by_email(email):
 
 def verify_login(email, password):
     user = get_user_by_email(email)
-    if not user or not user.get("password_hash"):
+    if not user or user.get("is_anonymous") or not user.get("password_hash"):
         return None
     if _verify_password(password, user["password_hash"]):
         return user
