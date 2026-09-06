@@ -82,6 +82,7 @@ def inject_paywall():
         "plan": plan,
         "is_premium": _premium_active(plan),
         "free_daily": platform_lib.FREE_DAILY_QUESTIONS,
+        "launch_free": FREE_LAUNCH,
     }
 
 
@@ -333,6 +334,8 @@ def dashboard():
 
     recommendations = _build_recommendations(user_id)
     recent_sessions = _build_recent_sessions(user_id)
+    for s in recent_sessions:
+        s["domain_name"] = _pretty_domain(s.get("domain") or "Quiz")
 
     display_name = user["display_name"] if user else "Student"
     exam_days = _exam_countdown(user.get("exam_date") if user else None)

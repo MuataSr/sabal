@@ -1,98 +1,179 @@
 {% extends "base.html" %}
 
-{% block title %}Home — FCLE Study Buddy{% endblock %}
+{% block title %}Home — FCLE Study{% endblock %}
+
+{% block crumb %}Home{% endblock %}
 
 {% block content %}
 
-<!-- Greeting -->
-<h1 style="margin-bottom: 4px;">
-  {% if user and user.display_name %}{{ user.display_name }}{% else %}Hey there{% endif %}
-</h1>
-<p class="text-muted" style="margin-bottom: 24px;">Keep pushing — every question counts.</p>
-
-<!-- Overall Readiness -->
-<div style="text-align: center; margin-bottom: 24px;">
-  <div class="readiness-ring">
-    <svg viewBox="0 0 100 100">
-      <circle class="progress-ring-bg" cx="50" cy="50" r="42"/>
-      <circle class="progress-ring-circle" cx="50" cy="50" r="42"
-        stroke-dasharray="{{ 2 * 3.14159 * 42 }}"
-        stroke-dashoffset="{{ 2 * 3.14159 * 42 * (1 - overall_readiness / 100) }}"/>
-    </svg>
-    <span class="readiness-pct">{{ overall_readiness }}%</span>
+<!-- Heading -->
+<div class="a-heading">
+  <div>
+    <h1>{{ greeting }}, {{ display_name }}</h1>
+    <p class="lede">
+      {% if exam_days is not none %}
+      You're <strong style="color:var(--a-gray-700)">{{ overall_readiness }}% ready</strong> — {{ exam_days }} day{{ 's' if exam_days != 1 }} to your FCLE exam.
+      {% else %}
+      You're <strong style="color:var(--a-gray-700)">{{ overall_readiness }}% ready</strong> for the FCLE. Every question counts.
+      {% endif %}
+    </p>
   </div>
-  <div style="font-size: 0.82rem; color: var(--text-muted);">Overall Readiness</div>
+  <div class="a-actions">
+    <a href="/stats" class="btn-a btn-a-ghost">View progress</a>
+    <a href="/quiz/mixed" class="btn-a btn-a-primary">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m22 2-7 20-4-9-9-4z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Take a quiz
+    </a>
+  </div>
 </div>
 
-<!-- Exam Countdown -->
-{% if exam_date %}
-<div class="countdown-card">
-  <div class="countdown-days">{{ days_until_exam }}</div>
-  <div class="countdown-label">days until your FCLE exam</div>
-</div>
-{% endif %}
-
-<!-- Domain Cards -->
-<div class="domain-grid">
-  {% for dom in domains %}
-  <a href="/quiz/{{ dom.slug }}" class="domain-card">
-    <div class="domain-card-icon" style="background: {{ dom.color }};">
-      {{ dom.icon }}
+<!-- Stat cards -->
+<div class="a-cards">
+  <div class="a-card">
+    <div class="ic-row">
+      <span class="a-chip-icon ic-navy">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m4 13 5 5L20 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      <span class="a-tag green">▼ ready</span>
     </div>
-    <div class="domain-card-name">{{ dom.name }}</div>
-    <div class="domain-card-pct" style="color: {{ dom.color }};">{{ dom.readiness_pct }}%</div>
-    {% if dom.weak_count > 0 %}
-    <div class="domain-card-sub">{{ dom.weak_count }} weak topic{{ 's' if dom.weak_count != 1 }}</div>
+    <div class="c-label">Overall readiness</div>
+    <div class="c-value">{{ overall_readiness }}<small>%</small></div>
+    <div class="a-track"><i style="width: {{ overall_readiness }}%; background: {% if overall_readiness >= 80 %}var(--a-green-500){% elif overall_readiness >= 50 %}var(--a-navy-500){% else %}var(--a-gold-500){% endif %};"></i></div>
+    <div class="c-sub">across all four areas</div>
+  </div>
+
+  <div class="a-card">
+    <div class="ic-row">
+      <span class="a-chip-icon ic-gold">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+    </div>
+    <div class="c-label">Areas to strengthen</div>
+    <div class="c-value">{{ domains | map(attribute='weak_count') | sum }}<small> topic{{ 's' if (domains | map(attribute='weak_count') | sum) != 1 }}</small></div>
+    <div class="c-sub">below 60% mastery</div>
+  </div>
+
+  <div class="a-card">
+    <div class="ic-row">
+      <span class="a-chip-icon ic-green">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 5.6L20 8.6l-4.2 4 1.1 5.8L12 15.5l-4.9 2.9 1.1-5.8L4 8.6l5.6-1z"/></svg>
+      </span>
+    </div>
+    <div class="c-label">Latest session</div>
+    {% if recent_sessions %}
+    <div class="c-value">{{ recent_sessions[0].score }}<small>%</small></div>
+    <div class="c-sub">{{ recent_sessions[0].domain_name }} · {{ recent_sessions[0].date }}</div>
     {% else %}
-    <div class="domain-card-sub">All topics strong</div>
+    <div class="c-value" style="font-size:20px">Not yet</div>
+    <div class="c-sub">finish your first quiz above</div>
     {% endif %}
+  </div>
+
+  <div class="a-card">
+    <div class="ic-row">
+      <span class="a-chip-icon ic-red">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+      </span>
+    </div>
+    <div class="c-label">Exam countdown</div>
+    {% if exam_days is not none %}
+    <div class="c-value">{{ exam_days }}<small> days</small></div>
+    <div class="c-sub">keep the streak alive</div>
+    {% else %}
+    <div class="c-value" style="font-size:20px">Set a date</div>
+    <div class="c-sub"><a href="/settings" style="color:var(--a-navy-600);font-weight:600">in Settings →</a></div>
+    {% endif %}
+  </div>
+</div>
+
+<!-- CTA band -->
+<div class="a-cta">
+  <div>
+    <div class="cta-title">Ready for your next session?</div>
+    <div class="cta-sub">Mixed review pulls questions from all four civic literacy areas — a great daily warm-up.</div>
+  </div>
+  <div class="a-actions" style="flex-shrink:0">
+    <a href="/diagnostic" class="btn-a" style="background:rgba(255,255,255,.12);color:#fff">Diagnostic</a>
+    <a href="/quiz/mixed" class="btn-a btn-a-gold">Start mixed review</a>
+  </div>
+</div>
+
+<!-- Practice areas -->
+<div class="a-panel-head" style="border-bottom:none;padding:6px 2px 12px">
+  <h2>Practice areas</h2>
+  <span class="hint">Four domains · 2,175 questions</span>
+</div>
+<div class="a-grid4" style="margin-bottom:14px">
+  {% for dom in domains %}
+  <a href="/quiz/{{ dom.slug }}" class="a-card" style="text-decoration:none;display:block;transition:box-shadow .15s, transform .15s">
+    <div class="ic-row">
+      <span class="a-chip-icon" style="background: {{ dom.color }}1A; color: {{ dom.color }}; font-weight:800">{{ dom.domain_name[:1] }}</span>
+      <span class="a-tag" style="background: {{ dom.color }}1A; color: {{ dom.color }}">{{ dom.readiness_pct }}%</span>
+    </div>
+    <div class="c-label" style="margin-top:12px;color:var(--a-gray-700);font-weight:600">{{ dom.domain_name }}</div>
+    {% if dom.weak_count > 0 %}
+    <div class="c-sub">{{ dom.weak_count }} weak topic{{ 's' if dom.weak_count != 1 }}</div>
+    {% else %}
+    <div class="c-sub" style="color:var(--a-green-600)">All topics strong</div>
+    {% endif %}
+    <div class="a-track"><i style="width: {{ dom.readiness_pct }}%; background: {{ dom.color }};"></i></div>
   </a>
   {% endfor %}
 </div>
 
-<!-- Mixed Review Button -->
-<a href="/quiz/mixed" class="btn btn-primary btn-full" style="margin-bottom: 24px;">Start Mixed Review</a>
+<!-- Lower row -->
+<div class="a-grid2">
 
-<!-- Diagnostic CTA -->
-<div style="background: linear-gradient(135deg, rgba(27,67,50,0.06) 0%, rgba(27,67,50,0.12) 100%); border-radius: 10px; padding: 1.25rem; margin-bottom: 24px; border: 1px solid rgba(27,67,50,0.15); text-align: center;">
-  <p style="font-size: 0.95rem; font-weight: 600; margin-bottom: 0.4rem;">📋 Not sure where to start?</p>
-  <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
-    Take the 20-question diagnostic to get a personalized study plan.
-  </p>
-  <a href="/diagnostic" style="display: inline-block; background: var(--navy); color: white; padding: 0.6rem 1.5rem; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.9rem;">
-    Take Diagnostic
-  </a>
-</div>
-
-<!-- Recommendations -->
-{% if recommendations %}
-<div class="card" style="margin-bottom: 16px;">
-  <h2 style="font-size: 1rem; margin-bottom: 10px;">Recommended Topics</h2>
-  {% for rec in recommendations %}
-  <div class="rec-item">
-    <span>{{ rec.topic }}</span>
-    <span class="rec-tag" style="background: {{ rec.color }};">{{ rec.domain }}</span>
-  </div>
-  {% endfor %}
-</div>
-{% endif %}
-
-<!-- Recent Sessions -->
-{% if recent_sessions %}
-<div>
-  <h2 class="section-title">Recent Sessions</h2>
-  {% for s in recent_sessions %}
-  <div class="session-item">
-    <div>
-      <div style="font-weight: 600;">{{ s.domain_name }}</div>
-      <div class="text-muted">{{ s.date }}</div>
+  <!-- Recommended topics -->
+  <div class="a-panel">
+    <div class="a-panel-head">
+      <h2>Recommended next</h2>
+      <a href="/stats" class="link">Full report →</a>
     </div>
-    <div style="font-weight: 700; color: {% if s.score >= 80 %}var(--correct){% elif s.score >= 60 %}var(--warning){% else %}var(--wrong){% endif %};">
-      {{ s.score }}%
+    {% if recommendations %}
+    {% for rec in recommendations %}
+    <div class="a-row">
+      <span class="r-name" style="width:auto;flex:1"><span class="dot" style="background: {% if rec.level == 'Strong' %}var(--a-green-500){% elif rec.level == 'Fair' %}var(--a-navy-500){% else %}var(--a-gold-500){% endif %};"></span>{{ rec.topic }}</span>
+      <span style="text-align:right;flex-shrink:0">
+        <span class="a-tag" style="background: {% if rec.level == 'Strong' %}#D1FAE5;color:var(--a-green-600){% elif rec.level == 'Fair' %}var(--a-navy-50);color:var(--a-navy-600){% else %}#FEF3C7;color:var(--a-gold-600){% endif %}">{{ rec.level }}</span>
+        <div class="c-sub" style="margin-top:2px">{{ rec.domain }}</div>
+      </span>
     </div>
+    {% endfor %}
+    {% else %}
+    <div style="padding:18px;color:var(--a-gray-500);font-size:13.5px">Answer more questions and we'll point you at exactly what to review next.</div>
+    {% endif %}
   </div>
-  {% endfor %}
+
+  <!-- Recent sessions -->
+  <div class="a-panel">
+    <div class="a-panel-head">
+      <h2>Recent sessions</h2>
+      <a href="/stats" class="link">All sessions →</a>
+    </div>
+    {% if recent_sessions %}
+    <table class="a-table">
+      <thead>
+        <tr><th>Area</th><th>Date</th><th style="text-align:right">Score</th></tr>
+      </thead>
+      <tbody>
+        {% for s in recent_sessions %}
+        <tr>
+          <td>{{ s.domain_name }}</td>
+          <td style="color:var(--a-gray-400)">{{ s.date }}</td>
+          <td style="text-align:right" class="num">
+            <span class="verdict-a {% if s.score >= 80 %}ok{% elif s.score >= 60 %}warn{% else %}fail{% endif %}">{{ s.score }}%</span>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <div style="padding:18px;color:var(--a-gray-500);font-size:13.5px">No sessions yet — your results will land here.</div>
+    {% endif %}
+  </div>
 </div>
-{% endif %}
+
+<div class="a-foot"><span>FCLE Study</span><span>Florida Civic Literacy Exam prep · Mu2 Solutions</span></div>
 
 {% endblock %}
