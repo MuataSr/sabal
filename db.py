@@ -41,6 +41,7 @@ def init_db():
                 is_anonymous    INTEGER NOT NULL DEFAULT 0,
                 onboarding_done INTEGER NOT NULL DEFAULT 0,
                 plan            TEXT NOT NULL DEFAULT 'free',
+                premium_until   TEXT,
                 created_at      TEXT NOT NULL
             );
 
@@ -100,6 +101,17 @@ def init_db():
         """)
 
         _migrate_add_column(conn, "users", "plan", "TEXT NOT NULL DEFAULT 'free'")
+        _migrate_add_column(conn, "users", "premium_until", "TEXT")
+
+        # FCLE one-time pricing flip (Sep 6, 2026): map any legacy fcle_monthly
+        # grants to annual for goodwill (expect 0 — free-launch shipped no grants).
+        legacy = conn.execute("SELECT id FROM users WHERE plan='fcle_monthly'").fetchall()
+        if legacy:
+            until = (datetime.utcnow() + timedelta(days=365)).isoformat()
+            conn.execute(
+                "UPDATE users SET plan='fcle_annual_12', premium_until=? WHERE plan='fcle_monthly'",
+                (until,),
+            )
 
         # Ensure anonymous default user exists
         row = conn.execute("SELECT id FROM users WHERE id=1").fetchone()

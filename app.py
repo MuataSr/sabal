@@ -76,13 +76,17 @@ def login_required(f):
 def inject_paywall():
     """Expose plan / premium state / free limits to all templates."""
     user_id = session.get("user_id")
-    plan = db.get_plan(user_id) if user_id else "free"
+    user = _get_current_user() if user_id else None
+    plan = (user or {}).get("plan") or "free"
     return {
-        "current_user": _get_current_user(),
+        "current_user": user,
         "plan": plan,
-        "is_premium": _premium_active(plan),
+        "is_premium": _premium_active(user),
         "free_daily": platform_lib.FREE_DAILY_QUESTIONS,
         "launch_free": FREE_LAUNCH,
+        # One-time plan expiry (FCLE): exposed for portal/pricing display.
+        "premium_until": platform_lib.premium_until_utc(user) if user else None,
+        "days_remaining": platform_lib.days_remaining(user) if user else None,
         # Focused surfaces render WITHOUT the app shell (sidebar/topbar):
         # auth pages, and the question/answer/results screens of every
         # assessment flow. Dashboard/hub/tutor keep the shell.
@@ -106,11 +110,12 @@ def inject_paywall():
 FREE_LAUNCH = os.environ.get("FCLE_FREE_LAUNCH", "1") == "1"
 
 
-def _premium_active(plan):
-    """Effective premium state — always true during free launch."""
+def _premium_active(user):
+    """Effective premium state — always true during free launch.
+    `user` is a user-row dict (with plan/premium_until) or None."""
     if FREE_LAUNCH:
         return True
-    return platform_lib.is_premium(plan)
+    return platform_lib.is_premium(user or {})
 
 
 _FREE_LIMIT_MSG = ("You've hit today's free limit of 10 questions. "
@@ -125,9 +130,9 @@ def _questions_left_today():
     user_id = session.get("user_id")
     if not user_id:
         return platform_lib.FREE_DAILY_QUESTIONS
-    plan = db.get_plan(user_id)
+    user = db.get_user(user_id) or {}
     used = db.count_answers_today(user_id)
-    return platform_lib.questions_remaining(plan, used)
+    return platform_lib.questions_remaining(user, used)
 
 
 # ---------------------------------------------------------------------------
@@ -1019,11 +1024,12 @@ def logout():
 def pricing():
     """Pricing / upgrade page. Square checkout is Phase 2 — button is inert."""
     user_id = session.get("user_id")
-    plan = db.get_plan(user_id) if user_id else "free"
+    user = db.get_user(user_id) if user_id else None
+    plan = (user or {}).get("plan") or "free"
     return render_template(
         "premium.html",
         plan=plan,
-        is_premium=_premium_active(plan),
+        is_premium=_premium_active(user),
         free_daily=platform_lib.FREE_DAILY_QUESTIONS,
         plan_price=platform_lib.PRICING[platform_lib.plan_for_app("fcle")],
         launch_free=FREE_LAUNCH,
@@ -1036,12 +1042,12 @@ def account():
     """Student account portal — shared portal.html (see exam-prep-lms/platform)."""
     user_id = session.get("user_id", 1)
     user = _get_current_user() or {}
-    plan = db.get_plan(user_id)
-    is_premium = _premium_active(plan)
-    plan_key = platform_lib.plan_for_app("fcle")
+    plan = user.get("plan") or "free"
+    is_premium = _premium_active(user)
+    plan_key = user.get("plan") if user.get("plan") in platform_lib.PRICING else platform_lib.plan_for_app("fcle")
     pinfo = platform_lib.PRICING[plan_key]
     used = db.count_answers_today(user_id)
-    rem = platform_lib.questions_remaining(plan, used)
+    rem = platform_lib.questions_remaining(user, used)
     stats = db.get_overall_stats(user_id)
     total = db.get_total_answered(user_id)
 
