@@ -34,6 +34,20 @@
   --a-shadow-sm: 0 1px 2px rgba(16, 24, 40, .05);
   --a-shadow: 0 1px 3px rgba(16, 24, 40, .08), 0 1px 2px rgba(16, 24, 40, .04);
   --a-radius: 12px;
+
+  /* Legacy semantic vars remapped to A palette — templates use var(--correct),
+     var(--wrong), var(--warning), var(--font-heading) inline; legacy.css defines
+     them as forest/burgundy/brown/serif. Redeclaring here (app.css loads AFTER
+     legacy.css) makes every inline var() resolve to Template A colors/fonts. */
+  --correct:     var(--a-green-600);   /* was #1B4332 forest  */
+  --wrong:       var(--a-red-500);     /* was #6B2737 burgundy */
+  --warning:     var(--a-amber-500);   /* was #7F4F24 brown    */
+  --font-heading: var(--a-font);       /* was Libre Baskerville */
+  --navy:        var(--a-navy-600);    /* was #1B3A5C (identical) */
+  --border:      var(--a-gray-200);    /* was #e0ddd8 warm border */
+  --card:        #ffffff;              /* was #ffffff (identical) */
+  --text-muted:  var(--a-gray-500);    /* was #5a5a5a */
+  --bg:          var(--a-gray-100);    /* was #FAFAF7 cream */
 }
 
 /* ——— Global overrides (A look everywhere) ——— */
@@ -290,6 +304,27 @@ body.a-shell { background: var(--a-gray-100); }
 
 /* Auth pages: center a narrow column */
 body.auth-page .app-body { max-width: 460px; }
+
+/* ── Standalone (no app shell) surfaces ──
+   Auth pages + assessment flow pages (question/answer/results screens)
+   render WITHOUT sidebar/topbar. Content centers in a narrow column. */
+body.standalone { background: var(--a-gray-100); }
+body.standalone .app-body {
+  max-width: 720px; margin: 0 auto;
+  padding: 40px 20px 60px;
+}
+body.standalone.auth-standalone .app-body {
+  max-width: 440px; padding-top: 60px;
+}
+body.standalone .standalone-wrap { min-height: 100vh; }
+body.standalone .flash-messages { max-width: 720px !important; margin: 12px auto 0; }
+body.standalone .auth-card { margin-top: 8px; }
+body.standalone .auth-brand {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  padding: 8px 0 4px;
+}
+/* Standalone pages should not offer the sidebar toggle */
+body.standalone .menu-btn, body.standalone .sidebar-overlay { display: none !important; }
 
 /* ═══════════════════════════════════════════════════════════════
    Template A — component skin (legacy classes → A language)

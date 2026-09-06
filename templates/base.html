@@ -14,8 +14,9 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='css/legacy.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
 </head>
-<body class="a-shell{% block bodyclass %}{% endblock %}">
+<body class="a-shell{% block bodyclass %}{% endblock %}{% if standalone %} standalone{% endif %}{% if standalone_auth %} auth-standalone{% endif %}">
 
+{% if not standalone %}
 <div class="app-shell">
 
   {# ── Sidebar (Template A) ── #}
@@ -118,6 +119,18 @@
         {% endif %}
       </div>
     </header>
+{% else %}
+<div class="standalone-wrap">
+  {% if standalone_auth %}
+  <div class="auth-brand">
+    <a href="/" class="logo-mark" style="text-decoration:none" aria-label="FCLE Study home">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 5h14v14H5z" fill="currentColor" opacity="0.3"/><circle cx="16.5" cy="7.5" r="2" fill="#FBBF24"/><path d="M7.5 15.5l3.5-3.5 2 2 4-4.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span class="gold-dot"></span>
+    </a>
+    <span class="brand-name" style="font-size:18px">FCLE Study</span>
+  </div>
+  {% endif %}
+{% endif %}
 
     {% with messages = get_flashed_messages(with_categories=true) %}
     {% if messages %}
@@ -142,8 +155,12 @@
 
     {% block footer_extra %}{% endblock %}
 
+{% if not standalone %}
   </div><!-- /main-col -->
 </div><!-- /app-shell -->
+{% else %}
+</div><!-- /standalone-wrap -->
+{% endif %}
 
 <script>
   (function () {

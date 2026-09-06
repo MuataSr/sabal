@@ -25,7 +25,7 @@
     <!-- Literacy Insight -->
     {% if annotated == total %}
     <div style="background: #eef6ee; border: 1px solid #c5e0c5; border-radius: 8px; padding: 1rem; margin-bottom: 1.25rem; text-align: center;">
-      <p style="font-size: 0.9rem; font-weight: 600; color: #1B4332; margin: 0;">
+      <p style="font-size: 0.9rem; font-weight: 600; color: var(--correct); margin: 0;">
         🎯 Great annotation habit! You annotated every passage.
       </p>
     </div>
@@ -39,7 +39,7 @@
 
     {% if pct >= 80 %}
     <div style="background: #eef6ee; border: 1px solid #c5e0c5; border-radius: 8px; padding: 1rem; margin-bottom: 1.25rem; text-align: center;">
-      <p style="font-size: 0.9rem; font-weight: 600; color: #1B4332; margin: 0;">
+      <p style="font-size: 0.9rem; font-weight: 600; color: var(--correct); margin: 0;">
         ✅ Strong stimulus comprehension! You're reading passages accurately.
       </p>
     </div>

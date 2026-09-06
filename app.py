@@ -83,6 +83,16 @@ def inject_paywall():
         "is_premium": _premium_active(plan),
         "free_daily": platform_lib.FREE_DAILY_QUESTIONS,
         "launch_free": FREE_LAUNCH,
+        # Focused surfaces render WITHOUT the app shell (sidebar/topbar):
+        # auth pages, and the question/answer/results screens of every
+        # assessment flow. Dashboard/hub/tutor keep the shell.
+        "standalone": request.endpoint in {
+            "login", "signup", "onboarding",
+            "quiz_question", "quiz_answer", "quiz_results",
+            "diagnostic_question", "diagnostic_answer", "diagnostic_results",
+            "stimulus_practice_question", "stimulus_practice_results",
+        },
+        "standalone_auth": request.endpoint in {"login", "signup", "onboarding"},
     }
 
 
