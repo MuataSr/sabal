@@ -17,3 +17,5 @@ fcle_questions.db
 
 # OS
 .DS_Store
+data/*.db-shm
+data/*.db-wal

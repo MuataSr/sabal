@@ -4,6 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% block title %}FCLE Study Buddy{% endblock %}</title>
+  <link rel="icon" href="{{ url_for('static', filename='img/favicon.ico') }}" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='img/favicon-32.png') }}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='img/favicon-16.png') }}">
+  <link rel="apple-touch-icon" href="{{ url_for('static', filename='img/apple-touch-icon.png') }}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -22,14 +26,9 @@
   {# ── Sidebar (Template A) ── #}
   <aside class="sidebar" id="app-sidebar">
     <div class="sidebar-brand">
-      <a href="/" class="logo-mark" style="text-decoration:none">
-        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 5h14v14H5z" fill="currentColor" opacity="0.3"/><circle cx="16.5" cy="7.5" r="2" fill="#FBBF24"/><path d="M7.5 15.5l3.5-3.5 2 2 4-4.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <span class="gold-dot"></span>
+      <a href="/" style="text-decoration:none;display:block;line-height:0" aria-label="Sabal home">
+        <img src="{{ url_for('static', filename='img/sabal-logo.png') }}" alt="Sabal FCLE Exam Prep" class="sabal-brand-logo">
       </a>
-      <span>
-        <span class="brand-name">FCLE Study</span><br>
-        <span class="brand-sub">Civic Literacy · Florida</span>
-      </span>
     </div>
 
     <nav class="sidebar-nav">
