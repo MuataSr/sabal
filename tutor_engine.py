@@ -19,13 +19,13 @@ DOMAIN_MAP = {
     1: "American Democracy",
     2: "US Constitution",
     3: "Founding Documents",
-    4: "Rights & Responsibilities",
+    4: "Landmark Impact",
 }
 
 ROUTER_PROMPT = (
     'Classify the student message. Reply with ONLY a JSON object. '
     'Domains: 1=American Democracy, 2=US Constitution, 3=Founding Documents, '
-    '4=Rights & Responsibilities. '
+    '4=Landmark Impact. '
     'Format: {"intent":"concept_question","domain":1,"topics":["federalism"],"difficulty":"basic"}'
 )
 

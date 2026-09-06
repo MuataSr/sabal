@@ -1,5 +1,5 @@
 """
-kb.py — FCLE Study Buddy knowledge base.
+kb.py — Sabal FCLE Exam Prep knowledge base.
 
 Reads questions from fcle.db (SQLite + FTS5).
 Four domains: American Democracy, US Constitution, Founding Documents, Landmark Impact.

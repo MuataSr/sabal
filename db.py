@@ -1,5 +1,5 @@
 """
-db.py — User progress tracking for FCLE Study Buddy.
+db.py — User progress tracking for Sabal FCLE Exam Prep.
 
 SQLite-backed storage for users, quiz sessions, answers, and readiness scores.
 Uses only stdlib sqlite3 — no ORM, no external dependencies.

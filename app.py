@@ -1,5 +1,5 @@
 """
-app.py — FCLE Study Buddy Flask application.
+app.py — Sabal FCLE Exam Prep Flask application.
 
 Civic literacy practice for the Florida Civic Literacy Exam.
 Four domains: American Democracy, US Constitution, Founding Documents, Landmark Impact.
@@ -229,7 +229,7 @@ _DOMAIN_GETTERS = {
         "topics": kb.get_founding_documents_topics,
         "quiz": kb.get_founding_documents_questions,
         "name": "Founding Documents",
-        "icon": "🦅",
+        "icon": "📄",
         "color": "#1B3A5C",
     },
     "landmark-impact": {
@@ -805,9 +805,12 @@ def stats():
 @app.route("/settings")
 @login_required
 def settings():
+    _q_counts = kb.get_question_counts()
+    _q_total = sum(c["total"] for c in _q_counts.values())
     return render_template("settings.html",
         user=_get_current_user(),
         version="0.1.0 MVP",
+        total_questions=f"{_q_total:,}",
         active_nav="settings",
     )
 
@@ -1093,12 +1096,12 @@ def _try_email_dashboard_link(user, link):
             return False
         msg = MIMEText(
             f"Hi {(user or {}).get('display_name') or 'Student'},\n\n"
-            f"Your FCLE Study Buddy dashboard link:\n\n{link}\n\n"
+            f"Your Sabal dashboard link:\n\n{link}\n\n"
             f"Open it and you'll land straight on your dashboard. Keep it safe — "
-            f"it's how you log in.\n\n— FCLE Study Buddy (Mu2 Solutions)",
+            f"it's how you log in.\n\n— Sabal FCLE Exam Prep (Mu2 Solutions)",
             "plain", "utf-8",
         )
-        msg["Subject"] = "Your FCLE Study Buddy dashboard link"
+        msg["Subject"] = "Your Sabal dashboard link"
         msg["From"] = sender
         msg["To"] = recipient
         with smtplib.SMTP(host, port, timeout=15) as s:
@@ -1227,7 +1230,7 @@ def account():
     plan_expiry_note = (expiry_note[:1].upper() + expiry_note[1:]) if expiry_note else None
 
     return render_template("portal.html",
-        app_name="FCLE Study Buddy",
+        app_name="Sabal FCLE Exam Prep",
         app_slug="fcle",
         plan=plan,
         is_premium=is_premium,
@@ -1478,7 +1481,7 @@ def tutor_page():
     domain_slugs = {
         1: ("american-democracy", "\U0001f3db\ufe0f"),
         2: ("us-constitution", "\U0001f4dc"),
-        3: ("founding-documents", "\U0001f985"),
+        3: ("founding-documents", "\U0001f4c4"),
         4: ("landmark-impact", "\u2696\ufe0f"),
     }
     domain_progress = []
