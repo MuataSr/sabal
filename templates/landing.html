@@ -48,7 +48,9 @@
   .hero p.sub{font-size:20px;color:var(--muted);max-width:600px;margin:0 0 28px;font-weight:400}
   .hero p.sub strong{color:var(--navy-ink);font-weight:600}
   .hero .btn-gold{font-size:18px;padding:15px 32px}
-  .hero .micro{margin-top:14px;font-size:14px;color:var(--muted)}
+  .hero .micro{margin-top:6px;font-size:14px;color:var(--muted)}
+  .hero .micro:first-of-type{margin-top:14px}
+  .hero .micro strong{color:var(--navy-ink);font-weight:600}
   .hero-shot{position:relative}
   .hero-shot img{width:100%;height:auto;border-radius:16px;box-shadow:0 24px 60px -18px rgba(15,33,54,.38);border:1px solid rgba(255,255,255,.55);display:block}
   .hero-shot .cap{position:absolute;left:16px;bottom:14px;background:rgba(15,33,54,.78);color:#fff;font-size:13px;padding:6px 12px;border-radius:999px;backdrop-filter:blur(4px);letter-spacing:.2px}
@@ -181,11 +183,12 @@
       <h1>Pass the FCLE. Feel ready before test day.</h1>
       <p class="sub">You&rsquo;ve done the coursework. You&rsquo;ve made it this far. One exam stands between you and graduation &mdash; and it&rsquo;s been years since civics class. That&rsquo;s okay. <strong>Sabal is the refresher that actually works.</strong></p>
       <a class="btn btn-gold" href="/signup">Check My FCLE Readiness &rarr;</a>
+      <p class="micro"><strong>Free during beta. No credit card.</strong></p>
       <p class="micro">No password. No download. Start in 30 seconds.</p>
     </div>
     <div class="hero-shot">
       <img src="{{ url_for('static', filename='img/landing-demo.jpg') }}" alt="Sabal practice question with an answer explanation — answers that teach">
-      <span class="cap">Real question &middot; Real explanation</span>
+      <span class="cap">FCLE-style question &middot; Explanation that teaches</span>
     </div>
   </div>
 </section>
@@ -223,23 +226,23 @@
   <div class="wrap">
     <div class="sec-head">
       <h2>Start studying in under a minute.</h2>
-      <p>No password. No download. No &ldquo;verify your email&rdquo; limbo &mdash; just your personal study link.</p>
+      <p>No password. No download. Just your personal study link.</p>
     </div>
     <div class="steps">
       <div class="step">
         <span class="d">1</span>
         <h3>Enter your email</h3>
-        <p>Just your email and display name. Thirty seconds, no quiz.</p>
+        <p>Thirty seconds, no quiz.</p>
       </div>
       <div class="step">
         <span class="d">2</span>
-        <h3>Get your personal study link</h3>
+        <h3>Get your link</h3>
         <p>We hand it to you the moment you register.</p>
       </div>
       <div class="step">
         <span class="d">3</span>
         <h3>Bookmark it &mdash; you&rsquo;re in</h3>
-        <p>Open it on any device and land straight on your dashboard. No forgotten passwords during exam week.</p>
+        <p>Open it on any device, straight to your dashboard.</p>
       </div>
     </div>
   </div>
