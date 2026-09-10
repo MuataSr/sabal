@@ -1047,6 +1047,13 @@ def settings_reset():
 # See DEPLOY.md. Cap 0/absent = uncapped.
 # ---------------------------------------------------------------------------
 
+def _signup_source():
+    """Channel attribution for partner links (?src=phsc). Lowercase, safe charset."""
+    raw = (request.form.get("src") or request.args.get("src") or "").strip().lower()
+    safe = "".join(ch for ch in raw if ch.isalnum() or ch in "-_")[:32]
+    return safe or None
+
+
 def _pilot_cap():
     """Pilot seat cap (0 = uncapped)."""
     try:
@@ -1114,6 +1121,7 @@ def signup():
                 display_name=display_name,
                 cap=None if bypass else (_pilot_cap() or None),
                 exclude_emails=_pilot_internal_emails(),
+                source=_signup_source(),
             )
             if status == "full":
                 return render_template("signup.html", pilot_full=True, pilot_cap=_pilot_cap())
@@ -1135,8 +1143,9 @@ def signup():
             return render_template("signup.html")
 
     if _pilot_is_full() and not _pilot_bypass_ok():
-        return render_template("signup.html", pilot_full=True, pilot_cap=_pilot_cap())
-    return render_template("signup.html")
+        return render_template("signup.html", pilot_full=True, pilot_cap=_pilot_cap(),
+                               src=_signup_source())
+    return render_template("signup.html", src=_signup_source())
 
 
 @app.route("/waitlist", methods=["POST"])
@@ -1152,7 +1161,7 @@ def waitlist_join():
     if db.get_user_by_email(email):
         return render_template("signup.html", pilot_full=True, pilot_cap=_pilot_cap(),
                                waitlist_existing=True)
-    added = db.add_to_waitlist(email)
+    added = db.add_to_waitlist(email, source=(_signup_source() or "pilot_full"))
     return render_template("signup.html", pilot_full=True, pilot_cap=_pilot_cap(),
                            waitlist_done=True, waitlist_email=email, waitlist_dupe=not added)
 

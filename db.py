@@ -105,6 +105,7 @@ def init_db():
         _migrate_add_column(conn, "users", "plan", "TEXT NOT NULL DEFAULT 'free'")
         _migrate_add_column(conn, "users", "premium_until", "TEXT")
         _migrate_add_column(conn, "users", "access_token", "TEXT")
+        _migrate_add_column(conn, "users", "signup_source", "TEXT")   # partner/channel attribution (?src=)
 
         # ORDER-style unique token index (registered-user dashboard links).
         conn.execute("CREATE UNIQUE INDEX IF NOT EXISTS idx_users_access_token ON users(access_token)")
@@ -665,7 +666,7 @@ def count_registered_users(exclude_emails=()):
         return conn.execute(q, params).fetchone()[0]
 
 
-def create_user_capped(email=None, display_name="Student", cap=None, exclude_emails=()):
+def create_user_capped(email=None, display_name="Student", cap=None, exclude_emails=(), source=None):
     """Race-safe registered-user creation with an optional pilot cap.
 
     Returns (user, "ok") on success or (None, "full") when the cap is reached.
@@ -696,9 +697,9 @@ def create_user_capped(email=None, display_name="Student", cap=None, exclude_ema
                 conn.rollback()
                 return None, "full"
         cur = conn.execute(
-            "INSERT INTO users (email, password_hash, access_token, display_name, is_anonymous, created_at) "
-            "VALUES (?, ?, ?, ?, 0, ?)",
-            (email, None, token, display_name, now),
+            "INSERT INTO users (email, password_hash, access_token, display_name, is_anonymous, created_at, signup_source) "
+            "VALUES (?, ?, ?, ?, 0, ?, ?)",
+            (email, None, token, display_name, now, (source or None)),
         )
         conn.commit()
         return get_user(cur.lastrowid), "ok"

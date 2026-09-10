@@ -25,6 +25,7 @@
     {% endif %}
     <p class="subtitle" style="margin-bottom:16px">We&rsquo;re opening more seats soon. Leave your email and we&rsquo;ll tell you the moment one does.</p>
     <form method="POST" action="/waitlist">
+      <input type="hidden" name="src" value="{{ src|default('') }}">
       <div class="form-group">
         <label for="wl_email">Email</label>
         <input type="email" id="wl_email" name="email" placeholder="you@example.com" required autofocus>
@@ -53,6 +54,7 @@
   <p class="subtitle">Free. No password. Register and get your personal dashboard link.</p>
 
   <form method="POST" action="/signup">
+    <input type="hidden" name="src" value="{{ src|default('') }}">
     <div class="form-group">
       <label for="email">Email</label>
       <input type="email" id="email" name="email" placeholder="you@example.com" required autofocus>
