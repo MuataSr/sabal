@@ -1082,6 +1082,13 @@ def _pilot_is_full():
 @app.route("/signup", methods=["GET", "POST"])
 def signup():
     if request.method == "POST":
+        # Honeypot: the "website" field is off-screen and only a bot fills it.
+        # Silently accept-and-drop so the bot believes it succeeded, and no
+        # account (or pilot seat) is ever created for it.
+        if (request.form.get("website") or "").strip():
+            app.logger.warning("signup honeypot triggered (trap field filled)")
+            return redirect("/")
+
         bypass = _pilot_bypass_ok()
 
         # Pilot cap: refuse registration once every seat is taken. Enforced
@@ -1135,6 +1142,9 @@ def signup():
 @app.route("/waitlist", methods=["POST"])
 def waitlist_join():
     """Pilot-full fallback: collect an email for the next cohort (manual outreach)."""
+    if (request.form.get("website") or "").strip():
+        app.logger.warning("waitlist honeypot triggered (trap field filled)")
+        return redirect("/")
     email = (request.form.get("email") or "").strip().lower()
     if not email or "@" not in email or "." not in email:
         flash("Please enter a valid email.", "error")
