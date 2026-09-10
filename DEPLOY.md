@@ -66,3 +66,28 @@ curl -s -o /dev/null -w "HTTP %{http_code}\n" https://fcle.mu2.solutions/
 - Quiz state is SQLite-backed (`active_quizzes`) → gunicorn workers=2 is safe.
 - Backup cron: nightly sqlite3 `.backup` of user_progress.db + integrity check (mirror ORDER pattern), keep 14 days.
 - Deploy Key (read-only) on GitHub: Settings → Deploy keys → paste droplet `~/.ssh/id_ed25519.pub`.
+
+
+## Pilot signup cap (RC #1)
+
+The first release candidate is intentionally capped so the $6 droplet can never be
+overrun. All knobs live in `/opt/fcle-study-app/.env` — no code change needed to
+adjust, just edit and `systemctl restart fcle-study-app`.
+
+| Variable | Purpose |
+|---|---|
+| `PILOT_SIGNUP_CAP` | Max real students. `0` or unset = uncapped. Pilot value: `125`. |
+| `PILOT_INTERNAL_EMAILS` | Comma-separated emails that never consume a seat (founder + our test accounts). |
+| `PILOT_BYPASS_KEY` | Secret; `?bypass=<key>` on `/signup` lets us register past the cap. |
+| `PILOT_ADMIN_KEY` | Secret; `/admin/waitlist?key=<key>` lists the waitlist (`&format=csv` to export). |
+
+Behaviour:
+- Seats count **registered, non-anonymous users with an email**, minus
+  `PILOT_INTERNAL_EMAILS`. Anonymous/test rows never count.
+- The check runs **server-side and race-safe** (single `BEGIN IMMEDIATE` lock), so
+  two simultaneous signups cannot both take the last seat.
+- When full, `/signup` shows the pilot-full state with a waitlist form
+  (`POST /waitlist`) instead of the registration form. No dead end.
+- Waitlist entries are stored in the `waitlist` table; outreach is manual.
+
+Deploy: mirror → M7 (`git commit`/`push`) → droplet `git pull && systemctl restart fcle-study-app`.

@@ -108,6 +108,16 @@ def init_db():
         # ORDER-style unique token index (registered-user dashboard links).
         conn.execute("CREATE UNIQUE INDEX IF NOT EXISTS idx_users_access_token ON users(access_token)")
 
+        # Pilot waitlist — collected when the RC #1 signup cap is reached.
+        conn.execute("""
+            CREATE TABLE IF NOT EXISTS waitlist (
+                id          INTEGER PRIMARY KEY AUTOINCREMENT,
+                email       TEXT NOT NULL UNIQUE,
+                source      TEXT DEFAULT 'pilot_full',
+                created_at  TEXT NOT NULL
+            )
+        """)
+
         # FCLE one-time pricing flip (Sep 6, 2026): map any legacy fcle_monthly
         # grants to annual for goodwill (expect 0 — free-launch shipped no grants).
         legacy = conn.execute("SELECT id FROM users WHERE plan='fcle_monthly'").fetchall()
@@ -632,3 +642,97 @@ def cleanup_stale_quizzes(max_age_hours=6):
     with _get_conn() as conn:
         conn.execute("DELETE FROM active_quizzes WHERE updated_at < ?", (cutoff,))
         conn.commit()
+
+
+# ---------------------------------------------------------------------------
+# Pilot signup cap (RC #1) — see DEPLOY.md
+# ---------------------------------------------------------------------------
+
+def count_registered_users(exclude_emails=()):
+    """Count real (registered, non-anonymous) accounts, minus internal emails.
+
+    Anonymous rows (our seeded test users) and internal addresses never consume
+    a pilot seat — so the cap reflects actual students.
+    """
+    excl = [e.strip().lower() for e in exclude_emails if e and e.strip()]
+    q = "SELECT COUNT(*) FROM users WHERE is_anonymous=0 AND email IS NOT NULL"
+    params = []
+    if excl:
+        q += " AND lower(email) NOT IN (%s)" % ",".join("?" * len(excl))
+        params = excl
+    with _get_conn() as conn:
+        return conn.execute(q, params).fetchone()[0]
+
+
+def create_user_capped(email=None, display_name="Student", cap=None, exclude_emails=()):
+    """Race-safe registered-user creation with an optional pilot cap.
+
+    Returns (user, "ok") on success or (None, "full") when the cap is reached.
+    Raises ValueError for a duplicate email. The cap check and the INSERT run
+    inside one BEGIN IMMEDIATE write lock, so two simultaneous registrations
+    cannot both claim the final seat.
+    """
+    now = datetime.utcnow().isoformat()
+    token = generate_access_token()
+    excl = [e.strip().lower() for e in exclude_emails if e and e.strip()]
+    conn = _get_conn()
+    try:
+        conn.execute("BEGIN IMMEDIATE")
+        if email:
+            existing = conn.execute(
+                "SELECT id FROM users WHERE email=? AND is_anonymous=0", (email,)
+            ).fetchone()
+            if existing:
+                raise ValueError("Email already registered")
+        if cap:
+            q = "SELECT COUNT(*) FROM users WHERE is_anonymous=0 AND email IS NOT NULL"
+            params = []
+            if excl:
+                q += " AND lower(email) NOT IN (%s)" % ",".join("?" * len(excl))
+                params = excl
+            used = conn.execute(q, params).fetchone()[0]
+            if used >= cap:
+                conn.rollback()
+                return None, "full"
+        cur = conn.execute(
+            "INSERT INTO users (email, password_hash, access_token, display_name, is_anonymous, created_at) "
+            "VALUES (?, ?, ?, ?, 0, ?)",
+            (email, None, token, display_name, now),
+        )
+        conn.commit()
+        return get_user(cur.lastrowid), "ok"
+    except Exception:
+        conn.rollback()
+        raise
+    finally:
+        conn.close()
+
+
+def add_to_waitlist(email, source="pilot_full"):
+    """Add an email to the pilot waitlist. True if newly added, False if already there."""
+    email = (email or "").strip().lower()
+    if not email or "@" not in email:
+        return False
+    now = datetime.utcnow().isoformat()
+    conn = _get_conn()
+    try:
+        conn.execute(
+            "INSERT INTO waitlist (email, source, created_at) VALUES (?, ?, ?)",
+            (email, source, now),
+        )
+        conn.commit()
+        return True
+    except sqlite3.IntegrityError:
+        conn.rollback()
+        return False
+    finally:
+        conn.close()
+
+
+def list_waitlist():
+    """All waitlist entries, oldest first."""
+    with _get_conn() as conn:
+        rows = conn.execute(
+            "SELECT email, source, created_at FROM waitlist ORDER BY id"
+        ).fetchall()
+        return [dict(r) for r in rows]

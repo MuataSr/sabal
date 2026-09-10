@@ -1041,9 +1041,54 @@ def settings_reset():
 # ---------------------------------------------------------------------------
 
 
+# ---------------------------------------------------------------------------
+# Pilot signup cap (RC #1)
+# Env: PILOT_SIGNUP_CAP, PILOT_INTERNAL_EMAILS, PILOT_BYPASS_KEY, PILOT_ADMIN_KEY
+# See DEPLOY.md. Cap 0/absent = uncapped.
+# ---------------------------------------------------------------------------
+
+def _pilot_cap():
+    """Pilot seat cap (0 = uncapped)."""
+    try:
+        return int((os.environ.get("PILOT_SIGNUP_CAP") or "0").strip() or 0)
+    except (TypeError, ValueError):
+        return 0
+
+
+def _pilot_internal_emails():
+    """Addresses that never consume a pilot seat (founder + our test accounts)."""
+    raw = os.environ.get("PILOT_INTERNAL_EMAILS") or ""
+    return [e.strip().lower() for e in raw.split(",") if e.strip()]
+
+
+def _pilot_bypass_ok():
+    """True when a valid bypass key is present, so we can register past the cap."""
+    key = (os.environ.get("PILOT_BYPASS_KEY") or "").strip()
+    if not key:
+        return False
+    supplied = (request.args.get("bypass") or request.form.get("bypass") or "").strip()
+    return supplied == key
+
+
+def _pilot_seats_used():
+    return db.count_registered_users(_pilot_internal_emails())
+
+
+def _pilot_is_full():
+    cap = _pilot_cap()
+    return bool(cap) and _pilot_seats_used() >= cap
+
+
 @app.route("/signup", methods=["GET", "POST"])
 def signup():
     if request.method == "POST":
+        bypass = _pilot_bypass_ok()
+
+        # Pilot cap: refuse registration once every seat is taken. Enforced
+        # server-side, so a direct POST cannot slip past a hidden form.
+        if _pilot_is_full() and not bypass:
+            return render_template("signup.html", pilot_full=True, pilot_cap=_pilot_cap())
+
         email = request.form.get("email", "").strip().lower()
         display_name = request.form.get("display_name", "").strip() or "Student"
 
@@ -1055,7 +1100,16 @@ def signup():
             return render_template("signup.html")
 
         try:
-            user = db.create_user(email=email, display_name=display_name)
+            # Race-safe: the seat check and the INSERT happen under one write
+            # lock, so two simultaneous registrations cannot both take the last seat.
+            user, status = db.create_user_capped(
+                email=email,
+                display_name=display_name,
+                cap=None if bypass else (_pilot_cap() or None),
+                exclude_emails=_pilot_internal_emails(),
+            )
+            if status == "full":
+                return render_template("signup.html", pilot_full=True, pilot_cap=_pilot_cap())
             if not user:
                 flash("Account could not be created. Please try again.", "error")
                 return render_template("signup.html")
@@ -1073,7 +1127,48 @@ def signup():
             flash(str(e), "error")
             return render_template("signup.html")
 
+    if _pilot_is_full() and not _pilot_bypass_ok():
+        return render_template("signup.html", pilot_full=True, pilot_cap=_pilot_cap())
     return render_template("signup.html")
+
+
+@app.route("/waitlist", methods=["POST"])
+def waitlist_join():
+    """Pilot-full fallback: collect an email for the next cohort (manual outreach)."""
+    email = (request.form.get("email") or "").strip().lower()
+    if not email or "@" not in email or "." not in email:
+        flash("Please enter a valid email.", "error")
+        return render_template("signup.html", pilot_full=True, pilot_cap=_pilot_cap())
+    if db.get_user_by_email(email):
+        return render_template("signup.html", pilot_full=True, pilot_cap=_pilot_cap(),
+                               waitlist_existing=True)
+    added = db.add_to_waitlist(email)
+    return render_template("signup.html", pilot_full=True, pilot_cap=_pilot_cap(),
+                           waitlist_done=True, waitlist_email=email, waitlist_dupe=not added)
+
+
+@app.route("/admin/waitlist")
+def admin_waitlist():
+    """Read-only pilot waitlist for manual outreach (key-protected, unlinked)."""
+    key = (os.environ.get("PILOT_ADMIN_KEY") or "").strip()
+    if not key or (request.args.get("key") or "") != key:
+        return "Not found", 404
+    rows = db.list_waitlist()
+    if (request.args.get("format") or "") == "csv":
+        out = "email,source,created_at\n" + "".join(
+            "%s,%s,%s\n" % (r["email"], r["source"] or "", r["created_at"]) for r in rows)
+        return out, 200, {
+            "Content-Type": "text/csv; charset=utf-8",
+            "Content-Disposition": "attachment; filename=sabal-pilot-waitlist.csv",
+        }
+    lines = "\n".join("%s  (%s)" % (r["email"], (r["created_at"] or "")[:19]) for r in rows) or "(empty)"
+    html = (
+        "<!doctype html><meta name=viewport content='width=device-width,initial-scale=1'>"
+        "<h2>Sabal pilot waitlist &mdash; %d</h2>"
+        "<p>Seats used: %d of %d</p><pre>%s</pre>"
+        "<p><a href='?key=%s&amp;format=csv'>Download CSV</a></p>"
+    ) % (len(rows), _pilot_seats_used(), _pilot_cap(), lines, key)
+    return html
 
 
 def _try_email_dashboard_link(user, link):

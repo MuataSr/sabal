@@ -1,9 +1,46 @@
 {% extends "base.html" %}
 
-{% block title %}Sign Up — Sabal FCLE Exam Prep{% endblock %}
+{% block title %}{% if pilot_full %}Pilot Full — Sabal FCLE Exam Prep{% else %}Sign Up — Sabal FCLE Exam Prep{% endif %}{% endblock %}
 {% block bottom_nav %}{% endblock %}
 
 {% block content %}
+{% if pilot_full %}
+<div class="auth-card">
+  <h1>Our first pilot cohort is full</h1>
+  <p class="subtitle">Sabal&rsquo;s first pilot is limited to {{ pilot_cap }} students so everyone in it gets a fast, dependable study experience. We&rsquo;ve reached that limit.</p>
+
+  {% if waitlist_done %}
+    <div class="pilot-note">
+      <strong>You&rsquo;re on the list.</strong><br>
+      We saved <em>{{ waitlist_email }}</em>. When a seat opens in the next cohort we&rsquo;ll email you there &mdash; nothing else you need to do.
+    </div>
+  {% elif waitlist_existing %}
+    <div class="pilot-note">
+      <strong>That email already has an account.</strong><br>
+      <a href="/login">Get your dashboard link &rarr;</a>
+    </div>
+  {% else %}
+    {% if waitlist_dupe %}
+      <div class="pilot-note"><strong>You&rsquo;re already on the list</strong> &mdash; we&rsquo;ll be in touch when a seat opens.</div>
+    {% endif %}
+    <p class="subtitle" style="margin-bottom:16px">We&rsquo;re opening more seats soon. Leave your email and we&rsquo;ll tell you the moment one does.</p>
+    <form method="POST" action="/waitlist">
+      <div class="form-group">
+        <label for="wl_email">Email</label>
+        <input type="email" id="wl_email" name="email" placeholder="you@example.com" required autofocus>
+      </div>
+      <button type="submit" class="submit-btn" style="margin-top: 8px;">Notify me when a seat opens</button>
+    </form>
+  {% endif %}
+
+  <p class="auth-link">Already have an account? <a href="/login">Get your dashboard link</a></p>
+</div>
+
+<style>
+  .pilot-note{background:rgba(15,33,54,.05);border:1px solid rgba(15,33,54,.12);
+    border-radius:12px;padding:14px 16px;margin:0 0 16px;font-size:.95rem;line-height:1.55}
+</style>
+{% else %}
 <div class="auth-card">
   <h1>Create your Sabal account</h1>
   <p class="subtitle">Free. No password. Register and get your personal dashboard link.</p>
@@ -27,4 +64,5 @@
 
   <p class="auth-link">Already have an account? <a href="/login">Get your dashboard link</a></p>
 </div>
+{% endif %}
 {% endblock %}
