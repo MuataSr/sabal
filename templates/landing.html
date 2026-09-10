@@ -171,7 +171,7 @@
     </a>
     <div class="top-cta">
       <a class="top-login" href="/login">Log in</a>
-      <a class="btn btn-navy btn-sm" href="/signup">Start free</a>
+      <a class="btn btn-navy btn-sm" href="/signup{% if src %}?src={{ src }}{% endif %}">Start free</a>
     </div>
   </div>
 </header>
@@ -182,7 +182,7 @@
       <span class="eyebrow">FCLE practice that teaches</span>
       <h1>Pass the FCLE. Feel ready before test day.</h1>
       <p class="sub">You&rsquo;ve done the coursework. You&rsquo;ve made it this far. One exam stands between you and graduation &mdash; and it&rsquo;s been years since civics class. That&rsquo;s okay. <strong>Sabal is the refresher that actually works.</strong></p>
-      <a class="btn btn-gold" href="/signup">Check My FCLE Readiness &rarr;</a>
+      <a class="btn btn-gold" href="/signup{% if src %}?src={{ src }}{% endif %}">Check My FCLE Readiness &rarr;</a>
       <p class="micro"><strong>Free during beta. No credit card.</strong></p>
       <p class="micro">No password. No download. Start in 30 seconds.</p>
     </div>
@@ -270,7 +270,7 @@
     </div>
     <div class="sample-cta hidden" id="sample-cta">
       <p>That&rsquo;s how every answer works &mdash; 2,175 questions across all four tested domains, plus a Diagnostic that shows your weak spots in minutes.</p>
-      <a class="btn btn-gold" href="/signup">Check My FCLE Readiness &rarr;</a>
+      <a class="btn btn-gold" href="/signup{% if src %}?src={{ src }}{% endif %}">Check My FCLE Readiness &rarr;</a>
     </div>
   </div>
 </section>
@@ -321,7 +321,7 @@
     <div class="price">
       <h2>Free during beta. Every feature.</h2>
       <p>Right now, every feature is free &mdash; full question bank, all practice modes, AI tutor, progress tracking. When the beta ends, there will be a one-time, no-subscription option to keep your access. Start now and your progress carries with you.</p>
-      <a class="btn btn-gold" href="/signup">Start Practicing Free &rarr;</a>
+      <a class="btn btn-gold" href="/signup{% if src %}?src={{ src }}{% endif %}">Start Practicing Free &rarr;</a>
     </div>
   </div>
 </section>

@@ -393,7 +393,7 @@ def _premium_weak_areas(user_id):
 def dashboard():
     user = _get_current_user()
     if user is None:
-        return render_template("landing.html")
+        return render_template("landing.html", src=_signup_source())
     user_id = user["id"]
     stats = db.get_overall_stats(user_id)
     overall_pct = stats.get("overall_readiness", 0) or 0
