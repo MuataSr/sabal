@@ -16,7 +16,7 @@
   <!-- legacy editorial styles moved to static/css/legacy.css -->
 
   <link rel="stylesheet" href="{{ url_for('static', filename='css/legacy.css') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}?v=2">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}?v=3">
 </head>
 <body class="a-shell{% block bodyclass %}{% endblock %}{% if standalone %} standalone{% endif %}{% if standalone_auth %} auth-standalone{% endif %}">
 
@@ -27,7 +27,9 @@
   <aside class="sidebar" id="app-sidebar">
     <div class="sidebar-brand">
       <a href="/" style="text-decoration:none;display:block;line-height:0" aria-label="Sabal home">
-        <img src="{{ url_for('static', filename='img/sabal-logo.png') }}" alt="Sabal FCLE Exam Prep" class="sabal-brand-logo">
+        <img src="{{ url_for('static', filename='img/sabal-logo-h74-2x.png') }}"
+             srcset="{{ url_for('static', filename='img/sabal-logo-h74-2x.png') }} 2x, {{ url_for('static', filename='img/sabal-logo-h74-3x.png') }} 3x"
+             width="168" height="74" alt="Sabal FCLE Exam Prep" class="sabal-brand-logo">
       </a>
     </div>
 
