@@ -173,6 +173,17 @@ def get_landmark_impact_topics():
 # Stats helpers
 # ---------------------------------------------------------------------------
 
+def get_total_questions():
+    """Total questions in the bank. One COUNT, for live counts shown in the UI.
+
+    UI surfaces must never hardcode the size of the bank: it changes as content
+    is added, and a stale count is a false claim. Marketing copy uses a rounded
+    floor ("2,000+"); in-product surfaces show this live number.
+    """
+    with _get_conn() as conn:
+        return conn.execute("SELECT COUNT(*) FROM questions").fetchone()[0]
+
+
 def get_question_counts():
     """Return {domain_name: total, domain_name_easy: n, ...} for all domains."""
     domains = get_domains()

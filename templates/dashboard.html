@@ -101,7 +101,7 @@
 <!-- Practice areas -->
 <div class="a-panel-head" style="border-bottom:none;padding:6px 2px 12px">
   <h2>Practice areas</h2>
-  <span class="hint">Four domains · 2,175 questions</span>
+  <span class="hint">Four domains &middot; {{ "{:,}".format(total_questions) }} questions</span>
 </div>
 <div class="a-grid4" style="margin-bottom:14px">
   {% for dom in domains %}

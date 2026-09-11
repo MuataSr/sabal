@@ -415,6 +415,7 @@ def dashboard():
 
     display_name = user["display_name"] if user else "Student"
     exam_days = _exam_countdown(user.get("exam_date") if user else None)
+    total_questions = kb.get_total_questions()
 
     return render_template("dashboard.html",
         greeting=_greeting(),
@@ -425,6 +426,7 @@ def dashboard():
         recommendations=recommendations,
         recent_sessions=recent_sessions,
         exam_days=exam_days,
+        total_questions=total_questions,
         is_anonymous=user.get("is_anonymous", 1) if user else 1,
     )
 
@@ -1424,10 +1426,12 @@ def stimulus_hub():
             "stimulus_count": len(stim_count),
         })
     total_stim = sum(dd["stimulus_count"] for dd in domain_data)
+    total_questions = kb.get_total_questions()
 
     return render_template("stimulus_hub.html",
         domains=domain_data,
         total_stimulus=total_stim,
+        total_questions=total_questions,
         active_nav="stimulus",
     )
 
