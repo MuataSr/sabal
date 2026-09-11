@@ -160,6 +160,54 @@
   footer{padding:40px 0;border-top:1px solid var(--line);background:#fff;color:var(--muted);font-size:14.5px;text-align:center}
   footer .brand{color:var(--navy);font-weight:700;font-family:'Libre Baskerville',serif;font-size:15px;letter-spacing:.5px}
   footer p{margin-top:4px}
+  .mk{border:1px solid var(--line);border-radius:12px;background:#fff;padding:14px}
+  .mk-t{font-size:11.5px;font-weight:700;letter-spacing:1.1px;text-transform:uppercase;color:var(--gold-deep);margin-bottom:10px}
+  /* domain bars */
+  .mk-bar{display:grid;grid-template-columns:1fr 74px 34px;align-items:center;gap:10px;font-size:12.5px;color:var(--muted);padding:5px 0}
+  .mk-bar span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .mk-bar i{height:7px;border-radius:4px;background:var(--navy);display:block;width:var(--w);opacity:.85}
+  .mk-bar.low i{background:#C2574C}
+  .mk-bar b{font-size:12px;color:var(--ink);text-align:right;font-weight:600}
+  /* question card */
+  .mk-stem{font-size:14.5px;color:var(--navy-ink);font-weight:600;line-height:1.45;margin-bottom:10px}
+  .mk-opt{display:flex;justify-content:space-between;align-items:center;gap:10px;border:1.5px solid var(--line);border-radius:9px;padding:8px 11px;font-size:13.5px;margin-bottom:7px}
+  .mk-opt em{font-style:normal;font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase}
+  .mk-opt.ch-wrong{border-color:#C2574C;background:#FBEFED;color:#8d3b33}
+  .mk-opt.ch-wrong em{color:#A3443A}
+  .mk-opt.ch-right{border-color:#2F9E6E;background:#EDF9F3;color:#1F7A52}
+  .mk-opt.ch-right em{color:#1F7A52}
+  .mk-why{margin-top:10px;background:#F7F5F0;border:1px solid var(--line);border-radius:9px;padding:10px 12px;font-size:12.5px;color:var(--muted);line-height:1.5}
+  .mk-why strong{color:var(--navy-ink)}
+  /* mode chips */
+  .mk-modes{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+  .chip{font-size:12.5px;border:1.5px solid var(--line);border-radius:999px;padding:5px 12px;color:var(--muted);background:#F7F5F0}
+  .chip.on{border-color:var(--gold);background:#FDF9EF;color:var(--navy-ink);font-weight:600}
+  .mk-line{flex:1 0 100%;height:6px;border-radius:4px;background:#EFEADF;margin-top:6px;position:relative}
+  .mk-line i{position:absolute;inset:0 auto 0 0;width:var(--w);background:var(--navy);border-radius:4px;opacity:.85}
+  /* readiness */
+  .mk-ready{text-align:center}
+  .mk-gauge b{font-family:'Libre Baskerville',Georgia,serif;font-size:38px;line-height:1;color:var(--navy-ink);display:block}
+  .mk-gauge span{font-size:11.5px;letter-spacing:1.4px;text-transform:uppercase;color:var(--muted)}
+  .mk-dots{display:flex;gap:6px;justify-content:center;margin:12px 0 10px}
+  .mk-dots i{width:100%;max-width:46px;height:7px;border-radius:4px;background:#E4DFD3;display:block}
+  .mk-dots i.f{background:var(--gold)}
+  .mk-note{font-size:12.5px;color:var(--muted)}
+
+  /* ── OPTION E · zig-zag: each feature gets its own row and its own moment ── */
+  .feat-grid.zigzag{display:block;max-width:1000px;margin:0 auto}
+  .zz-row{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;padding:34px 0;border-top:1px solid var(--line)}
+  .zz-row:first-child{border-top:0;padding-top:4px}
+  .zz-row:last-child{border-bottom:1px solid var(--line)}
+  .zz-row:nth-child(even) .zz-copy{order:2}
+  .zz-num{font-family:'Libre Baskerville',Georgia,serif;font-size:14px;letter-spacing:2.5px;color:var(--gold-deep);font-weight:700;margin-bottom:8px}
+  .zigzag h3{font-size:23px;color:var(--navy-ink);margin:0 0 10px;font-weight:700;line-height:1.25}
+  .zigzag p{color:var(--muted);font-size:16.5px;max-width:430px}
+  .zz-mock .mk{padding:18px;box-shadow:0 16px 40px -22px rgba(15,33,54,.35)}
+  @media(max-width:820px){
+    .zz-row{grid-template-columns:1fr;gap:22px;padding:28px 0}
+    .zz-row:nth-child(even) .zz-copy{order:0}
+    .zigzag h3{font-size:20px}
+  }
 </style>
 </head>
 <body>
@@ -284,26 +332,46 @@
       <h2>Everything you need. Nothing you don&rsquo;t.</h2>
       <p>Know your weak spots. Learn from every miss. Walk in ready.</p>
     </div>
-    <div class="feat-grid">
-      <div class="feat">
-        <div class="num">01</div>
-        <h3>Know exactly what you need to study</h3>
-        <p>2,175 FCLE-style questions across all four tested domains. Take a timed Diagnostic and find your weak spots fast. No padding, no filler.</p>
+    <div class="feat-grid zigzag">
+      <div class="zz-row">
+        <div class="zz-copy"><div class="zz-num">01</div><h3>Know exactly what you need to study</h3><p>2,175 FCLE-style questions across all four tested domains. Take a timed Diagnostic and find your weak spots fast. No padding, no filler.</p></div>
+        <div class="zz-mock">
+<div class="mk mk-bars" aria-hidden="true">
+  <div class="mk-t">Where your points are going</div>
+  <div class="mk-bar"><span>American Democracy</span><i style="--w:78%"></i><b>78%</b></div>
+  <div class="mk-bar low"><span>U.S. Constitution</span><i style="--w:41%"></i><b>41%</b></div>
+  <div class="mk-bar low"><span>Founding Documents</span><i style="--w:36%"></i><b>36%</b></div>
+  <div class="mk-bar"><span>Landmark Cases</span><i style="--w:69%"></i><b>69%</b></div>
+</div></div>
       </div>
-      <div class="feat">
-        <div class="num">02</div>
-        <h3>Stop missing the same question twice</h3>
-        <p>When you miss one, you don&rsquo;t just see the right letter &mdash; you learn <em>why</em> the wrong answer felt right, and why the right one is right. No more guessing.</p>
+      <div class="zz-row">
+        <div class="zz-copy"><div class="zz-num">02</div><h3>Stop missing the same question twice</h3><p>When you miss one, you don’t just see the right letter — you learn <em>why</em> the wrong answer felt right, and why the right one is right.</p></div>
+        <div class="zz-mock">
+<div class="mk mk-q" aria-hidden="true">
+  <div class="mk-t">Landmark Supreme Court cases</div>
+  <div class="mk-stem">Which case established the power of judicial review?</div>
+  <div class="mk-opt ch-wrong"><span>Judicial restraint</span><em>your choice</em></div>
+  <div class="mk-opt ch-right"><span>Marbury v. Madison</span><em>correct</em></div>
+  <div class="mk-why"><strong>Why it felt right:</strong> restraint is a real doctrine you’ve seen before — it just isn’t the one Marbury settled.</div>
+</div></div>
       </div>
-      <div class="feat">
-        <div class="num">03</div>
-        <h3>Practice the way you learn best</h3>
-        <p>Quick drills, timed Diagnostic, Mixed Review, or ask the AI Tutor to explain a concept until it clicks.</p>
+      <div class="zz-row">
+        <div class="zz-copy"><div class="zz-num">03</div><h3>Practice the way you learn best</h3><p>Quick drills, timed Diagnostic, Mixed Review, or ask the AI Tutor to explain a concept until it clicks.</p></div>
+        <div class="zz-mock">
+<div class="mk mk-modes" aria-hidden="true">
+  <span class="chip on">Quick drills</span><span class="chip">Timed Diagnostic</span>
+  <span class="chip">Mixed Review</span><span class="chip">AI Tutor</span>
+  <div class="mk-line"><i style="--w:1"></i></div>
+</div></div>
       </div>
-      <div class="feat">
-        <div class="num">04</div>
-        <h3>Know when you&rsquo;re actually ready</h3>
-        <p>The questions you miss come back before you forget them, and your readiness score shows whether you&rsquo;re improving &mdash; so test day isn&rsquo;t a surprise.</p>
+      <div class="zz-row">
+        <div class="zz-copy"><div class="zz-num">04</div><h3>Know when you’re actually ready</h3><p>The questions you miss come back before you forget them, and your readiness score shows whether you’re improving.</p></div>
+        <div class="zz-mock">
+<div class="mk mk-ready" aria-hidden="true">
+  <div class="mk-gauge"><b>72</b><span>readiness</span></div>
+  <div class="mk-dots"><i class="f"></i><i class="f"></i><i class="f"></i><i></i></div>
+  <div class="mk-note">Two topics still moving. Keep going.</div>
+</div></div>
       </div>
     </div>
   </div>
