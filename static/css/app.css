@@ -104,7 +104,7 @@ body.a-shell { background: var(--a-gray-100); }
 }
 .brand-name { font-size: 15px; font-weight: 800; color: var(--a-gray-900); line-height: 1.2; }
 .brand-sub { font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--a-gray-400); font-weight: 600; }
-.sabal-brand-logo { width: 150px; height: auto; display: block; }
+.sabal-brand-logo { width: 190px; height: auto; display: block; }
 .sabal-auth-logo { width: 210px; height: auto; display: block; margin: 0 auto; }
 
 /* Nav */
