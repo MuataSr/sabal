@@ -19,3 +19,8 @@ fcle_questions.db
 .DS_Store
 data/*.db-shm
 data/*.db-wal
+# Secrets — never commit (.env, .env.bak-*, .env.local, etc.)
+.env*
+
+# Runtime DB backups contain real user data — never commit
+data/backups/
