@@ -4,8 +4,25 @@
 import json
 import requests
 import time
+import os
 
-API_KEY = "REMOVED-ROTATED-KEY"
+def _env_key(name):
+    """Read a credential from the environment, falling back to a repo-root .env.
+    Credentials are never committed - see .env.example."""
+    v = os.environ.get(name, "")
+    if not v and os.path.exists(".env"):
+        for _line in open(".env"):
+            if _line.strip().startswith(name + "="):
+                v = _line.split("=", 1)[1].strip().strip("\"'")
+                break
+    if not v:
+        raise SystemExit(
+            f"{name} is not set. Copy .env.example to .env and fill it in, "
+            f"or export {name}."
+        )
+    return v
+
+API_KEY = _env_key("ZAI_API_KEY")
 BASE_URL = "https://api.z.ai/api/coding/paas/v4"
 MODEL = "glm-5.1"
 OUTPUT_FILE = "/home/muatasr/.nanobot/workspace/fcle-study-app/data/misconceptions_d4.json"

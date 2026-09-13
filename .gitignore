@@ -24,3 +24,6 @@ data/*.db-wal
 
 # Runtime DB backups contain real user data — never commit
 data/backups/
+
+# Template IS committed; real .env files are not.
+!.env.example
