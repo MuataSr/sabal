@@ -97,6 +97,27 @@ class LibraryTest(unittest.TestCase):
         d = self._directive(1, "Political parties and elections", False, 3)
         self.assertEqual(d.read_section_title, "6.2. How Is Public Opinion Measured?")
 
+    def test_external_reading_target_renders_as_a_link(self):
+        # An external source has no content row; it must be offered directly and carry a
+        # URL that the feedback view turns into a link.
+        lib = {
+            "sections_by_id": {}, "primary": {}, "reviewed": set(),
+            "external": {"SS.7.CG.2.2": {"title": "A Guide to Naturalization",
+                                         "url": "https://example.gov/naturalization"}},
+            "benchmarks": {"SS.7.CG.2.2": {"description": "Explain the naturalization process"}},
+            "codes": {(2, "Citizenship"): "SS.7.CG.2.2"},
+            "misconceptions": [], "sections": [],
+        }
+        question = {"id": 1, "fcle_domain": 2, "topic": "Citizenship", "explanation": "x",
+                    "wrong_answers": ["w"], "wrong_explanations": ["y"]}
+        answer = {"question_id": 1, "domain": 2, "topic": "Citizenship",
+                  "is_correct": False, "confidence": 3, "selected_answer": "w"}
+        d = library.directive_for(lib, answer, question)
+        self.assertEqual(d.read_section_title, "A Guide to Naturalization")
+        self.assertEqual(d.read_section_url, "https://example.gov/naturalization")
+        self.assertEqual(library.feedback_view(d)["read_url"],
+                         "https://example.gov/naturalization")
+
     def test_reviewed_set_holds_only_reviewed_codes(self):
         self.assertEqual(self.lib["reviewed"], {"SS.7.CG.2.6"})
         self.assertNotIn("SS.7.CG.3.11", self.lib["reviewed"])

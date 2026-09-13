@@ -74,16 +74,22 @@ def directive_for(library, answer, question, domain=None):
     resolved = question_domain(question, answer, domain)
     topic = question.get("topic", "") or ""
     code = benchmark_code(library, resolved, topic)
-    section = library["sections_by_id"].get(library["primary"].get(code)) or {}
-    if not router.is_teachable_section(section):
-        section = {}          # back matter is not a reading assignment
-    elif (code not in library.get("reviewed", set())
-          and not router.title_matches_benchmark(library["benchmarks"].get(code), section)):
-        # An unreviewed link must still earn its place through the keyword gate. A
-        # reviewed link was read and judged by hand, so the gate is skipped: a correct
-        # pointer such as SS.7.CG.1.11 -> "2.8. The English Constitutional Heritage"
-        # shares no significant word with the benchmark and the gate used to withhold it.
-        section = {}
+    external = library.get("external", {}).get(code)
+    if external:
+        # A verified external reading target (public-domain or CC-licensed) has no
+        # content row, so it is offered directly and rendered as a link on the page.
+        section = {"section_title": external["title"], "reading_url": external["url"]}
+    else:
+        section = library["sections_by_id"].get(library["primary"].get(code)) or {}
+        if not router.is_teachable_section(section):
+            section = {}          # back matter is not a reading assignment
+        elif (code not in library.get("reviewed", set())
+              and not router.title_matches_benchmark(library["benchmarks"].get(code), section)):
+            # An unreviewed link must still earn its place through the keyword gate. A
+            # reviewed link was read and judged by hand, so the gate is skipped: a correct
+            # pointer such as SS.7.CG.1.11 -> "2.8. The English Constitutional Heritage"
+            # shares no significant word with the benchmark and the gate used to withhold it.
+            section = {}
     # build_directive reads the domain off the question, which the app's rows do not
     # carry, so hand it an answer that always does.
     answer = dict(answer, domain=resolved)
@@ -113,6 +119,7 @@ def feedback_view(directive):
         "correction": directive.correction,
         "read_intro": copy.reading_intro(),
         "read_section": directive.read_section_title,
+        "read_url": directive.read_section_url,
         "next_review_days": directive.next_review_days,
         # A domain-tier match is generic by construction: it says something true about
         # the domain, not about this question. Say so rather than passing it off as

@@ -82,6 +82,14 @@ def load_content_library(content_db):
             # keyword gate applies everywhere - the pre-review behaviour, and safe.
             reviewed = set()
         try:
+            external = {r["benchmark_code"]: {"title": r["reading_title"], "url": r["reading_url"]}
+                        for r in _rows(cur, "SELECT benchmark_code, reading_title, reading_url "
+                                            "FROM benchmark_sections WHERE is_primary = 1 "
+                                            "AND reading_url IS NOT NULL AND reading_url != ''")}
+        except sqlite3.Error:
+            # a DB without the reading_url column simply has no external targets
+            external = {}
+        try:
             benchmarks = {r["code"]: r for r in _rows(
                 cur, "SELECT code, standard, description, clarifications FROM benchmarks")}
         except sqlite3.Error:
@@ -89,7 +97,8 @@ def load_content_library(content_db):
     finally:
         con.close()
     return {"misconceptions": misconceptions, "sections": sections, "codes": codes,
-            "primary": primary, "benchmarks": benchmarks, "reviewed": reviewed}
+            "primary": primary, "benchmarks": benchmarks, "reviewed": reviewed,
+            "external": external}
 
 
 def _load_answers(run, qidx, bmap):

@@ -112,7 +112,7 @@ def main():
     print("row changes: %d" % (con.total_changes - changes))
 
     dangling = con.execute("SELECT COUNT(*) FROM benchmark_sections "
-                           "WHERE section_id NOT IN (SELECT id FROM content)").fetchone()[0]
+                           "WHERE section_id != 0 AND section_id NOT IN (SELECT id FROM content)").fetchone()[0]
     print("rows now                : %d" % con.execute(
         "SELECT COUNT(*) FROM benchmark_sections").fetchone()[0])
     print("codes with a primary    : %d" % con.execute(

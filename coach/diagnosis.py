@@ -50,6 +50,7 @@ class Directive:
     next_review_days: int = rules.SRS_FIRST_INTERVAL_DAYS
     read_section_id: int = None
     read_section_title: str = ""
+    read_section_url: str = ""
 
     @property
     def is_teachable(self):
@@ -207,4 +208,5 @@ def build_directive(answer, question, misconceptions=(), sections=(),
         # Normalise here, not in each surface: the stored titles carry trailing '*'
         # markers and NBSPs, and the reading card is not the only place they render.
         read_section_title=router.display_title(read_section or {}),
+        read_section_url=(read_section or {}).get("reading_url") or "",
     )

@@ -98,7 +98,11 @@
   {% endif %}
 
   {% if coach_feedback.read_section %}
+  {% if coach_feedback.read_url %}
+  <p class="coach-note-read">{{ coach_feedback.read_intro }} <a href="{{ coach_feedback.read_url }}" target="_blank" rel="noopener noreferrer">{{ coach_feedback.read_section }}</a></p>
+  {% else %}
   <p class="coach-note-read">{{ coach_feedback.read_intro }} <strong>{{ coach_feedback.read_section }}</strong></p>
+  {% endif %}
   {% endif %}
 </div>
 {% endif %}
