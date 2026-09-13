@@ -43,3 +43,6 @@ rekey.csv.pass1
 
 # Kept locally for provenance; the split is reversible from the DB itself.
 data/content-77-presplit.json
+
+# db backups
+data/fcle.db.pre-*

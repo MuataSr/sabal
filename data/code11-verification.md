@@ -1,6 +1,6 @@
 # 11-code recommendations - verification
 
-Verified in_corpus: **3**
+Verified in_corpus: **4**
 
 Awaiting a human re-fetch of the URL: **4**
 
@@ -13,6 +13,7 @@ Rejected as malformed: **0**
 - `SS.7.CG.1.11` -> section 81 "2.8. The English Constitutional Heritage: Magna Carta to the" (high)
 - `SS.7.CG.2.6` -> section 29 "7.3. Elections*" (medium)
 - `SS.7.CG.2.9` -> section 35 "8.4. The Impact of the Media*" (medium)
+- `SS.7.CG.3.3` -> section 6 "2.3. The Development of the Constitution*" (medium)
 
 ## 'No good target' answers (legitimate, nothing written)
 
