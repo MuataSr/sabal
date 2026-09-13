@@ -42,9 +42,34 @@ PLACEHOLDER = re.compile(
         |null|none|true|false|test|todo
     )$""")
 
-BINARY_EXT = {".png",".jpg",".jpeg",".gif",".webp",".ico",".svg",".woff",".woff2",
-              ".ttf",".otf",".pdf",".zip",".gz",".tgz",".mp3",".mp4",".ogg",".wav"}
+BINARY_EXT = {".png",".jpg",".jpeg",".gif",".webp",".ico",".woff",".woff2",
+              ".ttf",".otf",".pdf",".zip",".gz",".tgz",".mp3",".mp4",".ogg",".wav",".db"}
 SKIP_DIRS = {".git",".venv","venv","node_modules","__pycache__","dist","build",".mypy_cache"}
+MAX_SCAN_BYTES = 64 * 1024 * 1024
+
+
+def decode(raw, path=""):
+    """Turn a blob into text for scanning. Never raises.
+
+    Two earlier behaviours were both wrong. Binaries not listed in BINARY_EXT crashed the
+    strict utf-8 decode, and the pre-commit hook then reported the crash as "looks like a
+    credential" - which is how a commit of data/fcle.db got blocked. And binaries that WERE
+    listed were skipped outright, which is a silent blind spot in a repo that commits a
+    SQLite content database: a key sitting in a content row would never be seen.
+
+    So: decode everything, and use latin-1 for binary because it maps every byte to a
+    character, so ASCII credentials inside a binary stay findable.
+    """
+    if not isinstance(raw, (bytes, bytearray)):
+        return raw
+    raw = bytes(raw)
+    if len(raw) > MAX_SCAN_BYTES:
+        print(f"  [skip] {path or 'blob'} is {len(raw) // (1024*1024)} MB, over the "
+              f"{MAX_SCAN_BYTES // (1024*1024)} MB scan cap - raise MAX_SCAN_BYTES to scan it",
+              file=sys.stderr)
+        return ""
+    is_binary = b"\x00" in raw[:8192] or os.path.splitext(path)[1].lower() in BINARY_EXT
+    return raw.decode("latin-1" if is_binary else "utf-8", errors="replace")
 
 
 def allowed(value: str) -> bool:
@@ -64,16 +89,31 @@ def allowed(value: str) -> bool:
     return False
 
 
+WINDOW = 4000
+OVERLAP = 512
+
+
 def scan_text(name, text, findings):
+    """Scan every line, including very long ones.
+
+    Long lines used to be skipped entirely to keep the regexes cheap. That is exactly
+    where a blind spot lives: a minified bundle, or one line of a binary blob, can be
+    thousands of characters and would never be looked at. Scan them in overlapping
+    windows instead, so a token spanning a boundary is still matched.
+    """
     for i, line in enumerate(text.splitlines(), 1):
-        if len(line) > 4000:
-            continue
-        for label, rx in PATTERNS:
-            for m in rx.finditer(line):
-                val = m.groupdict().get("val") or m.group(0)
-                if allowed(val):
-                    continue
-                findings.append((name, i, label, val))
+        if len(line) <= WINDOW:
+            windows = (line,)
+        else:
+            windows = tuple(line[j:j + WINDOW + OVERLAP]
+                            for j in range(0, len(line), WINDOW))
+        for window in windows:
+            for label, rx in PATTERNS:
+                for m in rx.finditer(window):
+                    val = m.groupdict().get("val") or m.group(0)
+                    if allowed(val):
+                        continue
+                    findings.append((name, i, label, val))
 
 
 def tracked_files():
@@ -90,10 +130,12 @@ def staged_files():
 def show(path, staged):
     try:
         if staged:
-            r = subprocess.run(["git", "show", f":{path}"], capture_output=True, text=True)
-            return r.stdout
-        with open(path, encoding="utf-8", errors="replace") as fh:
-            return fh.read()
+            # No text=True: let git hand back bytes and decode them here, so a binary
+            # in the index cannot raise inside subprocess and be read as a finding.
+            r = subprocess.run(["git", "show", f":{path}"], capture_output=True)
+            return decode(r.stdout, path)
+        with open(path, "rb") as fh:
+            return decode(fh.read(), path)
     except OSError:
         return ""
 
@@ -112,11 +154,9 @@ def history_blobs():
             if sha in seen:
                 continue
             seen.add(sha)
-            if os.path.splitext(path)[1].lower() in BINARY_EXT:
-                continue
-            body = subprocess.run(["git", "cat-file", "-p", sha], capture_output=True,
-                                  text=True, errors="replace").stdout
-            yield f"{rev[:10]}:{path}", body
+            body = decode(subprocess.run(["git", "cat-file", "-p", sha],
+                                         capture_output=True).stdout, path)
+            yield f"{rev[:10]}:{path}", decode(body, path)
 
 
 def main():
@@ -132,15 +172,11 @@ def main():
     elif "--staged" in args:
         files = staged_files()
         for f in files:
-            if os.path.splitext(f)[1].lower() in BINARY_EXT:
-                continue
             scan_text(f, show(f, True), findings)
         print(f"scanned {len(files)} staged file(s)")
     else:
         files = tracked_files()
         for f in files:
-            if os.path.splitext(f)[1].lower() in BINARY_EXT:
-                continue
             if any(part in SKIP_DIRS for part in f.split(os.sep)):
                 continue
             scan_text(f, show(f, False), findings)

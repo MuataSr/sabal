@@ -4,6 +4,11 @@
 import json, requests, sys, os
 import os
 
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+import misconception_codes  # noqa: E402  real SS.7.CG codes; refuses the "FCLE" placeholder
+
+DOMAIN = 3
+
 def _env_key(name):
     """Read a credential from the environment, falling back to a repo-root .env.
     Credentials are never committed - see .env.example."""
@@ -38,7 +43,11 @@ Generate COLLEGE-LEVEL misconceptions covering deeper political theory:
 - Northwest Ordinance, intentional Articles weakness, requisition failure
 - Ratification strategy, Bill of Rights as compromise, Massachusetts turning point
 
-Rules: misconception 40-120 chars, correction 80-200 chars. Output ONLY JSON array."""
+Rules: misconception 40-120 chars, correction 80-200 chars. Output ONLY JSON array.
+
+Every item MUST carry a real standard code. "FCLE" is NOT a code and is rejected.
+Choose the ONE standard the misconception is really about, from this list only:
+""" + misconception_codes.prompt_block(DOMAIN)
 
 BATCHES = [
     "Declaration of Independence: Lockean theory depth, consent of governed vs Hobbesian, Jefferson's borrowing, Declaration as philosophy not charter, grievances as legal indictment, self-evident truths epistemology",
@@ -63,7 +72,8 @@ def call_api(topic, n):
         content = "\n".join(lines)
     items = json.loads(content)
     for item in items:
-        item["benchmark_code"] = "FCLE"
+        item["benchmark_code"] = misconception_codes.validate(
+            item.get("benchmark_code"), domain=DOMAIN)
         item["difficulty"] = "hard"
         item["fcle_domain"] = 3
     return items

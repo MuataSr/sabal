@@ -5,6 +5,13 @@ import json
 import requests
 import time
 import os
+import sys
+
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+import misconception_codes  # noqa: E402  real SS.7.CG codes; refuses the "FCLE" placeholder
+
+DOMAIN = 4
+DOMAIN_CODES = misconception_codes.prompt_block(DOMAIN)
 
 def _env_key(name):
     """Read a credential from the environment, falling back to a repo-root .env.
@@ -80,8 +87,12 @@ REQUIREMENTS:
    - No "X is just about Y" dismissals
 7. Vary the topics — don't cluster on one case or one theme
 
+8. Every item MUST carry a real standard code. "FCLE" is NOT a code and is rejected.
+   Choose the ONE standard the misconception is really about, from this list only:
+{DOMAIN_CODES}
+
 OUTPUT FORMAT: Return ONLY a valid JSON array, no markdown fences, no explanation. Each object:
-{{"benchmark_code": "FCLE", "misconception": "...", "correction": "...", "difficulty": "hard", "fcle_domain": 4}}
+{{"benchmark_code": "SS.7.CG.3.11", "misconception": "...", "correction": "...", "difficulty": "hard", "fcle_domain": 4}}
 
 This is batch {batch_num}. Generate exactly 10 items."""
 
@@ -133,7 +144,8 @@ def validate_item(item):
     assert "correction" in item, "missing correction"
     assert 40 <= len(item["misconception"]) <= 150, f"misconception length {len(item['misconception'])}"
     assert 80 <= len(item["correction"]) <= 250, f"correction length {len(item['correction'])}"
-    item.setdefault("benchmark_code", "FCLE")
+    item["benchmark_code"] = misconception_codes.validate(
+        item.get("benchmark_code"), domain=DOMAIN)
     item.setdefault("difficulty", "hard")
     item.setdefault("fcle_domain", 4)
     return item

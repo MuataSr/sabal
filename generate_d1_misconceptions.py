@@ -5,6 +5,12 @@ import json
 import urllib.request
 import ssl
 import os
+import sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import misconception_codes  # noqa: E402  real SS.7.CG codes; refuses the "FCLE" placeholder
+
+DOMAIN = 1
 
 def _env_key(name):
     """Read a credential from the environment, falling back to a repo-root .env.
@@ -95,7 +101,11 @@ Topics: Natural rights philosophy (Locke, Montesquieu), Social contract theory, 
 
 These must be COLLEGE-LEVEL misconceptions — deeper nuance, constitutional philosophy, theoretical understanding. NOT middle school civics.
 
-Output format: JSON array of objects with keys: benchmark_code (always "FCLE"), misconception (40-120 chars), correction (80-200 chars), difficulty (always "hard"), fcle_domain (always 1)."""
+Output format: JSON array of objects with keys: benchmark_code (a real standard code), misconception (40-120 chars), correction (80-200 chars), difficulty (always "hard"), fcle_domain (always 1).
+
+Every item MUST carry a real standard code. "FCLE" is NOT a code and is rejected.
+Choose the ONE standard the misconception is really about, from this list only:
+""" + misconception_codes.prompt_block(DOMAIN)
 
 def call_api(prompt, batch_num):
     body = json.dumps({
@@ -261,7 +271,8 @@ Return a JSON array of exactly 10 objects."""
             print(f"  Got {len(result)} items")
             for item in result:
                 # Validate and clean
-                item["benchmark_code"] = "FCLE"
+                item["benchmark_code"] = misconception_codes.validate(
+                    item.get("benchmark_code"), domain=DOMAIN)
                 item["difficulty"] = "hard"
                 item["fcle_domain"] = 1
                 mc = item.get("misconception", "")
