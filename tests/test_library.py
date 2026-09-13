@@ -89,6 +89,15 @@ class LibraryTest(unittest.TestCase):
         self.assertIsNot(first, second)
         self.assertEqual(len(second["misconceptions"]), 5)
 
+    def test_the_back_matter_row_is_never_a_reading_target(self):
+        from coach import router
+        self.assertFalse(router.is_teachable_section({"char_count": 367972}))
+        self.assertFalse(router.is_teachable_section({"char_count": 60001}))
+        self.assertTrue(router.is_teachable_section({"char_count": 21748}))
+        self.assertTrue(router.is_teachable_section({"char_count": 0}))
+        self.assertFalse(router.is_teachable_section(None))
+        self.assertFalse(router.is_teachable_section({"char_count": "not a number"}))
+
     def test_implausible_reading_pointer_is_suppressed(self):
         # SS.7.CG.1.8 is the Preamble. Its stored primary link is "17.4. Approaches to
         # Foreign Policy" and its second is "2.5. Constitutional Change" - neither of

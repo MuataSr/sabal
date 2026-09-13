@@ -82,6 +82,24 @@ def title_matches_benchmark(benchmark, section_title):
     return bool(official & _significant_words(section_title))
 
 
+def is_teachable_section(section):
+    """Is this a section a student could actually be sent to read?
+
+    Rejects the oversized row that carries the book's back matter. A pointer into
+    368 KB of appendices, references and index is not a reading assignment, however
+    well its words match the standard.
+    """
+    if not section:
+        return False
+    try:
+        chars = int(section.get("char_count") or 0)
+    except (TypeError, ValueError):
+        return False
+    if chars and chars > rules.MAX_READING_SECTION_CHARS:
+        return False
+    return True
+
+
 def display_title(section):
     """The student-facing section title, stripped of stored harvest artifacts.
 

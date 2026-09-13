@@ -105,6 +105,15 @@ BENCHMARK_REPORT_DOMAINS = (1, 2, 3)
 SECTION_TITLE_TRAILING_ARTIFACTS = ("*",)
 NON_BREAKING_SPACE = "\u00a0"
 
+# A section larger than this is not a section. The content harvest appended the whole
+# back matter of the book to the last section of the last chapter: section 77 is
+# 367,972 characters (median section is 21,748) and contains the appendices - the
+# Declaration of Independence, the Constitution, the Bill of Rights, Federalist No. 10 -
+# plus every chapter's references and the book index. That makes it "relevant" to 27 of
+# the 36 standards, which is how it became the top reading link for a dozen unrelated
+# codes. It is not teachable and must never be offered as a reading target.
+MAX_READING_SECTION_CHARS = 60000
+
 MIN_READING_MINUTES = 1
 MAX_READING_MINUTES = 60
 READING_MINUTES_SLACK = 2

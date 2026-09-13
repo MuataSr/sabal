@@ -75,6 +75,8 @@ def directive_for(library, answer, question, domain=None):
     topic = question.get("topic", "") or ""
     code = benchmark_code(library, resolved, topic)
     section = library["sections_by_id"].get(library["primary"].get(code)) or {}
+    if not router.is_teachable_section(section):
+        section = {}          # back matter is not a reading assignment
     if not router.title_matches_benchmark(library["benchmarks"].get(code), section):
         section = {}          # a wrong chapter is worse than no chapter
     # build_directive reads the domain off the question, which the app's rows do not
