@@ -74,14 +74,22 @@ def load_content_library(content_db):
         codes = _topic_benchmark_map(con)
         primary = _primary_sections(con)
         try:
+            reviewed = {r["benchmark_code"] for r in _rows(
+                cur, "SELECT benchmark_code FROM benchmark_sections "
+                     "WHERE is_primary = 1 AND reviewed = 1")}
+        except sqlite3.Error:
+            # an older DB without the reviewed column: nothing is reviewed, so the
+            # keyword gate applies everywhere - the pre-review behaviour, and safe.
+            reviewed = set()
+        try:
             benchmarks = {r["code"]: r for r in _rows(
                 cur, "SELECT code, standard, description, clarifications FROM benchmarks")}
         except sqlite3.Error:
             benchmarks = {}
     finally:
         con.close()
-    return {"misconceptions": misconceptions, "sections": sections,
-            "codes": codes, "primary": primary, "benchmarks": benchmarks}
+    return {"misconceptions": misconceptions, "sections": sections, "codes": codes,
+            "primary": primary, "benchmarks": benchmarks, "reviewed": reviewed}
 
 
 def _load_answers(run, qidx, bmap):

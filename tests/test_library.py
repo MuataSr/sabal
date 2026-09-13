@@ -21,7 +21,7 @@ def build_db(path):
             fcle_domain INTEGER, topic TEXT, primary_code TEXT);
         CREATE TABLE benchmark_sections (
             benchmark_code TEXT, section_id INTEGER, is_primary INTEGER,
-            relevance_score REAL);
+            relevance_score REAL, reviewed INTEGER, review_note TEXT);
         CREATE TABLE benchmarks (
             code TEXT, standard TEXT, description TEXT, clarifications TEXT);
     """)
@@ -51,9 +51,10 @@ def build_db(path):
         (4, "Landmark Supreme Court cases", "SS.7.CG.3.11"),
         (1, "Political parties and elections", "SS.7.CG.2.6"),
     ])
-    con.executemany("INSERT INTO benchmark_sections VALUES (?,?,?,?)", [
-        ("SS.7.CG.3.11", 10, 1, 9.0),
-        ("SS.7.CG.2.6", 11, 1, 8.0),
+    con.executemany("INSERT INTO benchmark_sections VALUES (?,?,?,?,?,?)", [
+        ("SS.7.CG.3.11", 10, 1, 9.0, 0, None),
+        ("SS.7.CG.2.6", 11, 1, 8.0, 1, "judged correct: elections -> public opinion is "
+                                           "an offered-by-review case"),
     ])
     con.commit()
     con.close()
@@ -88,6 +89,17 @@ class LibraryTest(unittest.TestCase):
         second = library.load(self.db)
         self.assertIsNot(first, second)
         self.assertEqual(len(second["misconceptions"]), 5)
+
+    def test_reviewed_link_is_offered_without_a_keyword_match(self):
+        # SS.7.CG.2.6 (elections) is linked to "6.2. How Is Public Opinion Measured?", whose
+        # title shares no significant word with the benchmark. It is marked reviewed, so the
+        # keyword gate must NOT withhold it - that is the whole point of the flag.
+        d = self._directive(1, "Political parties and elections", False, 3)
+        self.assertEqual(d.read_section_title, "6.2. How Is Public Opinion Measured?")
+
+    def test_reviewed_set_holds_only_reviewed_codes(self):
+        self.assertEqual(self.lib["reviewed"], {"SS.7.CG.2.6"})
+        self.assertNotIn("SS.7.CG.3.11", self.lib["reviewed"])
 
     def test_reference_apparatus_is_never_a_reading_target(self):
         # the back matter was split into its own rows; the Index is small enough to pass

@@ -77,8 +77,13 @@ def directive_for(library, answer, question, domain=None):
     section = library["sections_by_id"].get(library["primary"].get(code)) or {}
     if not router.is_teachable_section(section):
         section = {}          # back matter is not a reading assignment
-    if not router.title_matches_benchmark(library["benchmarks"].get(code), section):
-        section = {}          # a wrong chapter is worse than no chapter
+    elif (code not in library.get("reviewed", set())
+          and not router.title_matches_benchmark(library["benchmarks"].get(code), section)):
+        # An unreviewed link must still earn its place through the keyword gate. A
+        # reviewed link was read and judged by hand, so the gate is skipped: a correct
+        # pointer such as SS.7.CG.1.11 -> "2.8. The English Constitutional Heritage"
+        # shares no significant word with the benchmark and the gate used to withhold it.
+        section = {}
     # build_directive reads the domain off the question, which the app's rows do not
     # carry, so hand it an answer that always does.
     answer = dict(answer, domain=resolved)
