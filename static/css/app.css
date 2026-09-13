@@ -589,3 +589,68 @@ input:focus, select:focus, textarea:focus { border-color: var(--a-navy-500); box
   border-top: 1px solid #EEF0F3; padding-top: 12px;
 }
 .sc-attrib a { color: #8A93A0; text-decoration: underline; }
+
+
+/* ---------------------------------------------------------------------------
+   Per-answer coach note  (.coach-note-*)
+   Names the misconception behind a wrong answer, or the shaky footing behind a
+   lucky one. Distinct from .sc-* (the Study Coach page) on purpose: this renders
+   inside the question shell, so it stays narrow and does not set its own layout.
+   --------------------------------------------------------------------------- */
+.coach-note {
+  border: 1px solid #E2E8F0;
+  border-left: 4px solid var(--navy);
+  background: #F8FAFC;
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin: 0 0 16px;
+}
+.coach-note-misconception { border-left-color: #B45309; background: #FFFBEB; border-color: #FDE68A; }
+.coach-note-gap           { border-left-color: var(--navy); }
+.coach-note-fragile       { border-left-color: #94A3B8; }
+.coach-note-head { margin-bottom: 10px; }
+.coach-note-title {
+  display: block;
+  font-family: 'Libre Baskerville', Georgia, serif;
+  font-size: 1.02rem;
+  line-height: 1.4;
+  color: #14283F;
+}
+.coach-note-misconception .coach-note-title { color: #7C2D12; }
+.coach-note-sub {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #475569;
+}
+.coach-note-row { margin-top: 10px; }
+.coach-note-label {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #64748B;
+  margin-bottom: 3px;
+}
+.coach-note-text {
+  margin: 0;
+  font-size: 0.97rem;
+  line-height: 1.6;
+  color: #1E293B;
+}
+.coach-note-generic {
+  margin: 10px 0 0;
+  font-size: 0.88rem;
+  font-style: italic;
+  color: #64748B;
+}
+.coach-note-read {
+  margin: 12px 0 0;
+  padding-top: 10px;
+  border-top: 1px solid #E2E8F0;
+  font-size: 0.9rem;
+  color: #334155;
+}
+.coach-note-read strong { color: #14283F; }

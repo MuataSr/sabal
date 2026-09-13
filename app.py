@@ -16,6 +16,7 @@ from flask import (Flask, render_template, redirect, url_for, request, jsonify, 
                    abort)
 import kb
 import tutor_engine
+from coach import library as coach_library
 import db
 import platform_lib  # per-app paywall helper (vendored, canonical in exam-prep-lms/platform)
 import coach.copy as coach_copy
@@ -217,6 +218,15 @@ def _expiry_note(user):
     if rem <= 90:
         return f"{rem} day{'s' if rem != 1 else ''} left"
     return f"active until {_fmt_et_date(until)}"
+
+
+def _limit_redirect():
+    """Where to send a student who is out of free questions.
+
+    The free OER edition has no paid tier, so /pricing is not a route there and
+    redirecting to it would land them on a 404. Send them to the hub instead.
+    """
+    return redirect("/" if FREE_EDITION else "/pricing")
 
 
 _FREE_LIMIT_MSG = ("You've hit today's free limit of 10 questions. "
@@ -489,12 +499,12 @@ def quiz_start(domain_slug):
     rem = _questions_left_today()
     if rem == 0:
         flash(_FREE_LIMIT_MSG, "info")
-        return redirect("/pricing")
+        return _limit_redirect()
     if rem is not None:
         count = min(count, rem)
         if count < 1:
             flash(_FREE_LIMIT_MSG, "info")
-            return redirect("/pricing")
+            return _limit_redirect()
 
     questions = info["quiz"](count=count)
     if not questions:
@@ -522,12 +532,12 @@ def quiz_start_mixed():
     rem = _questions_left_today()
     if rem == 0:
         flash(_FREE_LIMIT_MSG, "info")
-        return redirect("/pricing")
+        return _limit_redirect()
     if rem is not None:
         count = min(count, rem)
         if count < 1:
             flash(_FREE_LIMIT_MSG, "info")
-            return redirect("/pricing")
+            return _limit_redirect()
 
     questions = kb.get_mixed_quiz_questions(count=count)
 
@@ -587,7 +597,7 @@ def quiz_answer(domain_slug, quiz_id, q_index):
     # bank answers past today's quota.
     if _questions_left_today() == 0:
         flash(_FREE_LIMIT_MSG, "info")
-        return redirect("/pricing")
+        return _limit_redirect()
 
     user_id = quiz.get("user_id", session["user_id"])
     questions = quiz["questions"]
@@ -680,6 +690,28 @@ def quiz_answer(domain_slug, quiz_id, q_index):
         info = _get_domain_info(domain_slug)
         domain_name = info["name"] if info else domain_slug
 
+    # --- why the student picked what they picked -------------------------------
+    # The page already explains the correct option and why each wrong option fails.
+    # Both are option-centric: they say what is true, never why this student chose
+    # what they chose. This adds that layer, reusing the coach's own diagnosis so the
+    # two surfaces cannot drift apart. It is additive: a missing diagnosis is a worse
+    # page, not a broken one, so the failure is logged rather than raised.
+    coach_feedback = None
+    try:
+        _library = coach_library.load(_COACH_CONTENT_DB)
+        # domain_slug is a slug ("american-democracy"), not a domain id. Mixed Review
+        # has no domain of its own, so leave it None and let the question resolve it.
+        _domain_id = (_DOMAIN_GETTERS.get(domain_slug) or {}).get("id")
+        _directive = coach_library.directive_for(
+            _library,
+            {"question_id": question.get("id", q_index), "domain": _domain_id,
+             "topic": topic, "is_correct": is_correct, "confidence": confidence,
+             "selected_answer": selected},
+            question, domain=_domain_id)
+        coach_feedback = coach_library.feedback_view(_directive)
+    except Exception as exc:      # noqa: BLE001 - additive layer; see note above
+        app.logger.warning("coach feedback unavailable: %s", exc)
+
     render_kwargs = dict(
         question=question,
         current_q=q_index + 1,
@@ -694,6 +726,7 @@ def quiz_answer(domain_slug, quiz_id, q_index):
         explanation=explanation,
         wrong_explanation_map=wrong_explanation_map,
         feedback_mode=feedback_mode,
+        coach_feedback=coach_feedback,
     )
 
     if next_index < len(questions):

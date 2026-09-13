@@ -4,6 +4,8 @@ All three routers are total functions. There is no fall-through and no None for
 an input that is in range (acceptance criteria 6.10, 6.11).
 """
 
+import re
+
 from . import rules
 
 
@@ -53,6 +55,31 @@ def reading_section(topic, sections, primary_section_id=None):
         if score > best_score:
             best, best_score = s, score
     return best if best_score >= rules.READING_TOKEN_MIN else None
+
+
+_SIGNIFICANT = re.compile(r"[A-Za-z]{5,}")
+
+
+def _significant_words(text):
+    return {w.lower() for w in _SIGNIFICANT.findall(str(text or ""))}
+
+
+def title_matches_benchmark(benchmark, section_title):
+    """Does this section plausibly cover this benchmark?
+
+    The stored benchmark->section links came out of a relevance score that plainly
+    misfired. SS.7.CG.1.8 (the Preamble and popular sovereignty) resolves to
+    "17.4. Approaches to Foreign Policy", and that same foreign-policy section is the
+    top link for a dozen unrelated codes. A reading pointer that sends a student to
+    the wrong chapter is worse than no pointer, so require the section title to share
+    a significant word with the benchmark's own official text before offering it.
+    """
+    if not benchmark or not section_title:
+        return False
+    official = _significant_words(benchmark.get("description"))
+    official |= _significant_words(benchmark.get("clarifications"))
+    official |= _significant_words(benchmark.get("standard"))
+    return bool(official & _significant_words(section_title))
 
 
 def display_title(section):

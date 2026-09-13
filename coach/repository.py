@@ -58,6 +58,32 @@ def _primary_sections(content):
     return out
 
 
+def load_content_library(content_db):
+    """Every static content row the answer screen needs, in one pass.
+
+    The answer screen runs on each submit, so it wants a single call rather than five.
+    Read-only, like every other read here. All of it is authored content - no user
+    state - which is what makes caching it upstream safe.
+    """
+    con = _connect(content_db)
+    try:
+        cur = con.cursor()
+        misconceptions = _rows(cur, "SELECT id, benchmark_code, misconception, correction, "
+                                   "difficulty, fcle_domain FROM misconceptions")
+        sections = _rows(cur, "SELECT id, section_title, char_count, fcle_domain FROM content")
+        codes = _topic_benchmark_map(con)
+        primary = _primary_sections(con)
+        try:
+            benchmarks = {r["code"]: r for r in _rows(
+                cur, "SELECT code, standard, description, clarifications FROM benchmarks")}
+        except sqlite3.Error:
+            benchmarks = {}
+    finally:
+        con.close()
+    return {"misconceptions": misconceptions, "sections": sections,
+            "codes": codes, "primary": primary, "benchmarks": benchmarks}
+
+
 def _load_answers(run, qidx, bmap):
     """Runtime answers enriched with domain, topic and benchmark code."""
     out = []

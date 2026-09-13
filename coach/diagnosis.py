@@ -10,7 +10,7 @@ top of the coach's queue and no competitor surfaces it.
 import json
 from dataclasses import dataclass, field
 
-from . import rules
+from . import router, rules
 
 STATE_MASTERED = "MASTERED"
 STATE_FRAGILE = "FRAGILE"
@@ -204,5 +204,7 @@ def build_directive(answer, question, misconceptions=(), sections=(),
         match_tier=tier,
         next_review_days=next_review_days(state, confidence),
         read_section_id=(read_section or {}).get("id"),
-        read_section_title=(read_section or {}).get("section_title", ""),
+        # Normalise here, not in each surface: the stored titles carry trailing '*'
+        # markers and NBSPs, and the reading card is not the only place they render.
+        read_section_title=router.display_title(read_section or {}),
     )

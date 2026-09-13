@@ -69,6 +69,40 @@
   {% endif %}
 </div>
 
+{# Misconception-first feedback. Placed before the per-choice breakdown on purpose:
+   the student should read why THEY chose what they chose before reading what each
+   option is. Every string here comes from coach/copy.py, which is letter-free and
+   tested for overclaiming. #}
+{% if coach_feedback and coach_feedback.show %}
+<div class="coach-note coach-note-{{ coach_feedback.state | lower }}">
+  <div class="coach-note-head">
+    <span class="coach-note-title">{{ coach_feedback.headline }}</span>
+    {% if coach_feedback.confidence_note %}
+    <span class="coach-note-sub">{{ coach_feedback.confidence_note }}</span>
+    {% endif %}
+  </div>
+
+  {% if coach_feedback.has_diagnosis %}
+  <div class="coach-note-row">
+    <span class="coach-note-label">{{ coach_feedback.trap_intro }}</span>
+    <p class="coach-note-text">{{ coach_feedback.trap }}</p>
+  </div>
+  <div class="coach-note-row">
+    <span class="coach-note-label">{{ coach_feedback.correction_intro }}</span>
+    <p class="coach-note-text">{{ coach_feedback.correction }}</p>
+  </div>
+  {% endif %}
+
+  {% if coach_feedback.generic %}
+  <p class="coach-note-generic">{{ coach_feedback.generic_note }}</p>
+  {% endif %}
+
+  {% if coach_feedback.read_section %}
+  <p class="coach-note-read">{{ coach_feedback.read_intro }} <strong>{{ coach_feedback.read_section }}</strong></p>
+  {% endif %}
+</div>
+{% endif %}
+
 {% if feedback_mode == 'teach' or (feedback_mode == 'hint' and not is_correct) %}
 {# Full per-choice breakdown (teach mode or hint + wrong) #}
 <div class="feedback-breakdown">
