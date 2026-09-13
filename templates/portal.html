@@ -91,7 +91,7 @@
 
     <div class="portal-card">
       <h3>Plan</h3>
-      {% if is_premium %}
+      {% if is_premium and not free_edition %}
       <div><span class="portal-badge premium">Premium</span></div>
       <div class="portal-value portal-plan-name" style="margin-top:.4rem;">{{ plan_label }}</div>
       {% if plan_expiry_note %}

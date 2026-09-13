@@ -47,7 +47,7 @@
   .pa-note { font-size: .8rem; color: #8a93a6; margin-top: .7rem; }
 </style>
 
-{% if not is_premium %}
+{% if not is_premium and not free_edition %}
 <div class="pa-section">
   <div class="pa-locked">
     <div>
@@ -62,7 +62,7 @@
 
 <div class="pa-section">
   <div class="pa-head">
-    <h3 class="pa-title">Premium analytics <span class="pa-badge">Premium</span></h3>
+    <h3 class="pa-title">{% if free_edition %}Your analytics{% else %}Premium analytics <span class="pa-badge">Premium</span>{% endif %}</h3>
   </div>
   <div class="pa-grid" style="margin-top: .9rem;">
 
