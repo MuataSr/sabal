@@ -12,7 +12,8 @@ import random
 import threading
 from datetime import datetime, timedelta, timezone
 from functools import wraps
-from flask import Flask, render_template, redirect, url_for, request, jsonify, session, flash
+from flask import (Flask, render_template, redirect, url_for, request, jsonify, session, flash,
+                   abort)
 import kb
 import tutor_engine
 import db
@@ -55,6 +56,22 @@ FREE_EDITION = APP_EDITION == "free"
 def _inject_edition():
     """Make the edition flag available to every template."""
     return {"free_edition": FREE_EDITION}
+
+
+def full_edition_only(view):
+    """A surface that exists only in the full edition.
+
+    The free edition must not expose the paid tier or any AI feature, and hiding
+    the link is not enough: the URL itself has to be gone, or the surface is one
+    guessed path away from being a mention. In the free edition this returns 404
+    before the view runs, so the route effectively does not exist.
+    """
+    @wraps(view)
+    def wrapper(*args, **kwargs):
+        if FREE_EDITION:
+            abort(404)
+        return view(*args, **kwargs)
+    return wrapper
 
 # Active quiz state now in SQLite (see db.py)
 db.init_active_quizzes_table()
@@ -1304,6 +1321,7 @@ def logout():
 
 
 @app.route("/pricing")
+@full_edition_only
 def pricing():
     """Pricing / upgrade page — 3-card layout (Free · Sprint · Annual).
     Square checkout is Phase 2 — buttons stay inert."""
@@ -1676,6 +1694,7 @@ def stimulus_practice_results(quiz_id):
 _tutor = tutor_engine.TutorEngine()
 
 @app.route('/tutor')
+@full_edition_only
 @login_required
 def tutor_page():
     user_id = session["user_id"]
@@ -1744,6 +1763,7 @@ def tutor_page():
     )
 
 @app.route('/tutor/chat', methods=['POST'])
+@full_edition_only
 @login_required
 def tutor_chat():
     data = request.get_json(force=True)
@@ -1780,11 +1800,13 @@ def tutor_chat():
     return jsonify(result)
 
 @app.route('/tutor/status')
+@full_edition_only
 def tutor_status():
     return jsonify(_tutor.check_servers())
 
 
 @app.route('/tutor/history')
+@full_edition_only
 @login_required
 def tutor_history():
     """Load persistent chat history for the current user."""

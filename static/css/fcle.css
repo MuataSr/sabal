@@ -793,7 +793,7 @@
 
 .pricing-note a { color: var(--navy); }
 
-/* Launch-beta banner (Sep 2026 free launch) */
+/* Free-access banner */
 .launch-banner {
   border: 1px solid var(--navy);
   background: #F0F4F8;

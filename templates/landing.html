@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sabal — FCLE Exam Prep | Florida Civic Literacy Practice</title>
-<meta name="description" content="Pass the FCLE. Practice with 2,000+ FCLE-style questions built by a retired community college professor. Free during beta. No password — your personal dashboard link is your login.">
+<meta name="description" content="Pass the FCLE. Practice with 2,000+ FCLE-style questions built by a retired community college professor. Free, always. No password — your personal dashboard link is your login.">
 <link rel="icon" href="{{ url_for('static', filename='img/favicon.ico') }}" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='img/favicon-32.png') }}">
 <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='img/favicon-16.png') }}">
@@ -141,7 +141,7 @@
   .success p{font-size:19px;color:var(--muted)}
   .success .rule{width:64px;height:4px;background:var(--gold);border-radius:2px;margin:26px auto 0}
 
-  /* Pricing teaser / Final CTA */
+  /* Final CTA */
   .price{max-width:680px;margin:0 auto;text-align:center}
   .price h2{font-size:32px;color:#fff;margin-bottom:14px}
   .price p{color:rgba(255,255,255,.85);font-size:18px;margin-bottom:28px}
@@ -232,7 +232,7 @@
       <h1>Pass the FCLE. Stand ready on test day.</h1>
       <p class="sub">You&rsquo;ve done the coursework. You&rsquo;ve made it this far. One exam stands between you and graduation &mdash; and it&rsquo;s been years since civics class. That&rsquo;s okay. <strong>Sabal is the refresher that actually works.</strong></p>
       <a class="btn btn-gold" href="/signup{% if src %}?src={{ src }}{% endif %}">Check My FCLE Readiness &rarr;</a>
-      <p class="micro"><strong>Free during beta. No credit card.</strong></p>
+      <p class="micro"><strong>Free. No credit card.</strong></p>
       <p class="micro">No password. No download. Start in 30 seconds.</p>
     </div>
     <div class="hero-shot">
@@ -355,11 +355,11 @@
 </div></div>
       </div>
       <div class="zz-row">
-        <div class="zz-copy"><h3>Practice the way you learn best</h3><p>Quick drills, timed Diagnostic, Mixed Review, or ask the AI Tutor to explain a concept until it clicks.</p></div>
+        <div class="zz-copy"><h3>Practice the way you learn best</h3>{% if free_edition %}<p>Quick drills, a timed Diagnostic, Mixed Review, and a Study Coach that reads your results and tells you what to work on next.</p>{% else %}<p>Quick drills, timed Diagnostic, Mixed Review, or ask the AI Tutor to explain a concept until it clicks.</p>{% endif %}</div>
         <div class="zz-mock">
 <div class="mk mk-modes" aria-hidden="true">
   <span class="chip on">Quick drills</span><span class="chip">Timed Diagnostic</span>
-  <span class="chip">Mixed Review</span><span class="chip">AI Tutor</span>
+  <span class="chip">Mixed Review</span><span class="chip">{% if free_edition %}Study Coach{% else %}AI Tutor{% endif %}</span>
   <div class="mk-line"><i style="--w:1"></i></div>
 </div></div>
       </div>
@@ -389,8 +389,12 @@
 <section class="band-navy">
   <div class="wrap">
     <div class="price">
-      <h2>Free during beta. Every feature.</h2>
-      <p>Right now, every feature is free &mdash; full question bank, all practice modes, AI tutor, progress tracking. When the beta ends, there will be a one-time, no-subscription option to keep your access. Start now and your progress carries with you.</p>
+      <h2>Free. Every feature.</h2>
+      {% if free_edition %}
+      <p>Every feature is free &mdash; the full question bank, all practice modes, progress tracking, and the Study Coach that tells you what to work on next. There is nothing to buy and nothing that gets taken away. Start now and your progress carries with you.</p>
+      {% else %}
+      <p>Right now, every feature is free &mdash; full question bank, all practice modes, AI tutor, progress tracking. There is a one-time, no-subscription option planned to keep your access later. Start now and your progress carries with you.</p>
+      {% endif %}
       <a class="btn btn-gold" href="/signup{% if src %}?src={{ src }}{% endif %}">Start Practicing Free &rarr;</a>
     </div>
   </div>
@@ -404,7 +408,7 @@
     <div class="faq">
       <details open>
         <summary>Is this really free?</summary>
-        <p>Yes. During the beta, everything is free. No card required.</p>
+        <p>Yes. Everything is free, and it stays that way. No card required.</p>
       </details>
       <details>
         <summary>Do I need to download anything?</summary>

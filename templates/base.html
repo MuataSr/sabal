@@ -88,9 +88,9 @@
         <div class="plan-title">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 5.6L20 8.6l-4.2 4 1.1 5.8L12 15.5l-4.9 2.9 1.1-5.8L4 8.6l5.6-1z"/></svg>
           {% if is_premium %}Sabal Premium{% else %}Sabal{% endif %}
-          {% if launch_free %}<span class="plan-status">BETA · FREE</span>{% elif is_premium %}<span class="plan-status">ACTIVE</span>{% endif %}
+          {% if launch_free %}<span class="plan-status">FREE</span>{% elif is_premium %}<span class="plan-status">ACTIVE</span>{% endif %}
         </div>
-        {% if launch_free %}<p>Launch beta — every feature is free right now.</p>
+        {% if launch_free %}<p>Every feature is free.</p>
         {% elif is_premium %}<p>Unlimited practice &amp; full analytics.</p>
         {% else %}<p>{{ free_daily }} free questions a day.</p>{% endif %}
       </div>
@@ -117,7 +117,7 @@
         {% if launch_free %}
         <span class="exam-pill">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 5.6L20 8.6l-4.2 4 1.1 5.8L12 15.5l-4.9 2.9 1.1-5.8L4 8.6l5.6-1z"/></svg>
-          Launch beta · free
+          Free
         </span>
         {% endif %}
         {% if current_user and not current_user.is_anonymous %}
