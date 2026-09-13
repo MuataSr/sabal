@@ -1,0 +1,249 @@
+{
+ "code": "SS.7.CG.2.1",
+ "topic": "Citizenship and naturalization",
+ "domain": 1,
+ "questions": [
+  {
+   "difficulty": "easy",
+   "question": "According to the definition provided in the Fourteenth Amendment, which of the following individuals is explicitly considered a citizen of the United States?",
+   "correct_answer": "A person who is born in the United States.",
+   "wrong_answers": [
+    "A foreign diplomat accredited to the United States government.",
+    "A permanent resident who has lived in the U.S. for ten years.",
+    "A foreign national who has been granted temporary visitor status."
+   ],
+   "explanation": "The Citizenship Clause of the Fourteenth Amendment states that all persons born or naturalized in the United States are citizens.",
+   "wrong_explanations": [
+    "Foreign diplomats are not subject to U.S. jurisdiction in the same way and do not automatically gain citizenship by presence.",
+    "Permanent residency is a legal status distinct from citizenship and does not automatically confer citizenship rights.",
+    "Temporary visitors are in the country without the legal status required to become a citizen."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "A group of recent immigrants is discussing the requirements for becoming a U.S. citizen through the naturalization process; which of the following is a mandatory requirement they must fulfill before applying?",
+   "correct_answer": "They must demonstrate that they have good moral character.",
+   "wrong_answers": [
+    "They must already be a citizen of their home country.",
+    "They must have served in the United States military for five years.",
+    "They must have attended a university in the United States for three years."
+   ],
+   "explanation": "The Immigration and Nationality Act requires that an applicant for naturalization show proof of good moral character during the statutory period prior to admission.",
+   "wrong_explanations": [
+    "Naturalization is the process of becoming a citizen; applicants are not yet citizens of their home country in the context of U.S. law.",
+    "While military service can provide a faster path to citizenship, it is not a mandatory requirement for all applicants.",
+    "Higher education is not a statutory requirement for naturalization, though it may help with English proficiency or interview confidence."
+   ]
+  },
+  {
+   "difficulty": "hard",
+   "question": "An immigrant has lived in the United States as a lawful permanent resident for seven years and is now applying for citizenship; what specific constitutional amendment establishes the principle that this person, once naturalized, is a citizen with the same rights as those born in the U.S.?",
+   "correct_answer": "The Fourteenth Amendment guarantees that naturalized citizens enjoy the same privileges and immunities as native-born citizens.",
+   "wrong_answers": [
+    "The First Amendment guarantees that naturalized citizens have the right to vote immediately upon arrival.",
+    "The Fifth Amendment requires that naturalized citizens must serve in the military to retain their status.",
+    "The Tenth Amendment reserves the power to grant citizenship to the states rather than the federal government."
+   ],
+   "explanation": "The Fourteenth Amendment's Citizenship Clause and the Equal Protection Clause ensure that naturalized citizens have the same legal status and rights as those born on U.S. soil.",
+   "wrong_explanations": [
+    "The First Amendment protects speech and religion, but voting rights are established by separate federal laws and the Constitution, not exclusively the First.",
+    "Military service is not a constitutional requirement for retaining citizenship, nor does the Fifth Amendment dictate such a condition.",
+    "The power to naturalize is granted to the federal Congress by the Constitution, not reserved to the states by the Tenth Amendment."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "Why is the period of permanent residency a critical component of the naturalization process for an immigrant seeking U.S. citizenship?",
+   "correct_answer": "It allows the government to verify the applicant's continuous residence and good moral character over time.",
+   "wrong_answers": [
+    "It ensures the applicant pays a large fee before they can apply.",
+    "It guarantees the applicant will automatically become a citizen without an interview.",
+    "It restricts the applicant from working in the United States during that time."
+   ],
+   "explanation": "The residency requirement is designed to test the applicant's assimilation, commitment to the country, and adherence to laws before granting full citizenship.",
+   "wrong_explanations": [
+    "Fees are required for the application, but the length of residency is not primarily about the cost of the fee.",
+    "Naturalization always requires an interview and oath of allegiance; residency does not bypass these steps.",
+    "Lawful permanent residents are allowed to work and live in the United States during their residency period."
+   ]
+  },
+  {
+   "difficulty": "easy",
+   "question": "Which of the following best defines the term 'citizen' in the context of U.S. constitutional law?",
+   "correct_answer": "A person who is a member of a sovereign state and owes allegiance to it.",
+   "wrong_answers": [
+    "A foreigner who has visited the United States for tourism.",
+    "A person who has a green card but has not taken the oath of allegiance.",
+    "A resident who pays taxes but does not vote in federal elections."
+   ],
+   "explanation": "Citizenship implies a legal bond of allegiance between the individual and the state, granting specific rights and imposing duties.",
+   "wrong_explanations": [
+    "Tourists are visitors who have no legal bond of allegiance or membership in the state.",
+    "A green card holder is a permanent resident, not a citizen, until they have completed naturalization and taken the oath.",
+    "Paying taxes does not equate to citizenship; non-citizens are also required to pay certain taxes while residing in the U.S."
+   ]
+  },
+  {
+   "difficulty": "hard",
+   "question": "How does the naturalization process impact the political process of the United States?",
+   "correct_answer": "It expands the electorate by adding new citizens who gain the right to vote in federal and state elections.",
+   "wrong_answers": [
+    "It reduces the power of the federal government by giving states more control over voter eligibility.",
+    "It eliminates the need for naturalized citizens to serve on juries.",
+    "It restricts the ability of citizens to run for public office if they were born abroad."
+   ],
+   "explanation": "Upon naturalization, individuals gain full political participation rights, including voting and holding public office, thereby diversifying the political landscape.",
+   "wrong_explanations": [
+    "Naturalization operates under federal law and does not shift power to states regarding voter eligibility criteria.",
+    "Naturalized citizens have the same right to serve on juries as native-born citizens.",
+    "Naturalized citizens are eligible to run for almost all public offices, including the presidency after meeting residency requirements."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "An immigrant has been granted the status of a permanent resident; what is the primary role of this status in the context of obtaining citizenship?",
+   "correct_answer": "It serves as the legal prerequisite that allows the individual to apply for naturalization.",
+   "wrong_answers": [
+    "It immediately grants the individual the right to vote in presidential elections.",
+    "It allows the individual to bypass the requirement of learning English.",
+    "It guarantees that the individual will never be deported from the country."
+   ],
+   "explanation": "Permanent residency is the necessary first step in the naturalization pathway, proving the individual has the intent to become a citizen.",
+   "wrong_explanations": [
+    "Voting rights are reserved for citizens; permanent residents cannot vote in federal elections.",
+    "Learning English is a requirement for naturalization, regardless of permanent residency status.",
+    "Permanent residents can still be deported if they commit serious crimes or violate immigration laws."
+   ]
+  },
+  {
+   "difficulty": "easy",
+   "question": "According to the Fourteenth Amendment, what is the constitutional basis for a child born to foreign parents in the United States to be considered a citizen?",
+   "correct_answer": "The principle of jus soli, which grants citizenship based on birth within the territory.",
+   "wrong_answers": [
+    "The principle of jus sanguinis, which grants citizenship based on the parents' citizenship.",
+    "The requirement that the parents must have lived in the U.S. for five years.",
+    "The necessity of the child taking an oath of allegiance immediately after birth."
+   ],
+   "explanation": "The Fourteenth Amendment establishes birthright citizenship, meaning anyone born on U.S. soil is a citizen regardless of parental nationality.",
+   "wrong_explanations": [
+    "Jus sanguinis applies to children born outside the U.S. to U.S. citizen parents, not those born inside the U.S. to foreign parents.",
+    "There is no residency requirement for parents for a child born in the U.S. to automatically become a citizen.",
+    "The oath of allegiance is required for naturalization, not for birthright citizenship at the time of birth."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "Why is the requirement to renounce prior allegiances a significant part of the naturalization process?",
+   "correct_answer": "It ensures that the new citizen owes undivided loyalty to the United States government.",
+   "wrong_answers": [
+    "It prevents the citizen from keeping their original passport.",
+    "It allows the citizen to vote in the elections of their home country.",
+    "It requires the citizen to move their family permanently to another state."
+   ],
+   "explanation": "The Oath of Allegiance requires the renunciation of foreign allegiances to confirm the individual's commitment to the U.S. Constitution and laws.",
+   "wrong_explanations": [
+    "Citizens can retain their original passports for travel, though they must carry their U.S. passport when entering the U.S.",
+    "U.S. citizens cannot vote in foreign elections if those countries require U.S. citizenship to vote.",
+    "Naturalization has no impact on where a citizen chooses to reside within the United States."
+   ]
+  },
+  {
+   "difficulty": "hard",
+   "question": "In what way does the naturalization process reflect the societal impact of immigration on the United States?",
+   "correct_answer": "It integrates diverse cultural backgrounds into a unified national identity while preserving individual rights.",
+   "wrong_answers": [
+    "It forces immigrants to abandon their cultural heritage and traditions.",
+    "It creates a permanent separation between immigrants and the native-born population.",
+    "It prevents immigrants from influencing the political opinions of the broader society."
+   ],
+   "explanation": "Naturalization is a mechanism that transforms immigrants into full participants in society, fostering a shared national identity while respecting diversity.",
+   "wrong_explanations": [
+    "Naturalization encourages, rather than forbids, the maintenance of cultural heritage alongside American identity.",
+    "The goal of naturalization is inclusion and participation, not separation from the native-born population.",
+    "Naturalized citizens are active participants in the political process and can influence societal opinions."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "Which of the following scenarios illustrates a situation where an individual would NOT be eligible to apply for naturalization immediately?",
+   "correct_answer": "An individual who has been a lawful permanent resident for only two years.",
+   "wrong_answers": [
+    "An individual who was born in the United States to foreign parents.",
+    "An individual who has served honorably in the U.S. military for three years.",
+    "An individual who is a citizen of another country but was raised in the U.S."
+   ],
+   "explanation": "Generally, lawful permanent residents must reside in the U.S. for at least five years before applying, with specific exceptions for military service.",
+   "wrong_explanations": [
+    "Birthright citizens do not need to apply for naturalization; they are citizens at birth.",
+    "Military service can shorten the residency requirement to three years for some applicants.",
+    "Being raised in the U.S. does not automatically grant citizenship, but age and residency requirements still apply for naturalization."
+   ]
+  },
+  {
+   "difficulty": "easy",
+   "question": "What is the primary difference between a permanent resident and a U.S. citizen regarding political participation?",
+   "correct_answer": "A U.S. citizen has the right to vote in federal elections, while a permanent resident does not.",
+   "wrong_answers": [
+    "A permanent resident can run for President, but a citizen cannot.",
+    "A permanent resident can serve on a jury, but a citizen cannot.",
+    "A permanent resident has the right to hold a passport, but a citizen does not."
+   ],
+   "explanation": "Voting in federal elections is a right reserved exclusively for citizens; permanent residents lack this specific political privilege.",
+   "wrong_explanations": [
+    "Only citizens can run for President; permanent residents are ineligible for this office.",
+    "Both permanent residents and citizens have the right to serve on juries if selected.",
+    "Only citizens can obtain a U.S. passport; permanent residents receive travel documents from their home countries."
+   ]
+  },
+  {
+   "difficulty": "hard",
+   "question": "How does the constitutional definition of citizenship in the Fourteenth Amendment protect the political process from discrimination?",
+   "correct_answer": "It ensures that states cannot deny the rights of citizens, including the right to vote, based on race or previous condition of servitude.",
+   "wrong_answers": [
+    "It allows states to set different voting requirements for native-born and naturalized citizens.",
+    "It gives the federal government the power to remove citizens from office for political reasons.",
+    "It prohibits citizens from forming political parties based on their religious beliefs."
+   ],
+   "explanation": "The Fourteenth Amendment's Equal Protection Clause prevents discrimination against citizens, securing their access to the political process regardless of origin.",
+   "wrong_explanations": [
+    "The Constitution requires that both native-born and naturalized citizens be treated equally in voting rights.",
+    "Removing a citizen from office is a legal process based on law, not a power granted by the Citizenship Clause.",
+    "Forming political parties based on religion is a protected right, not prohibited by the Citizenship Clause."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "Why is the requirement to pass a civics and history test included in the naturalization process?",
+   "correct_answer": "It ensures that new citizens understand the principles of the Constitution and the history of the United States.",
+   "wrong_answers": [
+    "It proves that the applicant has a high level of education.",
+    "It allows the government to collect fees for the application.",
+    "It prevents immigrants from speaking English in the workplace."
+   ],
+   "explanation": "The test verifies that applicants have the knowledge necessary to participate effectively in a democratic society and understand their rights and responsibilities.",
+   "wrong_explanations": [
+    "The test measures knowledge of civics, not general academic education or degrees.",
+    "Fees are charged separately and are not collected through the content of the test.",
+    "The test is conducted in English or Spanish, but it does not restrict workplace language usage."
+   ]
+  },
+  {
+   "difficulty": "easy",
+   "question": "Which document is the final step in the naturalization process that formally admits an individual as a U.S. citizen?",
+   "correct_answer": "The Oath of Allegiance administered by a federal official.",
+   "wrong_answers": [
+    "The permanent resident card issued by the Department of Homeland Security.",
+    "The birth certificate issued by the state of residence.",
+    "The application fee receipt submitted at the post office."
+   ],
+   "explanation": "Taking the Oath of Allegiance is the legal act that confers citizenship upon an applicant who has met all other requirements.",
+   "wrong_explanations": [
+    "A permanent resident card proves residency, not citizenship; it is issued before naturalization.",
+    "A birth certificate proves citizenship for those born in the U.S., not for naturalized citizens.",
+    "A fee receipt confirms payment but does not confer any legal status or rights."
+   ]
+  }
+ ],
+ "validation_errors": [],
+ "review_issues": []
+}

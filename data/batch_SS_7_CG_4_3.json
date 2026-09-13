@@ -1,0 +1,251 @@
+{
+ "code": "SS.7.CG.4.3",
+ "topic": "U.S. involvement in international conflicts",
+ "domain": 1,
+ "questions": [
+  {
+   "difficulty": "easy",
+   "question": "In response to the attack on Pearl Harbor in 1941, what specific action did the United States take regarding its participation in World War II?",
+   "correct_answer": "The United States declared war on Japan and subsequently entered World War II as an active combatant.",
+   "wrong_answers": [
+    "The United States negotiated a peace treaty with Japan to avoid further conflict.",
+    "The United States maintained a policy of neutrality and sent no troops to Europe.",
+    "The United States immediately launched a peacekeeping mission to mediate between the Axis powers."
+   ],
+   "explanation": "The attack on Pearl Harbor directly led to the US declaration of war, ending its isolationist policy and committing it to the conflict.",
+   "wrong_explanations": [
+    "Negotiating a peace treaty did not occur; the US chose military engagement after the attack.",
+    "While the US did not initially enter the European theater immediately, it did not maintain neutrality overall after Pearl Harbor.",
+    "The US did not launch a peacekeeping mission; it engaged in total war against the Axis powers."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "During the Cuban Missile Crisis in 1962, what method did President Kennedy primarily employ to resolve the international conflict without immediate military engagement?",
+   "correct_answer": "President Kennedy implemented a naval quarantine, also known as a blockade, to prevent further Soviet missiles from reaching Cuba.",
+   "wrong_answers": [
+    "The United States immediately launched a full-scale invasion of Cuba by air and sea.",
+    "The United States demanded the complete dissolution of the Soviet Union as a condition for peace.",
+    "The United States ignored the situation and relied solely on diplomatic letters to the United Nations."
+   ],
+   "explanation": "The quarantine was a strategic middle ground between doing nothing and launching an invasion, allowing for the removal of missiles under pressure.",
+   "wrong_explanations": [
+    "An immediate invasion was not the primary method; the quarantine was chosen to allow time for negotiation and removal.",
+    "Demanding the dissolution of the Soviet Union was not a condition; the US only demanded the removal of missiles from Cuba.",
+    "The situation was not ignored; the US took decisive action with the quarantine while seeking diplomatic solutions."
+   ]
+  },
+  {
+   "difficulty": "hard",
+   "question": "After the Persian Gulf War began in 1990, how did the United States utilize international organizations to legitimize its military intervention in 1991?",
+   "correct_answer": "The United States sought and obtained authorization from the United Nations Security Council to establish a coalition force to liberate Kuwait.",
+   "wrong_answers": [
+    "The United States acted unilaterally without consulting any international bodies or allies.",
+    "The United States relied exclusively on bilateral treaties with individual nations rather than a multilateral organization.",
+    "The United States refused to participate in the United Nations and formed a private military alliance instead."
+   ],
+   "explanation": "The US worked closely with the UN to build a broad international coalition, which provided legal and political legitimacy for the use of force.",
+   "wrong_explanations": [
+    "The US did not act unilaterally; it coordinated extensively with the UN and dozens of allied nations.",
+    "While bilateral treaties existed, the primary framework for the intervention was the multilateral authorization from the UN.",
+    "The US actively participated in the UN system; it did not form a private alliance but rather a UN-sanctioned coalition."
+   ]
+  },
+  {
+   "difficulty": "easy",
+   "question": "Which method of dealing with international conflict did the United States employ against Iraq in 1990 before military force was used?",
+   "correct_answer": "The United States imposed economic sanctions on Iraq to pressure Saddam Hussein to withdraw from Kuwait.",
+   "wrong_answers": [
+    "The United States launched immediate espionage operations to destabilize the Iraqi government.",
+    "The United States declared war on Iraq immediately upon the invasion of Kuwait.",
+    "The United States provided humanitarian aid to encourage Iraq to leave Kuwait peacefully."
+   ],
+   "explanation": "Sanctions were a primary non-military tool used to isolate Iraq economically and politically before the decision for war was made.",
+   "wrong_explanations": [
+    "Espionage was not the primary method used in this specific conflict scenario; sanctions and diplomacy were.",
+    "War was declared only after diplomatic efforts and sanctions failed to secure a withdrawal.",
+    "Humanitarian aid was not used as a method to pressure Iraq to withdraw; sanctions were the coercive measure."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "In the context of the Cold War, what was the primary role of the North Atlantic Treaty Organization (NATO) regarding United States foreign policy?",
+   "correct_answer": "NATO served as a collective defense alliance designed to deter Soviet expansion and ensure European security through mutual defense.",
+   "wrong_answers": [
+    "NATO was a humanitarian organization focused solely on disaster relief in Europe.",
+    "NATO was an espionage network created to infiltrate the Soviet government.",
+    "NATO was a trade agreement established to lower tariffs between the United States and Japan."
+   ],
+   "explanation": "NATO was a military alliance based on the principle that an attack on one member was an attack on all, serving as a key US strategy against the Soviet Union.",
+   "wrong_explanations": [
+    "NATO was a military alliance, not a humanitarian relief organization.",
+    "NATO was a defensive alliance, not an espionage network.",
+    "NATO was a military and political alliance involving Europe and North America, not a trade agreement with Japan."
+   ]
+  },
+  {
+   "difficulty": "hard",
+   "question": "How did the United States respond to the humanitarian crisis caused by the Rwandan genocide in 1994, and why was this response controversial?",
+   "correct_answer": "The United States contributed troops to the United Nations Assistance Mission in Rwanda but was criticized for not taking stronger military action to stop the genocide.",
+   "wrong_answers": [
+    "The United States immediately deployed a large invasion force to overthrow the Rwandan government.",
+    "The United States ignored the crisis completely and refused to send any personnel or funding.",
+    "The United States established a permanent peacekeeping base in Rwanda to prevent future ethnic conflicts."
+   ],
+   "explanation": "The US response involved limited troop contributions and diplomatic efforts, but it was widely criticized for failing to intervene decisively to save lives.",
+   "wrong_explanations": [
+    "The US did not deploy a large invasion force; it contributed to an existing UN mission.",
+    "The US did not ignore the crisis; it sent troops and aid, though the response was deemed insufficient.",
+    "The US did not establish a permanent base; the mission was a temporary UN operation that ended after the conflict."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "What was the primary goal of the United States' Peace Corps program when it was established in 1961?",
+   "correct_answer": "The Peace Corps aimed to send American volunteers abroad to assist developing nations with education, health, and social development projects.",
+   "wrong_answers": [
+    "The Peace Corps was designed to train foreign soldiers to fight against communism.",
+    "The Peace Corps focused on establishing military bases in friendly countries.",
+    "The Peace Corps was created to negotiate trade deals with less developed nations."
+   ],
+   "explanation": "The Peace Corps was a humanitarian effort focused on cultural exchange and technical assistance, distinct from military or economic sanctions.",
+   "wrong_explanations": [
+    "The Peace Corps was civilian and non-military; it did not train soldiers or establish bases.",
+    "The focus was on development and aid, not on negotiation of trade deals or military strategy.",
+    "The Peace Corps was a humanitarian and development program, not a trade or military organization; negotiating trade deals is the province of agencies like the USTR."
+   ]
+  },
+  {
+   "difficulty": "easy",
+   "question": "Following the September 11 attacks in 2001, what major international conflict did the United States initiate to combat terrorism?",
+   "correct_answer": "The United States launched the War on Terror, beginning with the invasion of Afghanistan to dismantle terrorist networks.",
+   "wrong_answers": [
+    "The United States launched a peacekeeping mission to protect the United Nations headquarters in New York.",
+    "The United States initiated a sanctions program against all Muslim-majority nations.",
+    "The United States declared war on the entire country of Iran immediately after the attacks."
+   ],
+   "explanation": "The War on Terror was a direct response to the 9/11 attacks, focusing on dismantling Al-Qaeda and removing Taliban rule in Afghanistan.",
+   "wrong_explanations": [
+    "The US response was military and focused on Afghanistan, not a peacekeeping mission for the UN.",
+    "Sanctions were not imposed on all Muslim nations; targeted sanctions were used against specific entities and regimes.",
+    "The US targeted the Taliban and Al-Qaeda in Afghanistan, not a declaration of war against Iran at that time."
+   ]
+  },
+  {
+   "difficulty": "hard",
+   "question": "In the aftermath of World War II, how did the United States utilize the Marshall Plan to address international conflict in Europe?",
+   "correct_answer": "The United States provided billions of dollars in economic aid to rebuild Western European economies and prevent the spread of communism.",
+   "wrong_answers": [
+    "The United States used the Marshall Plan to fund a military alliance to attack the Soviet Union.",
+    "The United States provided military weapons to all European nations to prepare for an imminent invasion.",
+    "The United States imposed strict economic sanctions on European nations to force them to join the US."
+   ],
+   "explanation": "The Marshall Plan was a humanitarian and economic recovery effort that stabilized Europe and reduced the appeal of communist ideologies.",
+   "wrong_explanations": [
+    "The Marshall Plan was an economic aid program, not a military funding initiative for attacks.",
+    "The aid was for reconstruction and stability, not for arming nations for invasion.",
+    "The Plan provided assistance rather than imposing sanctions; it was designed to help, not punish."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "Which international conflict in the 1990s involved United States-led peacekeeping forces in Bosnia and Herzegovina?",
+   "correct_answer": "The United States deployed troops to Bosnia and Herzegovina to enforce a ceasefire and protect civilians during the Bosnian War.",
+   "wrong_answers": [
+    "The United States fought a total war against the Serbian government to remove them from the region.",
+    "The United States sent troops to Bosnia solely to establish a new democratic government from scratch.",
+    "The United States used Bosnia as a base for espionage operations against the North Atlantic Treaty Organization."
+   ],
+   "explanation": "The US role in Bosnia was primarily peacekeeping and enforcing the Dayton Agreement to stop ethnic violence and protect civilians.",
+   "wrong_explanations": [
+    "The US role was peacekeeping under international agreements, not a total war for regime change.",
+    "The mission focused on enforcing ceasefires and safety, not on building a government from scratch.",
+    "The US worked within NATO frameworks for peacekeeping, not as a base for espionage against the alliance."
+   ]
+  },
+  {
+   "difficulty": "easy",
+   "question": "What form of international conflict resolution did the United States pursue with Cuba in 1961 regarding the Bay of Pigs invasion?",
+   "correct_answer": "The United States attempted to support an exile force of Cuban refugees in an invasion to overthrow Fidel Castro, though it ultimately failed.",
+   "wrong_answers": [
+    "The United States negotiated a peaceful treaty with Cuba to end all hostilities in 1961.",
+    "The United States immediately launched a full-scale military invasion of Cuba in 1961.",
+    "The United States sent a peacekeeping delegation to Cuba to mediate between the government and rebels."
+   ],
+   "explanation": "The Bay of Pigs was a covert military operation supported by the US to invade Cuba, representing a failed attempt at regime change.",
+   "wrong_explanations": [
+    "No peaceful treaty was negotiated in 1961; the US attempted an invasion.",
+    "The invasion was a limited, covert operation, not a full-scale military invasion by the US military itself.",
+    "The US did not send a peacekeeping delegation; it supported an invasion force."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "How did the United States respond to the September 11 attacks in terms of international diplomacy and legal frameworks?",
+   "correct_answer": "The United States sought international cooperation through the United Nations to establish legal frameworks for counter-terrorism and the use of force.",
+   "wrong_answers": [
+    "The United States withdrew from the United Nations and acted entirely independently of international law.",
+    "The United States refused to work with any international organizations and acted solely on domestic authority.",
+    "The United States ignored the United Nations and formed a private military cartel to handle terrorism."
+   ],
+   "explanation": "The US actively sought UN resolutions and international cooperation to legitimize its actions and build a global coalition against terrorism.",
+   "wrong_explanations": [
+    "The US did not withdraw from the UN; it worked within the organization to gain support.",
+    "The US collaborated with international bodies; it did not refuse to work with them.",
+    "The US worked within the UN system, not a private cartel."
+   ]
+  },
+  {
+   "difficulty": "hard",
+   "question": "In the 2003 invasion of Iraq, what was a significant criticism of the United States' approach regarding United Nations authorization?",
+   "correct_answer": "Critics argued that the United States proceeded with the invasion without obtaining explicit authorization from the United Nations Security Council.",
+   "wrong_answers": [
+    "Critics argued that the United States waited too long to get authorization from the United Nations.",
+    "Critics argued that the United Nations authorized the invasion but the United States ignored the conditions.",
+    "Critics argued that the United States received full authorization from the United Nations but failed to follow the rules."
+   ],
+   "explanation": "The lack of explicit UN Security Council approval for the invasion was a major point of international controversy and debate regarding the legality of the war.",
+   "wrong_explanations": [
+    "The issue was not timing; the issue was the lack of explicit authorization.",
+    "The UN did not authorize the invasion; the US proceeded without it.",
+    "The US did not receive authorization; this is the core of the criticism regarding the UN."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "Which method of international conflict resolution did the United States employ during the Cold War to contain the spread of communism without direct military intervention?",
+   "correct_answer": "The United States utilized the policy of containment, which included economic aid, political support, and military alliances to limit Soviet influence.",
+   "wrong_answers": [
+    "The United States practiced appeasement by giving in to Soviet demands to avoid war.",
+    "The United States pursued isolationism by avoiding all contact with communist nations.",
+    "The United States used espionage as the only method to stop the spread of communism."
+   ],
+   "explanation": "Containment was a multi-faceted strategy involving diplomacy, economics, and alliances, rather than just one method like espionage or appeasement.",
+   "wrong_explanations": [
+    "The US did not practice appeasement; it actively worked to limit Soviet expansion.",
+    "The US engaged with the world through containment; it did not pursue total isolationism.",
+    "Containment involved more than just espionage; it included significant economic and diplomatic efforts."
+   ]
+  },
+  {
+   "difficulty": "easy",
+   "question": "What was the primary outcome of the United States' humanitarian efforts in Haiti following the 2010 earthquake?",
+   "correct_answer": "The United States coordinated with international partners to provide emergency food, medical supplies, and shelter to the affected population.",
+   "wrong_answers": [
+    "The United States used the disaster as an opportunity to invade the country and change its government.",
+    "The United States refused to provide aid and suggested the people should rebuild themselves.",
+    "The United States imposed economic sanctions on Haiti in response to the earthquake."
+   ],
+   "explanation": "The US response was a humanitarian effort focused on relief and recovery, consistent with its role in disaster response.",
+   "wrong_explanations": [
+    "The response was humanitarian aid, not an invasion or attempt to change government.",
+    "The US provided significant aid; it did not refuse to help.",
+    "The US provided aid rather than imposing sanctions in response to the natural disaster."
+   ]
+  }
+ ],
+ "validation_errors": [
+  "item 6 wrong_explanations not 3"
+ ],
+ "review_issues": []
+}

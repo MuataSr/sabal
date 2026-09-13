@@ -1,0 +1,249 @@
+{
+ "code": "SS.7.CG.3.15",
+ "topic": "Economic systems: capitalism and alternatives",
+ "domain": 1,
+ "questions": [
+  {
+   "difficulty": "easy",
+   "question": "A student is studying why many economists argue that capitalism allows individuals to make their own choices about spending and saving. Which statement best describes this specific advantage of a capitalist system?",
+   "correct_answer": "Capitalism promotes economic freedom by allowing individuals to make their own decisions regarding production and consumption without government mandates.",
+   "wrong_answers": [
+    "Capitalism requires the government to own all means of production to ensure equality.",
+    "Capitalism limits consumer choice by restricting the number of businesses that can operate.",
+    "Capitalism focuses solely on preventing profit to protect the working class."
+   ],
+   "explanation": "The core definition of capitalism includes private ownership and the freedom for individuals and businesses to make economic choices without heavy government intervention.",
+   "wrong_explanations": [
+    "This describes communism, where the state controls production, not capitalism.",
+    "Capitalism encourages competition among many businesses, thereby increasing consumer choice.",
+    "A primary goal of capitalism is to generate profit for private owners, not to prevent it."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "During a class discussion, a student asks how a free market economy typically responds to a surge in demand for a popular new product compared to a government-controlled economy. What is the most likely outcome in a free market system?",
+   "correct_answer": "In a free market system, private businesses are incentivized to increase production of the product to capture profits, leading to greater availability.",
+   "wrong_answers": [
+    "The government will immediately seize control of the factories to ensure fair pricing for everyone.",
+    "Production will decrease because the government does not want to encourage consumer spending.",
+    "Only the wealthiest citizens will be allowed to purchase the product regardless of supply."
+   ],
+   "explanation": "The profit motive in capitalism drives businesses to meet consumer demand quickly and efficiently to maximize their earnings.",
+   "wrong_explanations": [
+    "While governments may regulate markets, they do not typically seize private property solely due to high demand in a capitalist system.",
+    "Governments generally aim to stimulate the economy, not suppress demand for popular goods.",
+    "Free markets operate on supply and demand principles that apply to all consumers, not just the wealthy."
+   ]
+  },
+  {
+   "difficulty": "hard",
+   "question": "An economist compares two nations: Nation A has a mixed economy with strong private enterprise, while Nation B is a command economy where the state sets all prices and production goals. If Nation A experiences a technological breakthrough that lowers the cost of manufacturing computers, how does this system most likely benefit the average citizen over time?",
+   "correct_answer": "The reduced production costs in Nation A likely lead to lower prices and higher wages for workers in the computer industry, raising the standard of living.",
+   "wrong_answers": [
+    "The government in Nation A will raise prices to prevent the technology from becoming too widespread among the poor.",
+    "Workers in Nation A will face job losses because the new technology makes manual labor obsolete without government retraining.",
+    "The benefits of the technology will be hoarded by the state officials rather than distributed to the general public."
+   ],
+   "explanation": "Competitive market dynamics in capitalism allow efficiency gains to translate into lower prices for consumers and higher profits or wages for producers, improving overall living standards.",
+   "wrong_explanations": [
+    "Market competition generally discourages price gouging, and efficiency gains usually benefit consumers through lower costs.",
+    "While automation changes job roles, capitalism often creates new jobs and higher wages in the emerging sectors, and governments in mixed economies often support transitions.",
+    "Private owners and businesses in a capitalist system seek to distribute goods to the market to generate profit, not to hoard them."
+   ]
+  },
+  {
+   "difficulty": "easy",
+   "question": "A group of students is defining the term 'incentive' in the context of economic systems. Which example best illustrates how capitalism uses incentives to drive innovation?",
+   "correct_answer": "Entrepreneurs are motivated to develop new products because they can keep the profits generated from selling those products.",
+   "wrong_answers": [
+    "Workers are forced to invent new machines because the government mandates increased productivity.",
+    "Businesses must innovate simply to avoid fines imposed by the central planning committee.",
+    "Consumers are required to buy new products to demonstrate their loyalty to the state."
+   ],
+   "explanation": "The ability to retain profits serves as a powerful incentive for private businesses to innovate and take risks in a capitalist system.",
+   "wrong_explanations": [
+    "In a command economy, work is often mandated rather than driven by personal financial incentive.",
+    "Fines are a tool of regulation, not the primary driver for innovation in a free market system.",
+    "Consumer choice is voluntary in a market economy, not a requirement of the state."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "Two friends are debating why the United States, despite having periods of economic downturn, generally maintains a high standard of living compared to countries with strictly planned economies. Which argument aligns best with the advantages of capitalism?",
+   "correct_answer": "The flexibility of the free market allows the economy to adjust to changes in consumer preferences and global conditions more quickly than a rigid government plan.",
+   "wrong_answers": [
+    "The government guarantees that every citizen will receive a job regardless of economic performance.",
+    "Capitalist economies eliminate all forms of poverty through a universal basic income provided by private corporations.",
+    "The absence of government regulation ensures that all business practices are inherently ethical and safe."
+   ],
+   "explanation": "Market mechanisms allow for rapid adaptation to changing circumstances, fostering long-term growth and prosperity that rigid command economies often struggle to achieve.",
+   "wrong_explanations": [
+    "While social safety nets exist, capitalism does not guarantee full employment during recessions without intervention.",
+    "Private corporations aim for profit, not universal wealth distribution, and do not provide basic incomes.",
+    "Regulation exists in capitalist nations to ensure safety and ethics; the lack of regulation is not the source of prosperity."
+   ]
+  },
+  {
+   "difficulty": "hard",
+   "question": "A civics class analyzes the concept of 'economic efficiency' in different systems. In a capitalist society, how does competition between businesses generally affect the quality of goods available to consumers?",
+   "correct_answer": "Competition forces businesses to improve product quality and reduce costs to attract customers, leading to a higher standard of living.",
+   "wrong_answers": [
+    "Competition leads to a standardization of products where all companies sell identical items regardless of quality.",
+    "Businesses will lower quality to cut costs, but the government will compensate consumers with subsidies.",
+    "Efficiency is maximized only when a single government-owned company produces all goods to ensure consistency."
+   ],
+   "explanation": "To win market share, firms in a competitive environment must offer better value, which drives up the overall quality and variety of goods.",
+   "wrong_explanations": [
+    "Competition encourages differentiation and innovation, not uniformity, as companies try to distinguish their products.",
+    "While subsidies exist, they do not replace the market-driven pressure to improve quality and efficiency.",
+    "Monopolies or single-state production often lead to inefficiency and lack of innovation compared to competitive markets."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "A student reads about a country where the government owns all factories and decides what goods are made. The student then considers the advantages of the United States' economic system. What is a primary reason the U.S. system might produce a wider variety of goods than the government-controlled country?",
+   "correct_answer": "Private businesses in the U.S. can quickly launch new products based on specific consumer demands, whereas a central plan may take years to adjust.",
+   "wrong_answers": [
+    "The U.S. government prioritizes variety over quantity, while the other country focuses only on luxury items.",
+    "The government-controlled country lacks the technology to produce a wide variety of goods.",
+    "The U.S. has more factories than the other country, regardless of who owns them."
+   ],
+   "explanation": "Decentralized decision-making allows numerous private entities to respond instantly to niche demands, creating a diverse marketplace.",
+   "wrong_explanations": [
+    "Both systems can theoretically prioritize variety, but the speed of response in a market is much faster.",
+    "Technology levels are not the defining difference; the structural ability to adapt is the key factor.",
+    "The number of factories is irrelevant to the variety of goods if the ownership and decision-making structures differ."
+   ]
+  },
+  {
+   "difficulty": "easy",
+   "question": "Which statement accurately describes the role of price in a capitalist economy compared to a government-controlled economy?",
+   "correct_answer": "In a capitalist economy, prices are determined by supply and demand, signaling to producers what to make and how much to charge.",
+   "wrong_answers": [
+    "Prices in a capitalist economy are fixed by the government to ensure no one pays too much.",
+    "In a government-controlled economy, prices fluctuate wildly based on what consumers want to buy.",
+    "Prices in both systems are set equally by a committee of economists and business owners."
+   ],
+   "explanation": "Market prices act as signals in capitalism, guiding resource allocation without direct government orders.",
+   "wrong_explanations": [
+    "Government intervention in prices is a hallmark of command economies, not free markets.",
+    "Command economies often suffer from price rigidity, where prices do not reflect actual scarcity or demand.",
+    "In a capitalist system, private entities set prices based on market forces, not a joint committee."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "A historian compares the economic recovery of two nations after a natural disaster. Nation X relies on private insurance and business reconstruction, while Nation Y relies entirely on state allocations. Which outcome is most consistent with the advantages of capitalism?",
+   "correct_answer": "Nation X may see a faster allocation of resources to rebuild because private entities act immediately to restore their assets and profits.",
+   "wrong_answers": [
+    "Nation Y will rebuild faster because the government can mobilize the entire population to work on reconstruction.",
+    "Nation X will rebuild slower because private companies prioritize profit over community welfare.",
+    "Nation Y will achieve a higher standard of living immediately due to the centralized distribution of aid."
+   ],
+   "explanation": "The rapid response of private markets to restore functionality and profit potential often leads to quicker economic recovery.",
+   "wrong_explanations": [
+    "Government mobilization can be slow due to bureaucratic processes, whereas market actors act on immediate incentives.",
+    "Private companies are motivated to rebuild quickly to resume operations and generate revenue.",
+    "Centralized allocation can lead to bottlenecks and delays, potentially lowering the immediate standard of living."
+   ]
+  },
+  {
+   "difficulty": "hard",
+   "question": "An economist argues that one of the greatest strengths of capitalism is its ability to harness human ingenuity. How does this system best facilitate the translation of new ideas into widespread products?",
+   "correct_answer": "It allows inventors and entrepreneurs to commercialize their ideas directly, sharing the rewards of success with those who invest in them.",
+   "wrong_answers": [
+    "It requires the government to fund all research and development before any product can be sold.",
+    "It restricts new ideas to state-approved projects to maintain social stability.",
+    "It relies on consumers to petition the government to produce new inventions for them."
+   ],
+   "explanation": "The freedom to act on one's own initiative and the potential for financial reward drive innovation in capitalist systems.",
+   "wrong_explanations": [
+    "Government funding is often too slow and restrictive for the rapid pace of commercial innovation.",
+    "Censorship of ideas is contrary to the principles of free markets and open competition.",
+    "Innovation in a market economy is driven by market opportunity, not by consumer petitions to the state."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "Students are discussing the concept of 'risk' in different economic systems. In which system do individuals and businesses typically bear the risk of failure and the reward of success?",
+   "correct_answer": "In a capitalist system, private individuals and companies assume the risks of their ventures and keep the profits if they succeed.",
+   "wrong_answers": [
+    "In a government-controlled system, private individuals bear all the risk while the government takes all the profits.",
+    "In a socialist system, the government bears the risk of failure, but the individuals receive the profits.",
+    "In both systems, the government shares the risk equally with the citizens regardless of the outcome."
+   ],
+   "explanation": "The direct link between risk, effort, and reward is a fundamental characteristic that drives entrepreneurship in capitalism.",
+   "wrong_explanations": [
+    "In command economies, the state usually absorbs the financial losses of failing projects.",
+    "Socialist systems typically involve state ownership, meaning the state, not the individual, bears the primary risk.",
+    "Market systems clearly distinguish between who takes the risk and who reaps the rewards based on performance."
+   ]
+  },
+  {
+   "difficulty": "easy",
+   "question": "Why might a free market economy generally offer more choices to consumers than a command economy?",
+   "correct_answer": "Because many different private businesses are free to enter the market and offer diverse products to compete for customers.",
+   "wrong_answers": [
+    "Because the government in a command economy encourages consumers to buy whatever they want without restriction.",
+    "Because private businesses in a free market are required to produce hundreds of different items for every single person.",
+    "Because the government in a command economy produces only one type of product for everyone to ensure equality."
+   ],
+   "explanation": "Lower barriers to entry and the profit motive encourage a multitude of businesses to serve different consumer needs.",
+   "wrong_explanations": [
+    "Command economies often restrict choices to a limited set of approved goods.",
+    "While variety exists, the primary driver is the number of competitors, not a requirement to serve every individual specifically.",
+    "While some command economies produce limited goods, the free market's structural openness inherently allows for greater variety."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "A debate club member claims that capitalism raises the standard of living by creating wealth. How does this process typically work in a market economy?",
+   "correct_answer": "Wealth is created through innovation and efficiency, which increases production and lowers costs for consumers while raising wages.",
+   "wrong_answers": [
+    "Wealth is created when the government accumulates resources and distributes them equally among all citizens.",
+    "Wealth is created by restricting the supply of goods to make them more valuable to a select few.",
+    "Wealth is created solely by increasing the number of people working, regardless of productivity."
+   ],
+   "explanation": "Productivity gains and technological advancements in a competitive market lead to overall economic growth and improved living conditions.",
+   "wrong_explanations": [
+    "Equality of distribution is not the primary mechanism for raising the standard of living in a capitalist system.",
+    "Artificial scarcity can reduce overall welfare and is not a sustainable method for raising the standard of living.",
+    "Productivity, not just the number of workers, is the key driver of wealth creation in a market economy."
+   ]
+  },
+  {
+   "difficulty": "hard",
+   "question": "Which scenario best illustrates the advantage of a free market in responding to changing consumer tastes compared to a planned economy?",
+   "correct_answer": "When a new trend emerges, dozens of small businesses in a free market can immediately start producing related goods, satisfying the demand quickly.",
+   "wrong_answers": [
+    "In a planned economy, the central committee can instantly redirect all factories to produce the new trend without any planning.",
+    "In a free market, businesses must wait for the government to approve the new trend before they can produce any related goods.",
+    "A planned economy responds faster because it does not have to negotiate with private owners to change production plans."
+   ],
+   "explanation": "Decentralized decision-making allows for parallel experimentation and rapid adaptation to trends by many independent actors.",
+   "wrong_explanations": [
+    "Central planning involves long approval processes and lacks the agility of parallel market responses.",
+    "Government approval is not a standard requirement for new products in a free market; consumer demand drives production.",
+    "Negotiating with private owners is a faster process than waiting for a central bureaucracy to reassign resources."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "A teacher explains to students that the United States benefits from having many different companies producing similar goods. What is the main economic advantage of this competition?",
+   "correct_answer": "Competition forces companies to improve quality and lower prices, which directly benefits consumers and raises the standard of living.",
+   "wrong_answers": [
+    "Competition allows companies to form monopolies to control the market and set high prices.",
+    "Competition ensures that only the largest and most powerful companies survive, eliminating smaller businesses.",
+    "Competition is intended to confuse consumers so they cannot decide which product is best for them."
+   ],
+   "explanation": "The rivalry between businesses drives efficiency and innovation, leading to better outcomes for the public.",
+   "wrong_explanations": [
+    "Antitrust laws prevent monopolies; competition aims to prevent market dominance.",
+    "Competition allows smaller businesses to thrive by finding niche markets or offering better value.",
+    "The goal of competition is to empower consumers with choice and better options, not to confuse them."
+   ]
+  }
+ ],
+ "validation_errors": [],
+ "review_issues": []
+}

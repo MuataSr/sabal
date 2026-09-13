@@ -1,0 +1,235 @@
+{
+ "code": "SS.7.CG.4.1",
+ "topic": "Foreign and domestic policy",
+ "domain": 1,
+ "questions": [
+  {
+   "difficulty": "easy",
+   "question": "A new federal law is passed to improve air quality within the United States by reducing emissions from cars. This action is an example of which type of government policy?",
+   "correct_answer": "This action is an example of domestic policy because it addresses internal issues within the country.",
+   "wrong_answers": [
+    "This action is an example of foreign policy because it involves environmental regulations.",
+    "This action is an example of national interest policy because it benefits the economy.",
+    "This action is an example of international policy because it affects global climate patterns."
+   ],
+   "explanation": "Domestic policy refers to laws and actions taken by the government to manage internal affairs and issues within the nation's borders, such as environmental protection.",
+   "wrong_explanations": [
+    "Environmental regulations applied domestically do not automatically constitute foreign policy unless they directly involve other nations' governments or treaties.",
+    "While the law may serve the national interest, the definition of the policy type is based on the scope (internal vs. external), not just the benefit.",
+    "International policy involves relations between countries, whereas this law specifically targets domestic emissions within the U.S."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "The President decides to send additional military aid to a neighboring country that is fighting a civil war to prevent a refugee crisis. How does this decision relate to the concepts of foreign policy and national interest?",
+   "correct_answer": "This decision represents foreign policy because it involves interaction with other nations, and it is pursued to advance the national interest by maintaining regional stability.",
+   "wrong_answers": [
+    "This decision is purely domestic policy because it originates from the White House, and it serves no national interest.",
+    "This decision is foreign policy, but it is not related to the national interest because the U.S. has no connection to the neighboring country.",
+    "This decision is domestic policy because it involves the use of military resources, and it serves the national interest by saving money."
+   ],
+   "explanation": "Foreign policy deals with how the country interacts with other nations, and actions are often justified as serving the national interest, such as preventing instability that could affect the U.S.",
+   "wrong_explanations": [
+    "Sending military aid to another country is an external action, making it foreign policy, not domestic policy.",
+    "Policies aimed at preventing refugee crises and regional instability are typically viewed as serving the national interest by reducing external threats or burdens.",
+    "Using military resources for external aid does not make it domestic policy; domestic policy focuses on internal matters like the economy or civil rights."
+   ]
+  },
+  {
+   "difficulty": "hard",
+   "question": "A student argues that raising the federal minimum wage will improve the U.S. economy and reduce poverty. A different student argues that the U.S. should negotiate a trade agreement with a foreign nation to lower consumer prices. Which of the following statements best explains the relationship between these two arguments?",
+   "correct_answer": "The first argument focuses on domestic policy regarding labor and economics, while the second focuses on foreign policy regarding trade relations, yet both are means to pursue the national interest.",
+   "wrong_answers": [
+    "Both arguments are examples of foreign policy because they involve the federal government, and neither relates to the national interest.",
+    "The first argument is foreign policy because it involves money, and the second is domestic policy because it involves other countries.",
+    "These arguments are unrelated because domestic policy never affects foreign policy and foreign policy never affects domestic policy."
+   ],
+   "explanation": "Domestic policy addresses internal issues like wages, while foreign policy addresses international relations like trade; both are tools the government uses to achieve the national interest.",
+   "wrong_explanations": [
+    "Federal actions concerning internal economics are domestic policy, and international trade negotiations are foreign policy; both can serve the national interest.",
+    "Labor laws are domestic, and trade agreements with other nations are foreign; the distinction is based on the scope of the policy, not the subject matter.",
+    "Domestic and foreign policies are interconnected; actions in one area often influence the other, and both are designed to benefit the nation."
+   ]
+  },
+  {
+   "difficulty": "easy",
+   "question": "Which of the following scenarios is best classified as an issue of domestic policy?",
+   "correct_answer": "The government enacting a new law to expand access to healthcare for American citizens is an issue of domestic policy.",
+   "wrong_answers": [
+    "The government signing a peace treaty with an ally is an issue of domestic policy.",
+    "The government building a new highway system across the country is an issue of foreign policy.",
+    "The government sending troops to fight in a foreign conflict is an issue of domestic policy."
+   ],
+   "explanation": "Domestic policy covers internal government functions and services provided to citizens, such as healthcare and infrastructure.",
+   "wrong_explanations": [
+    "Peace treaties involve relations between nations, which is the definition of foreign policy.",
+    "Building a national highway system is an internal infrastructure project, making it domestic policy, not foreign.",
+    "Deploying troops abroad is an action involving international conflict, which falls under foreign policy."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "The national interest is a guiding principle for U.S. policymakers. Which of the following best defines the national interest in the context of foreign policy?",
+   "correct_answer": "The national interest is defined as the goals and objectives that promote the security, prosperity, and well-being of the United States and its citizens.",
+   "wrong_answers": [
+    "The national interest is defined as the specific desires of the President, regardless of the impact on the country.",
+    "The national interest is defined as the immediate needs of foreign allies, even if it harms the U.S. economy.",
+    "The national interest is defined as the opinions of the majority of voters on all foreign issues at any given time."
+   ],
+   "explanation": "The national interest refers to the broader strategic goals of the nation, such as security and economic stability, which guide foreign policy decisions.",
+   "wrong_explanations": [
+    "The national interest is a strategic concept for the nation as a whole, not just the personal desires of one leader.",
+    "While allies are important, the primary focus of the national interest is the security and prosperity of the United States itself.",
+    "While public opinion is important, the national interest encompasses long-term strategic goals that may sometimes require decisions not immediately popular with the majority."
+   ]
+  },
+  {
+   "difficulty": "hard",
+   "question": "A new technology allows the U.S. to monitor illegal fishing in the Pacific Ocean more effectively. How might the federal government use this technology to address both domestic and foreign policy concerns?",
+   "correct_answer": "The government could use the technology to protect domestic marine resources and ecosystems while simultaneously enforcing international laws regarding sustainable fishing practices.",
+   "wrong_answers": [
+    "The government should use the technology only to catch foreign fishermen to reduce the cost of domestic fishing licenses.",
+    "The government should ignore the technology because monitoring other countries violates the principle of non-interference in foreign policy.",
+    "The government should sell the technology to foreign nations to generate profit, as this is the primary goal of foreign policy."
+   ],
+   "explanation": "Advanced technology can serve dual purposes: protecting domestic resources (domestic policy) and enforcing international norms or treaties (foreign policy), illustrating the link between the two.",
+   "wrong_explanations": [
+    "Protecting domestic resources is a key domestic goal, and enforcing international sustainability laws is a key foreign policy goal; both serve the national interest.",
+    "While reducing costs is a factor, the primary use of monitoring technology is often resource protection and legal compliance, not just punitive measures against foreigners.",
+    "Non-interference is a concept, but monitoring illegal activities in international waters often involves upholding international law, which is a component of foreign policy."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "Which of the following means available to the national government best illustrates how domestic policy can influence foreign policy?",
+   "correct_answer": "The government passing strict environmental laws that reduce pollution demonstrates how domestic policy can lead to foreign policy cooperation through shared ecological standards.",
+   "wrong_answers": [
+    "The government launching a military invasion of a neighboring country demonstrates how domestic policy can influence foreign policy.",
+    "The government printing more money to pay for domestic programs demonstrates how domestic policy can influence foreign policy.",
+    "The government lowering the voting age demonstrates how domestic policy can influence foreign policy."
+   ],
+   "explanation": "Domestic policies, such as environmental regulations, can set standards that other nations may adopt or that require international cooperation, thus influencing foreign relations.",
+   "wrong_explanations": [
+    "Military invasion is an act of foreign policy or war, not a domestic policy influencing foreign policy in a constructive, regulatory way.",
+    "Monetary policy is an internal economic tool; while it affects the economy, it does not directly dictate foreign policy relations in the same way regulatory standards do.",
+    "Changing the voting age is a purely domestic electoral reform and has no direct mechanism for influencing foreign policy relations."
+   ]
+  },
+  {
+   "difficulty": "easy",
+   "question": "A country implements a policy to build more schools and improve teacher training. Why is this considered domestic policy?",
+   "correct_answer": "This is considered domestic policy because it focuses on improving the education system within the country's borders.",
+   "wrong_answers": [
+    "This is considered foreign policy because it involves the government spending money.",
+    "This is considered domestic policy because it involves sending teachers to other countries.",
+    "This is considered foreign policy because it helps the national interest."
+   ],
+   "explanation": "Education reform and infrastructure within a nation are classic examples of domestic policy, as they pertain to internal societal development.",
+   "wrong_explanations": [
+    "The source of funding or the act of spending money does not define the policy type; the scope (internal vs. external) does.",
+    "If teachers are sent to other countries, it becomes foreign policy, but building schools domestically is internal.",
+    "While serving the national interest, the category of the policy is determined by whether the action happens inside or outside the nation."
+   ]
+  },
+  {
+   "difficulty": "hard",
+   "question": "The U.S. government negotiates a trade deal that reduces tariffs on foreign goods. How does this decision exemplify the relationship between foreign policy, domestic policy, and the national interest?",
+   "correct_answer": "This decision is foreign policy because it involves international agreements, but it impacts domestic policy by affecting prices for consumers and is justified as serving the national interest through economic growth.",
+   "wrong_answers": [
+    "This decision is domestic policy because it affects the economy, and it ignores the national interest.",
+    "This decision is foreign policy only, and it has no effect on domestic policy or the national interest.",
+    "This decision is domestic policy because it is negotiated by the government, and it serves no national interest."
+   ],
+   "explanation": "Trade agreements are foreign policy actions that have direct consequences for the domestic economy (prices, jobs) and are pursued to advance the national interest.",
+   "wrong_explanations": [
+    "Trade agreements are inherently foreign policy, but their economic impacts are domestic; they are designed to serve the national interest.",
+    "Trade deals directly impact the domestic market (consumer goods prices) and are explicitly designed to serve the national interest through trade.",
+    "Government negotiations on international trade are foreign policy, and they are intended to benefit the nation economically."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "Which of the following is an example of a means available to the national government to pursue the national interest in foreign policy?",
+   "correct_answer": "The government can use diplomatic negotiations to resolve conflicts between the U.S. and other nations.",
+   "wrong_answers": [
+    "The government can use domestic taxes to punish citizens of other nations.",
+    "The government can ignore international treaties to better serve the national interest.",
+    "The government can only pursue the national interest by going to war."
+   ],
+   "explanation": "Diplomacy is a primary tool of foreign policy used to advance national interests through dialogue and agreement without conflict.",
+   "wrong_explanations": [
+    "Taxes are a domestic tool; governments cannot unilaterally tax citizens of other nations as a foreign policy tool.",
+    "Ignoring treaties can damage the national interest by harming the U.S.'s reputation and legal standing in international relations.",
+    "War is a last resort; diplomacy, economic sanctions, and aid are also valid means to pursue the national interest."
+   ]
+  },
+  {
+   "difficulty": "easy",
+   "question": "A state governor passes a law requiring all state employees to receive health insurance. Is this an example of domestic or foreign policy, and why?",
+   "correct_answer": "This is an example of domestic policy because it regulates employment and healthcare within a specific state's internal affairs.",
+   "wrong_answers": [
+    "This is an example of foreign policy because it involves the government providing services.",
+    "This is an example of foreign policy because it affects the national interest.",
+    "This is an example of domestic policy because it involves other countries."
+   ],
+   "explanation": "State-level regulations on employment and healthcare are internal matters, defining them as domestic policy.",
+   "wrong_explanations": [
+    "Providing services internally is the definition of domestic policy, not foreign policy.",
+    "Affecting the national interest is a goal, not a definition of the policy type; internal regulations are domestic.",
+    "Internal state laws do not involve other countries, so they are not foreign policy."
+   ]
+  },
+  {
+   "difficulty": "hard",
+   "question": "An earthquake strikes a foreign nation, and the U.S. sends a disaster relief team. How does this action demonstrate the relationship between foreign policy, domestic policy, and the national interest?",
+   "correct_answer": "This action is foreign policy because it involves international aid, but it reflects the national interest by promoting stability and humanitarian values that align with U.S. principles.",
+   "wrong_answers": [
+    "This action is domestic policy because it involves the federal government, and it has no relation to the national interest.",
+    "This action is foreign policy, but it is not related to the national interest because it costs taxpayer money.",
+    "This action is domestic policy because it helps Americans who might be affected by the disaster."
+   ],
+   "explanation": "Humanitarian aid is a foreign policy action that serves the national interest by upholding U.S. values and promoting regional stability, which can have indirect domestic benefits.",
+   "wrong_explanations": [
+    "Aid to foreign nations is foreign policy; while it costs money, it is often justified as serving the national interest through stability and values.",
+    "While it costs money, promoting stability and humanitarian aid is a strategic goal that serves the national interest.",
+    "Sending aid abroad is an external action (foreign policy), and it is not primarily intended to help Americans directly in this scenario."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "Which of the following best describes how the national government identifies issues that relate to both domestic and foreign policy?",
+   "correct_answer": "The government identifies issues by analyzing how internal economic conditions, such as trade balance, affect international relations and vice versa.",
+   "wrong_answers": [
+    "The government identifies issues by focusing solely on problems that occur within the borders of the United States.",
+    "The government identifies issues by ignoring the impact of foreign events on the domestic economy.",
+    "The government identifies issues by prioritizing the interests of foreign nations over the interests of the United States."
+   ],
+   "explanation": "The government analyzes the interconnectedness of internal factors (like trade) and external factors to understand how they jointly impact the nation.",
+   "wrong_explanations": [
+    "The government must consider both internal and external factors because they are interconnected; ignoring one leads to incomplete analysis.",
+    "Ignoring the impact of foreign events would be a failure of policy analysis, as global events often cause domestic shifts.",
+    "The primary focus of national government policy is the national interest of the United States, not the interests of other nations."
+   ]
+  },
+  {
+   "difficulty": "easy",
+   "question": "A new law is passed to increase funding for national parks. Why is this considered domestic policy?",
+   "correct_answer": "This is considered domestic policy because it involves the management and preservation of natural resources within the United States.",
+   "wrong_answers": [
+    "This is considered foreign policy because it involves the government spending money.",
+    "This is considered foreign policy because it helps the national interest.",
+    "This is considered domestic policy because it involves other countries."
+   ],
+   "explanation": "Managing national parks and natural resources is an internal government function, making it a clear example of domestic policy.",
+   "wrong_explanations": [
+    "Spending money on internal resources is domestic policy; foreign policy involves interactions with other nations.",
+    "While serving the national interest, the category is defined by the scope (internal), not the benefit.",
+    "National parks are located within the U.S., so the policy does not involve other countries."
+   ]
+  }
+ ],
+ "validation_errors": [
+  "wanted 15, got 14"
+ ],
+ "review_issues": []
+}

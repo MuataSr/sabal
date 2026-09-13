@@ -1,0 +1,249 @@
+{
+ "code": "SS.7.CG.2.10",
+ "topic": "Citizens addressing state and local problems",
+ "domain": 1,
+ "questions": [
+  {
+   "difficulty": "easy",
+   "question": "A resident of Orlando notices that a local park is littered with trash and has no maintenance schedule posted. Which level of government should this citizen primarily contact to address this issue?",
+   "correct_answer": "The citizen should contact their local municipal government, as parks and recreation are typically managed at the city or county level.",
+   "wrong_answers": [
+    "The citizen should contact the Florida State Legislature, as all government facilities are under state jurisdiction.",
+    "The citizen should contact the United States Congress, because environmental issues are federal responsibilities.",
+    "The citizen should contact the Florida Department of Transportation, since all public spaces require state-level road maintenance."
+   ],
+   "explanation": "Local problems like park maintenance and sanitation are the primary responsibility of municipal or county governments, not state or federal entities.",
+   "wrong_explanations": [
+    "The State Legislature handles broad state laws but does not manage day-to-day operations of specific local parks.",
+    "The U.S. Congress manages federal lands and policies, but local parks are not federal property.",
+    "The Florida Department of Transportation focuses on roads and bridges, not general park maintenance."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "A community group wants to propose a new policy to increase funding for after-school programs in their school district. Before drafting a proposal, what is the most logical first step they should take according to the process for addressing local problems?",
+   "correct_answer": "The group should research existing public policy alternatives to understand current funding levels and proposed changes in similar districts.",
+   "wrong_answers": [
+    "The group should immediately contact the Governor's office to request an emergency budget allocation.",
+    "The group should file a lawsuit against the state to force the school board to act immediately.",
+    "The group should wait for the next presidential election to see if a new administration changes the funding rules."
+   ],
+   "explanation": "Researching existing policies and alternatives is the foundational step before identifying agencies or taking action, ensuring the proposal is informed and viable.",
+   "wrong_explanations": [
+    "Contacting the Governor is premature for a local school issue and bypasses the necessary local research and advocacy steps.",
+    "Filing a lawsuit is an extreme legal action not taken until all administrative and policy processes have been exhausted.",
+    "Waiting for a federal election ignores the fact that education funding and policy are primarily determined at the state and local levels, not the federal level."
+   ]
+  },
+  {
+   "difficulty": "hard",
+   "question": "Citizens in a Florida county are concerned about rising water bills and want to address the issue by identifying the appropriate government agency. Which agency is most likely responsible for setting utility rates and overseeing water management within that specific county?",
+   "correct_answer": "The county board of commissioners or a local utility commission appointed by the county is the appropriate agency to address specific local water rate issues.",
+   "wrong_answers": [
+    "The Florida Public Service Commission is the sole entity responsible for all utility rates across the entire state without exception.",
+    "The Environmental Protection Agency is the correct local agency because it regulates all water usage for public health.",
+    "The Florida Legislature should directly set the rates for every individual utility provider to ensure fairness."
+   ],
+   "explanation": "While state agencies like the FPSC oversee broad regulations, local rate-setting and service issues are often delegated to county-level commissions or boards.",
+   "wrong_explanations": [
+    "The Florida Public Service Commission sets general rules and approves major changes but often delegates specific local rate adjustments to local commissions.",
+    "The EPA focuses on environmental protection and pollution standards, not the day-to-day pricing of local utilities.",
+    "The Legislature establishes the legal framework for utilities but does not micromanage specific rate settings for individual counties."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "A neighborhood association in Miami-Dade County identifies a need for a new pedestrian bridge to connect two parts of the city. They have researched three potential locations. What is the next step in the process of addressing this state or local problem?",
+   "correct_answer": "The association should identify the appropriate government agencies, such as the city planning department or state transportation department, to evaluate the proposals.",
+   "wrong_answers": [
+    "The association should immediately begin construction to show the urgency of the need.",
+    "The association should petition the President of the United States to approve the bridge funding.",
+    "The association should stop researching and simply wait for the city council to decide on its own."
+   ],
+   "explanation": "After researching policy alternatives, the next logical step is to identify the specific agencies that have the authority and resources to implement the solution.",
+   "wrong_explanations": [
+    "Construction requires approved plans, funding, and permits, which cannot happen without first engaging the appropriate agencies.",
+    "The President has no authority over local infrastructure projects like pedestrian bridges, which are state or local matters.",
+    "Passive waiting does not constitute the active process of citizens addressing a problem; engagement with relevant agencies is required."
+   ]
+  },
+  {
+   "difficulty": "easy",
+   "question": "If a resident of Jacksonville wants to report a pothole on a public road, which level of government is most appropriate to address this specific problem?",
+   "correct_answer": "The resident should contact their local city or county government, as road maintenance is a local responsibility.",
+   "wrong_answers": [
+    "The resident should contact the Florida State Senate, because all roads are state property.",
+    "The resident should contact the Federal Highway Administration, since all roads receive federal funding.",
+    "The resident should contact the Florida Department of Education, as infrastructure is an educational concern."
+   ],
+   "explanation": "Local municipalities are responsible for maintaining local roads and addressing issues like potholes within their jurisdiction.",
+   "wrong_explanations": [
+    "The State Senate creates laws but does not perform the physical maintenance of local roads.",
+    "The Federal Highway Administration sets national standards and provides funding, but does not manage local road repairs.",
+    "The Department of Education manages schools, not transportation infrastructure."
+   ]
+  },
+  {
+   "difficulty": "hard",
+   "question": "A group of citizens in Pinellas County is analyzing public policy alternatives to reduce traffic congestion near a new school. They are considering expanding bus routes, building a bike lane, or increasing parking fees. What is a key factor they must determine when choosing a course of action?",
+   "correct_answer": "They must determine which alternative aligns best with the specific needs of the community and the available budget of the responsible agency.",
+   "wrong_answers": [
+    "They must choose the option that is most popular with the national news media.",
+    "They must select the alternative that has been suggested by the previous administration without further analysis.",
+    "They must ignore the cost and simply choose the option that offers the most aesthetic improvement to the neighborhood."
+   ],
+   "explanation": "Determining a course of action involves weighing the pros and cons of different policies against community needs and financial feasibility.",
+   "wrong_explanations": [
+    "Media popularity does not determine policy effectiveness or community need.",
+    "Blindly following past decisions ignores the unique circumstances and data required for current policy decisions.",
+    "Aesthetics alone do not solve traffic congestion, and ignoring costs makes a policy unsustainable."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "Citizens in a Florida city are concerned about the lack of recycling bins in a specific neighborhood. After researching the city's waste management policies, they realize the city government handles this service. Which course of action is most appropriate for them to take?",
+   "correct_answer": "They should contact the city council or the local waste management department to formally request an increase in recycling services.",
+   "wrong_answers": [
+    "They should start a private recycling business to collect trash from the neighborhood.",
+    "They should file a federal lawsuit against the Environmental Protection Agency for not providing bins.",
+    "They should refuse to pay their city taxes until the problem is solved by the state government."
+   ],
+   "explanation": "The most effective course of action is to engage with the responsible local agency to advocate for policy changes or service improvements.",
+   "wrong_explanations": [
+    "Starting a private business does not address the systemic issue of municipal service provision.",
+    "The EPA does not have jurisdiction over local waste collection services in Florida.",
+    "Refusing taxes is illegal and does not guarantee that the state will intervene in a local municipal service issue."
+   ]
+  },
+  {
+   "difficulty": "easy",
+   "question": "A student notices that the library in their town has closed its hours significantly, affecting students' ability to study. What is the first thing the student should do to address this problem?",
+   "correct_answer": "The student should research the library's funding and policy history to understand why the hours were changed.",
+   "wrong_answers": [
+    "The student should immediately demand that the library director be fired.",
+    "The student should contact the U.S. Department of Justice to report a violation of student rights.",
+    "The student should stop using the library until it reopens to its previous hours."
+   ],
+   "explanation": "Researching the background and policy alternatives is the first step in the process of addressing a public problem before taking action.",
+   "wrong_explanations": [
+    "Demanding a firing without understanding the cause or alternatives is not a constructive first step in policy analysis.",
+    "The Department of Justice handles criminal violations, not operational changes in local libraries.",
+    "Stopping usage does not contribute to solving the problem; understanding the issue is required to address it."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "Residents of a Florida county are debating whether to increase property taxes to fund a new community center. As part of analyzing public policy alternatives, what should they consider regarding the state government's role?",
+   "correct_answer": "They should consider whether the state offers grants or tax incentives that could help fund the project without a local tax increase.",
+   "wrong_answers": [
+    "They should assume the state government will automatically pay for all new community centers.",
+    "They should ignore the state government because local problems are never the state's responsibility.",
+    "They should demand that the state government take over the operation of the community center immediately."
+   ],
+   "explanation": "Analyzing alternatives includes exploring intergovernmental relationships, such as state funding opportunities that can assist local initiatives.",
+   "wrong_explanations": [
+    "The state does not automatically fund all local projects; local governments usually initiate and fund them.",
+    "While local problems are primarily local, excluding the state entirely ignores potential funding sources and collaborations.",
+    "Taking over operations is a major policy shift that is rarely the first alternative considered for a new facility."
+   ]
+  },
+  {
+   "difficulty": "hard",
+   "question": "A coalition of citizens wants to stop a proposed highway expansion that will destroy a local wetland. They have researched the environmental impact and identified the Florida Department of Environmental Protection as a relevant agency. What is a complex course of action they might take that involves policy analysis?",
+   "correct_answer": "They could propose a policy alternative that suggests modifying the highway route to avoid the wetland while still addressing traffic needs.",
+   "wrong_answers": [
+    "They should simply block the construction equipment to force the project to stop.",
+    "They should refuse to acknowledge that traffic congestion is a problem to justify stopping all road work.",
+    "They should ask the highway department to ignore the state environmental laws to speed up the project."
+   ],
+   "explanation": "Advanced policy analysis involves proposing feasible alternatives that balance competing interests, such as development and environmental preservation.",
+   "wrong_explanations": [
+    "Blocking construction is civil disobedience and does not constitute a policy alternative or a legal course of action.",
+    "Denying a valid problem like traffic congestion undermines the credibility of the policy proposal.",
+    "Ignoring state laws is illegal and would not be a viable or responsible course of action for citizens."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "Citizens in a Florida city want to address the issue of limited affordable housing. They have identified the city planning commission as the appropriate agency. What is a key part of identifying a course of action in this scenario?",
+   "correct_answer": "They should evaluate different zoning policy alternatives, such as allowing higher density housing or inclusionary zoning.",
+   "wrong_answers": [
+    "They should demand that the city council ban all luxury apartment buildings immediately.",
+    "They should wait for the federal government to build affordable housing units in their city.",
+    "They should ignore the city planning commission and try to build housing on private land without permits."
+   ],
+   "explanation": "Identifying a course of action involves analyzing specific policy tools, like zoning changes, that the responsible agency can implement.",
+   "wrong_explanations": [
+    "Banning luxury buildings is a simplistic solution that may reduce supply without addressing affordability and is rarely a viable policy.",
+    "The federal government does not have the primary responsibility for building affordable housing within local cities.",
+    "Building without permits is illegal and does not follow the process of addressing a public problem through government channels."
+   ]
+  },
+  {
+   "difficulty": "easy",
+   "question": "A resident of a Florida town wants to ensure that the town's budget allocates enough money for park maintenance. What is the most appropriate government agency to contact first?",
+   "correct_answer": "The resident should contact the town council or the town budget committee.",
+   "wrong_answers": [
+    "The resident should contact the Florida Attorney General to file a complaint about the budget.",
+    "The resident should contact the U.S. Congress to request federal funding for the town park.",
+    "The resident should contact the Florida Department of Health to regulate the town's spending."
+   ],
+   "explanation": "Town councils and budget committees are the local bodies responsible for approving and managing municipal budgets.",
+   "wrong_explanations": [
+    "The Attorney General handles legal matters for the state, not routine municipal budget questions.",
+    "The U.S. Congress does not allocate funds for specific local park maintenance projects.",
+    "The Department of Health focuses on public health standards, not financial budgeting for parks."
+   ]
+  },
+  {
+   "difficulty": "hard",
+   "question": "A group of citizens is analyzing public policy alternatives to reduce air pollution in a Florida industrial zone. They are considering stricter emission standards, subsidies for green technology, or relocating industries. What is a critical factor in determining the best course of action?",
+   "correct_answer": "They must analyze the economic impact of each alternative on the local businesses and workers before deciding.",
+   "wrong_answers": [
+    "They should choose the alternative that imposes the highest fines on all businesses regardless of cost.",
+    "They should ignore the economic data and select the option that is easiest to enforce legally.",
+    "They should assume that any policy reducing pollution is automatically the best course of action without analysis."
+   ],
+   "explanation": "Determining a course of action requires a balanced analysis of environmental goals alongside economic feasibility and community impact.",
+   "wrong_explanations": [
+    "Highest fines without consideration of cost may lead to business closures and job loss, creating new problems.",
+    "Ease of enforcement is important, but effectiveness and fairness require data-driven analysis of impacts.",
+    "Assuming any pollution reduction is best ignores the need to weigh trade-offs, such as economic stability."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "Students in a Florida high school want to address the issue of unsafe playground equipment. After confirming the problem, what is the next step in the process of addressing this local problem?",
+   "correct_answer": "The students should identify the local school board or facility management department as the appropriate agency to contact.",
+   "wrong_answers": [
+    "The students should contact the U.S. Department of Education to demand immediate replacement.",
+    "The students should try to fix the equipment themselves without notifying the school administration.",
+    "The students should wait until the next state election to bring the issue to the governor's attention."
+   ],
+   "explanation": "Identifying the specific local agency responsible for school facilities is the necessary step after researching the problem.",
+   "wrong_explanations": [
+    "The U.S. Department of Education sets federal standards but does not manage individual school equipment in Florida.",
+    "Self-repair by students is unsafe and bypasses the proper administrative channels for maintenance.",
+    "Waiting for a state election ignores the immediate responsibility of the local school board to ensure safety."
+   ]
+  },
+  {
+   "difficulty": "easy",
+   "question": "A citizen wants to know if their city has a policy allowing for community gardens. What is the best way to start researching this public policy alternative?",
+   "correct_answer": "The citizen should visit the city's official website or contact the city clerk to review existing ordinances.",
+   "wrong_answers": [
+    "The citizen should guess the policy based on what other cities in the state are doing.",
+    "The citizen should assume that no such policy exists unless they hear about it on the news.",
+    "The citizen should contact the state legislature to demand a new law immediately without checking local rules."
+   ],
+   "explanation": "Researching involves accessing official local records and resources to verify current policies before proposing changes.",
+   "wrong_explanations": [
+    "Guessing or copying from other cities does not confirm what is actually written in local law.",
+    "Assuming a policy doesn't exist without checking is the opposite of thorough research.",
+    "The state legislature is not the first place to look for local ordinances; local government records must be checked first."
+   ]
+  }
+ ],
+ "validation_errors": [],
+ "review_issues": []
+}

@@ -1,0 +1,249 @@
+{
+ "code": "SS.7.CG.3.10",
+ "topic": "Sources and types of law",
+ "domain": 2,
+ "questions": [
+  {
+   "difficulty": "easy",
+   "question": "A group of early American colonists gathered to write a list of rules for governing their new settlement based on fairness and divine order, without reference to a written government document. Which source of law does this scenario best illustrate?",
+   "correct_answer": "This scenario illustrates common law, which develops from judicial decisions and established customs rather than written statutes.",
+   "wrong_answers": [
+    "This scenario illustrates statutory law, which consists of written rules passed by a legislative body.",
+    "This scenario illustrates constitutional law, which is derived from a supreme written constitution.",
+    "This scenario illustrates natural law, which is based on abstract moral principles rather than historical judicial customs."
+   ],
+   "explanation": "Common law originates from the traditions, customs, and judicial decisions of past societies, such as the codes used by early settlers, whereas the other options rely on written documents or purely moral arguments.",
+   "wrong_explanations": [
+    "Statutory law requires specific acts passed by a legislature, not just historical customs or traditions.",
+    "Constitutional law is based on a supreme written document that limits government power, not solely on historical customs.",
+    "While natural law involves moral principles, the scenario describes a historical code of practice, which is the definition of common law."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "During the ratification debates of the United States Constitution, some leaders argued that certain fundamental rights were inherent to all people and existed prior to the creation of any government. What type of law do these leaders believe underpins the Constitution?",
+   "correct_answer": "These leaders believe that natural law, which consists of universal moral rights existing before government, underpins the Constitution.",
+   "wrong_answers": [
+    "These leaders believe that statutory law, created by legislatures, was the primary source of their rights before the Constitution.",
+    "These leaders believe that case law, developed by courts through specific trials, was the foundation of their arguments.",
+    "These leaders believe that military law, which governs armed forces, was the standard used to justify their claims."
+   ],
+   "explanation": "Natural law theory posits that rights are inherent to human beings and precede government, a concept central to the arguments made during the Constitutional ratification debates.",
+   "wrong_explanations": [
+    "Statutory law is created by legislatures after a government is established, so it could not be the source of rights existing prior to government.",
+    "Case law relies on specific court decisions to establish rules, whereas the argument described relies on pre-existing moral principles.",
+    "Military law specifically governs the conduct of armed forces and does not address the fundamental philosophical origins of civil rights."
+   ]
+  },
+  {
+   "difficulty": "hard",
+   "question": "The Magna Carta, signed in 1215, is often cited as a historical code that influenced the development of the United States Constitution. How did this historical document specifically influence the concept of constitutional law in the United States?",
+   "correct_answer": "The Magna Carta influenced constitutional law by establishing the principle that the government is not above the law and that individuals have certain rights against the ruler.",
+   "wrong_answers": [
+    "The Magna Carta influenced constitutional law by creating a specific system of federal courts that exists today in the United States.",
+    "The Magna Carta influenced constitutional law by establishing the power of the President to command the armed forces without legislative approval.",
+    "The Magna Carta influenced constitutional law by defining the specific terms of trade between England and the American colonies."
+   ],
+   "explanation": "The core legacy of the Magna Carta is the limitation of government power and the protection of individual rights, concepts that are foundational to the U.S. Constitution.",
+   "wrong_explanations": [
+    "The Magna Carta did not create the specific structure of federal courts; the federal judiciary was established by the U.S. Constitution in 1789.",
+    "The Magna Carta limited the power of the monarch, it did not establish executive power for a president to command forces unilaterally.",
+    "The Magna Carta was a charter of rights and legal procedure, not a treaty defining specific trade terms between nations."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "A citizen files a lawsuit claiming that a local city council passed a zoning ordinance that violates a specific clause in the state constitution. Which type of law is being primarily cited as the basis for the citizen's claim?",
+   "correct_answer": "The citizen is primarily citing constitutional law, which serves as the supreme legal authority that limits the power of government bodies like the city council.",
+   "wrong_answers": [
+    "The citizen is primarily citing statutory law, which is the lower-level legislation passed by the city council that the citizen is challenging.",
+    "The citizen is primarily citing case law, which refers to previous court decisions that have no authority over current legislative acts.",
+    "The citizen is primarily citing military law, which governs the conduct of soldiers and has no jurisdiction over municipal zoning."
+   ],
+   "explanation": "Constitutional law is the highest form of law and is used to challenge the validity of lower-level laws, such as ordinances, ensuring they do not violate fundamental rights.",
+   "wrong_explanations": [
+    "Statutory law is the law being challenged (the ordinance), not the higher law being used to justify the lawsuit.",
+    "Case law involves judicial rulings on specific disputes, whereas the citation here is to the written supreme law of the state.",
+    "Military law applies only to members of the armed forces and is irrelevant to disputes over local government zoning ordinances."
+   ]
+  },
+  {
+   "difficulty": "easy",
+   "question": "A teenager is charged with breaking a state law that prohibits speeding on public highways. What type of law is the teenager violating?",
+   "correct_answer": "The teenager is violating statutory law, which consists of written rules and regulations enacted by a legislative body.",
+   "wrong_answers": [
+    "The teenager is violating common law, which is based on unwritten customs and judicial precedents rather than written statutes.",
+    "The teenager is violating constitutional law, which defines the structure of government rather than specific rules about highway speeds.",
+    "The teenager is violating natural law, which deals with abstract moral rights rather than specific traffic regulations."
+   ],
+   "explanation": "Traffic laws are specific rules written by legislatures and enacted into statutes, making them examples of statutory law.",
+   "wrong_explanations": [
+    "Common law evolves from court decisions and customs, whereas traffic codes are explicitly written statutes.",
+    "Constitutional law outlines the powers of government branches, not the specific operational rules for driving on highways.",
+    "Natural law refers to universal moral principles, not the specific, codified rules of the road."
+   ]
+  },
+  {
+   "difficulty": "hard",
+   "question": "In a courtroom, a defense attorney argues that a new criminal statute passed by the legislature is unconstitutional because it violates the right to a fair trial. How will the judge likely resolve the conflict between the statute and the constitution?",
+   "correct_answer": "The judge will likely rule that the statutory law is invalid because constitutional law is the supreme law of the land and overrides conflicting statutes.",
+   "wrong_answers": [
+    "The judge will likely rule that the statutory law stands because laws passed by the legislature take precedence over judicial interpretations.",
+    "The judge will likely rule that the case must be decided based on common law principles since neither the statute nor the constitution applies directly.",
+    "The judge will likely rule that the statute is valid unless a higher court explicitly overturns it in the future."
+   ],
+   "explanation": "The principle of judicial review ensures that when a statute conflicts with the constitution, the constitution prevails as the supreme legal authority.",
+   "wrong_explanations": [
+    "Legislative statutes do not take precedence over the constitution; the constitution is designed to limit legislative power.",
+    "Common law does not apply to the direct conflict between a specific written statute and the written constitution in this manner.",
+    "While a statute remains valid until overturned, a judge has the authority to declare it unconstitutional immediately upon finding a conflict."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "A soldier is accused of insubordination while on active duty. Which type of law would typically be used to try this soldier, and what distinguishes it from the law used to try a civilian committing the same act?",
+   "correct_answer": "Military law, also known as the Uniform Code of Military Justice, is used to try the soldier, and it is distinguished from civilian criminal law by the specific code that governs the armed forces.",
+   "wrong_answers": [
+    "Civilian criminal law would be used to try the soldier, as military personnel are subject to the same laws as the general public.",
+    "Constitutional law would be used to try the soldier, as it is the only law that applies to individuals within a democratic society.",
+    "Statutory law would be used, but it would be the federal criminal code rather than a specific military code."
+   ],
+   "explanation": "The U.S. maintains a separate legal system for military personnel, known as military law, which differs from the criminal code applied to civilians.",
+   "wrong_explanations": [
+    "Military personnel are subject to military law, not the standard civilian criminal code, while they are on active duty.",
+    "Constitutional law sets the framework but does not serve as the primary substantive code for trying specific offenses like insubordination.",
+    "While military law is statutory in nature, it is a distinct category of law specifically for the armed forces, separate from general federal statutes."
+   ]
+  },
+  {
+   "difficulty": "easy",
+   "question": "Which of the following best describes the difference between civil law and criminal law in the United States legal system?",
+   "correct_answer": "Criminal law deals with offenses against the state or society and can result in imprisonment, while civil law deals with disputes between individuals and results in monetary damages or specific performance.",
+   "wrong_answers": [
+    "Civil law deals with offenses against the state that can result in imprisonment, while criminal law deals with disputes between neighbors.",
+    "Criminal law focuses on resolving disputes over money between private parties, while civil law focuses on punishing dangerous behavior.",
+    "There is no difference; both civil and criminal law are handled by the same courts and use the same procedures for all cases."
+   ],
+   "explanation": "The fundamental distinction lies in the nature of the harm: criminal law punishes violations of public order, whereas civil law resolves private disputes.",
+   "wrong_explanations": [
+    "Civil law resolves private disputes between individuals, whereas criminal law addresses offenses against the state.",
+    "Civil law is about money and relationships between parties, not about punishing behavior against society.",
+    "Civil and criminal courts are distinct, and the procedures, burdens of proof, and potential outcomes differ significantly."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "A Supreme Court justice writes an opinion explaining that a state law requires a higher standard of proof than the U.S. Constitution mandates for a defendant to be convicted. What source of law is the justice relying on to make this determination?",
+   "correct_answer": "The justice is relying on constitutional law, which sets the minimum standards for due process and fair treatment that all lower laws must follow.",
+   "wrong_answers": [
+    "The justice is relying on statutory law, which is the specific state law that the justice is comparing against the constitution.",
+    "The justice is relying on common law, which is based on historical customs rather than the written requirements of the Constitution.",
+    "The justice is relying on natural law, which is based on moral philosophy rather than the specific legal standards of the Constitution."
+   ],
+   "explanation": "Constitutional law establishes the floor for legal procedures; any state statute (statutory law) that falls below this floor is invalid.",
+   "wrong_explanations": [
+    "The state law in question is the statutory law being challenged, not the source of the authority used to challenge it.",
+    "Common law does not dictate the specific constitutional requirements for proof in criminal trials; the Constitution does.",
+    "Natural law is a philosophical concept, whereas the decision is based on the specific legal text and interpretation of the Constitution."
+   ]
+  },
+  {
+   "difficulty": "hard",
+   "question": "Historians often trace the roots of the American concept of 'jury duty' back to historical codes of law. Which source of law is most responsible for the evolution of the jury system as a method of determining facts in court?",
+   "correct_answer": "Common law is most responsible for the evolution of the jury system, as it developed through the customs and judicial decisions of medieval England.",
+   "wrong_answers": [
+    "Statutory law is most responsible, as the jury system was explicitly written into the early laws of the United States by Congress.",
+    "Constitutional law is most responsible, as the Sixth Amendment created the jury system from scratch in the American context.",
+    "Military law is most responsible, as the practice originated in the courts-martial of the British army."
+   ],
+   "explanation": "The jury system evolved over centuries through the decisions of English courts and the customs of the time, which fall under the definition of common law.",
+   "wrong_explanations": [
+    "While statutes exist regarding juries, the fundamental practice and structure evolved from centuries of judicial custom, not a single legislative act.",
+    "The Sixth Amendment guaranteed the right to a jury trial, but the system itself evolved from common law traditions before being codified.",
+    "The jury system is a part of the civilian legal system derived from English customs, not a feature of military justice."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "A new law is passed by the Florida Legislature that changes the penalties for a specific traffic violation. What type of law has been created, and how does it relate to the Florida Constitution?",
+   "correct_answer": "Statutory law has been created, and it must not conflict with the Florida Constitution, which is the supreme law of the state.",
+   "wrong_answers": [
+    "Constitutional law has been created, as the legislature has the power to amend the state constitution whenever it passes a new law.",
+    "Common law has been created, as the legislature's action has changed a historical custom regarding traffic violations.",
+    "Case law has been created, as the passage of the law has established a new precedent for future courts to follow immediately."
+   ],
+   "explanation": "Laws passed by the legislature are statutes, and they operate under the authority and constraints of the state constitution.",
+   "wrong_explanations": [
+    "Only a constitutional convention or specific amendment process can change the constitution; the legislature passes statutes.",
+    "Common law comes from court decisions, not from the legislative act of passing a new law.",
+    "Case law refers to judicial opinions, whereas the legislature's action creates a statute, not a case."
+   ]
+  },
+  {
+   "difficulty": "easy",
+   "question": "When a person commits a crime, they are prosecuted by the state. When two people have a disagreement over property, they sue each other. What distinguishes these two legal actions?",
+   "correct_answer": "The criminal action involves criminal law, where the state prosecutes an offender, while the property dispute involves civil law, where private parties sue one another.",
+   "wrong_answers": [
+    "Both actions involve criminal law, but the property dispute results in a fine while the crime results in imprisonment.",
+    "Both actions involve civil law, but the property dispute is handled in state court while the crime is handled in federal court.",
+    "The property dispute involves natural law, while the criminal prosecution involves statutory law."
+   ],
+   "explanation": "The key distinction is that criminal law involves the state versus an individual, while civil law involves individuals versus individuals.",
+   "wrong_explanations": [
+    "Property disputes are civil matters, not criminal ones, and therefore do not involve the state as the prosecutor.",
+    "Both types of disputes can be heard in state or federal courts depending on the subject matter, but the nature of the law (civil vs. criminal) is the defining factor.",
+    "Neither dispute is primarily about natural law; they are resolved through the statutory and common law systems."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "A court rules that a previous decision by a lower court was incorrect because it misinterpreted a specific clause in the state constitution. What type of law does this ruling establish as the final authority?",
+   "correct_answer": "This ruling establishes constitutional law as the final authority, demonstrating that the Constitution overrides conflicting interpretations or lower laws.",
+   "wrong_answers": [
+    "This ruling establishes statutory law as the final authority, because the legislature has the power to interpret the constitution.",
+    "This ruling establishes common law as the final authority, because the court is relying on historical precedents rather than the written text.",
+    "This ruling establishes case law as the final authority, because the decision is based on a previous judicial ruling."
+   ],
+   "explanation": "When a court declares a lower ruling invalid based on the constitution, it affirms the supremacy of constitutional law over other sources.",
+   "wrong_explanations": [
+    "The legislature does not have the power to interpret the constitution in a way that overrides the judiciary's role in constitutional review.",
+    "While common law is important, the decision here is explicitly based on the written constitution, not historical custom.",
+    "Case law is the collection of judicial decisions, but the authority cited to override the decision is the constitution itself."
+   ]
+  },
+  {
+   "difficulty": "hard",
+   "question": "The phrase 'laws of nature' is sometimes used to describe a specific type of legal theory. How does this theory differ from the concept of 'statutory law' found in modern government?",
+   "correct_answer": "The theory of natural law is based on universal moral principles that exist independently of government, whereas statutory law is a set of rules created specifically by a legislative body.",
+   "wrong_answers": [
+    "Natural law is the same as statutory law, but it applies only to international relations rather than domestic issues.",
+    "Statutory law is based on moral principles, while natural law is simply a list of rules written by a legislature.",
+    "Natural law is a type of case law developed by courts, while statutory law is developed by the executive branch."
+   ],
+   "explanation": "Natural law is a philosophical concept of inherent rights, while statutory law is the practical, written code enacted by governments.",
+   "wrong_explanations": [
+    "Natural law and statutory law are distinct concepts; one is philosophical/moral, and the other is legislative/codified.",
+    "Statutory law is not based on moral principles in the same way natural law is; it is based on the will of the legislature.",
+    "Natural law is not created by courts; it is a pre-existing philosophical framework, and statutory law is created by legislatures."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "If a new technology emerges that was not foreseen when the current criminal statutes were written, how might the legal system address the behavior before a new statute is passed?",
+   "correct_answer": "The legal system might use common law principles or existing constitutional interpretations to address the behavior until a new statute is enacted.",
+   "wrong_answers": [
+    "The legal system would immediately apply natural law to punish the behavior, as it is the only source of law flexible enough to handle new situations.",
+    "The legal system would ignore the behavior until the legislature passes a new statute, as statutory law is the only source of law that can be applied.",
+    "The legal system would apply military law to the situation, as new technologies often require special military jurisdiction."
+   ],
+   "explanation": "Common law allows courts to adapt legal principles to new situations based on precedent and reason, filling gaps until the legislature acts.",
+   "wrong_explanations": [
+    "Natural law is not a procedural tool used by courts to fill gaps in statutory law; it is a philosophical theory.",
+    "Courts do not wait passively; they can use common law to address new issues even in the absence of specific statutes.",
+    "Military law is specific to the armed forces and is not a general fallback for civilian legal issues involving new technology."
+   ]
+  }
+ ],
+ "validation_errors": [],
+ "review_issues": []
+}

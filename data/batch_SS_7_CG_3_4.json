@@ -1,0 +1,249 @@
+{
+ "code": "SS.7.CG.3.4",
+ "topic": "Federalism and the Tenth Amendment",
+ "domain": 2,
+ "questions": [
+  {
+   "difficulty": "easy",
+   "question": "Which constitutional principle describes the division of power between the national government and the state governments?",
+   "correct_answer": "The principle is called federalism.",
+   "wrong_answers": [
+    "The principle is called dual federalism.",
+    "The principle is called unitary government.",
+    "The principle is called confederation."
+   ],
+   "explanation": "Federalism is the system established by the U.S. Constitution that divides power between the national and state governments.",
+   "wrong_explanations": [
+    "Dual federalism is a specific historical model of federalism, not the general name for the system itself.",
+    "Unitary government is a system where all power resides in a central authority, which is the opposite of the U.S. system.",
+    "Confederation is a system where states hold the primary power and a weak central government exists, unlike the current U.S. structure."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "If a state law conflicts with a valid federal law within the state's borders, which law generally takes precedence?",
+   "correct_answer": "The federal law takes precedence over the state law.",
+   "wrong_answers": [
+    "The state law takes precedence because the 10th Amendment reserves powers to the states.",
+    "Both laws are equally valid, and the state must enforce whichever is more convenient.",
+    "The conflict is resolved by a popular vote in the state."
+   ],
+   "explanation": "The Supremacy Clause, found in Article VI of the Constitution, establishes that federal law is the supreme law of the land, overriding conflicting state laws.",
+   "wrong_explanations": [
+    "While the 10th Amendment reserves powers, it does not grant states the authority to override valid federal laws.",
+    "The Constitution provides a legal hierarchy for resolving conflicts, not a mechanism based on convenience or local popularity.",
+    "Civic disputes regarding the hierarchy of laws are settled by the judicial branch, not through direct popular voting."
+   ]
+  },
+  {
+   "difficulty": "easy",
+   "question": "Which of the following is an example of a power held exclusively by the national government?",
+   "correct_answer": "Coining money is an example of a power held exclusively by the national government.",
+   "wrong_answers": [
+    "Conducting elections is an example of a power held exclusively by the national government.",
+    "Building local roads is an example of a power held exclusively by the national government.",
+    "Creating public schools is an example of a power held exclusively by the national government."
+   ],
+   "explanation": "The power to coin money is an enumerated power specifically granted to Congress in Article I, Section 8, and is not reserved for the states.",
+   "wrong_explanations": [
+    "Conducting elections is primarily a state responsibility under Article I, Section 4, though federal guidelines exist.",
+    "Building local roads is a classic example of a reserved power belonging to state and local governments.",
+    "Creating public schools is a reserved power under the 10th Amendment, as the Constitution does not delegate education to the federal government."
+   ]
+  },
+  {
+   "difficulty": "hard",
+   "question": "A state passes a law requiring all residents to wear seat belts, while the federal government passes a law regulating seat belt safety standards. Which category of powers does this scenario illustrate?",
+   "correct_answer": "This scenario illustrates concurrent powers, where both levels of government have authority to legislate.",
+   "wrong_answers": [
+    "This scenario illustrates reserved powers, because the state is regulating safety within its own borders.",
+    "This scenario illustrates enumerated powers, because only the federal government can set national safety standards.",
+    "This scenario illustrates delegated powers, because the state is acting on behalf of the federal government."
+   ],
+   "explanation": "Concurrent powers are those shared by both the national and state governments; regulating traffic safety is an area where both levels can pass laws without conflict.",
+   "wrong_explanations": [
+    "Reserved powers are those exclusively held by the states, such as conducting elections or establishing courts, which are not the focus here since both levels are acting.",
+    "Enumerated powers are specifically delegated to the federal government, but traffic safety regulations in this context represent a shared field of authority.",
+    "Delegated powers refer to powers given to the federal government, but the state's independent action to pass its own law demonstrates concurrent, not delegated, authority."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "According to the 10th Amendment, which type of powers are retained by the states or the people?",
+   "correct_answer": "Powers not delegated to the United States nor prohibited to the states are retained by the states or the people.",
+   "wrong_answers": [
+    "All powers are retained by the states unless explicitly forbidden by the Constitution.",
+    "Only powers related to education and health are retained by the states.",
+    "The people retain all powers, and the states have no independent authority."
+   ],
+   "explanation": "The 10th Amendment states that any power not given to the federal government and not forbidden to the states is reserved for the states or the people.",
+   "wrong_explanations": [
+    "The amendment does not say 'all' powers are retained; it specifically refers to those not delegated to the U.S. or prohibited to the states.",
+    "Reserved powers extend beyond education and health to include a wide range of areas like intrastate commerce and local police powers.",
+    "The states possess significant independent authority under the 10th Amendment, and the people do not hold all powers exclusively."
+   ]
+  },
+  {
+   "difficulty": "easy",
+   "question": "What is the primary purpose of the system of federalism in the United States?",
+   "correct_answer": "The primary purpose is to limit the power of any single level of government.",
+   "wrong_answers": [
+    "The primary purpose is to give the national government total control over the states.",
+    "The primary purpose is to allow states to ignore federal laws when they disagree.",
+    "The primary purpose is to create a single, unified government structure."
+   ],
+   "explanation": "Federalism limits government power by dividing authority between national and state levels, preventing concentration of power in one place.",
+   "wrong_explanations": [
+    "Federalism divides power rather than giving the national government total control; the Supremacy Clause only applies when federal law is valid and supreme.",
+    "States cannot ignore federal laws; the Supremacy Clause ensures federal law prevails over conflicting state laws.",
+    "Federalism creates a dual system of government, not a single unified structure, by maintaining distinct spheres of authority."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "If the federal government wants to build a national highway system, it must rely on which type of power?",
+   "correct_answer": "It must rely on an enumerated power granted to the federal government.",
+   "wrong_answers": [
+    "It must rely on a reserved power because the Constitution does not mention highways.",
+    "It must rely on a concurrent power because the states also build roads.",
+    "It must rely on the 10th Amendment to gain permission to act."
+   ],
+   "explanation": "The power to regulate interstate commerce is an enumerated power given to Congress, allowing the federal government to manage a national highway system.",
+   "wrong_explanations": [
+    "Reserved powers are held by the states, not the federal government, so the federal government cannot use them.",
+    "While states build roads, the authority to create a *national* system stems from the federal government's enumerated power to regulate commerce between states.",
+    "The 10th Amendment restricts the federal government to only those powers expressly granted to it or necessary for execution, rather than granting permission for new powers."
+   ]
+  },
+  {
+   "difficulty": "hard",
+   "question": "Which of the following scenarios best demonstrates how federalism limits the power of the national government?",
+   "correct_answer": "The national government cannot pass a law forcing a state to fund a specific private religious school unless the power is enumerated and necessary.",
+   "wrong_answers": [
+    "The national government cannot pass a law because the President refuses to sign it.",
+    "The national government cannot pass a law because the Supreme Court has not yet ruled on it.",
+    "The national government cannot pass a law because the states have formed a new treaty to block it."
+   ],
+   "explanation": "Federalism limits national power by restricting it to enumerated powers and the Necessary and Proper Clause, preventing the federal government from intruding on reserved state powers without clear constitutional authority.",
+   "wrong_explanations": [
+    "The President's refusal to sign a bill does not limit the legislative power of Congress to pass the law; it only delays its enactment.",
+    "The Supreme Court interprets the Constitution; its ruling is often the result of the law being challenged, not the cause of the power limitation itself.",
+    "States cannot form treaties to block federal laws; only the federal government has the power to make treaties under the Constitution."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "Which of the following is a concurrent power shared by both the national and state governments?",
+   "correct_answer": "Taxing property is a concurrent power shared by both the national and state governments.",
+   "wrong_answers": [
+    "Declaring war is a concurrent power shared by both the national and state governments.",
+    "Creating a navy is a concurrent power shared by both the national and state governments.",
+    "Appointing ambassadors is a concurrent power shared by both the national and state governments."
+   ],
+   "explanation": "Both the federal government and state governments have the authority to levy taxes, making it a concurrent power.",
+   "wrong_explanations": [
+    "Declaring war is an exclusive enumerated power of the federal government, not a state power.",
+    "Creating a navy is an exclusive power of the federal government under Article I, Section 8.",
+    "Appointing ambassadors is a power reserved for the federal government to represent the nation internationally."
+   ]
+  },
+  {
+   "difficulty": "easy",
+   "question": "Why does the 10th Amendment exist within the Constitution?",
+   "correct_answer": "The 10th Amendment exists to clarify that powers not given to the federal government belong to the states or the people.",
+   "wrong_answers": [
+    "The 10th Amendment exists to give the federal government all powers not listed in the Constitution.",
+    "The 10th Amendment exists to allow states to secede from the Union.",
+    "The 10th Amendment exists to eliminate the need for state governments."
+   ],
+   "explanation": "The 10th Amendment serves as a safeguard to ensure that the federal government does not assume powers that have not been explicitly delegated to it.",
+   "wrong_explanations": [
+    "The 10th Amendment restricts federal power, it does not expand it to include all unlisted powers.",
+    "The Constitution and subsequent amendments explicitly prohibit secession; the 10th Amendment does not grant this right.",
+    "The 10th Amendment reinforces the existence and authority of state governments, it does not eliminate them."
+   ]
+  },
+  {
+   "difficulty": "hard",
+   "question": "A state enacts a law prohibiting the sale of a specific product, but the federal government has enacted a law permitting and regulating that product's interstate sale. What legal principle resolves this conflict?",
+   "correct_answer": "The Supremacy Clause resolves the conflict by making the federal law the superior law.",
+   "wrong_answers": [
+    "The 10th Amendment resolves the conflict by allowing the state to enforce its local law regardless.",
+    "The system of checks and balances resolves the conflict by having the Senate override the federal law.",
+    "The principle of federalism resolves the conflict by giving the states the final say on local commerce."
+   ],
+   "explanation": "The Supremacy Clause (Article VI) establishes that valid federal laws override conflicting state laws, ensuring national uniformity in matters of federal jurisdiction.",
+   "wrong_explanations": [
+    "The 10th Amendment protects state powers only when they do not conflict with valid federal laws; it does not permit states to violate federal supremacy.",
+    "The Senate cannot override a federal law by itself; the legislative process involves the House of Representatives and the President, and the judiciary interprets conflicts.",
+    "Federalism ensures a balance of power, but the Supremacy Clause specifically dictates that federal law prevails in cases of direct conflict."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "Which of the following powers is an example of a power delegated to the national government?",
+   "correct_answer": "Regulating international trade is an example of a power delegated to the national government.",
+   "wrong_answers": [
+    "Issuing driver's licenses is an example of a power delegated to the national government.",
+    "Operating local parks is an example of a power delegated to the national government.",
+    "Setting school curriculum standards is an example of a power delegated to the national government."
+   ],
+   "explanation": "Regulating international trade is an enumerated power given to Congress under the Commerce Clause, making it a delegated federal power.",
+   "wrong_explanations": [
+    "Issuing driver's licenses is a reserved power of the states, as the Constitution does not delegate it to the federal government.",
+    "Operating local parks is a function of local or state governments, not a power delegated to the national government.",
+    "Setting school curriculum is a reserved power of the states and localities, as education is not an enumerated federal power."
+   ]
+  },
+  {
+   "difficulty": "easy",
+   "question": "What does the term 'enumerated powers' refer to in the context of the U.S. Constitution?",
+   "correct_answer": "Enumerated powers refer to the specific powers explicitly listed and granted to the national government in the Constitution.",
+   "wrong_answers": [
+    "Enumerated powers refer to the powers reserved for the states.",
+    "Enumerated powers refer to the powers shared by both the national and state governments.",
+    "Enumerated powers refer to the powers given to the President alone."
+   ],
+   "explanation": "Enumerated powers are the specific authorities granted to the federal government, such as coining money and declaring war, listed in the Constitution.",
+   "wrong_explanations": [
+    "Reserved powers are those held by the states, not the specific powers listed for the national government.",
+    "Concurrent powers are shared between the two levels of government, whereas enumerated powers are specifically assigned to the federal government.",
+    "Enumerated powers apply to the legislative and executive branches as a whole, not just the President."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "If the federal government attempts to regulate a purely local matter, such as the sale of milk within a single state, which amendment protects the state from this overreach?",
+   "correct_answer": "The 10th Amendment protects the state by reserving powers not delegated to the federal government.",
+   "wrong_answers": [
+    "The Supremacy Clause protects the state by making federal law supreme in all cases.",
+    "The Commerce Clause protects the state by limiting the federal government's reach.",
+    "The Necessary and Proper Clause protects the state by defining the scope of federal legislation."
+   ],
+   "explanation": "The 10th Amendment ensures that powers not delegated to the federal government are reserved for the states, protecting local matters from federal intrusion.",
+   "wrong_explanations": [
+    "The Supremacy Clause establishes federal authority over state law, it does not protect states from federal overreach.",
+    "The Commerce Clause is the source of federal power to regulate interstate commerce; it is the basis for federal action, not a protection for states.",
+    "The Necessary and Proper Clause expands federal power to carry out enumerated powers; it does not limit federal reach to protect states."
+   ]
+  },
+  {
+   "difficulty": "hard",
+   "question": "Which of the following best describes the relationship between the federal government's enumerated powers and the states' reserved powers?",
+   "correct_answer": "The federal government's enumerated powers are limited to those specifically granted, while states retain all other powers not prohibited.",
+   "wrong_answers": [
+    "The federal government's enumerated powers include all powers except those explicitly forbidden to the states.",
+    "The states' reserved powers include only those powers explicitly mentioned in the Constitution.",
+    "Both governments have equal authority over all matters, with no clear division of power."
+   ],
+   "explanation": "The Constitution limits the federal government to enumerated powers, while the 10th Amendment clarifies that the states retain all powers not expressly given to the federal government or prohibited to them.",
+   "wrong_explanations": [
+    "Federal powers are defined by what is granted, not by what is not forbidden to states; the 10th Amendment protects state powers by exclusion.",
+    "Reserved powers are those not mentioned in the Constitution; they are implied by the 10th Amendment, not explicitly listed.",
+    "Federalism establishes a clear division of power; neither government has equal authority over all matters without regard to constitutional delegation."
+   ]
+  }
+ ],
+ "validation_errors": [],
+ "review_issues": []
+}

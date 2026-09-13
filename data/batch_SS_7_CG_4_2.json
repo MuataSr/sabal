@@ -1,0 +1,249 @@
+{
+ "code": "SS.7.CG.4.2",
+ "topic": "International organizations",
+ "domain": 1,
+ "questions": [
+  {
+   "difficulty": "easy",
+   "question": "A student is researching an international organization founded in 1945 whose primary goal is to maintain international peace and security, prevent war, and promote international cooperation. Which organization is being described?",
+   "correct_answer": "The organization described is the United Nations.",
+   "wrong_answers": [
+    "The North Atlantic Treaty Organization focuses primarily on collective military defense among its member nations.",
+    "The World Trade Organization is responsible for regulating international trade rules and resolving trade disputes.",
+    "The International Court of Justice serves as the principal judicial organ for settling legal disputes between states."
+   ],
+   "explanation": "The United Nations was established in 1945 specifically to maintain international peace and security and foster cooperation among nations.",
+   "wrong_explanations": [
+    "While NATO involves the U.S., its primary mandate is collective defense rather than the broad global peacekeeping and cooperation scope of the UN.",
+    "The WTO deals specifically with trade regulations, not the general maintenance of peace and security defined in the prompt.",
+    "The ICJ is a judicial body that settles specific legal disputes, whereas the prompt describes the broader peacekeeping and cooperative mission of the UN."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "The United States is a member of the North Atlantic Treaty Organization (NATO). Based on the principle of collective defense, what is the primary implication of U.S. membership in this organization?",
+   "correct_answer": "U.S. membership implies that an armed attack against one member nation is considered an attack against all member nations.",
+   "wrong_answers": [
+    "Membership guarantees that the United States will automatically join any military conflict initiated by any non-member nation.",
+    "Membership means the United States has agreed to fund the entire military budget of every other member country.",
+    "Membership ensures that the United States will never engage in a war that does not have United Nations Security Council approval."
+   ],
+   "explanation": "Article 5 of the NATO treaty establishes the principle that an armed attack against one member is an attack against all, forming the core of the alliance's collective defense strategy.",
+   "wrong_explanations": [
+    "NATO does not commit the U.S. to join conflicts with non-members; its focus is on the defense of member states.",
+    "U.S. membership does not require funding the military budgets of other nations; members contribute to the common defense budget voluntarily.",
+    "While the UN promotes peace, NATO is an independent military alliance that operates under its own treaty obligations, not solely dependent on UN Security Council approval for member defense."
+   ]
+  },
+  {
+   "difficulty": "hard",
+   "question": "A debate arises regarding the advantages and disadvantages of U.S. participation in international organizations. Which statement best represents a common disadvantage cited by critics who favor more autonomous national decision-making?",
+   "correct_answer": "A common disadvantage is that membership can restrict the United States' ability to act independently in foreign policy matters.",
+   "wrong_answers": [
+    "Membership guarantees that the United States will always receive financial subsidies from other wealthy nations.",
+    "Membership ensures that the United States will have a veto over all decisions made within every international organization it joins.",
+    "Membership automatically results in the United States losing its sovereignty over all domestic laws and regulations."
+   ],
+   "explanation": "Critics argue that agreeing to treaties and following the rules of international organizations can limit the flexibility of the U.S. government to make unilateral foreign policy decisions.",
+   "wrong_explanations": [
+    "International organizations do not provide guaranteed financial subsidies to member nations; they often require financial contributions.",
+    "The U.S. does not have a veto in every international organization; for example, the UN Security Council has permanent members with veto power, but the WTO and ICJ do not.",
+    "Membership affects foreign policy and treaty obligations but does not strip the U.S. of its sovereignty over domestic laws."
+   ]
+  },
+  {
+   "difficulty": "easy",
+   "question": "Which of the following is a primary advantage of the United States participating in the World Trade Organization?",
+   "correct_answer": "Participation allows the United States to have a formal voice in setting global trade rules and resolving trade disputes.",
+   "wrong_answers": [
+    "Membership ensures that the United States will be exempt from paying any tariffs on imported goods.",
+    "Membership guarantees that the United States will always win any trade dispute brought against it by other nations.",
+    "Membership automatically provides the United States with direct control over the economic policies of all member countries."
+   ],
+   "explanation": "The WTO provides a framework where the U.S. can influence international trade regulations and use established mechanisms to settle disputes with other trading partners.",
+   "wrong_explanations": [
+    "Membership does not exempt the U.S. from tariffs; it establishes rules regarding how tariffs and other trade barriers should be applied.",
+    "Outcomes in trade disputes are determined by rulings based on evidence and rules, not guaranteed victories for any member.",
+    "Member nations retain control over their own economic policies; the WTO sets rules for interaction, not direct control."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "The International Court of Justice (ICJ) is located in The Hague, Netherlands. What is the primary function of this organization in the context of international relations?",
+   "correct_answer": "The primary function of the ICJ is to serve as the principal judicial organ for settling legal disputes between sovereign states.",
+   "wrong_answers": [
+    "The ICJ is responsible for maintaining global peace through the deployment of peacekeeping troops.",
+    "The ICJ regulates international trade agreements and sanctions imposed by member nations.",
+    "The ICJ focuses exclusively on prosecuting individuals for war crimes and crimes against humanity."
+   ],
+   "explanation": "The ICJ handles cases where states bring legal disputes against one another, providing a judicial solution to international conflicts.",
+   "wrong_explanations": [
+    "Maintaining peace through troop deployment is a function of organizations like the UN Peacekeeping forces, not the judicial ICJ.",
+    "Trade regulation is the specific mandate of the World Trade Organization, not the ICJ.",
+    "While the International Criminal Court (ICC) prosecutes individuals for serious crimes, the ICJ adjudicates disputes between states."
+   ]
+  },
+  {
+   "difficulty": "hard",
+   "question": "When evaluating the advantages of U.S. membership in international organizations, which of the following is a valid argument supporting participation in global governance structures?",
+   "correct_answer": "Participation allows the United States to shape international norms and policies in alignment with its own national interests and values.",
+   "wrong_answers": [
+    "Membership ensures that the United States will never face criticism or scrutiny regarding its actions in the international community.",
+    "Membership guarantees that the United States will receive immediate military support from all other nations during any internal crisis.",
+    "Membership automatically results in the United States gaining access to all intellectual property and technology of other member nations."
+   ],
+   "explanation": "By participating in international organizations, the U.S. can influence the development of global standards, making them more likely to reflect American principles and interests.",
+   "wrong_explanations": [
+    "Membership does not shield the U.S. from criticism; international organizations often serve as platforms for holding nations accountable.",
+    "Military support is not automatic; it depends on the specific treaties, such as NATO, and the circumstances of the conflict.",
+    "Intellectual property laws remain national, and membership does not grant automatic access to other nations' proprietary technology."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "A group of students is discussing the role of the United Nations in conflict resolution. They note that the UN often deploys peacekeeping forces to regions with ongoing violence. What is a key limitation of the United Nations' ability to enforce peace in these situations?",
+   "correct_answer": "A key limitation is that the UN relies on the voluntary contribution of member states for troops and funding, which can lead to delays or insufficient resources.",
+   "wrong_answers": [
+    "The UN has an independent standing army that it can deploy immediately without the consent of member nations.",
+    "The UN can unilaterally impose military regimes on any country that refuses to sign a peace treaty.",
+    "The UN is prohibited from acting in any region where the United States is not a contributing nation."
+   ],
+   "explanation": "The UN does not have its own military; it depends on member nations to provide the personnel and financial support necessary for operations.",
+   "wrong_explanations": [
+    "The UN does not possess a standing army; it organizes forces provided by member states.",
+    "The UN cannot unilaterally impose regimes; it operates through agreements and resolutions that require state consent.",
+    "The UN can act in any region where a Security Council resolution is passed, regardless of whether the U.S. contributes troops, though U.S. support is often critical."
+   ]
+  },
+  {
+   "difficulty": "easy",
+   "question": "Which international organization is specifically designed to promote economic cooperation and the free flow of goods and services among its member nations?",
+   "correct_answer": "The World Trade Organization is designed to promote economic cooperation and regulate international trade.",
+   "wrong_answers": [
+    "The North Atlantic Treaty Organization is designed to provide collective military defense for its members.",
+    "The International Court of Justice is designed to settle legal disputes between countries.",
+    "The United Nations is primarily designed to maintain international peace and security, though it includes economic agencies."
+   ],
+   "explanation": "The WTO's core mandate is to ensure trade flows as smoothly, predictably, and freely as possible among its member nations.",
+   "wrong_explanations": [
+    "NATO's focus is defense and security, not economic trade cooperation.",
+    "The ICJ focuses on judicial disputes, not the regulation of trade flows.",
+    "While the UN has economic agencies like the UNDP, the WTO is the specialized organization dedicated specifically to trade rules."
+   ]
+  },
+  {
+   "difficulty": "hard",
+   "question": "Critics of U.S. membership in certain international organizations sometimes argue that these bodies can erode national sovereignty. Which scenario best illustrates this concern?",
+   "correct_answer": "This concern is illustrated when an international organization makes a binding decision that a member nation must follow, even if it conflicts with the nation's domestic laws.",
+   "wrong_answers": [
+    "This concern is illustrated when a member nation voluntarily chooses to withdraw from an international organization to save money.",
+    "This concern is illustrated when an international organization provides technical assistance to help a nation improve its infrastructure.",
+    "This concern is illustrated when a nation invites international observers to watch its elections to ensure fairness."
+   ],
+   "explanation": "The erosion of sovereignty occurs when international rulings or regulations override or constrain a nation's ability to make independent legal or policy decisions.",
+   "wrong_explanations": [
+    "Withdrawing from an organization is a sovereign decision made by the nation itself, not an erosion of sovereignty.",
+    "Providing technical assistance is a form of cooperation that respects national sovereignty rather than undermining it.",
+    "Inviting international observers is a voluntary act that enhances transparency without compromising legal sovereignty."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "The United States participates in the North Atlantic Treaty Organization (NATO) alongside other nations from Europe and North America. What is a significant advantage of this membership for the United States?",
+   "correct_answer": "A significant advantage is the ability to share the financial and military burden of defense with allied nations.",
+   "wrong_answers": [
+    "A significant advantage is that the United States can use NATO bases for any military operation it chooses without restriction.",
+    "A significant advantage is that NATO automatically provides unlimited funding for all U.S. domestic defense projects.",
+    "A significant advantage is that NATO guarantees the United States will never face a trade dispute with any European nation."
+   ],
+   "explanation": "NATO allows member nations to pool their resources and share the costs and responsibilities of maintaining regional security.",
+   "wrong_explanations": [
+    "NATO bases are used under specific treaty agreements and restrictions, not for unrestricted unilateral operations.",
+    "NATO does not provide unlimited funding for domestic projects; it focuses on collective defense expenditures.",
+    "NATO is a military alliance, not a trade organization, so it does not guarantee outcomes in trade disputes."
+   ]
+  },
+  {
+   "difficulty": "easy",
+   "question": "If a country violates a trade agreement established by the World Trade Organization, what is the typical mechanism available to other member nations to address this violation?",
+   "correct_answer": "Other member nations can use the WTO's dispute settlement mechanism to seek a formal ruling and potential compensation.",
+   "wrong_answers": [
+    "Other member nations can immediately launch a military invasion to enforce the trade agreement.",
+    "Other member nations can automatically impose a one-year ban on all diplomatic relations with the violating country.",
+    "Other member nations must wait five years before they can take any action against the violating country."
+   ],
+   "explanation": "The WTO has a structured legal process for resolving disputes, allowing members to challenge violations and seek remedies.",
+   "wrong_explanations": [
+    "Military action is not a mechanism enforced by the WTO; it is a matter of national or collective defense policy.",
+    "Diplomatic bans are not automatic consequences under WTO rules; the system focuses on trade sanctions and rulings.",
+    "There is no mandatory waiting period; the dispute settlement process can be initiated as soon as a violation is identified."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "Which of the following best describes a disadvantage of the United States joining the United Nations regarding its foreign policy?",
+   "correct_answer": "A disadvantage is that the United States may be required to vote in favor of resolutions it disagrees with if it wishes to participate in certain UN bodies.",
+   "wrong_answers": [
+    "A disadvantage is that the United States loses the ability to veto any decision made by the entire United Nations organization.",
+    "A disadvantage is that the United States is forced to change all of its domestic laws to match the laws of every UN member nation.",
+    "A disadvantage is that the United States is prohibited from forming alliances with any non-member countries."
+   ],
+   "explanation": "Membership can involve political pressure or procedural requirements to support collective actions, which may conflict with unilateral U.S. preferences.",
+   "wrong_explanations": [
+    "The U.S. holds veto power in the Security Council, allowing it to block specific resolutions, not all UN decisions.",
+    "The UN does not force nations to change domestic laws; it promotes cooperation and sets international standards.",
+    "Membership does not prohibit alliances with non-members; the UN encourages dialogue with all nations."
+   ]
+  },
+  {
+   "difficulty": "hard",
+   "question": "In the context of the International Court of Justice (ICJ), what is a major challenge that states often face when attempting to utilize its dispute resolution services?",
+   "correct_answer": "A major challenge is that the ICJ can only hear cases when both the requesting state and the responding state agree to submit to its jurisdiction.",
+   "wrong_answers": [
+    "A major challenge is that the ICJ cannot issue binding decisions once a case is accepted.",
+    "A major challenge is that the ICJ requires a permanent standing army to enforce its rulings on sovereign nations.",
+    "A major challenge is that the ICJ only accepts cases involving financial disputes between corporations."
+   ],
+   "explanation": "The ICJ is a court of compulsory jurisdiction only for cases where states have explicitly accepted its authority, limiting its reach in many potential disputes.",
+   "wrong_explanations": [
+    "ICJ rulings are legally binding on the states involved, making the lack of binding power incorrect.",
+    "The ICJ is a judicial body without military enforcement capabilities; it relies on state compliance.",
+    "The ICJ handles disputes between states, not private corporations, and covers a wide range of legal issues beyond finance."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "A civics class discusses the benefits of U.S. membership in international organizations. Which statement accurately reflects a benefit related to global economic stability?",
+   "correct_answer": "Membership helps the United States contribute to a stable global economy by adhering to standardized trade rules and reducing barriers.",
+   "wrong_answers": [
+    "Membership guarantees that the United States will never experience a recession due to international market fluctuations.",
+    "Membership ensures that the United States will receive direct loans from the World Bank for every infrastructure project.",
+    "Membership allows the United States to set unilateral tariffs on any country without facing international consequences."
+   ],
+   "explanation": "By participating in organizations like the WTO, the U.S. helps create predictable trade environments that foster global economic growth and stability.",
+   "wrong_explanations": [
+    "Membership does not guarantee immunity from economic downturns; it helps manage trade relationships.",
+    "The U.S. must apply for loans and meet specific criteria; membership does not guarantee funding for every project.",
+    "Setting unilateral tariffs can lead to retaliation and disputes within international organizations, violating agreed-upon rules."
+   ]
+  },
+  {
+   "difficulty": "easy",
+   "question": "Which international organization is often cited as the primary example of a military alliance where the United States plays a leading role alongside European and North American nations?",
+   "correct_answer": "The North Atlantic Treaty Organization (NATO) is the primary military alliance where the United States plays a leading role.",
+   "wrong_answers": [
+    "The United Nations is primarily focused on international peacekeeping and humanitarian aid rather than a permanent military alliance.",
+    "The World Trade Organization is focused on regulating commerce and trade, not military defense.",
+    "The International Court of Justice is a judicial body that settles legal disputes, not a military alliance."
+   ],
+   "explanation": "NATO is explicitly a defense alliance founded on the principle of collective security, with the U.S. as a founding and leading member.",
+   "wrong_explanations": [
+    "While the UN maintains peace, it is not a permanent military alliance in the same sense as NATO.",
+    "The WTO deals with trade, not military defense.",
+    "The ICJ deals with law, not military alliances."
+   ]
+  }
+ ],
+ "validation_errors": [],
+ "review_issues": []
+}

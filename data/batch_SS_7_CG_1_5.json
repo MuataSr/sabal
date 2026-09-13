@@ -1,0 +1,249 @@
+{
+ "code": "SS.7.CG.1.5",
+ "topic": "British colonial policies and the Declaration",
+ "domain": 3,
+ "questions": [
+  {
+   "difficulty": "easy",
+   "question": "Which British act, passed in 1765, required colonists to pay a tax on printed materials such as newspapers, legal documents, and playing cards, sparking widespread protest?",
+   "correct_answer": "The Stamp Act imposed a direct tax on printed materials, which angered colonists who viewed it as taxation without representation.",
+   "wrong_answers": [
+    "The Townshend Acts placed taxes on imported goods like tea and glass, but did not tax printed documents.",
+    "The Tea Act allowed the British East India Company to sell tea at a lower price, leading to the Boston Tea Party.",
+    "The Quartering Act required colonists to house British soldiers, but it did not involve taxes on paper goods."
+   ],
+   "explanation": "The Stamp Act was the first direct internal tax on the American colonies, affecting everyday items like newspapers and legal deeds, which led to significant colonial resistance.",
+   "wrong_explanations": [
+    "The Townshend Acts targeted imported goods rather than printed materials, and they were passed after the Stamp Act.",
+    "The Tea Act focused on tea sales and occurred later than the Stamp Act, leading to the Boston Tea Party rather than protests over paper taxes.",
+    "The Quartering Act dealt with housing for soldiers and did not impose taxes on printed documents."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "After repealing most of the Townshend taxes, Parliament kept a tax on tea and allowed the British East India Company to sell tea directly to the colonies, which made the tea cheaper. What was the primary colonial objection to this arrangement?",
+   "correct_answer": "Colonists objected because the retained tax affirmed Parliament's claim to tax them without their consent, and the arrangement gave the East India Company a monopoly that undercut colonial merchants.",
+   "wrong_answers": [
+    "Colonists objected because the tax made tea more expensive than ever before.",
+    "Colonists objected because the act required them to house British soldiers in their homes.",
+    "Colonists objected because the act directly outlawed all colonial trade."
+   ],
+   "explanation": "The Tea Act of 1773 did not raise the price of tea; it let the East India Company sell directly and cheaply, undercutting colonial merchants and smugglers. The grievance was the retained tax as a symbol of Parliament's right to tax, and the monopoly it created.",
+   "wrong_explanations": [
+    "The Tea Act made tea cheaper, not more expensive; the objection was the tax and the monopoly.",
+    "The Quartering Act, not the Tea Act, required colonists to house soldiers.",
+    "The Tea Act regulated tea sales; it did not outlaw colonial trade entirely."
+   ]
+  },
+  {
+   "difficulty": "hard",
+   "question": "Following the Boston Tea Party, Parliament passed a series of punitive measures known as the Coercive Acts (or Intolerable Acts) to punish Massachusetts. How did these acts directly contribute to the formation of a unified colonial resistance that eventually led to the Declaration of Independence?",
+   "correct_answer": "The Coercive Acts closed Boston Harbor, altered the Massachusetts charter, and allowed quartering of troops in private homes, which united the colonies in opposition to British overreach.",
+   "wrong_answers": [
+    "The acts were seen as a victory for the colonies because they ended the practice of taxation without representation.",
+    "The primary effect was to strengthen the British military presence in all colonies, leading to an immediate declaration of war.",
+    "The acts focused solely on economic penalties against British merchants who traded with Massachusetts."
+   ],
+   "explanation": "By targeting Massachusetts severely, the Coercive Acts triggered the First Continental Congress, where colonies united to address grievances, setting the stage for the Declaration of Independence.",
+   "wrong_explanations": [
+    "The acts were punitive measures against the colonies, not victories for them, and they intensified rather than ended the conflict over taxation.",
+    "While the military presence increased, the acts were designed to punish and control, leading to unity against Britain rather than an immediate declaration of war.",
+    "The acts targeted the colonies, specifically Massachusetts, and affected colonial trade and governance, not British merchants."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "Thomas Jefferson included the phrase 'taxation without representation is tyranny' in his writings. Which British policy most directly challenged this principle by asserting Parliament's right to levy taxes on the colonies despite their lack of voting members in Parliament?",
+   "correct_answer": "The Declaratory Act asserted Parliament's full authority to make laws binding the colonies in all cases whatsoever, denying colonial self-governance.",
+   "wrong_answers": [
+    "The Proclamation of 1763 restricted colonial expansion west of the Appalachian Mountains, but did not address taxation.",
+    "The Navigation Acts regulated trade between colonies and Britain, but did not explicitly claim the right to tax the colonies.",
+    "The Quebec Act expanded the territory of Quebec and granted religious freedom to Catholics, which angered colonists but was not about taxation."
+   ],
+   "explanation": "The Declaratory Act reinforced Parliament's legislative supremacy over the colonies, directly contradicting the colonial belief that only their own assemblies could tax them.",
+   "wrong_explanations": [
+    "The Proclamation of 1763 dealt with land boundaries, not taxation or representation in Parliament.",
+    "The Navigation Acts controlled trade flows but did not explicitly claim the right to tax the colonies as the Declaratory Act did.",
+    "The Quebec Act was a response to the Intolerable Acts and focused on territorial and religious issues, not taxation authority."
+   ]
+  },
+  {
+   "difficulty": "easy",
+   "question": "Which act required American colonists to house and feed British soldiers in their own homes, contributing to the sentiment that led to the Declaration of Independence?",
+   "correct_answer": "The Quartering Act mandated that colonists provide lodging and supplies for British troops, which many viewed as an infringement on their rights.",
+   "wrong_answers": [
+    "The Sugar Act imposed duties on molasses imported into the colonies, affecting trade but not housing.",
+    "The Currency Act restricted the issuance of paper money by the colonies, causing economic issues but not requiring housing.",
+    "The Stamp Act taxed printed materials, leading to protests but not the specific grievance of housing soldiers."
+   ],
+   "explanation": "The Quartering Act imposed a burden on colonists to support the military, fueling resentment and contributing to the list of grievances in the Declaration of Independence.",
+   "wrong_explanations": [
+    "The Sugar Act focused on trade tariffs, not the housing of soldiers.",
+    "The Currency Act dealt with monetary policy and paper money, not the provision of shelter for troops.",
+    "The Stamp Act was about taxation on documents, not the requirement to house soldiers."
+   ]
+  },
+  {
+   "difficulty": "hard",
+   "question": "The Declaration of Independence lists numerous grievances against King George III. Which underlying theme connects the Stamp Act, the Townshend Acts, the Tea Act, and the Coercive Acts as presented in the document?",
+   "correct_answer": "All these acts were seen as violations of the colonists' natural rights to life, liberty, and property, as well as their right to self-government.",
+   "wrong_answers": [
+    "The acts were primarily economic measures intended to enrich the British treasury, which the colonists did not mind.",
+    "The acts were necessary for maintaining peace with Native American tribes, a goal the colonists supported.",
+    "The acts were designed to improve the lives of British citizens, which the colonists acknowledged as a valid goal."
+   ],
+   "explanation": "The Declaration frames these acts as systematic efforts to deprive the colonists of their inherent rights and liberties, justifying the decision to separate from Britain.",
+   "wrong_explanations": [
+    "The colonists strongly opposed these acts because they threatened their rights and economic interests, not because they supported British enrichment.",
+    "The acts were not primarily about Native American relations; they were focused on colonial control and revenue.",
+    "The acts were intended to control the colonies, not to benefit British citizens, and were viewed as oppressive by the colonists."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "Before the Declaration of Independence, the First and Second Continental Congresses adopted measures to oppose British policies. What was the primary purpose of the Olive Branch Petition sent to King George III in 1775?",
+   "correct_answer": "The Olive Branch Petition was a final attempt to reconcile with the King and express loyalty while requesting the cessation of hostilities.",
+   "wrong_answers": [
+    "The petition demanded the immediate dissolution of the British Parliament and the end of all British laws.",
+    "The petition listed all the grievances against Britain and called for a complete separation from the empire.",
+    "The petition was a formal declaration of war against Great Britain and its allies."
+   ],
+   "explanation": "The Olive Branch Petition reflected the hope for reconciliation and demonstrated that the colonists had not yet fully embraced the idea of independence at that stage.",
+   "wrong_explanations": [
+    "The petition sought peace and reconciliation, not the dissolution of Parliament or a declaration of war.",
+    "The petition asked for an end to hostilities, not a complete separation or a list of grievances leading to independence.",
+    "The petition was a plea for peace, not a formal declaration of war."
+   ]
+  },
+  {
+   "difficulty": "easy",
+   "question": "Which act allowed the British government to raise taxes on the colonies without the consent of colonial assemblies, setting the stage for the American Revolution?",
+   "correct_answer": "The Declaratory Act stated that Parliament had full power to make laws binding the colonies in all cases whatsoever.",
+   "wrong_answers": [
+    "The Stamp Act imposed a tax on printed materials but did not explicitly claim unlimited parliamentary power.",
+    "The Tea Act allowed the East India Company to sell tea at a lower price but did not establish a new principle of taxation.",
+    "The Quartering Act required colonists to house soldiers but did not address the issue of parliamentary authority."
+   ],
+   "explanation": "The Declaratory Act reinforced the idea that Parliament had absolute authority over the colonies, which was a key grievance leading to the Declaration of Independence.",
+   "wrong_explanations": [
+    "The Stamp Act was a specific tax, not a broad assertion of unlimited parliamentary power.",
+    "The Tea Act was a commercial measure, not a declaration of parliamentary supremacy.",
+    "The Quartering Act addressed housing for soldiers, not the legal authority to tax."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "The Boston Tea Party was a protest against the Tea Act. What was the immediate British response to this act of defiance that further alienated the colonies and pushed them toward independence?",
+   "correct_answer": "Parliament passed the Coercive Acts (Intolerable Acts) to punish Massachusetts, which closed Boston Harbor and restricted self-government.",
+   "wrong_answers": [
+    "The British government immediately apologized and repealed the Tea Act to avoid further conflict.",
+    "The British sent an army to protect the colonists and promised to uphold their rights.",
+    "The British offered to grant the colonies full representation in Parliament in exchange for loyalty."
+   ],
+   "explanation": "The Coercive Acts were seen as a collective punishment that united the colonies in opposition to British policy, leading to the Continental Congress and the Declaration of Independence.",
+   "wrong_explanations": [
+    "The British did not apologize; instead, they enacted punitive measures to enforce compliance.",
+    "The British did not send an army to protect colonists; they sent troops to enforce the Coercive Acts.",
+    "The British did not offer representation; they maintained their claim to legislative supremacy."
+   ]
+  },
+  {
+   "difficulty": "hard",
+   "question": "How did the concept of 'no taxation without representation' evolve from a specific grievance against the Stamp Act into a broader philosophical argument for independence in the Declaration of Independence?",
+   "correct_answer": "The concept evolved from a complaint about specific taxes to a fundamental assertion that the colonists' rights as Englishmen were being violated by arbitrary rule.",
+   "wrong_answers": [
+    "The concept remained limited to the Stamp Act and did not expand to other grievances.",
+    "The concept was abandoned by the colonists when the British offered a vote in Parliament.",
+    "The concept was replaced by a desire for economic independence, unrelated to political rights."
+   ],
+   "explanation": "The Declaration of Independence framed the issue of taxation as part of a larger pattern of tyranny, arguing that the colonists' natural rights were being systematically denied.",
+   "wrong_explanations": [
+    "The concept expanded to include all grievances against British rule, not just the Stamp Act.",
+    "The British never offered a vote in Parliament, so the colonists did not abandon the concept.",
+    "The concept remained central to the Declaration, focusing on political rights, not just economic independence."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "Which of the following best describes the causal relationship between the Intolerable Acts and the writing of the Declaration of Independence?",
+   "correct_answer": "The Intolerable Acts united the colonies in resistance, leading to the First Continental Congress and the eventual decision to declare independence.",
+   "wrong_answers": [
+    "The Intolerable Acts caused the colonies to immediately declare independence without further discussion.",
+    "The Intolerable Acts were ignored by the colonies and had no impact on the Declaration of Independence.",
+    "The Intolerable Acts were passed after the Declaration of Independence was already written."
+   ],
+   "explanation": "The Intolerable Acts served as a catalyst for colonial unity, which was essential for the formation of the Continental Congress and the drafting of the Declaration.",
+   "wrong_explanations": [
+    "The colonies did not immediately declare independence; they first convened the Continental Congress to address the grievances.",
+    "The Intolerable Acts had a significant impact on the Declaration, providing key grievances against British rule.",
+    "The Intolerable Acts were passed in 1774, while the Declaration was written in 1776, so they preceded the document."
+   ]
+  },
+  {
+   "difficulty": "easy",
+   "question": "What was the primary reason the Stamp Act of 1765 was so unpopular among American colonists?",
+   "correct_answer": "Colonists were angered because the tax was imposed without their consent and affected everyday items like newspapers and legal documents.",
+   "wrong_answers": [
+    "Colonists were angry because the tax was too low and did not generate enough revenue for Britain.",
+    "Colonists were angry because the tax was only applied to the southern colonies and not the northern colonies.",
+    "Colonists were angry because the tax was collected by British merchants who were friends of the colonists."
+   ],
+   "explanation": "The Stamp Act was a direct tax on the colonies without representation, which violated the colonists' belief in their rights as Englishmen.",
+   "wrong_explanations": [
+    "The tax was unpopular because it was imposed without consent, not because it was too low.",
+    "The tax applied to all colonies, not just the southern colonies.",
+    "The tax was collected by British officials, not merchants who were friends of the colonists."
+   ]
+  },
+  {
+   "difficulty": "hard",
+   "question": "In the context of the Declaration of Independence, how did the British response to the Boston Tea Party (the Coercive Acts) illustrate the colonists' belief that their rights were being systematically violated?",
+   "correct_answer": "The Coercive Acts demonstrated that Britain was willing to use force and punish the colonies to maintain control, ignoring colonial appeals for justice.",
+   "wrong_answers": [
+    "The Coercive Acts were seen as a fair response to the Boston Tea Party, justifying British authority.",
+    "The Coercive Acts were passed to protect the rights of British citizens, not the rights of the colonists.",
+    "The Coercive Acts were a minor issue that did not affect the colonists' rights or lead to the Declaration."
+   ],
+   "explanation": "The Coercive Acts showed that Britain was prepared to override colonial self-government and impose punitive measures, reinforcing the colonists' view that their rights were being systematically denied.",
+   "wrong_explanations": [
+    "The Coercive Acts were seen as unjust and punitive, not fair, and they fueled the desire for independence.",
+    "The Coercive Acts were directed at the colonies, not British citizens, and they were viewed as oppressive.",
+    "The Coercive Acts were a major issue that directly contributed to the Declaration of Independence."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "Which British policy directly led to the passage of the Declaratory Act in 1766?",
+   "correct_answer": "The passage of the Declaratory Act was a response to colonial protests against the Stamp Act, asserting Parliament's authority despite the repeal of the Stamp Act.",
+   "wrong_answers": [
+    "The Declaratory Act was passed because the colonies demanded more representation in Parliament.",
+    "The Declaratory Act was passed to regulate trade with France and Spain, not the colonies.",
+    "The Declaratory Act was passed to support the rights of Native American tribes in North America."
+   ],
+   "explanation": "The Declaratory Act was a clear statement of Parliament's power, passed to counter the colonial argument that the Stamp Act was unconstitutional.",
+   "wrong_explanations": [
+    "The Declaratory Act was not a response to demands for representation but a reaffirmation of British authority.",
+    "The Declaratory Act was focused on colonial issues, not trade with other nations.",
+    "The Declaratory Act was unrelated to Native American rights; it was about colonial governance."
+   ]
+  },
+  {
+   "difficulty": "easy",
+   "question": "What was the main effect of the Townshend Acts on the relationship between Britain and the American colonies?",
+   "correct_answer": "The Townshend Acts imposed new taxes on imported goods, leading to increased colonial protests and boycotts.",
+   "wrong_answers": [
+    "The Townshend Acts ended all trade between Britain and the colonies, leading to immediate peace.",
+    "The Townshend Acts were welcomed by the colonies as a way to reduce the cost of goods.",
+    "The Townshend Acts were passed to increase the representation of the colonies in Parliament."
+   ],
+   "explanation": "The Townshend Acts introduced new taxes on goods like tea, glass, and lead, which the colonists rejected as unconstitutional, escalating tensions.",
+   "wrong_explanations": [
+    "The Townshend Acts did not end trade; they taxed certain goods, leading to boycotts rather than peace.",
+    "The colonists opposed the taxes, so the acts were not welcomed.",
+    "The Townshend Acts did not affect representation; they were about taxation."
+   ]
+  }
+ ],
+ "validation_errors": [],
+ "review_issues": []
+}

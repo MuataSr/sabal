@@ -1,0 +1,250 @@
+{
+ "code": "SS.7.CG.2.7",
+ "topic": "Qualifications for public office",
+ "domain": 2,
+ "questions": [
+  {
+   "difficulty": "easy",
+   "question": "How old must a person be to serve in the Florida House of Representatives?",
+   "correct_answer": "At least 21 years old.",
+   "wrong_answers": [
+    "At least 25 years old.",
+    "At least 30 years old.",
+    "At least 35 years old."
+   ],
+   "explanation": "The Florida Constitution sets a single age requirement of 21 for both the House and the Senate, lower than the federal requirement of 25 for the U.S. House.",
+   "wrong_explanations": [
+    "25 is the minimum age for the U.S. House of Representatives, not the Florida House.",
+    "30 is the minimum age for the U.S. Senate, not the Florida House.",
+    "35 is the minimum age for the President of the United States, not for a state legislator."
+   ]
+  },
+  {
+   "difficulty": "easy",
+   "question": "How old must a person be to serve in the Florida Senate?",
+   "correct_answer": "At least 21 years old.",
+   "wrong_answers": [
+    "At least 25 years old.",
+    "At least 30 years old.",
+    "At least 40 years old."
+   ],
+   "explanation": "Florida is unusual: both chambers of its legislature require only 21 years of age. The 30-year figure applies to the U.S. Senate, not the Florida Senate.",
+   "wrong_explanations": [
+    "25 is the U.S. House minimum, not the Florida Senate.",
+    "30 is the U.S. Senate minimum; Florida's Senate has no such age requirement.",
+    "No Florida office requires 40 years of age."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "A 24-year-old citizen wants to run for a state legislative seat. In which of the following could they legally serve?",
+   "correct_answer": "The Florida House or Florida Senate, because both require only 21 years of age.",
+   "wrong_answers": [
+    "The U.S. House of Representatives, because it requires only 21 years of age.",
+    "The U.S. Senate, because it requires only 21 years of age.",
+    "Neither, because every legislative office requires at least 25 years of age."
+   ],
+   "explanation": "Florida requires only 21 for its legislature, so a 24-year-old qualifies for either state chamber. The U.S. House requires 25 and the U.S. Senate requires 30.",
+   "wrong_explanations": [
+    "The U.S. House requires 25, so a 24-year-old is too young.",
+    "The U.S. Senate requires 30, so a 24-year-old is far too young.",
+    "Florida's legislature allows 21-year-olds, so 'neither' is wrong."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "How does the minimum age for the Florida Senate compare to the minimum age for the U.S. Senate?",
+   "correct_answer": "The Florida Senate requires 21, while the U.S. Senate requires 30.",
+   "wrong_answers": [
+    "Both require 30 years of age.",
+    "The Florida Senate requires 30, while the U.S. Senate requires 21.",
+    "Both require 21 years of age."
+   ],
+   "explanation": "Florida's legislature has a uniform 21-year requirement for both chambers, whereas the U.S. Constitution sets 30 for the Senate.",
+   "wrong_explanations": [
+    "Only the U.S. Senate requires 30.",
+    "This reverses the two: Florida is 21 and the U.S. is 30.",
+    "The U.S. Senate requires 30, so 'both 21' is wrong."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "How does the minimum age for the Governor of Florida compare to the minimum age for the President of the United States?",
+   "correct_answer": "The Governor must be at least 30, while the President must be at least 35.",
+   "wrong_answers": [
+    "The Governor must be at least 18, while the President must be at least 35.",
+    "Both must be at least 35 years old.",
+    "The Governor must be at least 35, while the President must be at least 30."
+   ],
+   "explanation": "The Florida Constitution requires the governor to be an elector at least 30 years old; the U.S. Constitution requires the President to be at least 35.",
+   "wrong_explanations": [
+    "Florida's governor is not 18; that is the voting age.",
+    "The Governor's floor is 30, not 35.",
+    "This reverses the two: the President is 35 and the Governor is 30."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "What residency requirement does the Florida Constitution impose on a candidate for Governor?",
+   "correct_answer": "The candidate must have resided in Florida for the preceding seven years.",
+   "wrong_answers": [
+    "The candidate must have resided in Florida for the preceding two years.",
+    "The candidate must have resided in Florida for the preceding five years.",
+    "There is no residency requirement for Governor."
+   ],
+   "explanation": "The Florida Constitution requires the governor, lieutenant governor and cabinet members to have resided in the state for the preceding seven years.",
+   "wrong_explanations": [
+    "Two years is the residency requirement for state legislators, not the governor.",
+    "Five years is not the governor's requirement; it is seven years.",
+    "The governor's residency requirement is seven years, so 'none' is wrong."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "Which citizenship requirement must a candidate for the U.S. House of Representatives meet?",
+   "correct_answer": "The candidate must have been a citizen of the United States for at least seven years.",
+   "wrong_answers": [
+    "The candidate must be a natural-born citizen of the United States.",
+    "The candidate must have been a citizen for at least nine years.",
+    "The candidate must have been a citizen for at least fourteen years."
+   ],
+   "explanation": "The U.S. House requires 25 years of age and seven years of citizenship (plus inhabitance of the state). Only the President must be natural-born.",
+   "wrong_explanations": [
+    "Natural-born citizenship is required only of the President, not of House members.",
+    "Nine years of citizenship is the U.S. Senate requirement.",
+    "Fourteen years of residency (not citizenship) is a presidential requirement."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "Which citizenship requirement must a candidate for the U.S. Senate meet?",
+   "correct_answer": "The candidate must have been a citizen of the United States for at least nine years.",
+   "wrong_answers": [
+    "The candidate must be a natural-born citizen.",
+    "The candidate must have been a citizen for at least seven years.",
+    "The candidate must have been a citizen for at least twenty years."
+   ],
+   "explanation": "The U.S. Senate requires 30 years of age and nine years of citizenship. The natural-born requirement applies only to the presidency.",
+   "wrong_explanations": [
+    "Natural-born citizenship applies only to the President.",
+    "Seven years is the U.S. House requirement, not the Senate's.",
+    "No federal office requires twenty years of citizenship."
+   ]
+  },
+  {
+   "difficulty": "hard",
+   "question": "A candidate for Governor of Florida must be a natural-born citizen of the United States.",
+   "correct_answer": "False, because the Florida Constitution requires only that the governor be an elector.",
+   "wrong_answers": [
+    "True, because all state and federal executive offices require natural-born citizenship.",
+    "True, because the Florida Constitution mirrors the presidential requirement.",
+    "False, because the Florida Constitution imposes no citizenship requirement at all."
+   ],
+   "explanation": "The Florida Constitution requires the governor to be an elector (a U.S. citizen registered to vote), not natural-born. Only the U.S. President must be natural-born.",
+   "wrong_explanations": [
+    "Natural-born citizenship is a presidential requirement only, not a general executive requirement.",
+    "Florida's constitution does not mirror the presidential natural-born clause.",
+    "The governor must be an elector, which does require U.S. citizenship, so 'no citizenship requirement at all' is wrong."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "In addition to age, what residency requirement must a candidate for the Florida legislature meet?",
+   "correct_answer": "The candidate must be a resident of the district from which elected and have resided in the state for two years.",
+   "wrong_answers": [
+    "The candidate must have resided in the state for ten years.",
+    "The candidate must have resided in the district for five years.",
+    "The candidate must have resided in the state for seven years."
+   ],
+   "explanation": "The Florida Constitution requires each legislator to be a resident of the district and to have resided in the state for two years prior to election.",
+   "wrong_explanations": [
+    "Ten years is not a Florida requirement.",
+    "There is no five-year district requirement; the candidate must simply reside in the district.",
+    "Seven years is the governor's residency requirement, not the legislature's."
+   ]
+  },
+  {
+   "difficulty": "easy",
+   "question": "To be a member of the Florida legislature, a person must be an 'elector.' What does this mean?",
+   "correct_answer": "The person must be a U.S. citizen who is registered to vote.",
+   "wrong_answers": [
+    "The person must have previously won an elected office.",
+    "The person must be a natural-born citizen.",
+    "The person must own property in the state."
+   ],
+   "explanation": "An 'elector' is a citizen eligible and registered to vote. The Florida Constitution uses this term as a qualification for legislators and the governor.",
+   "wrong_explanations": [
+    "Holding prior office is not a constitutional qualification.",
+    "Natural-born citizenship is not required for state legislators.",
+    "Property ownership has not been a qualification for office since the early republic."
+   ]
+  },
+  {
+   "difficulty": "hard",
+   "question": "What residency requirement does the U.S. Constitution impose on a candidate for President?",
+   "correct_answer": "The candidate must have resided within the United States for fourteen years.",
+   "wrong_answers": [
+    "The candidate must have resided within the United States for seven years.",
+    "The candidate must have resided within the United States for nine years.",
+    "The Constitution imposes no residency requirement on the President."
+   ],
+   "explanation": "The President must be a natural-born citizen, at least 35, and a resident of the United States for fourteen years.",
+   "wrong_explanations": [
+    "Seven years is the U.S. House citizenship requirement, not a presidential residency term.",
+    "Nine years is the U.S. Senate citizenship requirement.",
+    "Fourteen years of residency is an explicit presidential requirement."
+   ]
+  },
+  {
+   "difficulty": "easy",
+   "question": "Which of the following is NOT a qualification to serve in the Florida House of Representatives?",
+   "correct_answer": "Having previously served in the U.S. Congress.",
+   "wrong_answers": [
+    "Being at least 21 years old.",
+    "Being a resident of the district from which elected.",
+    "Being an elector (a registered voter)."
+   ],
+   "explanation": "Prior service is not required. The Florida Constitution requires only 21 years of age, district residence, two years of state residence, and being an elector.",
+   "wrong_explanations": [
+    "21 is the required minimum age.",
+    "District residence is a constitutional requirement.",
+    "Being an elector is a constitutional requirement."
+   ]
+  },
+  {
+   "difficulty": "hard",
+   "question": "A 22-year-old has lived in Florida for four years and in her district for one year. Is she eligible for the Florida House of Representatives?",
+   "correct_answer": "Yes, because she is at least 21 and has resided in the state for at least two years.",
+   "wrong_answers": [
+    "No, because she must be at least 25 years old.",
+    "No, because she must have resided in the state for at least seven years.",
+    "No, because she must have resided in the district for at least five years."
+   ],
+   "explanation": "She meets every Florida House requirement: at least 21, two years of state residence, district residence, and elector status.",
+   "wrong_explanations": [
+    "25 is the U.S. House minimum, not Florida's.",
+    "Seven years is the governor's requirement, not a legislator's.",
+    "There is no five-year district requirement; district residence alone is required."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "How does the U.S. House of Representatives' 'inhabitance' requirement compare to the Florida legislature's district requirement?",
+   "correct_answer": "A U.S. House member must be an inhabitant of the state they represent, while a Florida legislator must be a resident of their specific district.",
+   "wrong_answers": [
+    "Both require residence in the specific district at the time of election.",
+    "Neither requires residence in the state or district being represented.",
+    "A U.S. House member must live in the specific district, while a Florida legislator only needs state residence."
+   ],
+   "explanation": "The U.S. Constitution requires a House member to be an inhabitant of the state (not a specific district), while the Florida Constitution requires residence in the district.",
+   "wrong_explanations": [
+    "The U.S. Constitution does not require district-level residence for the House.",
+    "Both constitutions require some form of residence in the area represented.",
+    "This reverses the two: federal requires state inhabitance, Florida requires district residence."
+   ]
+  }
+ ],
+ "validation_errors": [],
+ "review_issues": [],
+ "note": "rewritten by the orchestrator with facts verified against the FL and US constitutions"
+}

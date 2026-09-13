@@ -1,0 +1,252 @@
+{
+ "code": "SS.7.CG.3.12",
+ "topic": "Comparing the U.S. and Florida constitutions",
+ "domain": 2,
+ "questions": [
+  {
+   "difficulty": "easy",
+   "question": "A student is reading the opening statement of both the United States Constitution and the Florida Constitution. What is the primary purpose of this introductory section in both documents?",
+   "correct_answer": "The primary purpose of the introductory section, known as the preamble, is to state the general goals and reasons for creating the constitution.",
+   "wrong_answers": [
+    "The preamble serves as the legal list of specific rights guaranteed to citizens immediately upon adoption.",
+    "The preamble functions as the official amendment proposal that allows the document to be changed.",
+    "The preamble acts as the judicial ruling that determines which state laws are valid under the national government."
+   ],
+   "explanation": "Both constitutions begin with a preamble that outlines the fundamental purposes and guiding principles of the government, such as establishing justice or securing liberty.",
+   "wrong_explanations": [
+    "Specific rights and the legal list of guarantees are detailed in subsequent articles, not the introductory preamble.",
+    "The process for proposing amendments is described in the articles regarding amendments, not in the preamble itself.",
+    "Judicial rulings are made by courts based on the text of the constitution, rather than being written into the preamble."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "While both the U.S. and Florida constitutions contain articles that organize the government, how does the structure of the U.S. Constitution differ regarding the organization of state governments?",
+   "correct_answer": "The U.S. Constitution establishes a framework for the federal government and leaves the specific organization of state governments to be defined by individual state constitutions.",
+   "wrong_answers": [
+    "The U.S. Constitution contains specific articles that detail the exact legislative and executive structures for every state government.",
+    "The U.S. Constitution prohibits states from having separate constitutions and requires them to follow the federal articles exactly.",
+    "The U.S. Constitution only provides a single article for all state governments, ignoring local variations in structure."
+   ],
+   "explanation": "The U.S. Constitution sets up the national government but explicitly reserves the right to states to define their own structures, which is why Florida has its own distinct constitution.",
+   "wrong_explanations": [
+    "The U.S. Constitution does not contain specific articles detailing the exact structure of every state; that is the role of state constitutions.",
+    "States are allowed to have their own constitutions, provided they do not conflict with the U.S. Constitution or federal laws.",
+    "The U.S. Constitution acknowledges the diversity of state governments and does not provide a single unified structure for all of them."
+   ]
+  },
+  {
+   "difficulty": "hard",
+   "question": "A group of citizens wants to propose a change to the Florida Constitution to alter the qualifications for voting. Which of the following best describes a key difference in the amendment process between the U.S. and Florida constitutions?",
+   "correct_answer": "Amending the Florida Constitution can be initiated by a legislative proposal or a citizen petition, whereas amending the U.S. Constitution requires a proposal by Congress or a constitutional convention called by the states.",
+   "wrong_answers": [
+    "Amending the U.S. Constitution can be started by a petition from citizens, while amending the Florida Constitution requires a vote by the Supreme Court.",
+    "Both constitutions require a proposal by the executive branch and ratification by the legislature, making their amendment processes identical.",
+    "Amending the Florida Constitution is easier because it only requires a simple majority of the legislature, while the U.S. Constitution requires a two-thirds majority in both houses."
+   ],
+   "explanation": "Florida allows for citizen initiatives to propose amendments, a feature not present in the U.S. Constitution, which strictly limits proposal authority to Congress or state conventions.",
+   "wrong_explanations": [
+    "Citizens cannot directly initiate amendments to the U.S. Constitution; that power is reserved for Congress or a convention of states.",
+    "The Supreme Court does not have the authority to propose amendments to the U.S. Constitution; that power belongs to the legislative branch or state conventions.",
+    "While both require legislative action, the U.S. process requires a supermajority of two-thirds, and it certainly does not allow for simple majority passage without further ratification steps."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "If a Florida statute conflicts with a provision in the Florida Constitution, the Florida Supreme Court must rule which document takes precedence within the state?",
+   "correct_answer": "The Florida Constitution takes precedence over conflicting state statutes because it serves as the fundamental law of the state.",
+   "wrong_answers": [
+    "The Florida statute takes precedence because laws passed by the legislature are the most recent expression of the people's will.",
+    "The U.S. Constitution automatically takes precedence over the Florida Constitution in all cases involving state laws, regardless of the content.",
+    "The Florida Governor's executive order takes precedence because the executive branch has the final authority on legal conflicts within the state."
+   ],
+   "explanation": "Within the state of Florida, the state constitution is the supreme law, meaning any state law that contradicts it is invalid.",
+   "wrong_explanations": [
+    "While recent laws reflect current will, they cannot override the fundamental principles established in the state constitution.",
+    "The U.S. Constitution is the supreme law of the land, but the Florida Constitution is supreme over state laws; federal supremacy applies to state laws conflicting with federal law, not to state constitutional provisions against state statutes.",
+    "An executive order cannot override the state constitution or a statute; the governor's authority is itself bounded by the constitution, which is the state's fundamental law."
+   ]
+  },
+  {
+   "difficulty": "easy",
+   "question": "Both the U.S. and Florida constitutions include a specific mechanism to allow the documents to be updated over time. What is the common name for these additional sections added after the original text?",
+   "correct_answer": "The common name for these additional sections is amendments.",
+   "wrong_answers": [
+    "The additional sections are called articles, which are part of the original text and cannot be added later.",
+    "The additional sections are known as clauses, which refer to specific sentences within the main body of the constitution.",
+    "The additional sections are referred to as preambles, which are the introductory statements found at the very beginning."
+   ],
+   "explanation": "Both constitutions utilize the amendment process to modify their text after the original adoption, allowing them to adapt to new circumstances.",
+   "wrong_explanations": [
+    "Articles are the main body of the constitution established at the time of adoption, not the changes made afterward.",
+    "Clauses are components of articles, not the distinct documents or sections added through a formal amendment process.",
+    "Preambles are introductory statements that explain the purpose of the constitution and are not used to add new substantive rules."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "When comparing the purposes of the two constitutions, which statement accurately reflects how the U.S. Constitution limits government authority?",
+   "correct_answer": "The U.S. Constitution limits government authority primarily by dividing powers between the federal and state governments and establishing a system of checks and balances.",
+   "wrong_answers": [
+    "The U.S. Constitution limits government authority only by giving unlimited power to the legislative branch to make any law they wish.",
+    "The U.S. Constitution limits government authority solely by relying on the moral character of the elected officials without any structural restrictions.",
+    "The U.S. Constitution limits government authority by removing all power from the states and concentrating it entirely in the federal executive branch."
+   ],
+   "explanation": "The U.S. Constitution establishes a federal system and a separation of powers designed specifically to prevent any single branch or level of government from becoming too powerful.",
+   "wrong_explanations": [
+    "The Constitution provides specific structural limits and does not give unlimited power to the legislature; it balances power among three branches.",
+    "The Constitution relies on structural mechanisms like checks and balances and federalism, not just on the character of officials.",
+    "The Constitution reserves significant powers to the states under the Tenth Amendment, rather than concentrating all power in the federal executive."
+   ]
+  },
+  {
+   "difficulty": "hard",
+   "question": "A legal scholar notes that the U.S. Constitution is the supreme law of the land. How does this principle affect the relationship between the Florida Constitution and the U.S. Constitution?",
+   "correct_answer": "This principle means that any provision in the Florida Constitution that contradicts the U.S. Constitution is invalid and unenforceable.",
+   "wrong_answers": [
+    "This principle means that the Florida Constitution can override the U.S. Constitution if the Florida legislature votes for it by a large margin.",
+    "This principle means that the U.S. Constitution is merely a suggestion and the Florida Constitution is the only law that matters in Florida.",
+    "This principle means that the U.S. Constitution and Florida Constitution must be identical in every detail to ensure national unity."
+   ],
+   "explanation": "The Supremacy Clause in the U.S. Constitution establishes that it is the highest law, so state constitutions cannot violate federal law.",
+   "wrong_explanations": [
+    "State legislatures cannot override the U.S. Constitution; the federal constitution is superior to state laws and constitutions.",
+    "The Florida Constitution is subordinate to the U.S. Constitution; it cannot be the only valid law if it conflicts with federal authority.",
+    "The two documents do not need to be identical; the U.S. Constitution sets the floor for rights and powers, while the Florida Constitution can provide additional protections or structures as long as they don't conflict."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "Which of the following best describes a similarity in the basic outline of the U.S. and Florida constitutions regarding their introductory sections?",
+   "correct_answer": "Both constitutions include a preamble that briefly states the purposes and guiding principles of the government.",
+   "wrong_answers": [
+    "Both constitutions begin with a list of specific amendments before stating the main articles.",
+    "Both constitutions start with a detailed judicial opinion explaining why the government should be created.",
+    "Both constitutions begin with a bill of rights that lists every single right before any other text."
+   ],
+   "explanation": "A defining feature of both documents is the presence of a preamble that serves as an introduction outlining the intent of the constitution.",
+   "wrong_explanations": [
+    "Amendments are added after the original text and are not part of the introductory section.",
+    "Judicial opinions are created by courts after laws are passed, not written into the constitution as the opening statement.",
+    "While the U.S. Constitution has a Bill of Rights as the first ten amendments, the Florida Constitution's Bill of Rights is in Article I, and neither serves as the primary introductory preamble in the same way."
+   ]
+  },
+  {
+   "difficulty": "easy",
+   "question": "Students are studying the document that serves as the framework for the Florida government. What is the primary function of this document?",
+   "correct_answer": "The primary function of the Florida Constitution is to provide a framework for government and limit the authority of state officials.",
+   "wrong_answers": [
+    "The primary function is to list the names of all current elected officials in the state.",
+    "The primary function is to detail the specific budget allocations for every county and city in Florida.",
+    "The primary function is to record the personal opinions of the citizens who voted for it."
+   ],
+   "explanation": "Constitutions serve as the fundamental framework for government structure and the limits on power, ensuring the rule of law.",
+   "wrong_explanations": [
+    "Constitutions do not list current officials; these are determined by elections and statutes.",
+    "Constitutions set general principles and structures, not specific budget details, which are handled by annual legislation.",
+    "Constitutions establish legal rules, not personal opinions; they are objective frameworks for governance."
+   ]
+  },
+  {
+   "difficulty": "hard",
+   "question": "In a scenario where a proposed amendment to the Florida Constitution is submitted, what is a key difference in the ratification process compared to the U.S. Constitution?",
+   "correct_answer": "Amendments to the Florida Constitution are ratified by a vote of the voters in the state, whereas amendments to the U.S. Constitution require ratification by the legislatures or conventions of three-fourths of the states.",
+   "wrong_answers": [
+    "Florida amendments are ratified by the Governor's signature, while U.S. amendments require a direct popular vote.",
+    "Both constitutions require ratification by the Supreme Court justices to ensure legal correctness before adoption.",
+    "U.S. amendments are ratified by the voters in each state, while Florida amendments are ratified solely by the state legislature."
+   ],
+   "explanation": "The ratification process for the U.S. Constitution involves the states as distinct entities, while Florida's process relies on a direct popular vote within the state.",
+   "wrong_explanations": [
+    "The U.S. Constitution does not require a popular vote for ratification; it uses state legislatures or conventions.",
+    "The Supreme Court interprets the constitution but does not have the authority to ratify amendments.",
+    "Florida amendments require a popular vote, not just the legislature, and the U.S. process involves state-level bodies, not just individual state voters directly."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "When comparing the structure of the two documents, which feature is found in both the U.S. and Florida constitutions?",
+   "correct_answer": "Both constitutions contain articles that organize the branches of government and outline their powers.",
+   "wrong_answers": [
+    "Both constitutions contain a single article that lists all amendments at the end of the document.",
+    "Both constitutions lack any division into articles and are written as one continuous block of text.",
+    "Both constitutions have a single article dedicated exclusively to the executive branch, ignoring the legislative and judicial branches."
+   ],
+   "explanation": "The use of articles to categorize and organize the different parts of the government is a shared structural element of both constitutions.",
+   "wrong_explanations": [
+    "Amendments are separate from the main articles and are not combined into a single article within the text.",
+    "Constitutions are structured with articles to provide clarity and organization; they are not written as one continuous block.",
+    "Both constitutions have separate articles or sections dedicated to the legislative, executive, and judicial branches."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "Why is it important for students to understand that the U.S. Constitution is the supreme law of the land?",
+   "correct_answer": "It is important because it ensures that state laws, including those in Florida, cannot violate the rights and powers defined in the federal constitution.",
+   "wrong_answers": [
+    "It is important because it allows states to ignore federal laws if the state legislature disagrees with them.",
+    "It is important because it gives the President the power to change any state law without approval.",
+    "It is important because it means the federal government can ignore state laws even if they do not conflict with federal authority."
+   ],
+   "explanation": "The supremacy of the U.S. Constitution ensures uniformity in fundamental rights and limits state power when it conflicts with federal law.",
+   "wrong_explanations": [
+    "States cannot ignore federal laws; the U.S. Constitution establishes federal supremacy over state actions.",
+    "The President cannot unilaterally change state laws; that power is reserved for the legislature and the executive must act within constitutional limits.",
+    "The federal government cannot ignore state laws that do not conflict with federal authority; the Constitution protects state powers not delegated to the federal government."
+   ]
+  },
+  {
+   "difficulty": "easy",
+   "question": "Which of the following is a correct statement about the purposes of a constitution as demonstrated by both the U.S. and Florida examples?",
+   "correct_answer": "A constitution provides a framework for government and protects the individual rights of the people.",
+   "wrong_answers": [
+    "A constitution is designed to give the government unlimited power to act without any restrictions.",
+    "A constitution serves only to record the economic policies of the government without addressing civil rights.",
+    "A constitution is a temporary document that is replaced every ten years automatically."
+   ],
+   "explanation": "The core purposes of a constitution are to establish the structure of government and to safeguard the rights of citizens.",
+   "wrong_explanations": [
+    "Constitutions are specifically designed to limit government power, not provide unlimited authority.",
+    "Constitutions address fundamental civil rights and political structures, not just economic policies.",
+    "Constitutions are enduring fundamental laws, not temporary documents that expire automatically."
+   ]
+  },
+  {
+   "difficulty": "hard",
+   "question": "A civics teacher asks students to compare how the amendment processes differ in terms of who proposes the changes. What is the most accurate distinction?",
+   "correct_answer": "The Florida Constitution allows citizens to propose amendments through a petition process, while the U.S. Constitution restricts proposal authority to Congress or a convention called by the states.",
+   "wrong_answers": [
+    "The U.S. Constitution allows citizens to propose amendments directly, while the Florida Constitution only allows the legislature to propose changes.",
+    "Both constitutions allow only the President to propose amendments, making the processes identical in terms of proposers.",
+    "The Florida Constitution requires a proposal by the Supreme Court, while the U.S. Constitution allows direct citizen proposals."
+   ],
+   "explanation": "The citizen initiative component for proposing amendments is a unique feature of the Florida Constitution not found in the U.S. process.",
+   "wrong_explanations": [
+    "The U.S. Constitution does not allow for direct citizen proposals; it requires legislative or state convention action.",
+    "The President does not have the authority to propose constitutional amendments in either the U.S. or Florida systems.",
+    "The Supreme Court does not have the power to propose amendments; that power lies with the legislature or, in Florida, citizens."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "If a student finds a law in the Florida Statutes that violates the Bill of Rights in the Florida Constitution, which document must prevail in the state courts?",
+   "correct_answer": "The Florida Constitution must prevail because it is the higher law of the state and limits the power of the legislature.",
+   "wrong_answers": [
+    "The Florida Statutes must prevail because the legislature has the power to pass laws that override the constitution.",
+    "The U.S. Constitution must prevail only if the statute violates the U.S. Bill of Rights, but the Florida Constitution is irrelevant.",
+    "The Governor's executive order must prevail because the executive branch can suspend state laws that conflict with constitutional rights."
+   ],
+   "explanation": "Within the state, the constitution is the supreme legal authority, and any statute contradicting it is invalid.",
+   "wrong_explanations": [
+    "The legislature cannot pass laws that override the constitution; the constitution limits legislative power.",
+    "While the U.S. Constitution is supreme, the Florida Constitution is the primary source of state rights and prevails over conflicting state statutes.",
+    "The Governor cannot suspend laws unilaterally; the judicial branch determines the validity of laws against the constitution."
+   ]
+  }
+ ],
+ "validation_errors": [
+  "item 3 wrong_explanations not 3",
+  "item 11 contains banned phrase 'guarantee'"
+ ],
+ "review_issues": []
+}

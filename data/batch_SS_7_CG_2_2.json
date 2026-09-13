@@ -1,0 +1,249 @@
+{
+ "code": "SS.7.CG.2.2",
+ "topic": "Obligations and responsibilities of citizenship",
+ "domain": 1,
+ "questions": [
+  {
+   "difficulty": "easy",
+   "question": "A citizen is required by federal law to serve on a jury if selected, regardless of personal inconvenience. Is this requirement an example of a citizenship obligation or a responsibility?",
+   "correct_answer": "This requirement is an example of a citizenship obligation because it is legally mandated for all eligible citizens.",
+   "wrong_answers": [
+    "This is a responsibility because it helps the community function better.",
+    "This is a responsibility because citizens can choose to ignore it without legal penalty.",
+    "This is an obligation only if the citizen finds the service interesting or educational."
+   ],
+   "explanation": "Obligations are duties that citizens must fulfill by law, such as serving on a jury or paying taxes, whereas responsibilities are voluntary actions that contribute to the common good.",
+   "wrong_explanations": [
+    "Responsibilities are voluntary actions, not legal mandates; jury duty is required by law.",
+    "Citizens cannot legally ignore jury duty without facing consequences, so it is not a voluntary responsibility.",
+    "The legal requirement to serve on a jury applies to all eligible citizens, making it an obligation rather than a choice-based responsibility."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "During a town hall meeting, a resident speaks to the mayor about proposed zoning changes that affect their neighborhood. How does this action demonstrate the concept of the common good?",
+   "correct_answer": "This action demonstrates the common good by allowing citizens to actively participate in government decisions that affect the community's welfare.",
+   "wrong_answers": [
+    "This action demonstrates the common good because the resident is trying to ensure the government gets credit for their attendance.",
+    "This action demonstrates the common good because it guarantees that the zoning changes will be approved immediately.",
+    "This action demonstrates the common good because it is a legal obligation that the resident must perform to avoid fines."
+   ],
+   "explanation": "The common good is achieved when citizens exercise their responsibilities, like attending meetings and voicing opinions, to ensure government serves the community's best interests.",
+   "wrong_explanations": [
+    "Seeking personal credit for attendance does not serve the common good, which focuses on community welfare.",
+    "Speaking at a meeting does not guarantee immediate approval of any specific policy, so this is not the reason it serves the common good.",
+    "Attending civic meetings is a responsibility, not a legal obligation; failure to do so does not result in fines."
+   ]
+  },
+  {
+   "difficulty": "hard",
+   "question": "If a significant number of citizens fail to fulfill their obligation to pay income taxes, what is the most likely long-term consequence for society?",
+   "correct_answer": "The government would lack sufficient revenue to fund essential public services like schools, roads, and national defense, harming the common good.",
+   "wrong_answers": [
+    "The government would immediately shut down all non-essential services while keeping essential ones running.",
+    "The government would raise the tax rate on individuals who do pay taxes to compensate for the shortfall.",
+    "The government would stop enforcing laws and allow all citizens to opt out of paying taxes voluntarily."
+   ],
+   "explanation": "Taxation is a legal obligation that provides the funding necessary for the government to operate and deliver services that benefit society as a whole.",
+   "wrong_explanations": [
+    "Governments cannot simply shut down services; the immediate consequence is a lack of funds to maintain current operations.",
+    "While tax rates might change over time, the primary consequence is the lack of revenue to fund current obligations, not an immediate rate adjustment.",
+    "The government enforces tax laws regardless of individual choices; it does not stop enforcement to accommodate non-compliance."
+   ]
+  },
+  {
+   "difficulty": "easy",
+   "question": "Which of the following actions is considered a responsibility of U.S. citizenship rather than an obligation?",
+   "correct_answer": "Voting in a federal election is a responsibility because it is a voluntary act that contributes to the democratic process.",
+   "wrong_answers": [
+    "Serving on a jury is a responsibility because it is a civic duty that helps the legal system.",
+    "Paying federal taxes is a responsibility because it is a way to contribute to the country's economy.",
+    "Running for public office is a responsibility because it is a legal requirement for all citizens."
+   ],
+   "explanation": "Responsibilities like voting are voluntary actions that support democracy, whereas obligations are legal duties that citizens must perform.",
+   "wrong_explanations": [
+    "Jury duty is a legal obligation, not a voluntary responsibility.",
+    "Paying taxes is a legal obligation, not a voluntary responsibility.",
+    "Running for office is a voluntary act, not a legal requirement for all citizens."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "A group of citizens decides to petition their state legislature to change a law they believe is unfair. Why is this action important for the health of democracy?",
+   "correct_answer": "Petitioning the government is a responsibility that allows citizens to actively influence laws and hold officials accountable.",
+   "wrong_answers": [
+    "Petitioning the government is an obligation that must be fulfilled to avoid legal penalties.",
+    "Petitioning the government is a responsibility that guarantees the requested law will be changed immediately.",
+    "Petitioning the government is an obligation that is required by the Constitution for all citizens."
+   ],
+   "explanation": "The right to petition the government is a key responsibility that enables citizens to participate in the political process and advocate for change.",
+   "wrong_explanations": [
+    "Petitioning is a voluntary responsibility, not a legal obligation with penalties for non-compliance.",
+    "While petitioning can influence change, it does not guarantee that the government will immediately adopt the requested law.",
+    "The Constitution grants the right to petition but does not make it a mandatory obligation for every citizen."
+   ]
+  },
+  {
+   "difficulty": "hard",
+   "question": "How does the concept of the common good explain why citizens should fulfill their responsibility to attend local government meetings?",
+   "correct_answer": "Attending meetings ensures that diverse community voices are heard, leading to more informed and representative decision-making for the entire community.",
+   "wrong_answers": [
+    "Attending meetings ensures that the government is held accountable by the courts if laws are passed incorrectly.",
+    "Attending meetings guarantees that the citizen will receive free transportation and meals provided by the government.",
+    "Attending meetings is a legal requirement that prevents the citizen from being fined for non-participation."
+   ],
+   "explanation": "The common good is served when citizens participate in civic life, ensuring that government decisions reflect the needs and values of the community.",
+   "wrong_explanations": [
+    "Local government meetings are not judicial bodies; accountability is addressed through other legal mechanisms, not court proceedings.",
+    "Government meetings do not provide free transportation or meals as a standard benefit for attendance.",
+    "Attending meetings is a voluntary responsibility, not a legal requirement with associated fines."
+   ]
+  },
+  {
+   "difficulty": "easy",
+   "question": "Which of the following is an example of a citizenship obligation that applies to all eligible citizens?",
+   "correct_answer": "Registering for the Selective Service is an obligation because it is a legal requirement for male citizens aged 18-25.",
+   "wrong_answers": [
+    "Registering for the Selective Service is a responsibility because it helps the government prepare for future emergencies.",
+    "Registering for the Selective Service is a responsibility because it is a voluntary act that supports national defense.",
+    "Registering for the Selective Service is an obligation that applies to all citizens regardless of age or gender."
+   ],
+   "explanation": "Selective Service registration is a legal obligation for specific demographics, distinguishing it from voluntary responsibilities like voting.",
+   "wrong_explanations": [
+    "While it supports national defense, the registration itself is a legal mandate, making it an obligation, not a voluntary responsibility.",
+    "Selective Service registration is a legal requirement for eligible males, not a voluntary act.",
+    "The obligation applies only to male citizens aged 18-25, not to all citizens regardless of age or gender."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "If citizens stop fulfilling their responsibility to vote in elections, what is the most likely impact on the government?",
+   "correct_answer": "The government may become less responsive to the needs of the people, as elected officials may cater to smaller, more organized groups.",
+   "wrong_answers": [
+    "The government will automatically dissolve and a new form of government will be established.",
+    "The government will immediately increase the number of seats in the legislature to ensure representation.",
+    "The government will stop collecting taxes because citizens have abandoned their civic duties."
+   ],
+   "explanation": "Low voter turnout can lead to governments that do not accurately reflect the will of the majority, potentially harming the common good.",
+   "wrong_explanations": [
+    "Elections do not result in the automatic dissolution of government; they simply change leadership or confirm it.",
+    "The size of the legislature is determined by law, not by voter turnout levels.",
+    "Tax collection is a separate legal obligation that continues regardless of whether citizens vote."
+   ]
+  },
+  {
+   "difficulty": "hard",
+   "question": "A citizen refuses to pay their property taxes, arguing that the local government is not doing enough to improve the neighborhood. What is the most accurate assessment of this situation?",
+   "correct_answer": "The citizen is failing to fulfill a legal obligation, which can lead to legal consequences, even if they disagree with government actions.",
+   "wrong_answers": [
+    "The citizen is correctly exercising their responsibility by withholding taxes until the government improves services.",
+    "The citizen is fulfilling their obligation by protesting the government's inaction through non-payment.",
+    "The citizen is free to choose whether to pay taxes based on their personal opinion of the government's performance."
+   ],
+   "explanation": "Paying taxes is a legal obligation that must be fulfilled regardless of personal opinions about government performance; failure to pay can result in legal penalties.",
+   "wrong_explanations": [
+    "Withholding taxes is not a recognized responsibility; it is a violation of a legal obligation that can lead to fines or seizure of property.",
+    "Protest is typically done through other means, such as petitions or attendance at meetings, not through refusing to pay legal obligations.",
+    "Tax payment is a mandatory legal obligation that cannot be opted out of based on personal opinions about government services."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "Why is it important for citizens to distinguish between obligations and responsibilities when evaluating their role in society?",
+   "correct_answer": "Understanding the difference helps citizens comply with legal requirements while also actively engaging in voluntary actions that strengthen democracy.",
+   "wrong_answers": [
+    "Understanding the difference allows citizens to avoid all legal responsibilities by claiming they are not obligations.",
+    "Understanding the difference is only important for politicians, not for ordinary citizens.",
+    "Understanding the difference is unnecessary because all civic duties are legally binding obligations."
+   ],
+   "explanation": "Clearing the distinction ensures citizens meet their legal duties (obligations) and also participate in voluntary actions (responsibilities) that support the common good.",
+   "wrong_explanations": [
+    "Citizens cannot avoid legal responsibilities by misclassifying them; obligations are mandatory regardless of classification.",
+    "All citizens, not just politicians, must understand these concepts to function effectively in a democracy.",
+    "Not all civic duties are legally binding; responsibilities like voting are voluntary, while obligations like jury duty are mandatory."
+   ]
+  },
+  {
+   "difficulty": "easy",
+   "question": "Which of the following best describes the relationship between citizenship obligations and the common good?",
+   "correct_answer": "Fulfilling obligations ensures the stability and functioning of society, which is a fundamental aspect of the common good.",
+   "wrong_answers": [
+    "The common good requires citizens to ignore their obligations if they feel they are unfair.",
+    "The common good is achieved only when citizens fulfill their responsibilities, not their obligations.",
+    "The common good is achieved when citizens refuse to pay taxes to protest government spending."
+   ],
+   "explanation": "Obligations are the foundation of societal order; without them, the common good cannot be sustained, even if individuals disagree with specific laws.",
+   "wrong_explanations": [
+    "The common good is sustained by legal compliance, not by ignoring obligations that are deemed unfair.",
+    "Both obligations and responsibilities contribute to the common good; obligations provide the necessary structure for society to function.",
+    "Refusing to pay taxes is a violation of an obligation that harms the common good by depriving the government of necessary funds."
+   ]
+  },
+  {
+   "difficulty": "hard",
+   "question": "In a scenario where a community faces a natural disaster, how do the obligations and responsibilities of citizens combine to support the common good?",
+   "correct_answer": "Citizens fulfill obligations like following emergency protocols and responsibilities like volunteering, working together to protect lives and property.",
+   "wrong_answers": [
+    "Citizens rely solely on government obligations to handle the disaster, ignoring their own responsibilities.",
+    "Citizens stop fulfilling their obligations during a disaster to focus only on personal survival.",
+    "The common good is served only by the government, and citizens have no role in responding to disasters."
+   ],
+   "explanation": "During crises, both legal obligations (like obeying evacuation orders) and voluntary responsibilities (like helping neighbors) are crucial for societal resilience.",
+   "wrong_explanations": [
+    "Government actions are insufficient without citizen cooperation; both obligations and responsibilities are needed.",
+    "Legal obligations remain in effect during disasters; ignoring them can endanger lives and violate the law.",
+    "Citizens play an active and essential role in disaster response through both mandated actions and voluntary contributions."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "A student argues that because they are young, they do not need to worry about citizenship obligations. Which statement best corrects this misconception?",
+   "correct_answer": "While some obligations have age restrictions, understanding the concept of obligations is important for all citizens to prepare for future civic duties.",
+   "wrong_answers": [
+    "The student is correct; young people have no obligations until they reach the age of majority.",
+    "The student is correct; young people can only fulfill responsibilities, not obligations.",
+    "The student is incorrect; young people must immediately fulfill all obligations regardless of age."
+   ],
+   "explanation": "Civic knowledge is essential for all ages, and some obligations (like Selective Service) apply to specific age groups, while others prepare youth for future roles.",
+   "wrong_explanations": [
+    "Selective Service registration applies to males aged 18-25, showing that obligations can apply to minors in specific contexts, and education is needed for all ages.",
+    "All citizens, including youth, have responsibilities; the distinction between obligations and responsibilities does not depend solely on age.",
+    "While some obligations have age limits, the principle of civic duty applies to all ages, and youth should learn about both obligations and responsibilities."
+   ]
+  },
+  {
+   "difficulty": "easy",
+   "question": "Which of the following is a key difference between a citizenship obligation and a citizenship responsibility?",
+   "correct_answer": "An obligation is a legal duty that must be fulfilled, while a responsibility is a voluntary action that supports the community.",
+   "wrong_answers": [
+    "An obligation is a voluntary action, while a responsibility is a legal duty.",
+    "An obligation is only for adults, while a responsibility is for children.",
+    "An obligation is more important than a responsibility because it is legally required."
+   ],
+   "explanation": "The primary distinction lies in the legal nature: obligations are mandatory, whereas responsibilities are voluntary contributions to society.",
+   "wrong_explanations": [
+    "Obligations are mandatory legal duties, not voluntary actions.",
+    "Both obligations and responsibilities can apply to adults and children, depending on the specific duty.",
+    "While obligations are legally required, both are important for a functioning society; one is not inherently more important than the other."
+   ]
+  },
+  {
+   "difficulty": "medium",
+   "question": "How does the failure of citizens to fulfill their responsibilities, such as staying informed about current events, impact the common good?",
+   "correct_answer": "It can lead to poor decision-making by the public and elected officials, as a lack of informed participation undermines democratic processes.",
+   "wrong_answers": [
+    "It has no impact on the common good because only government officials are responsible for making decisions.",
+    "It guarantees that the government will become more efficient by reducing the number of opinions to consider.",
+    "It forces the government to implement policies that are universally popular, ensuring the common good is achieved."
+   ],
+   "explanation": "Informed citizenship is a responsibility that ensures the common good by enabling the public to make reasoned choices and hold leaders accountable.",
+   "wrong_explanations": [
+    "Citizens play a crucial role in decision-making; their lack of engagement directly impacts the quality of governance.",
+    "Reducing the number of opinions does not guarantee efficiency; diverse perspectives are essential for good governance.",
+    "Universal popularity does not equate to the common good; informed debate helps identify policies that truly benefit society."
+   ]
+  }
+ ],
+ "validation_errors": [],
+ "review_issues": []
+}
