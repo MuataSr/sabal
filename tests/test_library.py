@@ -89,6 +89,18 @@ class LibraryTest(unittest.TestCase):
         self.assertIsNot(first, second)
         self.assertEqual(len(second["misconceptions"]), 5)
 
+    def test_reference_apparatus_is_never_a_reading_target(self):
+        # the back matter was split into its own rows; the Index is small enough to pass
+        # the size check, so it needs the title rule or it would become a reading target
+        from coach import router
+        for title in ("Index", "References", "Answer Key", "index", "References*"):
+            with self.subTest(title=title):
+                self.assertFalse(router.is_teachable_section(
+                    {"section_title": title, "char_count": 27740}))
+        self.assertTrue(router.is_teachable_section(
+            {"section_title": "Appendix B. The Constitution of the United States",
+             "char_count": 47394}))
+
     def test_the_back_matter_row_is_never_a_reading_target(self):
         from coach import router
         self.assertFalse(router.is_teachable_section({"char_count": 367972}))

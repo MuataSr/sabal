@@ -114,6 +114,11 @@ NON_BREAKING_SPACE = "\u00a0"
 # codes. It is not teachable and must never be offered as a reading target.
 MAX_READING_SECTION_CHARS = 60000
 
+# `content` rows that are reference apparatus, not reading. The book's back matter was
+# bundled into one oversized row and has been split out into its own rows; these three
+# must never be offered as a reading assignment. Matched on the whole normalised title.
+NON_SECTION_TITLES = ("answer key", "references", "index")
+
 MIN_READING_MINUTES = 1
 MAX_READING_MINUTES = 60
 READING_MINUTES_SLACK = 2

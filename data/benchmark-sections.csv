@@ -1,37 +1,37 @@
 code,accepted_section_id,accepted_title,source,note,drafted_ids,review_verdict,review_reason
 SS.7.CG.1.10,80,2.7. Anti-Federalist Arguments and the Bill of Rights,draft+review-confirmed,CONFIRM,80 8,CONFIRM,Section objectives directly align with Federalist/Anti-Federalist viewpoints and the Bill of Rights.
-SS.7.CG.1.11,,,reviewer-disputed-none-better,reviewer rejected the pick,55 68 73,DISPUTE,"Section objectives focus on court roles/policy, not defining or applying rule of law."
-SS.7.CG.1.2,82,2.9. Enlightenment Philosophy and the American Founding,draft+review-confirmed,CONFIRM,82 78 81,CONFIRM,Section 82 directly addresses Enlightenment influence on founding principles like natural rights.
-SS.7.CG.1.3,81,2.8. The English Constitutional Heritage: Magna Carta to the English Bill of Rights,drafter-kept-reviewer-disputed,reviewer alternative unusable,81 78 82,DISPUTE,"The chosen section 81 is actually the best, but the prompt implies a mismatch."
-SS.7.CG.1.5,4,2.1. The Pre-Revolutionary Period and the Roots of the American Political Tradition*,reviewer-accepted,reviewer named a better section,78 81,DISPUTE,Standard requires tracing specific British policies; section 78 focuses on philosophical principles.
-SS.7.CG.1.6,78,2.5. The Declaration of Independence: Principles and Arguments,draft+review-confirmed,CONFIRM,78 4 82,CONFIRM,Section objectives align perfectly with the standard's focus on principles and arguments.
-SS.7.CG.1.7,5,2.2. The Articles of Confederation*,draft+review-confirmed,CONFIRM,5 6 7,CONFIRM,Objectives directly align with identifying weaknesses and resulting crises of the Articles.
-SS.7.CG.1.8,,,reviewer-disputed-none-better,reviewer rejected the pick,78 9 10,DISPUTE,"Section focuses on Declaration of Independence, not the Preamble's specific goals."
-SS.7.CG.1.9,6,2.3. The Development of the Constitution*,reviewer-accepted,reviewer named a better section,9 8 1,DISPUTE,Section 9 focuses on federalism; Section 6 covers constitutional structure and limitations.
-SS.7.CG.2.1,,,reviewer-disputed-none-better,reviewer rejected the pick,6 27 14,DISPUTE,"Section 6 focuses on constitutional drafting, not citizenship or naturalization processes."
-SS.7.CG.2.10,,,reviewer-disputed-none-better,reviewer rejected the pick,72 62 73,DISPUTE,"Section focuses on federal policymakers/process, not state/local citizen action processes."
-SS.7.CG.2.2,,,reviewer-disputed-none-better,reviewer rejected the pick,3,DISPUTE,"Section focuses on engagement/influence, not distinguishing obligations from responsibilities."
-SS.7.CG.2.3,17,4.4. Interpreting the Bill of Rights*,reviewer-accepted,reviewer named a better section,14 15 8,DISPUTE,Section 14 focuses on origins; Section 17 covers interpreting the Bill of Rights.
-SS.7.CG.2.4,15,4.2. Securing Basic Freedoms*,reviewer-accepted,reviewer named a better section,17 14 15,DISPUTE,Section 17 focuses on privacy; Section 15 covers securing basic freedoms/safeguarding rights.
-SS.7.CG.2.5,,,reviewer-disputed-none-better,reviewer rejected the pick,56 16,DISPUTE,"Section objectives focus on court structure, not trial processes or jury roles."
-SS.7.CG.2.6,36,9.1. What Are Parties and How Did They Form?*,draft+review-confirmed,CONFIRM,36 38 39,CONFIRM,Section objectives directly align with standard's requirement to explain party origins.
-SS.7.CG.2.7,,,reviewer-disputed-none-better,reviewer rejected the pick,52 27 3,DISPUTE,"Section objectives focus on presidential transitions, not constitutional qualifications for office."
+SS.7.CG.1.11,,,reviewer-disputed-none-better,reviewer rejected the pick,55 9,DISPUTE,"Section objectives focus on court roles/policy, not defining or applying rule of law."
+SS.7.CG.1.2,82,2.9. Enlightenment Philosophy and the American Founding,draft+review-confirmed,CONFIRM,82 81 78,CONFIRM,Section 82 objectives directly align with tracing principles underlying founding ideas.
+SS.7.CG.1.3,81,2.8. The English Constitutional Heritage: Magna Carta to the English Bill of Rights,drafter-kept-reviewer-disputed,reviewer alternative unusable,81 78,DISPUTE,The passage is incomplete; section 81 covers the required documents but misses Common Sense.
+SS.7.CG.1.5,78,2.5. The Declaration of Independence: Principles and Arguments,draft+review-confirmed,CONFIRM,78 8,CONFIRM,Section objectives and content directly address the Declaration and its underlying grievances.
+SS.7.CG.1.6,78,2.5. The Declaration of Independence: Principles and Arguments,draft+review-confirmed,CONFIRM,78 84 4,CONFIRM,Section 78 objectives directly align with the standard's focus on principles and arguments.
+SS.7.CG.1.7,5,2.2. The Articles of Confederation*,draft+review-confirmed,CONFIRM,5 6,CONFIRM,Objectives directly align with identifying weaknesses and resulting crises of the Articles.
+SS.7.CG.1.8,85,Appendix B. The Constitution of the United States,draft+review-confirmed,CONFIRM,85 10,CONFIRM,The section contains the actual text of the Preamble required by the standard.
+SS.7.CG.1.9,55,13.1. Guardians of the Constitution and Individual Rights*,reviewer-accepted,reviewer named a better section,9 82 8,DISPUTE,Section 9 focuses on federalism; Section 55 covers individual rights and constitutional protection.
+SS.7.CG.2.1,,,reviewer-disputed-none-better,reviewer rejected the pick,85 27 56,DISPUTE,Appendix B lacks definitions of citizenship or naturalization processes required by standard.
+SS.7.CG.2.10,3,1.3. Engagement in a Democracy*,reviewer-accepted,reviewer named a better section,72 62 73,DISPUTE,Section 72 focuses on federal policymakers; standard requires state/local problem-solving processes.
+SS.7.CG.2.2,,,reviewer-disputed-none-better,reviewer rejected the pick,3 23,DISPUTE,"Section focuses on engagement/influence, not distinguishing obligations from responsibilities."
+SS.7.CG.2.3,17,4.4. Interpreting the Bill of Rights*,reviewer-accepted,reviewer named a better section,14 15 8,DISPUTE,Section 14 focuses on origins; Section 17 addresses interpreting the Bill of Rights.
+SS.7.CG.2.4,15,4.2. Securing Basic Freedoms*,draft+review-confirmed,CONFIRM,15 17 14,CONFIRM,Objectives directly align with explaining how rights are protected and limited.
+SS.7.CG.2.5,,,reviewer-disputed-none-better,reviewer rejected the pick,56,DISPUTE,"Section objectives focus on court structure, not trial processes or jury roles."
+SS.7.CG.2.6,,,reviewer-disputed-none-better,reviewer rejected the pick,36 3 38,DISPUTE,Section 36 covers party origins but misses the election/voting process requirement.
+SS.7.CG.2.7,85,Appendix B. The Constitution of the United States,draft+review-confirmed,CONFIRM,85,CONFIRM,The Constitution contains the specific qualifications required by the standard.
 SS.7.CG.2.8,35,8.4. The Impact of the Media*,reviewer-accepted,reviewer named a better section,3 42 35,DISPUTE,Section 3 lacks media's role; Section 35 covers media impact and accountability.
-SS.7.CG.2.9,,,reviewer-disputed-none-better,reviewer rejected the pick,35 23 24,DISPUTE,Section objectives miss symbolism and propaganda requirements of the standard.
+SS.7.CG.2.9,,,reviewer-disputed-none-better,reviewer rejected the pick,35 33 23,DISPUTE,Objectives cover bias and media impact but omit symbolism and propaganda.
 SS.7.CG.3.1,1,1.1. What is Government?*,draft+review-confirmed,CONFIRM,1 82 79,CONFIRM,Objectives directly align with identifying and comparing US government to other forms.
-SS.7.CG.3.10,81,2.8. The English Constitutional Heritage: Magna Carta to the English Bill of Rights,draft+review-confirmed,CONFIRM,81 55 14,CONFIRM,Covers historical influence of English law on US constitutional law.
-SS.7.CG.3.11,55,13.1. Guardians of the Constitution and Individual Rights*,draft+review-confirmed,CONFIRM,55 19 16,CONFIRM,Objectives and case list directly align with analyzing landmark Supreme Court decisions.
-SS.7.CG.3.12,,,reviewer-disputed-none-better,reviewer rejected the pick,8,DISPUTE,Section focuses only on US amendments; lacks Florida Constitution comparison required by standard.
-SS.7.CG.3.13,,,reviewer-disputed-none-better,reviewer rejected the pick,13 11 64 1,DISPUTE,None of the sections explicitly address government services or obligations to citizens.
-SS.7.CG.3.15,,,reviewer-disputed-none-better,reviewer rejected the pick,1 23 73,DISPUTE,"Section 1 objectives focus on government definition, not economic systems or capitalism."
+SS.7.CG.3.10,,,reviewer-disputed-none-better,reviewer rejected the pick,81 55 82,DISPUTE,"Section covers historical influence but lacks types of law (statutory, case, etc.)"
+SS.7.CG.3.11,88,Appendix E. Selected Supreme Court Cases,draft+review-confirmed,CONFIRM,88 55 19,CONFIRM,Appendix E provides the specific landmark cases required by the standard.
+SS.7.CG.3.12,,,reviewer-disputed-none-better,reviewer rejected the pick,8,DISPUTE,Section focuses on US amendments; lacks comparison to Florida Constitution required by standard.
+SS.7.CG.3.13,,,reviewer-disputed-none-better,reviewer rejected the pick,11 1,DISPUTE,"Section focuses on fiscal federalism, not government services or citizen obligations."
+SS.7.CG.3.15,,,reviewer-disputed-none-better,reviewer rejected the pick,23 73 1,DISPUTE,Section 23 focuses on public opinion; no candidate covers economic systems.
 SS.7.CG.3.2,13,3.5. Advantages and Disadvantages of Federalism*,draft+review-confirmed,CONFIRM,13 9 12,CONFIRM,Section objectives directly align with the standard's focus on federalism advantages.
-SS.7.CG.3.3,,,reviewer-disputed-none-better,reviewer rejected the pick,9 6 55,DISPUTE,"Section objectives focus on federalism, not the structure/function of the three branches."
-SS.7.CG.3.4,9,3.1. The Division of Powers*,reviewer-accepted,reviewer named a better section,10,DISPUTE,Section 10 focuses on evolution; Section 9 covers the division of powers.
+SS.7.CG.3.3,,,reviewer-disputed-none-better,reviewer rejected the pick,9 6,DISPUTE,"Section objectives focus on federalism, not the structure/function of the three branches."
+SS.7.CG.3.4,9,3.1. The Division of Powers*,reviewer-accepted,reviewer named a better section,10,DISPUTE,Section 10 focuses on evolution; Section 9 covers division of powers/federalism structure.
 SS.7.CG.3.5,8,2.5. Constitutional Change*,draft+review-confirmed,CONFIRM,8 14 60,CONFIRM,Section objectives directly align with the amendment process standard.
-SS.7.CG.3.6,,,reviewer-disputed-none-better,reviewer rejected the pick,19 18 28,DISPUTE,"Section 19 focuses on the struggle, not specific constitutional amendments."
-SS.7.CG.3.7,49,11.5. The Legislative Process*,reviewer-accepted,reviewer named a better section,62 49 64,DISPUTE,Section 62 focuses on governors; Section 49 covers the legislative process.
-SS.7.CG.3.8,62,14.3. Governors and State Legislatures*,drafter-only,reviewer silent,62 68 67,,
-SS.7.CG.3.9,59,13.5. Judicial Decision-Making and Implementation by the Supreme Court*,drafter-only,reviewer silent,59 57 56,,
-SS.7.CG.4.1,74,17.1. Defining Foreign Policy*,draft+review-confirmed,CONFIRM,74 12,CONFIRM,Section objectives directly align with the standard's requirements.
-SS.7.CG.4.2,75,17.2. Foreign Policy Instruments*,reviewer-accepted,reviewer named a better section,74 76 75,DISPUTE,Section 74 defines foreign policy; 75 covers instruments like international organizations.
-SS.7.CG.4.3,75,17.2. Foreign Policy Instruments*,reviewer-accepted,reviewer named a better section,74 75 54,DISPUTE,Section 74 defines policy; Section 75 covers instruments/methods used in conflicts.
+SS.7.CG.3.6,19,5.2. The African American Struggle for Equality*,drafter-only,reviewer silent,19 18 28,,
+SS.7.CG.3.7,62,14.3. Governors and State Legislatures*,drafter-only,reviewer silent,62 49 64,,
+SS.7.CG.3.8,50,12.1. The Design and Evolution of the Presidency*,reviewer-accepted,reviewer named a better section,62 67 68,DISPUTE,Standard requires executive branch processes; section 62 focuses on governors and legislatures.
+SS.7.CG.3.9,56,13.2. The Dual Court System*,reviewer-accepted,reviewer named a better section,59 57 56,DISPUTE,"Section 56 covers dual court systems, state/federal levels, and trial/appellate processes."
+SS.7.CG.4.1,74,17.1. Defining Foreign Policy*,draft+review-confirmed,CONFIRM,74 83 12,CONFIRM,Section objectives directly align with the standard's requirements.
+SS.7.CG.4.2,76,17.3. Institutional Relations in Foreign Policy*,reviewer-accepted,reviewer named a better section,74 76 75,DISPUTE,Section 74 focuses on definitions; 76 covers institutional relations including international organizations.
+SS.7.CG.4.3,75,17.2. Foreign Policy Instruments*,reviewer-accepted,reviewer named a better section,74 75 77,DISPUTE,Section 74 defines policy; Section 75 covers instruments like diplomacy and war.

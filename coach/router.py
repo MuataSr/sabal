@@ -91,6 +91,8 @@ def is_teachable_section(section):
     """
     if not section:
         return False
+    if str(display_title(section)).strip().lower() in rules.NON_SECTION_TITLES:
+        return False
     try:
         chars = int(section.get("char_count") or 0)
     except (TypeError, ValueError):

@@ -47,6 +47,9 @@ import urllib.request
 from concurrent.futures import ThreadPoolExecutor
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, ROOT)
+from coach import rules as coach_rules  # noqa: E402  one source of truth for exclusions
+
 DB = os.path.join(ROOT, "data", "fcle.db")
 OUT = os.path.join(ROOT, "data", "benchmark-sections.csv")
 DISAGREE = os.path.join(ROOT, "data", "benchmark-sections-disagreements.md")
@@ -375,6 +378,13 @@ def main():
         print("[exclude] oversized rows never offered as readings: %s"
               % [(s["id"], s["char_count"]) for s in over], flush=True)
     sections = [s for s in sections if (s["char_count"] or 0) <= MAX_SECTION_CHARS]
+    apparatus = [s for s in sections
+                 if str(s["section_title"] or "").strip().rstrip("*").strip().lower()
+                 in coach_rules.NON_SECTION_TITLES]
+    if apparatus:
+        print("[exclude] reference apparatus is not reading: %s"
+              % [(s["id"], s["section_title"]) for s in apparatus], flush=True)
+    sections = [s for s in sections if s not in apparatus]
     benchmarks = {r["code"]: dict(r) for r in con.execute(
         "SELECT code, standard, description, clarifications FROM benchmarks")}
     existing = collections.defaultdict(list)
