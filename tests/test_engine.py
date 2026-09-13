@@ -110,6 +110,15 @@ class TestFullBuild(unittest.TestCase):
         self.assertIsNotNone(plan.reading)
         self.assertTrue(plan.reading["title"])
 
+    def test_focus_domain_tracks_the_weakest_topic(self):
+        plan = engine.build(_state())
+        self.assertIn(plan.focus_domain, (1, 2, 3, 4))
+        if plan.reading:
+            self.assertEqual(plan.reading.get("domain"), plan.focus_domain)
+
+    def test_focus_domain_is_none_with_no_data(self):
+        self.assertIsNone(engine.build(engine.State(user={}, now=fixtures.NOW)).focus_domain)
+
     def test_benchmark_code_lookup(self):
         s = _state()
         self.assertTrue(engine.benchmark_code_for(s, 4, "Marbury v Madison"))

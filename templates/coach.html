@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+{% block title %}Study Coach — Sabal FCLE Exam Prep{% endblock %}
+
+{% block content %}
+<div class="sc-page">
+
+  <div class="sc-head">
+    <h1 class="sc-title">Study Coach</h1>
+    <p class="sc-sub">{{ plan.blurb }}</p>
+  </div>
+
+  <div class="sc-grid">
+
+    <section class="sc-panel sc-plan" aria-labelledby="sc-plan-h">
+      <div class="sc-panel-head">
+        <h2 id="sc-plan-h">{{ plan.title }}</h2>
+        {% if plan.days_to_exam is not none %}
+          <span class="sc-chip">
+            {% if plan.days_to_exam > 0 %}{{ plan.days_to_exam }} day{{ '' if plan.days_to_exam == 1 else 's' }} to test day
+            {% elif plan.days_to_exam == 0 %}Test day is today
+            {% else %}Test day has passed{% endif %}
+          </span>
+        {% endif %}
+      </div>
+
+      {% if plan.blocks %}
+        <ul class="sc-blocks">
+          {% for b in plan.blocks %}
+          <li class="sc-block sc-block--{{ b.kind }}">
+            <span class="sc-kind">
+              {% if b.kind == 'review' %}Review{% elif b.kind == 'new' %}New{% elif b.kind == 'timed' %}Timed{% else %}{{ b.kind }}{% endif %}
+            </span>
+            <span class="sc-block-text">{{ b.text }}</span>
+            {% if b.topic %}<span class="sc-topic">{{ b.topic }}</span>{% endif %}
+          </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p class="sc-empty">{{ empty_text }}</p>
+        <p class="sc-cta-row">
+          <a class="btn-a btn-a-primary" href="/diagnostic">Take the diagnostic</a>
+        </p>
+      {% endif %}
+    </section>
+
+    <section class="sc-panel sc-ready" aria-labelledby="sc-ready-h">
+      <div class="sc-panel-head">
+        <h2 id="sc-ready-h">Where you stand</h2>
+      </div>
+
+      {% if plan.has_data %}
+        <p class="sc-range">{{ plan.projected_range_text }}</p>
+        <p class="sc-pass">{{ plan.pass_line_text }}</p>
+        <div class="sc-meter" role="img" aria-label="Readiness {{ readiness_pct }} percent, {{ plan.band }}">
+          <span class="sc-meter-fill" style="width: {{ readiness_pct }}%"></span>
+        </div>
+        <p class="sc-band">{{ plan.band }}</p>
+        <p class="sc-note">{{ widening_text }}</p>
+      {% else %}
+        <p class="sc-range sc-range--empty">{{ no_data_text }}</p>
+        <p class="sc-pass">{{ plan.pass_line_text }}</p>
+        <p class="sc-note">Answer a set of questions and this fills in.</p>
+      {% endif %}
+
+      {% if plan.days_to_exam is none %}
+        <p class="sc-note">
+          Set your test date and the plan will pace itself against it.
+          <a href="/settings">Set test date</a>
+        </p>
+      {% endif %}
+    </section>
+
+  </div>
+
+  {% if plan.reading %}
+  <section class="sc-panel sc-read" aria-labelledby="sc-read-h">
+    <div class="sc-panel-head">
+      <h2 id="sc-read-h">{{ plan.reading.intro }}</h2>
+    </div>
+    <p class="sc-read-title">{{ plan.reading.title }}</p>
+    <p class="sc-read-meta">{{ plan.reading.minutes_text }}</p>
+    <p class="sc-read-then">
+      {{ plan.reading.then }}
+      {% if drill_slug %}
+        <a class="btn-a btn-a-ghost" href="/quiz/{{ drill_slug }}">Start drilling</a>
+      {% endif %}
+    </p>
+  </section>
+  {% endif %}
+
+  {% if plan.reporting %}
+  <section class="sc-panel sc-report" aria-labelledby="sc-report-h">
+    <div class="sc-panel-head">
+      <h2 id="sc-report-h">{{ report_title }}</h2>
+      <span class="sc-chip sc-chip--quiet">Most-missed first</span>
+    </div>
+    <ul class="sc-rows">
+      {% for r in plan.reporting.rows %}
+      <li class="sc-row">
+        <code class="sc-code">{{ r.code }}</code>
+        <span class="sc-miss">{{ (r.miss_rate * 100) | round | int }}% missed</span>
+        <span class="sc-att">{{ r.attempted }} answered</span>
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% elif report_absent %}
+  <section class="sc-panel">
+    <p class="sc-note">{{ report_absent }}</p>
+  </section>
+  {% endif %}
+
+  <p class="sc-attrib">
+    Study material adapted from <em>American Government 2e</em> by Glen Krutz and Sylvie
+    Waskiewicz (OpenStax, Rice University, 2019), used under
+    <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>.
+    Source:
+    <a href="https://openstax.org/details/books/american-government-2e" target="_blank" rel="noopener">openstax.org</a>.
+  </p>
+
+</div>
+{% endblock %}

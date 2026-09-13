@@ -9,6 +9,7 @@ All data from kb.py (question bank) and db.py (user progress).
 import os
 import uuid
 import random
+import threading
 from datetime import datetime, timedelta, timezone
 from functools import wraps
 from flask import Flask, render_template, redirect, url_for, request, jsonify, session, flash
@@ -16,6 +17,9 @@ import kb
 import tutor_engine
 import db
 import platform_lib  # per-app paywall helper (vendored, canonical in exam-prep-lms/platform)
+import coach.copy as coach_copy
+import coach.engine as coach_engine        # Study Coach: deterministic, no model, no network
+import coach.repository as coach_repository
 
 # ---------------------------------------------------------------------------
 
@@ -31,6 +35,26 @@ import platform_lib  # per-app paywall helper (vendored, canonical in exam-prep-
 
 app = Flask(__name__)
 app.secret_key = os.environ.get("FLASK_SECRET", os.urandom(24).hex())
+
+# ---------------------------------------------------------------------------
+# Editions
+#
+# The OER (free) edition must carry NO mention of the paid tier and NO mention
+# of any AI feature - not in the nav, not in the sidebar, not in page copy.
+# That is enforced here by ABSENCE: the elements are not rendered at all. Hiding
+# them with CSS would leave them one devtools inspection from being a mention.
+#
+# Default is "full", so this deployment is unchanged. The free deploy sets
+# APP_EDITION=free and the surface simply is not there.
+# ---------------------------------------------------------------------------
+APP_EDITION = os.environ.get("APP_EDITION", "full").strip().lower()
+FREE_EDITION = APP_EDITION == "free"
+
+
+@app.context_processor
+def _inject_edition():
+    """Make the edition flag available to every template."""
+    return {"free_edition": FREE_EDITION}
 
 # Active quiz state now in SQLite (see db.py)
 db.init_active_quizzes_table()
@@ -1312,6 +1336,68 @@ def pricing():
         free_daily_ai=platform_lib.FREE_DAILY_AI,
         plans=fcle_plans,
         launch_free=FREE_LAUNCH,
+    )
+
+
+# ---------------------------------------------------------------------------
+# Study Coach
+#
+# The whole engine is pure Python in the `coach` package - no model, no network,
+# no inference. This route only loads state, calls the engine and renders.
+#
+# The plan is cached per user per day: it is a pure function of that day's data,
+# so recomputing it on every request buys nothing, and the authenticated
+# dashboard's per-domain stats loop is already the measured throughput ceiling
+# on the droplet. `?refresh=1` busts the entry.
+# ---------------------------------------------------------------------------
+_COACH_CACHE = {}
+_COACH_CACHE_MAX = 500
+_coach_lock = threading.Lock()
+_COACH_CONTENT_DB = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "fcle.db")
+_DOMAIN_ID_TO_SLUG = {info["id"]: slug for slug, info in _DOMAIN_GETTERS.items()}
+
+
+def _coach_plan(user_id, refresh=False):
+    """Build (or reuse today's) plan for a user."""
+    now = datetime.now(timezone.utc)
+    key = (user_id, now.date().isoformat())
+    if not refresh:
+        with _coach_lock:
+            cached = _COACH_CACHE.get(key)
+        if cached is not None:
+            return cached
+    state = coach_repository.load_state(user_id, _COACH_CONTENT_DB, db.DB_PATH, now=now)
+    plan = coach_engine.build(state)
+    with _coach_lock:
+        if len(_COACH_CACHE) >= _COACH_CACHE_MAX:
+            _COACH_CACHE.clear()
+        _COACH_CACHE[key] = plan
+    return plan
+
+
+@app.route("/coach")
+@login_required
+def coach():
+    """The Study Coach hub: today's plan, readiness, reading, standards."""
+    user_id = session["user_id"]
+    plan = _coach_plan(user_id, refresh=request.args.get("refresh") == "1")
+
+    slug = _DOMAIN_ID_TO_SLUG.get(plan.focus_domain)
+
+    report_absent = ""
+    if plan.reporting is None and plan.has_data:
+        report_absent = coach_copy.benchmark_report_absent(plan.focus_domain)
+
+    return render_template(
+        "coach.html",
+        plan=plan,
+        drill_slug=slug,
+        readiness_pct=int(round(plan.readiness * 100)),
+        empty_text=coach_copy.plan_empty(),
+        widening_text=coach_copy.readiness_widening(),
+        no_data_text=coach_copy.readiness_unknown(),
+        report_title=coach_copy.benchmark_report_title(),
+        report_absent=report_absent,
     )
 
 

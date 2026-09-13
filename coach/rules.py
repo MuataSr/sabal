@@ -100,6 +100,11 @@ MISCONCEPTION_PRIORITY_WEIGHT = 1.0   # how hard confident errors jump the queue
 BENCHMARK_REPORT_DOMAINS = (1, 2, 3)
 
 # --- reading router --------------------------------------------------------
+# The stored content rows carry harvest artifacts (trailing '*', NBSPs). They are
+# normalised at RENDER time and the rows are never mutated.
+SECTION_TITLE_TRAILING_ARTIFACTS = ("*",)
+NON_BREAKING_SPACE = "\u00a0"
+
 MIN_READING_MINUTES = 1
 MAX_READING_MINUTES = 60
 READING_MINUTES_SLACK = 2

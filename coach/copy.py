@@ -74,8 +74,8 @@ PHASE_TITLES = {
 PHASE_BLURB = {
     "FOUNDATIONS": ("Accuracy comes first. Expect more new material and slower "
                     "sessions until the basics hold."),
-    "CLEANUP": ("You are close. Most of what is left is answers you were sure "
-                "about and got wrong - those are the ones that cost exam points."),
+    "CLEANUP": ("You are close. What is left is mostly questions that felt certain "
+                "and were not - fixing those is where the remaining points are."),
     "LAST_MILE": ("Time to practise under pressure. Timed sets from here, with "
                   "review on top."),
     "TAPER": ("No new material between now and test day. Review what you already "
@@ -120,7 +120,7 @@ def readiness_pass_line():
 
 
 def readiness_widening():
-    return "Answer more questions and this estimate will tighten."
+    return "Answer more questions and this range gets narrower."
 
 
 def readiness_unknown():

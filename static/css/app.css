@@ -492,3 +492,100 @@ input:focus, select:focus, textarea:focus { border-color: var(--a-navy-500); box
   letter-spacing: .05em; text-transform: uppercase; padding: 2px 8px; border-radius: 999px;
 }
 .current-plan-badge { border-color: #2d6a4f33; }
+
+
+/* ---------------------------------------------------------------------------
+   Study Coach  (.sc-*)
+   Namespaced on purpose: app.css already claims .card, .a-panel, .stat-card,
+   .progress-bar-track, .plan-card and friends for other components, and
+   reusing any of them here renders wrong on this page. Loaded last, so it wins
+   for its own names only.
+   --------------------------------------------------------------------------- */
+
+.sc-page { max-width: 1040px; }
+
+.sc-head { margin: 0 0 18px; }
+.sc-title {
+  font-family: 'Libre Baskerville', Georgia, serif;
+  font-size: 26px; line-height: 1.2; color: #1B3A5C; margin: 0 0 6px;
+}
+.sc-sub { color: #4A5568; font-size: 14.5px; line-height: 1.55; margin: 0; max-width: 60ch; }
+
+.sc-grid { display: grid; grid-template-columns: 1.35fr 1fr; gap: 16px; }
+@media (max-width: 860px) { .sc-grid { grid-template-columns: 1fr; } }
+
+.sc-panel {
+  background: #fff; border: 1px solid #E2E5EA; border-radius: 14px;
+  padding: 18px 20px; margin: 0 0 16px; box-shadow: 0 1px 2px rgba(16,24,40,.04);
+}
+.sc-panel-head {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: 10px; margin: 0 0 12px; flex-wrap: wrap;
+}
+.sc-panel-head h2 {
+  font-family: 'Libre Baskerville', Georgia, serif;
+  font-size: 17.5px; color: #1B3A5C; margin: 0;
+}
+
+.sc-chip {
+  display: inline-block; font-size: 11.5px; font-weight: 600; letter-spacing: .02em;
+  color: #7A4F01; background: #FDF3D7; border: 1px solid #F5DE9B;
+  padding: 3px 9px; border-radius: 999px; white-space: nowrap;
+}
+.sc-chip--quiet { color: #4A5568; background: #F4F5F7; border-color: #E2E5EA; font-weight: 500; }
+
+.sc-blocks { list-style: none; margin: 0; padding: 0; }
+.sc-block {
+  display: grid; grid-template-columns: 66px 1fr; gap: 4px 12px;
+  padding: 11px 0; border-top: 1px solid #EEF0F3;
+}
+.sc-block:first-child { border-top: 0; }
+.sc-kind {
+  font-size: 10.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+  color: #1B3A5C; background: #EEF2F7; border-radius: 5px;
+  padding: 3px 0; text-align: center; align-self: start;
+}
+.sc-block--timed .sc-kind { color: #7A4F01; background: #FDF3D7; }
+.sc-block--new .sc-kind { color: #1B4332; background: #E6F0EA; }
+.sc-block-text { font-size: 14.5px; color: #1F2937; line-height: 1.45; }
+.sc-topic { grid-column: 2; font-size: 12.5px; color: #6B7280; }
+
+.sc-empty { color: #4A5568; font-size: 14px; margin: 0 0 12px; }
+.sc-cta-row { margin: 0; }
+
+.sc-range {
+  font-family: 'Libre Baskerville', Georgia, serif;
+  font-size: 20px; color: #1B3A5C; margin: 0 0 2px;
+}
+.sc-range--empty { font-size: 15px; font-family: inherit; color: #4A5568; }
+.sc-pass { font-size: 12.5px; color: #6B7280; margin: 0 0 12px; }
+.sc-meter {
+  height: 9px; background: #EDF0F4; border-radius: 999px; overflow: hidden; margin: 0 0 8px;
+}
+.sc-meter-fill { display: block; height: 100%; background: #FBBF24; border-radius: 999px; }
+.sc-band { font-size: 14px; font-weight: 600; color: #1F2937; margin: 0 0 6px; }
+.sc-note { font-size: 12.5px; color: #6B7280; line-height: 1.5; margin: 6px 0 0; }
+.sc-note a { color: #1B3A5C; text-decoration: underline; }
+
+.sc-read-title {
+  font-family: 'Libre Baskerville', Georgia, serif;
+  font-size: 16px; color: #1F2937; margin: 0 0 3px;
+}
+.sc-read-meta { font-size: 12.5px; color: #6B7280; margin: 0 0 10px; }
+.sc-read-then { font-size: 14px; color: #1F2937; margin: 0; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+
+.sc-rows { list-style: none; margin: 0; padding: 0; }
+.sc-row {
+  display: grid; grid-template-columns: 1fr auto auto; gap: 4px 14px; align-items: baseline;
+  padding: 8px 0; border-top: 1px solid #EEF0F3; font-size: 13.5px;
+}
+.sc-row:first-child { border-top: 0; }
+.sc-code { font-size: 12.5px; color: #1B3A5C; background: #F4F6F9; padding: 2px 6px; border-radius: 5px; }
+.sc-miss { color: #8A2B2B; font-weight: 600; }
+.sc-att { color: #6B7280; font-size: 12.5px; }
+
+.sc-attrib {
+  font-size: 11.5px; color: #8A93A0; line-height: 1.6; margin: 6px 0 0;
+  border-top: 1px solid #EEF0F3; padding-top: 12px;
+}
+.sc-attrib a { color: #8A93A0; text-decoration: underline; }

@@ -48,6 +48,7 @@ class CoachPlan:
     reporting: dict = None
     reading: dict = None
     has_data: bool = False
+    focus_domain: int = None      # domain of the weakest topic, for drill links
 
 
 def _today(now=None):
@@ -120,7 +121,7 @@ def build(state):
             mins = router.reading_minutes(sec)
             reading = {
                 "section_id": sec.get("id"),
-                "title": sec.get("section_title", ""),
+                "title": router.display_title(sec),
                 "minutes": mins,
                 "topic": top.get("topic", ""),
                 "intro": copy.reading_intro(),
@@ -130,6 +131,9 @@ def build(state):
     elif rsum["has_data"] is False:
         reading = None
 
+    focus_domain = plan.topics[0].get("domain") if plan.topics else None
+    if reading is not None:
+        reading["domain"] = focus_domain
     report = router.benchmark_report(readiness.code_stats(answers, state.now),
                                      _first_domain_with_data(rsum))
 
@@ -149,6 +153,7 @@ def build(state):
         reporting=report,
         reading=reading,
         has_data=rsum["has_data"],
+        focus_domain=focus_domain,
     )
 
 

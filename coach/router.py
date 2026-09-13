@@ -55,6 +55,27 @@ def reading_section(topic, sections, primary_section_id=None):
     return best if best_score >= rules.READING_TOKEN_MIN else None
 
 
+def display_title(section):
+    """The student-facing section title, stripped of stored harvest artifacts.
+
+    The content rows came out of a PDF and carry trailing '*' markers and NBSPs.
+    Normalise here, at render. Never mutate the stored rows - other consumers
+    (the tutor's retrieval) rely on them as-is.
+    """
+    if not section:
+        return ""
+    title = str(section.get("section_title") or "")
+    title = title.replace(rules.NON_BREAKING_SPACE, " ").strip()
+    changed = True
+    while changed and title:
+        changed = False
+        for artifact in rules.SECTION_TITLE_TRAILING_ARTIFACTS:
+            if title.endswith(artifact):
+                title = title[: -len(artifact)].rstrip()
+                changed = True
+    return title
+
+
 def reading_minutes(section):
     """Rough read time from the stored character count."""
     if not section:

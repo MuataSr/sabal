@@ -16,7 +16,7 @@
   <!-- legacy editorial styles moved to static/css/legacy.css -->
 
   <link rel="stylesheet" href="{{ url_for('static', filename='css/legacy.css') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}?v=3">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}?v=4">
 </head>
 <body class="a-shell{% block bodyclass %}{% endblock %}{% if standalone %} standalone{% endif %}{% if standalone_auth %} auth-standalone{% endif %}">
 
@@ -40,6 +40,10 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
           Home
         </a>
+        <a href="/coach" class="nav-link{% if request.path == '/coach' %} active{% endif %}">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5 5-2z" stroke-linejoin="round"/></svg>
+          Study Coach
+        </a>
         <a href="/diagnostic" class="nav-link{% if request.path == '/diagnostic' %} active{% endif %}">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 13l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg>
           Diagnostic
@@ -48,10 +52,12 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
           Stimulus Hub
         </a>
+        {% if not free_edition %}
         <a href="/tutor" class="nav-link{% if request.path == '/tutor' %} active{% endif %}">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l1.9 4.8L18.8 9.7l-4.9 1.9L12 16.4l-1.9-4.8-4.9-1.9 4.9-1.9L12 3z"/></svg>
           AI Tutor
         </a>
+        {% endif %}
       </div>
 
       <div class="nav-group">
@@ -77,6 +83,7 @@
     </nav>
 
     <div class="sidebar-foot">
+      {% if not free_edition %}
       <div class="plan-card">
         <div class="plan-title">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 5.6L20 8.6l-4.2 4 1.1 5.8L12 15.5l-4.9 2.9 1.1-5.8L4 8.6l5.6-1z"/></svg>
@@ -87,6 +94,7 @@
         {% elif is_premium %}<p>Unlimited practice &amp; full analytics.</p>
         {% else %}<p>{{ free_daily }} free questions a day.</p>{% endif %}
       </div>
+      {% endif %}
       {% if current_user and not current_user.is_anonymous %}
       <div class="side-user">
         <span class="side-avatar">{{ (current_user.display_name or 'U')[:1] | upper }}</span>

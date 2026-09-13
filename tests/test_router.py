@@ -90,6 +90,33 @@ class TestReadingRouter(unittest.TestCase):
         self.assertIsNone(router.reading_section(None, self.sections))
         self.assertIsNone(router.reading_section("zzzzzz", []))
 
+    def test_display_title_strips_harvest_artifacts(self):
+        self.assertEqual(router.display_title({"section_title": "6.2. How Is Public Opinion Measured?*"}),
+                         "6.2. How Is Public Opinion Measured?")
+        self.assertEqual(router.display_title({"section_title": "1.1. What is Government?**"}),
+                         "1.1. What is Government?")
+        self.assertEqual(router.display_title({"section_title": "3.1. Division of Powers\u00a0*"}),
+                         "3.1. Division of Powers")
+
+    def test_display_title_does_not_mutate_the_row(self):
+        row = {"section_title": "2.2. The Articles of Confederation*"}
+        router.display_title(row)
+        self.assertEqual(row["section_title"], "2.2. The Articles of Confederation*")
+
+    def test_display_title_handles_junk(self):
+        for bad in (None, {}, {"section_title": None}, {"section_title": "*"}):
+            with self.subTest(row=bad):
+                self.assertIsInstance(router.display_title(bad), str)
+
+    def test_real_titles_carry_no_trailing_artifacts(self):
+        with open("tests/real_data.json") as fh:
+            import json as _json
+            secs = _json.load(fh)["sections"]
+        dirty = [s["section_title"] for s in secs if router.display_title(s) != s["section_title"]]
+        self.assertTrue(dirty, "expected some real titles to carry artifacts")
+        for s in secs:
+            self.assertFalse(router.display_title(s).endswith("*"))
+
     def test_read_minutes_are_clamped(self):
         self.assertGreaterEqual(router.reading_minutes({"char_count": 10}),
                                 rules.MIN_READING_MINUTES)
