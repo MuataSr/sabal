@@ -49,8 +49,16 @@ app.secret_key = os.environ.get("FLASK_SECRET", os.urandom(24).hex())
 # Default is "full", so this deployment is unchanged. The free deploy sets
 # APP_EDITION=free and the surface simply is not there.
 # ---------------------------------------------------------------------------
-APP_EDITION = os.environ.get("APP_EDITION", "full").strip().lower()
-FREE_EDITION = APP_EDITION == "free"
+APP_EDITION = os.environ.get("APP_EDITION", "free").strip().lower()
+
+# Fail CLOSED. The public product is the free OER edition, so an unset - or
+# misspelled - APP_EDITION means free, never paid. The paid edition has to be
+# asked for by name ("pro" or "full"). A deploy that forgets the variable then
+# fails visibly, with a PRO box missing its paid surface, instead of silently
+# serving the paid edition to students - which is exactly how the public box
+# once shipped PRO and AI copy with the flag unset.
+FULL_EDITION = APP_EDITION in ("pro", "full")
+FREE_EDITION = not FULL_EDITION
 
 
 @app.context_processor
@@ -233,17 +241,34 @@ _FREE_LIMIT_MSG = ("You've hit today's free limit of 10 questions. "
                    "Upgrade for unlimited practice, or come back tomorrow!")
 
 
+def _questions_remaining_for(user):
+    """Remaining free questions today for one user. None means unlimited.
+
+    The free OER edition has no paid tier and no caps at all, so it is always
+    unlimited there, and during free launch every user is unlimited everywhere.
+    Only the full edition, with the launch flag off and no plan, gets a count.
+
+    The account page used to call platform_lib.questions_remaining() directly,
+    which honoured neither the edition nor launch mode - so it rendered
+    "0 / 10 free / 10 left today" on the same page that promises no limits.
+    """
+    if FREE_EDITION or FREE_LAUNCH:
+        return None
+    user = user or {}
+    if not user.get("id"):
+        return platform_lib.FREE_DAILY_QUESTIONS
+    return platform_lib.questions_remaining(user, db.count_answers_today(user["id"]))
+
+
 def _questions_left_today():
     """Remaining free questions today for the current session.
-    Returns None when unlimited (free launch or paid plan); else int >= 0."""
-    if FREE_LAUNCH:
+    Returns None when unlimited (free edition, free launch or paid plan)."""
+    if FREE_EDITION or FREE_LAUNCH:
         return None
     user_id = session.get("user_id")
     if not user_id:
         return platform_lib.FREE_DAILY_QUESTIONS
-    user = db.get_user(user_id) or {}
-    used = db.count_answers_today(user_id)
-    return platform_lib.questions_remaining(user, used)
+    return _questions_remaining_for(db.get_user(user_id) or {})
 
 
 # ---------------------------------------------------------------------------
@@ -1463,7 +1488,7 @@ def account():
     plan_key = user.get("plan") if user.get("plan") in platform_lib.PRICING else platform_lib.plan_for_app("fcle")
     pinfo = platform_lib.PRICING[plan_key]
     used = db.count_answers_today(user_id)
-    rem = platform_lib.questions_remaining(user, used)
+    rem = _questions_remaining_for(user)
     stats = db.get_overall_stats(user_id)
     total = db.get_total_answered(user_id)
 
