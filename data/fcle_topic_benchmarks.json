@@ -1,0 +1,1133 @@
+{
+ "mapping": [
+  {
+   "topic": "Citizen participation",
+   "domain": 1,
+   "n": 67,
+   "primary_code": "SS.7.CG.2.8",
+   "secondary_codes": [],
+   "decided_by": "ann-e-override-evidence",
+   "note": "Questions cover collective/toll goods, media framing and interest groups. Neither the drafter's 2.10 nor the reviewer's 2.2 matched; 2.8 fits.",
+   "rev_verdict": "DISPUTE",
+   "gen_confidence": "high"
+  },
+  {
+   "topic": "Federalism basics",
+   "domain": 1,
+   "n": 65,
+   "primary_code": "SS.7.CG.3.2",
+   "secondary_codes": [
+    "SS.7.CG.3.4"
+   ],
+   "decided_by": "draft+review-confirmed",
+   "note": "",
+   "rev_verdict": "CONFIRM",
+   "gen_confidence": "high"
+  },
+  {
+   "topic": "Interest groups and lobbying",
+   "domain": 1,
+   "n": 68,
+   "primary_code": "SS.7.CG.2.8",
+   "secondary_codes": [],
+   "decided_by": "draft+review-confirmed",
+   "note": "",
+   "rev_verdict": "CONFIRM",
+   "gen_confidence": "high"
+  },
+  {
+   "topic": "Limited government and rule of law",
+   "domain": 1,
+   "n": 64,
+   "primary_code": "SS.7.CG.1.11",
+   "secondary_codes": [
+    "SS.7.CG.1.9"
+   ],
+   "decided_by": "draft+review-confirmed",
+   "note": "",
+   "rev_verdict": "CONFIRM",
+   "gen_confidence": "high"
+  },
+  {
+   "topic": "Media and public opinion",
+   "domain": 1,
+   "n": 64,
+   "primary_code": "SS.7.CG.2.9",
+   "secondary_codes": [
+    "SS.7.CG.2.8"
+   ],
+   "decided_by": "draft+review-confirmed",
+   "note": "",
+   "rev_verdict": "CONFIRM",
+   "gen_confidence": "high"
+  },
+  {
+   "topic": "Natural rights and social contract",
+   "domain": 1,
+   "n": 71,
+   "primary_code": "SS.7.CG.1.6",
+   "secondary_codes": [
+    "SS.7.CG.1.2"
+   ],
+   "decided_by": "draft+review-confirmed",
+   "note": "",
+   "rev_verdict": "CONFIRM",
+   "gen_confidence": "high"
+  },
+  {
+   "topic": "Political culture and ideology",
+   "domain": 1,
+   "n": 71,
+   "primary_code": "SS.7.CG.1.2",
+   "secondary_codes": [
+    "SS.7.CG.1.10"
+   ],
+   "decided_by": "draft+review-confirmed",
+   "note": "",
+   "rev_verdict": "DISPUTE",
+   "gen_confidence": "high"
+  },
+  {
+   "topic": "Political parties and elections",
+   "domain": 1,
+   "n": 65,
+   "primary_code": "SS.7.CG.2.6",
+   "secondary_codes": [
+    "SS.7.CG.2.7"
+   ],
+   "decided_by": "draft+review-confirmed",
+   "note": "",
+   "rev_verdict": "CONFIRM",
+   "gen_confidence": "high"
+  },
+  {
+   "topic": "Political socialization",
+   "domain": 1,
+   "n": 67,
+   "primary_code": "SS.7.CG.2.8",
+   "secondary_codes": [],
+   "decided_by": "ann-e-override-evidence",
+   "note": "Questions are about parties vs interest groups, majority-party status, party-in-the-electorate - not media bias (2.9) or obligations (2.2).",
+   "rev_verdict": "DISPUTE",
+   "gen_confidence": "medium"
+  },
+  {
+   "topic": "Popular sovereignty",
+   "domain": 1,
+   "n": 73,
+   "primary_code": "SS.7.CG.1.8",
+   "secondary_codes": [
+    "SS.7.CG.1.10"
+   ],
+   "decided_by": "draft+review-confirmed",
+   "note": "",
+   "rev_verdict": "CONFIRM",
+   "gen_confidence": "high"
+  },
+  {
+   "topic": "Amendment process",
+   "domain": 2,
+   "n": 45,
+   "primary_code": "SS.7.CG.3.5",
+   "secondary_codes": [
+    "SS.7.CG.3.12"
+   ],
+   "decided_by": "draft+review-confirmed",
+   "note": "",
+   "rev_verdict": "CONFIRM",
+   "gen_confidence": "high"
+  },
+  {
+   "topic": "Article structure and content",
+   "domain": 2,
+   "n": 6,
+   "primary_code": "SS.7.CG.3.3",
+   "secondary_codes": [
+    "SS.7.CG.3.4",
+    "SS.7.CG.3.5"
+   ],
+   "decided_by": "ann-e-override-evidence",
+   "note": "Questions ask what each Article establishes. No single SS.7.CG code covers the Articles; 3.3 for the branches, 3.4 Article IV, 3.5 Article V.",
+   "rev_verdict": "DISPUTE",
+   "gen_confidence": "high"
+  },
+  {
+   "topic": "Articles of Confederation",
+   "domain": 2,
+   "n": 41,
+   "primary_code": "SS.7.CG.1.7",
+   "secondary_codes": [
+    "SS.7.CG.1.10"
+   ],
+   "decided_by": "draft+review-confirmed",
+   "note": "",
+   "rev_verdict": "CONFIRM",
+   "gen_confidence": "high"
+  },
+  {
+   "topic": "Bill of Rights",
+   "domain": 2,
+   "n": 42,
+   "primary_code": "SS.7.CG.2.3",
+   "secondary_codes": [
+    "SS.7.CG.1.10"
+   ],
+   "decided_by": "draft+review-confirmed",
+   "note": "",
+   "rev_verdict": "CONFIRM",
+   "gen_confidence": "high"
+  },
+  {
+   "topic": "Bureaucracy",
+   "domain": 2,
+   "n": 8,
+   "primary_code": "SS.7.CG.3.8",
+   "secondary_codes": [],
+   "decided_by": "reviewer-accepted",
+   "note": "Bureaucracy is executive-branch structure and process; 3.13 is government obligations/services.",
+   "rev_verdict": "DISPUTE",
+   "gen_confidence": "medium"
+  },
+  {
+   "topic": "Checks and balances",
+   "domain": 2,
+   "n": 45,
+   "primary_code": "SS.7.CG.1.9",
+   "secondary_codes": [
+    "SS.7.CG.3.3"
+   ],
+   "decided_by": "draft+review-confirmed",
+   "note": "",
+   "rev_verdict": "CONFIRM",
+   "gen_confidence": "high"
+  },
+  {
+   "topic": "Constitutional Convention",
+   "domain": 2,
+   "n": 42,
+   "primary_code": "SS.7.CG.1.7",
+   "secondary_codes": [
+    "SS.7.CG.1.10"
+   ],
+   "decided_by": "draft+review-confirmed",
+   "note": "",
+   "rev_verdict": "DISPUTE",
+   "gen_confidence": "high"
+  },
+  {
+   "topic": "Constitutional principles",
+   "domain": 2,
+   "n": 7,
+   "primary_code": "SS.7.CG.1.2",
+   "secondary_codes": [
+    "SS.7.CG.1.11"
+   ],
+   "decided_by": "draft+review-confirmed",
+   "note": "",
+   "rev_verdict": "CONFIRM",
+   "gen_confidence": "high"
+  },
+  {
+   "topic": "Executive branch",
+   "domain": 2,
+   "n": 48,
+   "primary_code": "SS.7.CG.3.8",
+   "secondary_codes": [
+    "SS.7.CG.3.3"
+   ],
+   "decided_by": "draft+review-confirmed",
+   "note": "",
+   "rev_verdict": "CONFIRM",
+   "gen_confidence": "high"
+  },
+  {
+   "topic": "Federalism",
+   "domain": 2,
+   "n": 52,
+   "primary_code": "SS.7.CG.3.2",
+   "secondary_codes": [
+    "SS.7.CG.3.4"
+   ],
+   "decided_by": "draft+review-confirmed",
+   "note": "",
+   "rev_verdict": "CONFIRM",
+   "gen_confidence": "high"
+  },
+  {
+   "topic": "Judicial branch",
+   "domain": 2,
+   "n": 48,
+   "primary_code": "SS.7.CG.3.9",
+   "secondary_codes": [
+    "SS.7.CG.3.3"
+   ],
+   "decided_by": "draft+review-confirmed",
+   "note": "",
+   "rev_verdict": "CONFIRM",
+   "gen_confidence": "high"
+  },
+  {
+   "topic": "Key amendments",
+   "domain": 2,
+   "n": 48,
+   "primary_code": "SS.7.CG.3.6",
+   "secondary_codes": [
+    "SS.7.CG.2.3"
+   ],
+   "decided_by": "draft+review-confirmed",
+   "note": "",
+   "rev_verdict": "CONFIRM",
+   "gen_confidence": "high"
+  },
+  {
+   "topic": "Legislative branch",
+   "domain": 2,
+   "n": 49,
+   "primary_code": "SS.7.CG.3.7",
+   "secondary_codes": [
+    "SS.7.CG.3.3"
+   ],
+   "decided_by": "draft+review-confirmed",
+   "note": "",
+   "rev_verdict": "CONFIRM",
+   "gen_confidence": "high"
+  },
+  {
+   "topic": "Separation of powers",
+   "domain": 2,
+   "n": 7,
+   "primary_code": "SS.7.CG.1.9",
+   "secondary_codes": [
+    "SS.7.CG.3.3"
+   ],
+   "decided_by": "draft+review-confirmed",
+   "note": "",
+   "rev_verdict": "CONFIRM",
+   "gen_confidence": "high"
+  },
+  {
+   "topic": "State and local government",
+   "domain": 2,
+   "n": 8,
+   "primary_code": "SS.7.CG.3.13",
+   "secondary_codes": [
+    "SS.7.CG.2.10"
+   ],
+   "decided_by": "draft+review-confirmed",
+   "note": "",
+   "rev_verdict": "CONFIRM",
+   "gen_confidence": "high"
+  },
+  {
+   "topic": "Anti-Federalist arguments",
+   "domain": 3,
+   "n": 41,
+   "primary_code": "SS.7.CG.1.10",
+   "secondary_codes": [
+    "SS.7.CG.1.9"
+   ],
+   "decided_by": "draft+review-confirmed",
+   "note": "",
+   "rev_verdict": "CONFIRM",
+   "gen_confidence": "high"
+  },
+  {
+   "topic": "Articles of Confederation",
+   "domain": 3,
+   "n": 10,
+   "primary_code": "SS.7.CG.1.7",
+   "secondary_codes": [],
+   "decided_by": "draft+review-confirmed",
+   "note": "",
+   "rev_verdict": "CONFIRM",
+   "gen_confidence": "high"
+  },
+  {
+   "topic": "Articles of Confederation structure",
+   "domain": 3,
+   "n": 39,
+   "primary_code": "SS.7.CG.1.7",
+   "secondary_codes": [
+    "SS.7.CG.3.2"
+   ],
+   "decided_by": "draft+review-confirmed",
+   "note": "",
+   "rev_verdict": "CONFIRM",
+   "gen_confidence": "high"
+  },
+  {
+   "topic": "Bill of Rights origins",
+   "domain": 3,
+   "n": 8,
+   "primary_code": "SS.7.CG.1.10",
+   "secondary_codes": [
+    "SS.7.CG.2.3"
+   ],
+   "decided_by": "draft+review-confirmed",
+   "note": "",
+   "rev_verdict": "CONFIRM",
+   "gen_confidence": "high"
+  },
+  {
+   "topic": "Constitution Preamble",
+   "domain": 3,
+   "n": 41,
+   "primary_code": "SS.7.CG.1.8",
+   "secondary_codes": [],
+   "decided_by": "draft+review-confirmed",
+   "note": "",
+   "rev_verdict": "CONFIRM",
+   "gen_confidence": "high"
+  },
+  {
+   "topic": "Constitution key articles",
+   "domain": 3,
+   "n": 39,
+   "primary_code": "SS.7.CG.3.3",
+   "secondary_codes": [
+    "SS.7.CG.3.4"
+   ],
+   "decided_by": "draft+review-confirmed",
+   "note": "",
+   "rev_verdict": "DISPUTE",
+   "gen_confidence": "high"
+  },
+  {
+   "topic": "Constitutional Convention",
+   "domain": 3,
+   "n": 11,
+   "primary_code": "SS.7.CG.1.7",
+   "secondary_codes": [
+    "SS.7.CG.1.10"
+   ],
+   "decided_by": "draft+review-confirmed",
+   "note": "",
+   "rev_verdict": "DISPUTE",
+   "gen_confidence": "high"
+  },
+  {
+   "topic": "Constitutional ratification",
+   "domain": 3,
+   "n": 49,
+   "primary_code": "SS.7.CG.1.10",
+   "secondary_codes": [
+    "SS.7.CG.1.7"
+   ],
+   "decided_by": "draft+review-confirmed",
+   "note": "",
+   "rev_verdict": "CONFIRM",
+   "gen_confidence": "high"
+  },
+  {
+   "topic": "Declaration of Independence",
+   "domain": 3,
+   "n": 49,
+   "primary_code": "SS.7.CG.1.6",
+   "secondary_codes": [
+    "SS.7.CG.1.5"
+   ],
+   "decided_by": "draft+review-confirmed",
+   "note": "",
+   "rev_verdict": "CONFIRM",
+   "gen_confidence": "high"
+  },
+  {
+   "topic": "English constitutional heritage",
+   "domain": 3,
+   "n": 7,
+   "primary_code": "SS.7.CG.1.3",
+   "secondary_codes": [],
+   "decided_by": "draft+review-confirmed",
+   "note": "",
+   "rev_verdict": "CONFIRM",
+   "gen_confidence": "high"
+  },
+  {
+   "topic": "Enlightenment philosophy",
+   "domain": 3,
+   "n": 12,
+   "primary_code": "SS.7.CG.1.2",
+   "secondary_codes": [
+    "SS.7.CG.1.11"
+   ],
+   "decided_by": "draft+review-confirmed",
+   "note": "",
+   "rev_verdict": "CONFIRM",
+   "gen_confidence": "medium"
+  },
+  {
+   "topic": "Federalist No. 10",
+   "domain": 3,
+   "n": 43,
+   "primary_code": "SS.7.CG.1.10",
+   "secondary_codes": [
+    "SS.7.CG.3.1"
+   ],
+   "decided_by": "draft+review-confirmed",
+   "note": "",
+   "rev_verdict": "CONFIRM",
+   "gen_confidence": "high"
+  },
+  {
+   "topic": "Federalist No. 51",
+   "domain": 3,
+   "n": 41,
+   "primary_code": "SS.7.CG.1.9",
+   "secondary_codes": [
+    "SS.7.CG.3.2"
+   ],
+   "decided_by": "draft+review-confirmed",
+   "note": "",
+   "rev_verdict": "CONFIRM",
+   "gen_confidence": "high"
+  },
+  {
+   "topic": "Federalist No. 78",
+   "domain": 3,
+   "n": 42,
+   "primary_code": "SS.7.CG.3.9",
+   "secondary_codes": [
+    "SS.7.CG.3.3"
+   ],
+   "decided_by": "draft+review-confirmed",
+   "note": "",
+   "rev_verdict": "DISPUTE",
+   "gen_confidence": "high"
+  },
+  {
+   "topic": "Federalist Papers",
+   "domain": 3,
+   "n": 8,
+   "primary_code": "SS.7.CG.1.10",
+   "secondary_codes": [],
+   "decided_by": "draft+review-confirmed",
+   "note": "",
+   "rev_verdict": "CONFIRM",
+   "gen_confidence": "high"
+  },
+  {
+   "topic": "Federalist vs Anti-Federalist debate",
+   "domain": 3,
+   "n": 9,
+   "primary_code": "SS.7.CG.1.10",
+   "secondary_codes": [],
+   "decided_by": "draft+review-confirmed",
+   "note": "",
+   "rev_verdict": "CONFIRM",
+   "gen_confidence": "high"
+  },
+  {
+   "topic": "Founding era",
+   "domain": 3,
+   "n": 11,
+   "primary_code": "SS.7.CG.1.2",
+   "secondary_codes": [
+    "SS.7.CG.1.3"
+   ],
+   "decided_by": "draft+review-confirmed",
+   "note": "",
+   "rev_verdict": "CONFIRM",
+   "gen_confidence": "medium"
+  },
+  {
+   "topic": "Three-Fifths Compromise and Great Compromise",
+   "domain": 3,
+   "n": 43,
+   "primary_code": "SS.7.CG.1.7",
+   "secondary_codes": [
+    "SS.7.CG.3.4"
+   ],
+   "decided_by": "draft+review-confirmed",
+   "note": "",
+   "rev_verdict": "CONFIRM",
+   "gen_confidence": "medium"
+  },
+  {
+   "topic": "ADA and landmark legislation",
+   "domain": 4,
+   "n": 40,
+   "primary_code": "SS.7.CG.3.11",
+   "secondary_codes": [],
+   "decided_by": "draft+review-confirmed",
+   "note": "",
+   "rev_verdict": "DISPUTE",
+   "gen_confidence": "high"
+  },
+  {
+   "topic": "Brown v Board of Education",
+   "domain": 4,
+   "n": 41,
+   "primary_code": "SS.7.CG.3.11",
+   "secondary_codes": [],
+   "decided_by": "draft+review-confirmed",
+   "note": "",
+   "rev_verdict": "CONFIRM",
+   "gen_confidence": "high"
+  },
+  {
+   "topic": "Citizens United v FEC",
+   "domain": 4,
+   "n": 7,
+   "primary_code": "SS.7.CG.3.11",
+   "secondary_codes": [],
+   "decided_by": "draft+review-confirmed",
+   "note": "",
+   "rev_verdict": "CONFIRM",
+   "gen_confidence": "high"
+  },
+  {
+   "topic": "Civil Rights Act 1964",
+   "domain": 4,
+   "n": 42,
+   "primary_code": "SS.7.CG.3.6",
+   "secondary_codes": [],
+   "decided_by": "reviewer-accepted",
+   "note": "3.11 covers Supreme Court decisions only; the CRA is legislation and enforces the 14th Amendment.",
+   "rev_verdict": "DISPUTE",
+   "gen_confidence": "high"
+  },
+  {
+   "topic": "Civil liberties",
+   "domain": 4,
+   "n": 4,
+   "primary_code": "SS.7.CG.2.4",
+   "secondary_codes": [],
+   "decided_by": "draft+review-confirmed",
+   "note": "",
+   "rev_verdict": "CONFIRM",
+   "gen_confidence": "high"
+  },
+  {
+   "topic": "Civil rights movement",
+   "domain": 4,
+   "n": 8,
+   "primary_code": "SS.7.CG.3.6",
+   "secondary_codes": [],
+   "decided_by": "reviewer-accepted",
+   "note": "Movement history and legislation, not case law.",
+   "rev_verdict": "DISPUTE",
+   "gen_confidence": "medium"
+  },
+  {
+   "topic": "Criminal procedure rights",
+   "domain": 4,
+   "n": 6,
+   "primary_code": "SS.7.CG.2.5",
+   "secondary_codes": [],
+   "decided_by": "draft+review-confirmed",
+   "note": "",
+   "rev_verdict": "CONFIRM",
+   "gen_confidence": "high"
+  },
+  {
+   "topic": "Dred Scott v Sandford",
+   "domain": 4,
+   "n": 6,
+   "primary_code": "SS.7.CG.3.11",
+   "secondary_codes": [],
+   "decided_by": "draft+review-confirmed",
+   "note": "",
+   "rev_verdict": "CONFIRM",
+   "gen_confidence": "high"
+  },
+  {
+   "topic": "Executive orders",
+   "domain": 4,
+   "n": 7,
+   "primary_code": "SS.7.CG.3.8",
+   "secondary_codes": [],
+   "decided_by": "draft+review-confirmed",
+   "note": "",
+   "rev_verdict": "CONFIRM",
+   "gen_confidence": "high"
+  },
+  {
+   "topic": "First Amendment free speech",
+   "domain": 4,
+   "n": 6,
+   "primary_code": "SS.7.CG.2.3",
+   "secondary_codes": [],
+   "decided_by": "draft+review-confirmed",
+   "note": "",
+   "rev_verdict": "CONFIRM",
+   "gen_confidence": "high"
+  },
+  {
+   "topic": "Fourteenth Amendment incorporation",
+   "domain": 4,
+   "n": 7,
+   "primary_code": "SS.7.CG.3.6",
+   "secondary_codes": [],
+   "decided_by": "draft+review-confirmed",
+   "note": "",
+   "rev_verdict": "CONFIRM",
+   "gen_confidence": "high"
+  },
+  {
+   "topic": "Gideon v Wainwright",
+   "domain": 4,
+   "n": 40,
+   "primary_code": "SS.7.CG.3.11",
+   "secondary_codes": [],
+   "decided_by": "draft+review-confirmed",
+   "note": "",
+   "rev_verdict": "CONFIRM",
+   "gen_confidence": "high"
+  },
+  {
+   "topic": "Governance",
+   "domain": 4,
+   "n": 5,
+   "primary_code": "SS.7.CG.3.1",
+   "secondary_codes": [],
+   "decided_by": "draft+review-confirmed",
+   "note": "",
+   "rev_verdict": "CONFIRM",
+   "gen_confidence": "medium"
+  },
+  {
+   "topic": "Landmark cases",
+   "domain": 4,
+   "n": 8,
+   "primary_code": "SS.7.CG.3.11",
+   "secondary_codes": [],
+   "decided_by": "draft+review-confirmed",
+   "note": "",
+   "rev_verdict": "CONFIRM",
+   "gen_confidence": "high"
+  },
+  {
+   "topic": "Mapp v Ohio",
+   "domain": 4,
+   "n": 7,
+   "primary_code": "SS.7.CG.3.11",
+   "secondary_codes": [],
+   "decided_by": "draft+review-confirmed",
+   "note": "",
+   "rev_verdict": "CONFIRM",
+   "gen_confidence": "high"
+  },
+  {
+   "topic": "Marbury v Madison",
+   "domain": 4,
+   "n": 42,
+   "primary_code": "SS.7.CG.3.11",
+   "secondary_codes": [],
+   "decided_by": "draft+review-confirmed",
+   "note": "",
+   "rev_verdict": "CONFIRM",
+   "gen_confidence": "high"
+  },
+  {
+   "topic": "McCulloch v Maryland",
+   "domain": 4,
+   "n": 43,
+   "primary_code": "SS.7.CG.3.11",
+   "secondary_codes": [],
+   "decided_by": "draft+review-confirmed",
+   "note": "",
+   "rev_verdict": "CONFIRM",
+   "gen_confidence": "high"
+  },
+  {
+   "topic": "Miranda v Arizona",
+   "domain": 4,
+   "n": 42,
+   "primary_code": "SS.7.CG.3.11",
+   "secondary_codes": [],
+   "decided_by": "draft+review-confirmed",
+   "note": "",
+   "rev_verdict": "CONFIRM",
+   "gen_confidence": "high"
+  },
+  {
+   "topic": "New Deal and Great Society",
+   "domain": 4,
+   "n": 7,
+   "primary_code": "SS.7.CG.3.13",
+   "secondary_codes": [],
+   "decided_by": "draft+review-confirmed",
+   "note": "",
+   "rev_verdict": "CONFIRM",
+   "gen_confidence": "high"
+  },
+  {
+   "topic": "Plessy v Ferguson",
+   "domain": 4,
+   "n": 6,
+   "primary_code": "SS.7.CG.3.11",
+   "secondary_codes": [],
+   "decided_by": "draft+review-confirmed",
+   "note": "",
+   "rev_verdict": "CONFIRM",
+   "gen_confidence": "high"
+  },
+  {
+   "topic": "Roe v Wade",
+   "domain": 4,
+   "n": 5,
+   "primary_code": "SS.7.CG.3.11",
+   "secondary_codes": [],
+   "decided_by": "draft+review-confirmed",
+   "note": "",
+   "rev_verdict": "CONFIRM",
+   "gen_confidence": "high"
+  },
+  {
+   "topic": "Schenck v United States",
+   "domain": 4,
+   "n": 40,
+   "primary_code": "SS.7.CG.3.11",
+   "secondary_codes": [],
+   "decided_by": "draft+review-confirmed",
+   "note": "",
+   "rev_verdict": "CONFIRM",
+   "gen_confidence": "high"
+  },
+  {
+   "topic": "Tinker v Des Moines",
+   "domain": 4,
+   "n": 41,
+   "primary_code": "SS.7.CG.3.11",
+   "secondary_codes": [],
+   "decided_by": "draft+review-confirmed",
+   "note": "",
+   "rev_verdict": "CONFIRM",
+   "gen_confidence": "high"
+  },
+  {
+   "topic": "Voting Rights Act 1965",
+   "domain": 4,
+   "n": 41,
+   "primary_code": "SS.7.CG.3.6",
+   "secondary_codes": [],
+   "decided_by": "reviewer-accepted",
+   "note": "3.6 names the 15th Amendment, which the VRA enforces.",
+   "rev_verdict": "DISPUTE",
+   "gen_confidence": "high"
+  }
+ ],
+ "benchmark_text": {
+  "SS.7.CG.1.1": {
+   "description": "Analyze the influences of ancient Greece, ancient Rome and the Judeo- Christian tradition on America\u2019s constitutional republic. \uf0b7",
+   "clarifications": [
+    "Students will explain the influence of ancient Greece on America\u2019s constitutional republic (e.g., civic participation, legislative bodies, polis, voting rights, written constitution). \uf0b7",
+    "Students will explain the influence of ancient Rome on America\u2019s constitutional republic (e.g., civic participation, republicanism, representative government, rule of law, separation of powers). \uf0b7",
+    "Students will compare and contrast the democratic principles of ancient Greece and ancient Rome with those of the United States. \uf0b7",
+    "Students will explain how the Judeo-Christian ethical ideas of justice, individual worth, personal responsibility and the rule of law influenced America\u2019s constitutional republic."
+   ]
+  },
+  "SS.7.CG.1.2": {
+   "description": "Trace the principles underlying America\u2019s founding ideas on law and government. \uf0b7",
+   "clarifications": [
+    "Students will recognize principles contained in the founding documents (e.g., due process of law, equality of mankind, limited government, natural rights, the rule of law). \uf0b7",
+    "Students will explain why religious liberty is a protected right."
+   ]
+  },
+  "SS.7.CG.1.3": {
+   "description": "Trace the impact that the Magna Carta, Mayflower Compact, English Bill of Rights and Thomas Paine\u2019s Common Sense had on colonists\u2019 views of government. \uf0b7",
+   "clarifications": [
+    "Students will identify the important ideas contained in the Magna Carta (e.g., due process of law, limitation of government power, right to justice, right to fair trial), Mayflower Compact (e.g., consent of the governed, self-government), English Bill of Rights (e.g., right to life, liberty and property; no taxation without representation; right to a speedy and fair jury trial; no excessive punishments; habeas corpus) and Common Sense (representative self-government)."
+   ]
+  },
+  "SS.7.CG.1.4": {
+   "description": "Analyze how Enlightenment ideas, including Montesquieu\u2019s view of separation of powers and John Locke\u2019s theories related to natural law and Locke\u2019s social contract, influenced the Founding. \uf0b7",
+   "clarifications": [
+    "Students will identify and describe the Enlightenment ideas of separation of powers, natural law and social contract. \uf0b7",
+    "Students will examine how Enlightenment ideas influenced the Founders\u2019 beliefs about individual liberties and government. \uf0b7",
+    "Students will evaluate the influence of Montesquieu\u2019s and Locke\u2019s ideas on the Founding Fathers."
+   ]
+  },
+  "SS.7.CG.1.5": {
+   "description": "Describe how British policies and responses to colonial concerns led to the writing of the Declaration of Independence. \uf0b7",
+   "clarifications": [
+    "Students will trace the causal relationships between British policies, British responses to colonial grievances and the writing of the Declaration of Independence (e.g., Stamp Act, Quartering Act, Declaratory Act, Townshend Acts, Tea Act, Intolerable Acts). \uf0b7",
+    "Students will recognize the underlying themes of British colonial policies concerning taxation, representation and individual rights that formed the basis of the American colonists\u2019 desire for independence."
+   ]
+  },
+  "SS.7.CG.1.6": {
+   "description": "Analyze the ideas and grievances set forth in the Declaration of Independence. \uf0b7",
+   "clarifications": [
+    "Students will identify the unalienable rights specifically expressed in the Preamble of the Declaration of Independence (e.g., life, liberty and the pursuit of happiness). \uf0b7",
+    "Students will explain the concept of natural rights as expressed in the Declaration of Independence. \uf0b7",
+    "Students will recognize natural rights, social contract, limited government and the right of resistance to tyrannical government. \uf0b7",
+    "Students will analyze the relationship between natural rights and the role of government: 1. People are endowed by their Creator with certain unalienable rights; 2. Governments are instituted among men to secure these rights; 3. Governments derive their just powers from the consent of governed; and 4. Whenever any form of government becomes destructive of these ends, it is the right of the people to alter or abolish it and to institute new government. \uf0b7",
+    "Students will recognize the connection between specific grievances in the Declaration of Independence and natural rights violations. \uf0b7",
+    "Students will recognize colonial grievances identified in the Declaration of Independence (e.g., imposing taxes without the consent of the people, suspending trial by jury, limiting judicial powers, quartering soldiers and dissolving legislatures)."
+   ]
+  },
+  "SS.7.CG.1.7": {
+   "description": "Explain how the weaknesses of the Articles of Confederation led to the writing of the U.S. Constitution. \uf0b7",
+   "clarifications": [
+    "Students will identify the weaknesses of the government under the Articles of Confederation (i.e., Congress had no power to tax, to regulate trade or to enforce its laws; the national government lacked a national court system [judicial branch] and central leadership [executive branch]; no national armed forces; and changes to the Articles required unanimous consent of the 13 states)."
+   ]
+  },
+  "SS.7.CG.1.8": {
+   "description": "Explain the purpose of the Preamble to the U.S. Constitution. \uf0b7",
+   "clarifications": [
+    "Students will explain how the Preamble serves as an introduction to the U.S. Constitution (e.g., establishes the goals and purposes of government). \uf0b7",
+    "Students will identify the goals and purposes of the national government as set forth in the Preamble to the U.S. Constitution (i.e., form a more perfect union, establish justice, ensure domestic tranquility, provide for the common defense, promote the general welfare, and secure the blessings of liberty to ourselves and our posterity). \uf0b7",
+    "Students will recognize that the intention of the phrase \u201cWe the People\u201d means that government depends on the people for its power and exists to serve them."
+   ]
+  },
+  "SS.7.CG.1.9": {
+   "description": "Describe how the U.S. Constitution limits the powers of government through separation of powers, checks and balances, individual rights, rule of law and due process of law. \uf0b7",
+   "clarifications": [
+    "Students will explain the concept of limited government in the U.S. Constitution. \uf0b7",
+    "Students will describe and distinguish between separation of powers and checks and balances. \uf0b7",
+    "Students will analyze how government power is limited by separation of powers and/or checks and balances. \uf0b7",
+    "Students will recognize examples of separation of powers and checks and balances. \uf0b7",
+    "Students will recognize the influence of the U.S. Constitution on the development of other governments."
+   ]
+  },
+  "SS.7.CG.1.10": {
+   "description": "Compare the viewpoints of the Federalists and the Anti-Federalists regarding ratification of the U.S. Constitution and including a bill of rights. \uf0b7",
+   "clarifications": [
+    "Students will identify the viewpoints of the Federalists and the Anti-Federalists about the ratification of the U.S. Constitution. \uf0b7",
+    "Students will recognize the Anti-Federalists\u2019 reasons for the inclusion of a bill of rights in the U.S. Constitution."
+   ]
+  },
+  "SS.7.CG.1.11": {
+   "description": "Define the rule of law and recognize its influence on the development of legal, political and governmental systems in the United States. \uf0b7",
+   "clarifications": [
+    "Students will compare and contrast the characteristics of a society that operates under the rule of law and one that does not. \uf0b7",
+    "Students will assess the importance of the rule of law in protecting citizens from arbitrary and abusive uses of government power. \uf0b7",
+    "Students will analyze the meaning and importance of due process in the United States legal system. \uf0b7",
+    "Students will evaluate the impact of the rule of law on governmental officials and institutions (e.g., accountability to the law, consistent application and enforcement of the law, decisions based on the law, fair procedures, transparency of institutions)."
+   ]
+  },
+  "SS.7.CG.2.1": {
+   "description": "Define the term \u201ccitizen,\u201d and explain the constitutional means of becoming a U.S. citizen. \uf0b7",
+   "clarifications": [
+    "Students will define citizenship as stated in the 14th Amendment. \uf0b7",
+    "Students will explain the process of becoming a naturalized citizen. \uf0b7",
+    "Students will define permanent residency and explain its role in obtaining citizenship. \uf0b7",
+    "Students will examine the impact of the naturalization process on society, government and the political process."
+   ]
+  },
+  "SS.7.CG.2.2": {
+   "description": "Differentiate between obligations and responsibilities of U.S. citizenship, and evaluate their impact on society. \uf0b7",
+   "clarifications": [
+    "Students will distinguish between an obligation or duty and a responsibility as it relates to citizenship. Responsibilities may include, but are not limited to, voting, attending civic meetings, petitioning government and running for office. \uf0b7",
+    "Students will recognize the concept of the common good as a reason for fulfilling the obligations and responsibilities of citizenship. \uf0b7",
+    "Students will evaluate the obligations and responsibilities of citizens as they relate to active participation in society and government. \uf0b7",
+    "Students will use scenarios to assess specific obligations of citizens. \uf0b7",
+    "Students will identify the consequences or predict the outcome on society if citizens do not fulfill their obligations and responsibilities."
+   ]
+  },
+  "SS.7.CG.2.3": {
+   "description": "Identify and apply the rights contained in the Bill of Rights and other amendments to the U.S. Constitution. \uf0b7",
+   "clarifications": [
+    "Students will recognize that the Bill of Rights comprises the first ten amendments to the U.S. Constitution. \uf0b7",
+    "Students will recognize the five freedoms protected by the First Amendment. \uf0b7",
+    "Students will evaluate how the Bill of Rights and other amendments (e.g., 13th, 14th, 15th, 19th, 24th, 26th) influence individual actions and social interactions. \uf0b7",
+    "Students will use scenarios to identify rights protected by the Bill of Rights. \uf0b7",
+    "Students will use scenarios to recognize violations of the Bill of Rights or other constitutional amendments."
+   ]
+  },
+  "SS.7.CG.2.4": {
+   "description": "Explain how the U.S. Constitution and the Bill of Rights safeguard individual rights. \uf0b7",
+   "clarifications": [
+    "Students will recognize that rights are protected but some rights are limited (e.g., property rights, civil disobedience). \uf0b7",
+    "Students will examine rationales for government-imposed limitations on individual rights (e.g., forced internment in wartime, limitations on speech, rationing during wartime, suspension of habeas corpus). \uf0b7",
+    "Students will use scenarios to examine the impact of limiting individual rights. \uf0b7",
+    "Students will examine the role of the judicial branch of government in protecting individual rights and freedoms."
+   ]
+  },
+  "SS.7.CG.2.5": {
+   "description": "Describe the trial process and the role of juries in the administration of justice at the state and federal levels. \uf0b7",
+   "clarifications": [
+    "Students will examine the significance of juries in the American legal system. \uf0b7",
+    "Students will explain types of jury trials, how juries are selected and why jury trials are important."
+   ]
+  },
+  "SS.7.CG.2.6": {
+   "description": "Examine the election and voting process at the local, state and national levels. \uf0b7",
+   "clarifications": [
+    "Students will explain how elections and voting impact citizens at the local, state and national levels. \uf0b7",
+    "Students will explain the origins of the Republican and Democratic political parties and evaluate their roles in shaping public policy. \uf0b7",
+    "Students will explain how free and fair elections promote trust in democratic institutions and preserve the republic."
+   ]
+  },
+  "SS.7.CG.2.7": {
+   "description": "Identify the constitutional qualifications required to hold state and national office. \uf0b7",
+   "clarifications": [
+    "Students will recognize the qualifications to seek election to local and state political offices."
+   ]
+  },
+  "SS.7.CG.2.8": {
+   "description": "Examine the impact of media, individuals, and interest groups on monitoring and influencing government. \uf0b7",
+   "clarifications": [
+    "Students will identify methods used by the media to monitor and hold government accountable (e.g., acting as a watchdog, freedom of the press as contained in the 1st Amendment). \uf0b7",
+    "Students will identify methods used by individuals to monitor, hold accountable and influence the government (e.g., attending civic meetings, peacefully protesting, petitioning government, running for office, voting). \uf0b7",
+    "Students will identify methods used by interest groups to monitor and influence government."
+   ]
+  },
+  "SS.7.CG.2.9": {
+   "description": "Analyze media and political communications and identify examples of bias, symbolism and propaganda. \uf0b7",
+   "clarifications": [
+    "Students will use scenarios to identify bias, symbolism and propaganda. \uf0b7",
+    "Students will evaluate how bias, symbolism and propaganda can impact public opinion."
+   ]
+  },
+  "SS.7.CG.2.10": {
+   "description": "Explain the process for citizens to address a state or local problem by researching public policy alternatives, identifying appropriate government agencies to address the issue and determining a course of action. \uf0b7",
+   "clarifications": [
+    "Students will identify the appropriate level of government to resolve specific problems. \uf0b7",
+    "Students will identify appropriate government agencies to address local or state problems. \uf0b7",
+    "Students will analyze public policy alternatives to resolve local and state problems."
+   ]
+  },
+  "SS.7.CG.3.1": {
+   "description": "Analyze the advantages of the United States\u2019 constitutional republic over other forms of government in safeguarding liberty, freedom and a representative government. \uf0b7",
+   "clarifications": [
+    "Students will apply their understanding of various forms of government (e.g., republic, democracy, monarchy, oligarchy, theocracy, autocracy). \uf0b7",
+    "Students will identify different forms of government based on their political philosophy or organizational structure. \uf0b7",
+    "Students will analyze scenarios describing various forms of government. \uf0b7",
+    "Students will explain how the application of checks and balances, consent of the governed, democracy, due process of law, federalism, individual rights, limited government, representative government, republicanism, rule of law and separation of powers distinguishes the United States\u2019 constitutional republic from authoritarian and totalitarian nations."
+   ]
+  },
+  "SS.7.CG.3.2": {
+   "description": "Explain the advantages of a federal system of government over other systems in balancing local sovereignty with national unity and protecting against authoritarianism. \uf0b7",
+   "clarifications": [
+    "Students will apply their understanding of federal, confederal and unitary systems of government. \uf0b7",
+    "Students will compare the organizational structures of systems of government. \uf0b7",
+    "Students will recognize examples of these systems of government. \uf0b7",
+    "Students will analyze scenarios describing various systems of government."
+   ]
+  },
+  "SS.7.CG.3.3": {
+   "description": "Describe the structure and function of the three branches of government established in the U.S. Constitution. \uf0b7",
+   "clarifications": [
+    "Students will recognize the structure of the legislative, executive and judicial branches. \uf0b7",
+    "Students will compare the roles and responsibilities of the three branches of the national government. \uf0b7",
+    "Students will identify the general powers described in Articles I, II and III of the U.S. Constitution."
+   ]
+  },
+  "SS.7.CG.3.4": {
+   "description": "Explain the relationship between state and national governments as written in Article IV of the U.S. Constitution and the 10th Amendment. \uf0b7",
+   "clarifications": [
+    "Students will describe the system of federalism as established by the U.S. Constitution. \uf0b7",
+    "Students will analyze how federalism limits government power. \uf0b7",
+    "Students will compare concurrent powers, enumerated powers, reserved powers and delegated powers as they relate to state and national governments."
+   ]
+  },
+  "SS.7.CG.3.5": {
+   "description": "Explain the amendment process outlined in Article V of the U.S. Constitution. \uf0b7",
+   "clarifications": [
+    "Students will recognize the methods used to propose and ratify amendments to the U.S. Constitution. \uf0b7",
+    "Students will identify the correct sequence of each amendment process. \uf0b7",
+    "Students will identify the importance of a formal amendment process. \uf0b7",
+    "Students will recognize the significance of the difficulty of amending the U.S. Constitution."
+   ]
+  },
+  "SS.7.CG.3.6": {
+   "description": "Analyze how the 13th, 14th, 15th, 19th, 24th and 26th Amendments broadened participation in the political process. \uf0b7",
+   "clarifications": [
+    "Students will recognize how these amendments expanded civil rights to African Americans, women and young people. \uf0b7",
+    "Students will evaluate the impact these amendments have had on American society. \uf0b7",
+    "Students will examine how these amendments increased participation in the political process."
+   ]
+  },
+  "SS.7.CG.3.7": {
+   "description": "Explain the structure, functions and processes of the legislative branch of government. \uf0b7",
+   "clarifications": [
+    "Students will examine the processes of the legislative branch (e.g., how a bill becomes a law, appointment confirmation, committee selection). \uf0b7",
+    "Students will compare local, state and national lawmakers (e.g., city/county commissioners/council members; state legislators [representatives and senators]; and U.S. Congressmen/Congresswomen [representatives and senators]). \uf0b7",
+    "Students will compare and contrast the lawmaking process at the local, state and national levels."
+   ]
+  },
+  "SS.7.CG.3.8": {
+   "description": "Explain the structure, functions and processes of the executive branch of government. \uf0b7",
+   "clarifications": [
+    "Students will examine the processes of the executive branch (e.g., executive order, veto, appointments). \uf0b7",
+    "Students will compare and contrast executive authority at the local, state and national levels. \uf0b7",
+    "Students will explain the function of administrative agencies (e.g., advise, make regulations, enforce law and regulations)."
+   ]
+  },
+  "SS.7.CG.3.9": {
+   "description": "Explain the structure, functions and processes of the judicial branch of government. \uf0b7",
+   "clarifications": [
+    "Students will examine the processes of the judicial branch (e.g., judicial review, court order, writ of certiorari, summary judgment). \uf0b7",
+    "Students will distinguish between the structure, functions and powers of courts at the state and federal levels. \uf0b7",
+    "Students will recognize that the powers and jurisdiction of the state and federal courts are derived from their respective constitutions. \uf0b7",
+    "Students will compare the trial and appellate processes."
+   ]
+  },
+  "SS.7.CG.3.10": {
+   "description": "Identify sources and types of law. \uf0b7",
+   "clarifications": [
+    "Students will explain how historical codes of law influenced the United States. \uf0b7",
+    "Students will recognize natural, constitutional, statutory, case and common law as sources of law. \uf0b7",
+    "Students will compare civil, criminal, constitutional and/or military types of law."
+   ]
+  },
+  "SS.7.CG.3.11": {
+   "description": "Analyze the effects of landmark Supreme Court decisions on law, liberty and the interpretation of the U.S. Constitution. \uf0b7",
+   "clarifications": [
+    "Students will recognize landmark Supreme Court cases (e.g., Marbury v. Madison; Dred Scott v. Sandford; Plessy v. Ferguson; Brown v. Board of Education; Gideon v. Wainwright; Miranda v. Arizona; In re Gault; United States v. Nixon; Hazelwood v. Kuhlmeier). \uf0b7",
+    "Students will use primary sources to assess the significance of each U.S. Supreme Court case. \uf0b7",
+    "Students will evaluate the impact of each case on society. \uf0b7",
+    "Students will recognize constitutional principles and individual rights in relevant U.S. Supreme Court decisions."
+   ]
+  },
+  "SS.7.CG.3.12": {
+   "description": "Compare the U.S. and Florida constitutions. \uf0b7",
+   "clarifications": [
+    "Students will identify the purposes of a constitution (e.g., provides a framework for government, limits government authority, protects individual rights of the people). \uf0b7",
+    "Students will recognize the basic outline of the U.S. and Florida Constitutions (e.g., both have preambles, articles and amendments). \uf0b7",
+    "Students will compare the amendment process of the U.S. and Florida Constitutions. \uf0b7",
+    "Students will recognize the U.S. Constitution as the supreme law of the land."
+   ]
+  },
+  "SS.7.CG.3.13": {
+   "description": "Explain government obligations to its citizens and the services provided at the local, state and national levels. \uf0b7",
+   "clarifications": [
+    "Students will describe and classify specific services provided by local, state and national governments. \uf0b7",
+    "Students will compare the powers and obligations of local, state and national governments."
+   ]
+  },
+  "SS.7.CG.3.14": {
+   "description": "Explain the purpose and function of the Electoral College in electing the President of the United States. \uf0b7",
+   "clarifications": [
+    "Students will explain the origin of the Electoral College and the changes made to it by the 12th Amendment."
+   ]
+  },
+  "SS.7.CG.3.15": {
+   "description": "Analyze the advantages of capitalism and the free market in the United States over government-controlled economic systems (e.g., socialism and communism) in regard to economic freedom and raising the standard of living for citizens. \uf0b7",
+   "clarifications": [
+    "Students will evaluate various economic systems (e.g., capitalism, communism, socialism). \uf0b7",
+    "Students will compare the economic prosperity and opportunity of current nations."
+   ]
+  },
+  "SS.7.CG.4.1": {
+   "description": "Explain the relationship between U.S. foreign and domestic policy. \uf0b7",
+   "clarifications": [
+    "Students will recognize the difference between domestic and foreign policy. \uf0b7",
+    "Students will identify issues that relate to U.S. domestic and foreign policy. \uf0b7",
+    "Students will define \u201cnational interest\u201d and identify the means available to the national government to pursue the United States\u2019 national interest."
+   ]
+  },
+  "SS.7.CG.4.2": {
+   "description": "Describe the United States\u2019 and citizen participation in international organizations. \uf0b7",
+   "clarifications": [
+    "Students will identify major international organizations in which government plays a role (e.g., North Atlantic Treaty Organization, United Nations, International Court of Justice, World Trade Organization). \uf0b7",
+    "Students will discuss the advantages and disadvantages of U.S. membership in international organizations."
+   ]
+  },
+  "SS.7.CG.4.3": {
+   "description": "Describe examples of the United States\u2019 actions and reactions in international conflicts. \uf0b7",
+   "clarifications": [
+    "Students will identify specific examples of and the reasons for United States\u2019 involvement in international conflicts. \uf0b7",
+    "Students will analyze primary source documents pertaining to international incidents to determine the course of action taken by the United States. \uf0b7",
+    "Students will identify the different methods used by the United States to deal with international conflict (e.g., diplomacy, espionage, humanitarian efforts, peacekeeping operations, sanctions, war). SS.8.CG.1.1: Compare the views of Patriots, Loyalists and other colonists on limits of government authority, inalienable rights and resistance to tyranny. \uf0b7",
+    "Students will describe colonial forms of government prior to the American Revolution. \uf0b7",
+    "Students will evaluate the Loyalists\u2019 and Patriots\u2019 arguments for remaining loyal to the British Crown or seeking independence from Britain. SS.8.CG.1.2: Compare and contrast the 1838 Florida Constitution and 1868 Florida Constitution. \uf0b7",
+    "Students will explain how the 1868 Florida Constitution conformed with the Reconstruction Era amendments to the U.S. Constitution (e.g., citizenship, equal protection, suffrage). SS.8.CG.1.3: Explain the importance of the rule of law in the United States\u2019 constitutional republic. \uf0b7",
+    "Students will discuss the impact of the rule of law on U.S. citizens and government. \uf0b7",
+    "Students will recognize how the rule of law influences a society. \uf0b7"
+   ]
+  }
+ },
+ "overrides": 7
+}
