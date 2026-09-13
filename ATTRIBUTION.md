@@ -68,6 +68,37 @@ FLDOE states that permission is not granted for reproduction or commercial distr
 copyrighted materials without written authorisation. All student-facing explanations,
 definitions and feedback in this project are written in our own words.
 
+## United States Government documents - public domain
+
+Chapter 18 (*Appendices*) reproduces primary documents of the United States government, which
+are in the public domain and are not subject to copyright in the United States:
+
+- the **Declaration of Independence**
+- the **Constitution of the United States**, including the Bill of Rights and subsequent amendments
+- **Federalist Papers** No. 10 and No. 51
+- the **Electoral College** vote allocation
+- selected **Supreme Court** decisions
+
+These are reproduced for study purposes and may be freely reused. Any Mu2-authored notes,
+headings or explanations surrounding them are licensed as content under CC BY-NC-SA 4.0, as above.
+
+## Mu2 Solutions original content
+
+Chapter 20 (*Mu2 Original Content*) is **written by Mu2 Solutions, LLC** and is **not derived
+from OpenStax** or from any other third party. It carries the same content licence as the rest
+of the educational material: **CC BY-NC-SA 4.0** (see [`LICENSE-CONTENT`](LICENSE-CONTENT)).
+
+Published so far:
+
+- **20.1. Sources and Types of Law** - written to cover benchmark `SS.7.CG.3.10`, which the
+  OpenStax textbook does not address: historical codes of law (Hammurabi, the Roman Twelve
+  Tables, Magna Carta 1215, the English Bill of Rights 1689); the five sources of law (natural,
+  constitutional, statutory, common, case); and the comparison of civil, criminal, constitutional
+  and military law, including who brings the case, the standard of proof, and the consequence.
+
+Original content is written in our own words. The source text of each item is version-controlled
+under `data/mu2-original/` so that the published text and its provenance can be compared.
+
 ## Everything else
 
 Fonts, icons and any other third-party assets remain the property of their respective owners
