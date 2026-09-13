@@ -1,0 +1,47 @@
+20.1. Sources and Types of Law
+
+American law did not appear all at once. It grew out of centuries of written codes and English legal practice, and it continues to come from several different places at once. To answer questions on this benchmark you need three things: where the idea of law came from historically, the five sources law comes from today, and the four types law is sorted into by the courts.
+
+Historical Codes of Law and Their Influence
+
+The Code of Hammurabi (about 1750 BCE) is one of the earliest written law codes. Its punishments were harsh, but its lasting contribution was not the punishments — it was the idea that law should be written down and made public, so that people could know the rules in advance instead of depending on a ruler's whim. American law keeps that principle: rules must be written, published, and knowable.
+
+The Roman Twelve Tables (about 450 BCE) were Rome's first written code. Before them, Roman law was largely unwritten and controlled by priests who interpreted it. Writing the law down made it public and standardised treatment of debts, family matters, and crimes. This is an early model for the American reliance on written, published law rather than unwritten custom.
+
+Magna Carta (1215) is the single most important English influence. Forced on King John by rebellious barons, it established that the monarch was not above the law. It guaranteed that no free man could be imprisoned or stripped of property except by the lawful judgment of his peers or by the law of the land — the origin of due process. It also established that the king could not tax without consent, which later became the colonial grievance "no taxation without representation." Its due process language runs through the Fifth and Fourteenth Amendments, and trial by jury is protected by the Sixth Amendment.
+
+The English Bill of Rights (1689) followed the Glorious Revolution. It limited the monarch's power and expanded Parliament's, and it prohibited cruel and unusual punishment and protected the right to petition the government. The American Bill of Rights drew directly on it.
+
+The Five Sources of Law
+
+1. Natural law. The idea that certain rights and moral principles exist independently of any government and cannot be legitimately taken away by one. It is the source of the Declaration of Independence's claim that people are "endowed by their Creator with certain unalienable Rights."
+
+2. Constitutional law. The United States Constitution itself, together with the principles derived from how courts interpret it. Constitutional law is the highest source: any statute, executive action, or state law that conflicts with the Constitution is invalid. Marbury v. Madison (1803) established judicial review, the power of courts to strike down acts that violate the Constitution.
+
+3. Statutory law. Law enacted by a legislature — Congress, or the Florida Legislature. Statutes are written down and published in codes. Federal criminal statutes, such as the laws against counterfeiting currency, are examples. A statute is valid only if it does not conflict with the Constitution.
+
+4. Common law. The body of judge-made law that developed in England from custom and from decisions in earlier cases, and that the American colonies inherited. It is law that judges developed rather than legislatures enacted, and it still fills gaps where no statute covers a situation — negligence in a car-accident case is a standard example.
+
+5. Case law. The published decisions of courts, and the rules of law they establish. Courts follow precedent — earlier decisions on similar facts — so that like cases are treated alike; this is the principle of stare decisis. A landmark example is Brown v. Board of Education (1954), which held that racial segregation in public schools is unconstitutional and became binding precedent nationwide.
+
+Common law and case law overlap, and the terms are sometimes used loosely as synonyms, but keep the distinction: common law is the judge-made legal tradition inherited from England, while case law is the accumulated body of court decisions and the precedents they set. Both are distinct from statutes, which only a legislature can pass.
+
+Comparing Types of Law
+
+Civil law deals with disputes between private parties — people, businesses, or organisations — usually over money, property, or contracts. The harmed party (the plaintiff) sues the party accused (the defendant). The goal is normally compensation, not punishment. The standard of proof is a preponderance of the evidence: the claim must be more likely true than not, meaning greater than a 50 percent likelihood.
+
+Criminal law deals with offences against society. The government prosecutes the accused, because the wrong is considered to injure the public and not only an individual victim. Consequences include imprisonment, fines paid to the state, or probation. The standard of proof is far higher — beyond a reasonable doubt — because a conviction can take away a person's liberty.
+
+Constitutional law concerns the meaning and enforcement of the Constitution itself: the powers of each branch of government and the rights of individuals against government action. It often appears inside other cases. A criminal defendant arguing that a search violated the Fourth Amendment is raising a constitutional question within a criminal proceeding.
+
+Military law governs members of the armed forces. Its main body is the Uniform Code of Military Justice (UCMJ), and accused service members are tried by court-martial rather than by an ordinary civilian jury. It exists to maintain discipline and order in the armed forces.
+
+Quick Distinctions
+
+Civil law: dispute between private parties; seeks compensation; proved by a preponderance of the evidence.
+
+Criminal law: offence against society; prosecuted by the government; seeks punishment; proved beyond a reasonable doubt.
+
+Constitutional law: the Constitution and its interpretation; defines the powers of government and the rights of individuals against it.
+
+Military law: applies to armed forces personnel; enforced through courts-martial under the UCMJ.
