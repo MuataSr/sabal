@@ -17,6 +17,7 @@ What it writes
 Validation before any write: the section must exist in `content` and must not be one of
 the oversized back-matter rows.
 """
+import argparse
 import csv
 import os
 import shutil
@@ -31,8 +32,15 @@ MAX_SECTION_CHARS = 60000
 
 
 def main():
-    dry = "--apply" not in sys.argv
-    rows = list(csv.DictReader(open(CSV_PATH)))
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--csv", default=CSV_PATH,
+                    help="the reviewed CSV to apply")
+    ap.add_argument("--db", default=DB)
+    ap.add_argument("--apply", action="store_true")
+    args = ap.parse_args()
+    dry = not args.apply
+    rows = list(csv.DictReader(open(args.csv)))
+    print("csv: %s" % args.csv)
     con = sqlite3.connect(DB)
     con.row_factory = sqlite3.Row
 
