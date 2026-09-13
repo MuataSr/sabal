@@ -101,9 +101,14 @@
       {% endif %}
       {% else %}
       <div><span class="portal-badge free">Free</span></div>
+      {% if free_edition %}
+      <div class="portal-value" style="margin-top:.4rem;">Every feature unlocked</div>
+      <div style="margin-top:.3rem; font-size:.88rem; color:#667;">No card, no limits, nothing to buy.</div>
+      {% else %}
       <div class="portal-value" style="margin-top:.4rem;">{{ plan_price_str }}<small>{{ plan_period|default("/month") }}</small></div>
       <div style="margin-top:.3rem; font-size:.88rem; color:#667;">Upgrade for unlimited practice.</div>
       <a class="portal-btn" href="/pricing">Upgrade to {{ plan_label }}</a>
+      {% endif %}
       {% endif %}
     </div>
 
@@ -184,6 +189,8 @@
     {% endfor %}
   </div>
 
+  {% if not free_edition %}
   <p class="portal-note">Each study app keeps its own plan and progress. Shared single sign-on across TEAS, NCLEX &amp; FCLE arrives in a future update — for now, upgrade each app separately.</p>
+  {% endif %}
 </div>
 {% endblock %}
