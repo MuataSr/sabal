@@ -68,6 +68,14 @@ A web-based study app for the Florida Civic Literacy Exam (FCLE). Students pract
 
 ## Recent Changes
 
+### Sep 15, 2026 — UI regression fixes + drop redundant legacy.css — commits `e794d25` `5fa030b` `4daa6a3`
+
+- **Fixed invisible primary buttons** (`.btn-a-primary` navy-on-navy): the `.a-shell a` global link color was overriding button text (specificity 0,1,1 vs 0,1,0). Scoped to `.a-shell a:not([class*="btn"])`.
+- **Fixed submit-btn cursor**: `#submit-btn` showed `cursor:not-allowed` even when enabled; now not-allowed only on `:disabled`.
+- **Added missing CSS vars** `--surface` + `--text-secondary` (used by diagnostic/stimulus pages but never defined).
+- **Dropped `legacy.css`** — verified a strict subset of `fcle.css` (0 missing selectors, 0 value diffs). Load order is now `fcle.css` → `app.css`.
+- **Design direction (Mister K):** Template A (`app.css` navy/gold) is Sabal's final look. The Editorial design (`fcle.css` cream/forest/burgundy) is to be **preserved for a future OER app** — archive it, don't delete it, when migrating fully onto Template A.
+
 ### Sep 6, 2026 — ORDER-faithful auth (registered-only, no anonymous users) — commit `ee5ef9f`
 
 Mister K directive: no anonymous users; visitors must register, then get a personal dashboard link automatically (ORDER-portal model). Full rebuild:
