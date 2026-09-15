@@ -39,7 +39,7 @@ A web-based study app for the Florida Civic Literacy Exam (FCLE). Students pract
 |-----------|---------|
 | Backend | Flask, `app.py` (~1,500 lines) |
 | Templates | 22 HTML templates in `templates/` |
-| CSS | `static/css/fcle.css` + `legacy.css` + `app.css` (Template A navy/gold) |
+| CSS | `static/css/fcle.css` + `app.css` (Template A navy/gold) |
 | Port | 5002, host 0.0.0.0, debug=False |
 | Dependencies | Flask, python3 stdlib, requests — no heavy frameworks |
 
