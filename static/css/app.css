@@ -48,6 +48,8 @@
   --card:        #ffffff;              /* was #ffffff (identical) */
   --text-muted:  var(--a-gray-500);    /* was #5a5a5a */
   --bg:          var(--a-gray-100);    /* was #FAFAF7 cream */
+  --surface:        #ffffff;
+  --text-secondary: var(--a-gray-500);
 }
 
 /* ——— Global overrides (A look everywhere) ——— */
@@ -58,7 +60,7 @@ body.a-shell { background: var(--a-gray-100); }
   font-family: var(--a-font) !important;
   letter-spacing: -0.02em;
 }
-.a-shell a { color: var(--a-navy-600); }
+.a-shell a:not([class*="btn"]) { color: var(--a-navy-600); }
 .a-shell .app-body { max-width: 1200px; }
 
 /* ——— Shell layout ——— */
@@ -447,10 +449,10 @@ input:focus, select:focus, textarea:focus { border-color: var(--a-navy-500); box
 .pa-empty, .pa-note { color: var(--a-gray-500); }
 
 /* ── ID/specificity cleanups (beat legacy.css) ─────────────────── */
-#submit-btn, .submit-btn:disabled, #submit-btn:disabled {
+#submit-btn:disabled, .submit-btn:disabled {
   background: var(--a-navy-600) !important; color: #fff !important; opacity: .55; cursor: not-allowed;
 }
-#submit-btn:not(:disabled) { opacity: 1; }
+#submit-btn:not(:disabled) { opacity: 1; cursor: pointer; }
 
 /* ── Pricing page: 3-tier cards (Step 2) ────────────────────────── */
 .pricing-page { max-width: 980px; }
