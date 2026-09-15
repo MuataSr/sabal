@@ -391,6 +391,7 @@ def dashboard():
         exam_days=exam_days,
         total_questions=total_questions,
         is_anonymous=user.get("is_anonymous", 1) if user else 1,
+        next_action=_next_action(user_id),
     )
 
 
@@ -1273,6 +1274,38 @@ def _coach_plan(user_id, refresh=False):
             _COACH_CACHE.clear()
         _COACH_CACHE[key] = plan
     return plan
+
+
+def _next_action(user_id):
+    """The single 'what should I do right now' step, derived from the coach plan."""
+    plan = _coach_plan(user_id)
+    if not plan.has_data:
+        return {
+            "eyebrow": "Start here",
+            "title": "Take the 20-question diagnostic",
+            "detail": "Find your starting point across all four FCLE areas — then we build a plan around your weak spots.",
+            "cta_text": "Start the diagnostic",
+            "cta_url": "/diagnostic",
+            "kind": "diagnostic",
+        }
+    slug = _DOMAIN_ID_TO_SLUG.get(plan.focus_domain) or "mixed"
+    block = plan.blocks[0] if plan.blocks else None
+    if block is not None:
+        title = block.text
+        detail = ("Focus: " + block.topic) if block.topic else "Most-missed first, based on your latest results."
+        kind = block.kind
+    else:
+        title = plan.title
+        detail = plan.blurb
+        kind = "review"
+    return {
+        "eyebrow": "Your next step",
+        "title": title,
+        "detail": detail,
+        "cta_text": "Start now",
+        "cta_url": "/quiz/" + slug,
+        "kind": kind,
+    }
 
 
 def _tutor_chat_history(user_id):

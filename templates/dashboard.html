@@ -27,6 +27,16 @@
   </div>
 </div>
 
+<!-- Next step: one clear action from the Coach -->
+<div class="next-action">
+  <div class="next-action-body">
+    <div class="next-action-eyebrow">{{ next_action.eyebrow }}</div>
+    <div class="next-action-title">{{ next_action.title }}</div>
+    <div class="next-action-detail">{{ next_action.detail }}</div>
+  </div>
+  <a href="{{ next_action.cta_url }}" class="btn-a btn-a-primary">{{ next_action.cta_text }}</a>
+</div>
+
 <!-- Stat cards -->
 <div class="a-cards">
   <div class="a-card">
