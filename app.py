@@ -1275,10 +1275,26 @@ def _coach_plan(user_id, refresh=False):
     return plan
 
 
+def _tutor_chat_history(user_id):
+    """Most recent tutor chat messages (chronological, oldest first)."""
+    try:
+        import sqlite3 as _sq
+        _c = _sq.connect("data/user_progress.db")
+        _c.row_factory = _sq.Row
+        _rows = _c.execute(
+            "SELECT role, content, domain, created_at FROM tutor_messages WHERE user_id=? ORDER BY id DESC LIMIT 50",
+            (user_id,),
+        ).fetchall()
+        _c.close()
+        return [{"role": r["role"], "content": r["content"], "domain": r["domain"], "time": r["created_at"]} for r in reversed(_rows)]
+    except Exception:
+        return []
+
+
 @app.route("/coach")
 @login_required
 def coach():
-    """The Study Coach hub: today's plan, readiness, reading, standards."""
+    """The Coach hub: today's plan, readiness, reading, standards, and tutor."""
     user_id = session["user_id"]
     plan = _coach_plan(user_id, refresh=request.args.get("refresh") == "1")
 
@@ -1298,6 +1314,7 @@ def coach():
         no_data_text=coach_copy.readiness_unknown(),
         report_title=coach_copy.benchmark_report_title(),
         report_absent=report_absent,
+        chat_messages=_tutor_chat_history(user_id),
     )
 
 
@@ -1558,70 +1575,8 @@ _tutor = tutor_engine.TutorEngine()
 @app.route('/tutor')
 @login_required
 def tutor_page():
-    user_id = session["user_id"]
-    has_diagnostic = db.has_diagnostic(user_id)
-    
-    # Build domain progress
-    domain_slugs = {
-        1: ("american-democracy", "\U0001f3db\ufe0f"),
-        2: ("us-constitution", "\U0001f4dc"),
-        3: ("founding-documents", "\U0001f4c4"),
-        4: ("landmark-impact", "\u2696\ufe0f"),
-    }
-    domain_progress = []
-    for did, (slug, icon) in domain_slugs.items():
-        pct = db.get_readiness(user_id, slug) or 0
-        domain_progress.append({
-            "id": did,
-            "slug": slug,
-            "name": _DOMAIN_GETTERS[slug]["name"] if slug in _DOMAIN_GETTERS else f"Domain {did}",
-            "icon": icon,
-            "pct": pct,
-        })
-    
-    # Overall stats
-    stats = db.get_overall_stats(user_id) or {}
-    overall_readiness = stats.get("overall_readiness", 0)
-    
-    # Count total answered + sessions
-    total_answered = 0
-    sessions_count = 0
-    try:
-        import sqlite3 as _sq
-        _c = _sq.connect("data/user_progress.db")
-        _c.row_factory = _sq.Row
-        _r = _c.execute("SELECT COUNT(*) as c FROM answers WHERE user_id=?", (user_id,)).fetchone()
-        total_answered = _r["c"] if _r else 0
-        _r2 = _c.execute("SELECT COUNT(*) as c FROM quiz_sessions WHERE user_id=?", (user_id,)).fetchone()
-        sessions_count = _r2["c"] if _r2 else 0
-        _c.close()
-    except Exception:
-        pass
-    
-    # Load chat history
-    chat_messages = []
-    try:
-        import sqlite3 as _sq2
-        _c2 = _sq2.connect("data/user_progress.db")
-        _c2.row_factory = _sq2.Row
-        _rows = _c2.execute(
-            "SELECT role, content, domain, created_at FROM tutor_messages WHERE user_id=? ORDER BY id DESC LIMIT 50",
-            (user_id,)
-        ).fetchall()
-        _c2.close()
-        chat_messages = [{"role": r["role"], "content": r["content"], "domain": r["domain"], "time": r["created_at"]} for r in reversed(_rows)]
-    except Exception:
-        pass
-    
-    return render_template('tutor.html',
-        active_nav='tutor',
-        has_diagnostic=has_diagnostic,
-        domain_progress=domain_progress,
-        total_answered=total_answered,
-        overall_pct=overall_readiness,
-        sessions_count=sessions_count,
-        chat_messages=chat_messages,
-    )
+    """The AI Tutor now lives inside the unified Coach page."""
+    return redirect('/coach')
 
 @app.route('/tutor/chat', methods=['POST'])
 @login_required

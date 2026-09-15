@@ -1,11 +1,84 @@
 {% extends "base.html" %}
-{% block title %}Study Coach — Sabal FCLE Exam Prep{% endblock %}
+{% block title %}Coach — Sabal FCLE Exam Prep{% endblock %}
+
+{% block head %}
+<style>
+  /* ── Socratic Tutor (merged into the Coach) ─────── */
+  .tutor-status {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 0.78rem; color: var(--text-muted); margin-bottom: 12px;
+  }
+  .status-dot { width: 8px; height: 8px; border-radius: 50%; background: #ccc; }
+  .status-dot.ready { background: #4ade80; }
+  .status-dot.loading { background: #fbbf24; animation: pulse 1s infinite; }
+  .status-dot.error { background: #f87171; }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+  .domain-selector { display: flex; gap: 6px; margin-bottom: 16px; flex-wrap: wrap; }
+  .domain-chip {
+    padding: 6px 12px; border: 1px solid var(--border); border-radius: 20px;
+    font-size: 0.78rem; font-weight: 600; cursor: pointer; transition: all 0.15s;
+    background: var(--card); color: var(--text-muted);
+  }
+  .domain-chip:hover { border-color: var(--navy); color: var(--text); }
+  .domain-chip.active { background: var(--navy); color: #fff; border-color: var(--navy); }
+
+  .chat-area { min-height: 200px; max-height: 420px; overflow-y: auto; padding-bottom: 8px; }
+
+  .chat-msg { margin-bottom: 16px; max-width: 85%; }
+  .chat-msg.student { margin-left: auto; }
+  .chat-msg.tutor { margin-right: auto; }
+  .chat-bubble { padding: 12px 16px; border-radius: 12px; font-size: 0.92rem; line-height: 1.55; }
+  .chat-msg.student .chat-bubble { background: var(--navy); color: #fff; border-bottom-right-radius: 4px; }
+  .chat-msg.tutor .chat-bubble { background: #f0f4f8; color: var(--text); border-bottom-left-radius: 4px; border: 1px solid var(--border); }
+  .chat-meta { font-size: 0.7rem; color: var(--text-muted); margin-top: 4px; padding: 0 4px; }
+  .chat-msg.student .chat-meta { text-align: right; }
+
+  .typing-indicator {
+    display: flex; gap: 4px; padding: 12px 16px; background: #f0f4f8;
+    border: 1px solid var(--border); border-radius: 12px; border-bottom-left-radius: 4px; width: fit-content;
+  }
+  .typing-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--text-muted); animation: typing-bounce 1.4s infinite; }
+  .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+  .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes typing-bounce { 0%, 60%, 100% { transform: translateY(0); } 30% { transform: translateY(-4px); } }
+
+  .chat-input-bar { display: flex; gap: 8px; align-items: center; margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border); }
+  .chat-input {
+    flex: 1; padding: 10px 14px; border: 1px solid var(--border); border-radius: 24px;
+    font-family: var(--font-body); font-size: 0.92rem; outline: none; transition: border-color 0.15s;
+  }
+  .chat-input:focus { border-color: var(--navy); }
+  .chat-send {
+    width: 40px; height: 40px; border-radius: 50%; border: none; background: var(--navy); color: #fff;
+    cursor: pointer; display: flex; align-items: center; justify-content: center; transition: opacity 0.15s; flex-shrink: 0;
+  }
+  .chat-send:hover { opacity: 0.85; }
+  .chat-send:disabled { opacity: 0.4; cursor: not-allowed; }
+  .chat-send svg { width: 18px; height: 18px; }
+
+  .kb-info { font-size: 0.68rem; color: var(--text-muted); margin-top: 4px; padding: 0 4px; opacity: 0.7; }
+
+  .welcome-card {
+    background: #f5f3ee; border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 20px; margin-bottom: 16px; text-align: center;
+  }
+  .welcome-card h2 { font-size: 1rem; margin-bottom: 8px; }
+  .welcome-card p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; }
+  .suggestion-chips { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin-top: 12px; }
+  .suggestion-chip {
+    padding: 6px 12px; background: var(--card); border: 1px solid var(--border); border-radius: 16px;
+    font-size: 0.78rem; cursor: pointer; transition: border-color 0.15s;
+  }
+  .suggestion-chip:hover { border-color: var(--navy); }
+</style>
+{% endblock %}
 
 {% block content %}
 <div class="sc-page">
 
   <div class="sc-head">
-    <h1 class="sc-title">Study Coach</h1>
+    <h1 class="sc-title">Coach</h1>
     <p class="sc-sub">{{ plan.blurb }}</p>
   </div>
 
@@ -110,6 +183,56 @@
   </section>
   {% endif %}
 
+  <!-- Socratic Tutor — works from the plan above (only when an LLM is connected) -->
+  <section class="sc-panel sc-tutor" aria-labelledby="tutor-h">
+    <div class="sc-panel-head">
+      <h2 id="tutor-h">Socratic Tutor</h2>
+      <span class="sc-chip sc-chip--quiet">works from your plan</span>
+    </div>
+
+    {% if not tutor_connected %}
+    <div class="tutor-offline-banner">
+      <strong>AI Tutor is offline.</strong> No language model is connected yet &mdash; this unlocks once an LLM is linked to Sabal.
+    </div>
+    {% else %}
+    <div id="tutor-status" class="tutor-status">
+      <span class="status-dot loading"></span>
+      <span id="status-text">Checking tutor servers...</span>
+    </div>
+
+    <div class="domain-selector">
+      <div class="domain-chip active" data-domain="">All Domains</div>
+      <div class="domain-chip" data-domain="1">American Democracy</div>
+      <div class="domain-chip" data-domain="2">US Constitution</div>
+      <div class="domain-chip" data-domain="3">Founding Documents</div>
+      <div class="domain-chip" data-domain="4">Landmark Impact</div>
+    </div>
+
+    <div id="chat-area" class="chat-area">
+      <div class="welcome-card">
+        <h2>Welcome to your FCLE Tutor</h2>
+        <p>I'll guide you through civic literacy concepts using the Socratic method &mdash; asking questions to help you discover answers, not just telling you.</p>
+        <div class="suggestion-chips">
+          <div class="suggestion-chip" data-msg="What is federalism?">What is federalism?</div>
+          <div class="suggestion-chip" data-msg="How does a bill become a law?">How does a bill become a law?</div>
+          <div class="suggestion-chip" data-msg="What rights does the First Amendment protect?">First Amendment rights</div>
+          <div class="suggestion-chip" data-msg="Why was Marbury v Madison important?">Marbury v Madison</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="chat-input-bar">
+      <input type="text" id="chat-input" class="chat-input" placeholder="Ask about civics..." autocomplete="off">
+      <button id="chat-send" class="chat-send" disabled>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="22" y1="2" x2="11" y2="13"></line>
+          <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+        </svg>
+      </button>
+    </div>
+    {% endif %}
+  </section>
+
   <p class="sc-attrib">
     Study material adapted from <em>American Government 2e</em> by Glen Krutz and Sylvie
     Waskiewicz (OpenStax, Rice University, 2019), used under
@@ -119,4 +242,176 @@
   </p>
 
 </div>
+{% endblock %}
+
+{% block scripts %}
+{% if tutor_connected %}
+<script>
+(function() {
+  var chatArea = document.getElementById('chat-area');
+  var input = document.getElementById('chat-input');
+  var sendBtn = document.getElementById('chat-send');
+  var statusEl = document.getElementById('tutor-status');
+  var statusText = document.getElementById('status-text');
+  var currentDomain = null;
+  // Hydrate persistent chat history from server
+  var savedMessages = {{ chat_messages | tojson }};
+  var history = [];
+  var serversReady = false;
+
+  // ── Auto-select domain from URL param ────────────
+  var params = new URLSearchParams(window.location.search);
+  if (params.get('domain')) {
+    var domId = params.get('domain');
+    document.querySelectorAll('.domain-chip').forEach(function(c) {
+      c.classList.remove('active');
+      if (c.dataset.domain === domId) c.classList.add('active');
+    });
+    currentDomain = parseInt(domId);
+  }
+
+  // ── Server Status ────────────────────────────────
+  function checkStatus() {
+    fetch('/tutor/status')
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        var dot = statusEl.querySelector('.status-dot');
+        if (data.router && data.teacher) {
+          dot.className = 'status-dot ready';
+          statusText.textContent = 'Tutor online';
+          sendBtn.disabled = false;
+          serversReady = true;
+        } else {
+          dot.className = 'status-dot error';
+          var missing = [];
+          if (!data.router) missing.push('router');
+          if (!data.teacher) missing.push('teacher');
+          statusText.textContent = 'Offline: ' + missing.join(', ') + ' not running';
+          sendBtn.disabled = true;
+        }
+      })
+      .catch(function() {
+        statusEl.querySelector('.status-dot').className = 'status-dot error';
+        statusText.textContent = 'Cannot reach server';
+        sendBtn.disabled = true;
+      });
+  }
+  checkStatus();
+  setInterval(checkStatus, 30000);
+
+  // ── Hydrate saved messages ────────────────────────
+  if (savedMessages && savedMessages.length > 0) {
+    var welcome = chatArea.querySelector('.welcome-card');
+    if (welcome) welcome.remove();
+    savedMessages.forEach(function(msg) {
+      addMessage(msg.role, msg.content);
+      history.push({role: msg.role, content: msg.content});
+    });
+  }
+
+  // ── Domain Selection ─────────────────────────────
+  document.querySelectorAll('.domain-chip').forEach(function(chip) {
+    chip.addEventListener('click', function() {
+      document.querySelectorAll('.domain-chip').forEach(function(c) { c.classList.remove('active'); });
+      this.classList.add('active');
+      currentDomain = this.dataset.domain ? parseInt(this.dataset.domain) : null;
+    });
+  });
+
+  // ── Suggestion Chips ─────────────────────────────
+  document.querySelectorAll('.suggestion-chip').forEach(function(chip) {
+    chip.addEventListener('click', function() {
+      input.value = this.dataset.msg;
+      sendMessage();
+    });
+  });
+
+  // ── Chat Functions ───────────────────────────────
+  function addMessage(role, text, extra) {
+    var welcome = chatArea.querySelector('.welcome-card');
+    if (welcome) welcome.remove();
+
+    var msgDiv = document.createElement('div');
+    msgDiv.className = 'chat-msg ' + role;
+
+    var bubble = document.createElement('div');
+    bubble.className = 'chat-bubble';
+    bubble.textContent = text;
+    msgDiv.appendChild(bubble);
+
+    if (extra) {
+      var meta = document.createElement('div');
+      meta.className = 'kb-info';
+      meta.textContent = extra;
+      msgDiv.appendChild(meta);
+    }
+
+    chatArea.appendChild(msgDiv);
+    chatArea.scrollTop = chatArea.scrollHeight;
+    return msgDiv;
+  }
+
+  function addTyping() {
+    var msgDiv = document.createElement('div');
+    msgDiv.className = 'chat-msg tutor';
+    msgDiv.id = 'typing-indicator';
+    msgDiv.innerHTML = '<div class="typing-indicator"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div>';
+    chatArea.appendChild(msgDiv);
+    chatArea.scrollTop = chatArea.scrollHeight;
+  }
+
+  function removeTyping() {
+    var el = document.getElementById('typing-indicator');
+    if (el) el.remove();
+  }
+
+  function sendMessage() {
+    var text = input.value.trim();
+    if (!text || !serversReady) return;
+
+    input.value = '';
+    addMessage('student', text);
+    history.push({role: 'student', content: text});
+
+    addTyping();
+    sendBtn.disabled = true;
+
+    fetch('/tutor/chat', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        message: text,
+        domain: currentDomain,
+        history: history.slice(-12)
+      })
+    })
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      removeTyping();
+      var kbInfo = data.kb_hits
+        ? 'KB: ' + data.kb_hits.content + ' sections, ' + data.kb_hits.terms + ' terms, ' + data.kb_hits.misconceptions + ' misconceptions'
+        : '';
+      addMessage('tutor', data.response, kbInfo);
+      history.push({role: 'tutor', content: data.response});
+    })
+    .catch(function() {
+      removeTyping();
+      addMessage('tutor', 'Sorry, something went wrong. Please try again.');
+    })
+    .finally(function() {
+      sendBtn.disabled = false;
+      input.focus();
+    });
+  }
+
+  sendBtn.addEventListener('click', sendMessage);
+  input.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      sendMessage();
+    }
+  });
+})();
+</script>
+{% endif %}
 {% endblock %}
