@@ -27,6 +27,17 @@
   </div>
 </div>
 
+<!-- Path: where you are in the loop -->
+<div class="path-track" aria-label="Your path: Diagnose, Practice, Review, Re-check">
+  {% for step in path_steps %}
+  <div class="path-step {% if step.state == 'done' %}is-done{% elif step.state == 'current' %}is-current{% endif %}">
+    <span class="path-dot">{% if step.state == 'done' %}&#10003;{% else %}{{ loop.index }}{% endif %}</span>
+    <span class="path-label">{{ step.label }}</span>
+  </div>
+  {% if not loop.last %}<span class="path-connector" aria-hidden="true"></span>{% endif %}
+  {% endfor %}
+</div>
+
 <!-- Next step: one clear action from the Coach -->
 <div class="next-action">
   <div class="next-action-body">

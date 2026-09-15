@@ -968,6 +968,28 @@ body.a-shell { background: var(--a-gray-100); }
 .next-action-title { font-size: 16.5px; font-weight: 700; color: var(--a-navy-700); line-height: 1.3; }
 .next-action-detail { font-size: 13px; color: var(--a-gray-500); margin-top: 3px; }
 .next-action .btn-a { flex-shrink: 0; }
+
+/* Path indicator — where the student is in the loop */
+.path-track {
+  display: flex; align-items: center; gap: 6px;
+  margin: 2px 0 12px; padding: 10px 14px;
+  background: #fff; border: 1px solid var(--a-gray-200); border-radius: var(--a-radius);
+  overflow-x: auto;
+}
+.path-step { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
+.path-dot {
+  width: 22px; height: 22px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 700;
+  background: var(--a-gray-100); color: var(--a-gray-400);
+  border: 1px solid var(--a-gray-200);
+}
+.path-step.is-current .path-dot { background: var(--a-navy-600); color: #fff; border-color: var(--a-navy-600); }
+.path-step.is-done .path-dot { background: var(--a-green-500); color: #fff; border-color: var(--a-green-500); }
+.path-label { font-size: 12.5px; font-weight: 600; color: var(--a-gray-400); white-space: nowrap; }
+.path-step.is-current .path-label { color: var(--a-navy-700); font-weight: 700; }
+.path-step.is-done .path-label { color: var(--a-gray-500); }
+.path-connector { width: 16px; height: 1px; background: var(--a-gray-300); flex-shrink: 0; }
 .nav-badge {
   margin-left: auto; font-size: 9px; font-weight: 800; letter-spacing: .08em;
   padding: 2px 7px; border-radius: 999px;

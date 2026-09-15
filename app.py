@@ -392,6 +392,7 @@ def dashboard():
         total_questions=total_questions,
         is_anonymous=user.get("is_anonymous", 1) if user else 1,
         next_action=_next_action(user_id),
+        path_steps=_path_steps(user_id),
     )
 
 
@@ -1305,6 +1306,27 @@ def _next_action(user_id):
         "cta_url": "/quiz/" + slug,
         "kind": kind,
     }
+
+
+def _path_steps(user_id):
+    """Four-step loop (Diagnose → Practice → Review → Re-check) with the
+    student's current position, for the always-visible path indicator."""
+    labels = ["Diagnose", "Practice", "Review", "Re-check"]
+    if not db.has_diagnostic(user_id):
+        current = 0
+    else:
+        plan = _coach_plan(user_id)
+        kind = plan.blocks[0].kind if plan.blocks else "new"
+        if kind == "timed":
+            current = 3
+        elif kind == "review":
+            current = 2
+        else:
+            current = 1
+    return [
+        {"label": label, "state": ("done" if i < current else "current" if i == current else "upcoming")}
+        for i, label in enumerate(labels)
+    ]
 
 
 def _tutor_chat_history(user_id):
