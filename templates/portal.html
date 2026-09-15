@@ -1,30 +1,19 @@
 {# ===================================================================
-   portal.html — Student Account Portal (SHARED per-app template)
-   Canonical: exam-prep-lms/platform/portal.html
-   Vendored byte-identical into fcle-study-app/templates/,
-   teas-study-app/templates/, nclex-study-app/templates/.
+   portal.html — Student Account Portal (Sabal FCLE Exam Prep)
 
-   Every app's /account route renders this with a NORMALIZED context:
+   Sabal is OER full stop: ONE free app, no plan, no paid tier, no cap,
+   no upselling. This portal reflects exactly that — nothing is hidden
+   behind a paywall and nothing asks the student to pay.
+
+   Rendered by /account with context:
      app_name, app_slug          branding
-     plan, is_premium            entitlement (plan key from PRICING)
-     plan_label, plan_price_str  display
-     plan_expiry_note            OPTIONAL — one-time expiry copy for the premium
-                                 badge ("Active until Sep 6, 2027" / "61 days
-                                 left"). Monthly apps omit → generic thanks line.
-     plan_period                 OPTIONAL — small suffix after plan_price_str on
-                                 the free-state card. Monthly apps omit →
-                                 "/month". One-time apps pass "" (no suffix).
-     free_daily                  constant
-     questions_used_today        int
-     questions_remaining         int | None (None = unlimited/premium)
      total_answered              int
      overall_pct                 int 0-100
      exam_days                   int | None
-     member_since                str "YYYY" | None
+     member_since                str "YYYY-MM-DD" | None
      areas                       [{name, pct}] readiness bars (may be [])
      chips                       [{label, value}] stat chips
      recent_sessions             [{name, score, date, status}] (may be [])
-     siblings                    [{name, note}] other Mu2 study apps
    Self-contained <style> — renders identically regardless of app CSS.
    =================================================================== #}
 {% extends "base.html" %}
@@ -41,12 +30,7 @@
   .portal-value { font-size: 1.5rem; font-weight: 700; line-height: 1.15; }
   .portal-value small { font-size: 0.85rem; font-weight: 500; color: #8a93a6; }
   .portal-badge { display: inline-block; padding: 3px 10px; border-radius: 999px; font-size: 0.78rem; font-weight: 600; }
-  .portal-badge.free { background: #f1f3f7; color: #4a5468; }
-  .portal-badge.premium { background: #e6f4ea; color: #1e6b3c; }
-  .portal-plan-name { font-weight: 700; }
-  .portal-btn { display: inline-block; margin-top: 0.75rem; padding: 8px 16px; border-radius: 10px; background: #16324f; color: #fff !important; text-decoration: none; font-size: 0.9rem; font-weight: 600; border: none; cursor: pointer; }
-  .portal-btn:hover { opacity: 0.9; text-decoration: none; }
-  .portal-btn.ghost { background: transparent; color: #16324f !important; border: 1px solid #c9d2e0; }
+  .portal-badge.free { background: #e6f4ea; color: #1e6b3c; }
   .portal-section { margin: 1.6rem 0 0.7rem; font-size: 1.05rem; font-weight: 700; }
   .portal-bars { display: flex; flex-direction: column; gap: 0.7rem; }
   .portal-bar-row { display: grid; grid-template-columns: 170px 1fr 44px; align-items: center; gap: 0.8rem; }
@@ -68,10 +52,6 @@
   .portal-status.fair { background: #fdf3dc; color: #8a6d1a; }
   .portal-status.building { background: #fdece8; color: #a03c28; }
   .portal-empty { color: #8a93a6; font-size: 0.9rem; padding: 0.5rem 0; }
-  .portal-siblings { display: flex; flex-wrap: wrap; gap: 0.7rem; }
-  .portal-sibling { border: 1px dashed #c9d2e0; border-radius: 12px; padding: 0.8rem 1rem; flex: 1 1 200px; }
-  .portal-sibling b { display: block; margin-bottom: 0.2rem; }
-  .portal-sibling span { font-size: 0.83rem; color: #667; }
   .portal-note { font-size: 0.85rem; color: #8a93a6; margin-top: 1.25rem; line-height: 1.5; }
 </style>
 
@@ -90,38 +70,16 @@
   <div class="portal-grid">
 
     <div class="portal-card">
-      <h3>Plan</h3>
-      {% if is_premium and not free_edition %}
-      <div><span class="portal-badge premium">Premium</span></div>
-      <div class="portal-value portal-plan-name" style="margin-top:.4rem;">{{ plan_label }}</div>
-      {% if plan_expiry_note %}
-      <div style="margin-top:.3rem; font-size:.88rem; color:#1e6b3c;">{{ plan_expiry_note }}</div>
-      {% else %}
-      <div style="margin-top:.5rem; font-size:.88rem; color:#1e6b3c;">Unlimited practice unlocked — thank you!</div>
-      {% endif %}
-      {% else %}
+      <h3>Access</h3>
       <div><span class="portal-badge free">Free</span></div>
-      {% if free_edition %}
       <div class="portal-value" style="margin-top:.4rem;">Every feature unlocked</div>
-      <div style="margin-top:.3rem; font-size:.88rem; color:#667;">No card, no limits, nothing to buy.</div>
-      {% else %}
-      <div class="portal-value" style="margin-top:.4rem;">{{ plan_price_str }}<small>{{ plan_period|default("/month") }}</small></div>
-      <div style="margin-top:.3rem; font-size:.88rem; color:#667;">Upgrade for unlimited practice.</div>
-      <a class="portal-btn" href="/pricing">Upgrade to {{ plan_label }}</a>
-      {% endif %}
-      {% endif %}
+      <div style="margin-top:.3rem; font-size:.88rem; color:#667;">Open educational resource — no card, no limits, nothing to buy.</div>
     </div>
 
     <div class="portal-card">
       <h3>Today's practice</h3>
-      {% if questions_remaining is none %}
       <div class="portal-value">Unlimited</div>
       <div style="margin-top:.3rem; font-size:.88rem; color:#1e6b3c;">{{ total_answered }} total questions answered</div>
-      {% else %}
-      <div class="portal-value">{{ questions_used_today }}<small> / {{ free_daily }} free</small></div>
-      <div style="margin-top:.3rem; font-size:.88rem; color:#667;">{{ questions_remaining }} left today</div>
-      <a class="portal-btn ghost" href="/quiz">Keep practicing</a>
-      {% endif %}
     </div>
 
     <div class="portal-card">
@@ -130,7 +88,7 @@
       {% if exam_days is not none %}
       <div style="margin-top:.3rem; font-size:.88rem; color:#667;">{{ exam_days }} day{{ '' if exam_days == 1 else 's' }} to exam</div>
       {% else %}
-      <div style="margin-top:.3rem; font-size:.88rem; color:#667;">{{ member_since or '' }}</div>
+      <div style="margin-top:.3rem; font-size:.88rem; color:#667;">Member since {{ member_since or '' }}</div>
       {% endif %}
     </div>
 
@@ -180,17 +138,6 @@
   <div class="portal-empty">No sessions yet — <a href="/">start your first quiz</a>.</div>
   {% endif %}
 
-  <div class="portal-section" style="margin-top:1.6rem;">The Mu2 study suite</div>
-  <div class="portal-siblings">
-    {% for s in siblings %}
-    <div class="portal-sibling">
-      <b>{{ s.name }}</b><span>{{ s.note }}</span>
-    </div>
-    {% endfor %}
-  </div>
-
-  {% if not free_edition %}
-  <p class="portal-note">Each study app keeps its own plan and progress. Shared single sign-on across TEAS, NCLEX &amp; FCLE arrives in a future update — for now, upgrade each app separately.</p>
-  {% endif %}
+  <p class="portal-note">Sabal is an open educational resource: free to use, free to adapt, and free to share.</p>
 </div>
 {% endblock %}

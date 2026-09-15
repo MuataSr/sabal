@@ -52,12 +52,10 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
           Stimulus Hub
         </a>
-        {% if not free_edition %}
         <a href="/tutor" class="nav-link{% if request.path == '/tutor' %} active{% endif %}">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l1.9 4.8L18.8 9.7l-4.9 1.9L12 16.4l-1.9-4.8-4.9-1.9 4.9-1.9L12 3z"/></svg>
           AI Tutor
         </a>
-        {% endif %}
       </div>
 
       <div class="nav-group">
@@ -83,18 +81,13 @@
     </nav>
 
     <div class="sidebar-foot">
-      {% if not free_edition %}
       <div class="plan-card">
         <div class="plan-title">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 5.6L20 8.6l-4.2 4 1.1 5.8L12 15.5l-4.9 2.9 1.1-5.8L4 8.6l5.6-1z"/></svg>
-          {% if is_premium %}Sabal Premium{% else %}Sabal{% endif %}
-          {% if launch_free %}<span class="plan-status">FREE</span>{% elif is_premium %}<span class="plan-status">ACTIVE</span>{% endif %}
+          Sabal <span class="plan-status">FREE</span>
         </div>
-        {% if launch_free %}<p>Every feature is free.</p>
-        {% elif is_premium %}<p>Unlimited practice &amp; full analytics.</p>
-        {% else %}<p>{{ free_daily }} free questions a day.</p>{% endif %}
+        <p>Open &amp; free for every student.</p>
       </div>
-      {% endif %}
       {% if current_user and not current_user.is_anonymous %}
       <div class="side-user">
         <span class="side-avatar">{{ (current_user.display_name or 'U')[:1] | upper }}</span>
@@ -114,12 +107,10 @@
       </button>
       <span class="crumb">Sabal &nbsp;/&nbsp; {% block crumb %}Home{% endblock %}</span>
       <div class="topbar-right">
-        {% if launch_free %}
         <span class="exam-pill">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 5.6L20 8.6l-4.2 4 1.1 5.8L12 15.5l-4.9 2.9 1.1-5.8L4 8.6l5.6-1z"/></svg>
           Free
         </span>
-        {% endif %}
         {% if current_user and not current_user.is_anonymous %}
         <a href="/account" class="btn-a btn-a-ghost" style="padding:6px 13px;font-size:12.5px">My Account</a>
         <span class="side-avatar" style="background:var(--a-navy-600);color:#fff">{{ (current_user.display_name or 'U')[:1] | upper }}</span>
@@ -151,7 +142,7 @@
 
     {# ── Onboarding Redirect ── #}
     {% if current_user and not current_user.get('is_anonymous')
-       and request.endpoint not in ['onboarding', 'login', 'signup', 'registered', 'pricing']
+       and request.endpoint not in ['onboarding', 'login', 'signup', 'registered']
        and current_user.get('onboarding_done', 1) == 0 %}
     <script>window.location.href = "/onboarding";</script>
     {% endif %}

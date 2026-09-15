@@ -12,13 +12,11 @@ import random
 import threading
 from datetime import datetime, timedelta, timezone
 from functools import wraps
-from flask import (Flask, render_template, redirect, url_for, request, jsonify, session, flash,
-                   abort)
+from flask import (Flask, render_template, redirect, url_for, request, jsonify, session, flash)
 import kb
 import tutor_engine
 from coach import library as coach_library
 import db
-import platform_lib  # per-app paywall helper (vendored, canonical in exam-prep-lms/platform)
 import coach.copy as coach_copy
 import coach.engine as coach_engine        # Study Coach: deterministic, no model, no network
 import coach.repository as coach_repository
@@ -41,46 +39,12 @@ app.secret_key = os.environ.get("FLASK_SECRET", os.urandom(24).hex())
 # ---------------------------------------------------------------------------
 # Editions
 #
-# The OER (free) edition must carry NO mention of the paid tier and NO mention
-# of any AI feature - not in the nav, not in the sidebar, not in page copy.
-# That is enforced here by ABSENCE: the elements are not rendered at all. Hiding
-# them with CSS would leave them one devtools inspection from being a mention.
-#
-# Default is "full", so this deployment is unchanged. The free deploy sets
-# APP_EDITION=free and the surface simply is not there.
+# Sabal is OER full stop: ONE free app, no paid tier, no PRO, no upselling.
+# There is no edition flag and no hidden paid surface. The AI tutor is an
+# optional "bring your own model" capability (see tutor_engine.py) — it is
+# neither gated nor sold. Removing the paid tier here by ABSENCE (no routes,
+# no templates, no plan fields in the UI) is what keeps this a legit OER.
 # ---------------------------------------------------------------------------
-APP_EDITION = os.environ.get("APP_EDITION", "free").strip().lower()
-
-# Fail CLOSED. The public product is the free OER edition, so an unset - or
-# misspelled - APP_EDITION means free, never paid. The paid edition has to be
-# asked for by name ("pro" or "full"). A deploy that forgets the variable then
-# fails visibly, with a PRO box missing its paid surface, instead of silently
-# serving the paid edition to students - which is exactly how the public box
-# once shipped PRO and AI copy with the flag unset.
-FULL_EDITION = APP_EDITION in ("pro", "full")
-FREE_EDITION = not FULL_EDITION
-
-
-@app.context_processor
-def _inject_edition():
-    """Make the edition flag available to every template."""
-    return {"free_edition": FREE_EDITION}
-
-
-def full_edition_only(view):
-    """A surface that exists only in the full edition.
-
-    The free edition must not expose the paid tier or any AI feature, and hiding
-    the link is not enough: the URL itself has to be gone, or the surface is one
-    guessed path away from being a mention. In the free edition this returns 404
-    before the view runs, so the route effectively does not exist.
-    """
-    @wraps(view)
-    def wrapper(*args, **kwargs):
-        if FREE_EDITION:
-            abort(404)
-        return view(*args, **kwargs)
-    return wrapper
 
 # Active quiz state now in SQLite (see db.py)
 db.init_active_quizzes_table()
@@ -149,19 +113,15 @@ def login_required(f):
 
 
 @app.context_processor
-def inject_paywall():
-    """Expose plan / premium state / free limits to all templates."""
+def inject_globals():
+    """Expose the current user and shell state to all templates.
+
+    Sabal is OER full stop: there is no plan, no premium state, and no
+    question cap — every student gets everything, always, for free.
+    """
     user = _get_current_user()
-    plan = (user or {}).get("plan") or "free"
     return {
         "current_user": user,
-        "plan": plan,
-        "is_premium": _premium_active(user),
-        "free_daily": platform_lib.FREE_DAILY_QUESTIONS,
-        "launch_free": FREE_LAUNCH,
-        # One-time plan expiry (FCLE): exposed for portal/pricing display.
-        "premium_until": platform_lib.premium_until_utc(user) if user else None,
-        "days_remaining": platform_lib.days_remaining(user) if user else None,
         # Focused surfaces render WITHOUT the app shell (sidebar/topbar):
         # auth pages, and the question/answer/results screens of every
         # assessment flow. Dashboard/hub/tutor keep the shell.
@@ -173,102 +133,6 @@ def inject_paywall():
         },
         "standalone_auth": request.endpoint in {"login", "signup", "registered", "onboarding"},
     }
-
-
-# ---------------------------------------------------------------------------
-# Launch mode
-#
-# FREE LAUNCH (Sep 2026): FCLE ships free while we line up hosting + Square.
-# When FREE_LAUNCH is truthy, every user is treated as premium (unlimited
-# questions, full analytics) and paywall redirects are disabled. Flip to paid
-# by running with FCLE_FREE_LAUNCH=0 — no code changes needed.
-FREE_LAUNCH = os.environ.get("FCLE_FREE_LAUNCH", "1") == "1"
-
-
-def _premium_active(user):
-    """Effective premium state — always true during free launch.
-    `user` is a user-row dict (with plan/premium_until) or None."""
-    if FREE_LAUNCH:
-        return True
-    return platform_lib.is_premium(user or {})
-
-
-def _plan_duration_label(info):
-    """'90 days' / '12 months' from a PRICING info dict (FCLE one-time plans)."""
-    days = info.get("duration_days")
-    if days == 365:
-        return "12 months"
-    if days == 90:
-        return "90 days"
-    return f"{days} days" if days else "pass"
-
-
-def _fmt_et_date(utc_iso):
-    """'Sep 6, 2027' (America/New_York) from a UTC ISO premium_until string."""
-    try:
-        from zoneinfo import ZoneInfo
-        dt = datetime.fromisoformat(utc_iso)
-        if dt.tzinfo is None:
-            dt = dt.replace(tzinfo=timezone.utc)
-        return dt.astimezone(ZoneInfo("America/New_York")).strftime("%b %d, %Y")
-    except (TypeError, ValueError):
-        return utc_iso
-
-
-def _expiry_note(user):
-    """Short expiry copy for a one-time premium row: '61 days left' / 'active until ...'."""
-    if not user:
-        return None
-    rem = platform_lib.days_remaining(user)
-    until = platform_lib.premium_until_utc(user)
-    if rem is None or not until:
-        return None
-    if rem <= 90:
-        return f"{rem} day{'s' if rem != 1 else ''} left"
-    return f"active until {_fmt_et_date(until)}"
-
-
-def _limit_redirect():
-    """Where to send a student who is out of free questions.
-
-    The free OER edition has no paid tier, so /pricing is not a route there and
-    redirecting to it would land them on a 404. Send them to the hub instead.
-    """
-    return redirect("/" if FREE_EDITION else "/pricing")
-
-
-_FREE_LIMIT_MSG = ("You've hit today's free limit of 10 questions. "
-                   "Upgrade for unlimited practice, or come back tomorrow!")
-
-
-def _questions_remaining_for(user):
-    """Remaining free questions today for one user. None means unlimited.
-
-    The free OER edition has no paid tier and no caps at all, so it is always
-    unlimited there, and during free launch every user is unlimited everywhere.
-    Only the full edition, with the launch flag off and no plan, gets a count.
-
-    The account page used to call platform_lib.questions_remaining() directly,
-    which honoured neither the edition nor launch mode - so it rendered
-    "0 / 10 free / 10 left today" on the same page that promises no limits.
-    """
-    if FREE_EDITION or FREE_LAUNCH:
-        return None
-    user = user or {}
-    if not user.get("id"):
-        return platform_lib.FREE_DAILY_QUESTIONS
-    return platform_lib.questions_remaining(user, db.count_answers_today(user["id"]))
-
-
-def _questions_left_today():
-    """Remaining free questions today for the current session.
-    Returns None when unlimited (free edition, free launch or paid plan)."""
-    if FREE_EDITION or FREE_LAUNCH:
-        return None
-    user_id = session.get("user_id")
-    if not user_id:
-        return platform_lib.FREE_DAILY_QUESTIONS
-    return _questions_remaining_for(db.get_user(user_id) or {})
 
 
 # ---------------------------------------------------------------------------
@@ -410,8 +274,8 @@ def _format_time(seconds):
     return f"{m}:{s:02d}"
 
 
-def _premium_trend(user_id):
-    """14-day daily-average readiness for the premium trend chart.
+def _readiness_trend(user_id):
+    """14-day daily-average readiness for the trend chart.
     Returns [{day: 'MM/DD', pct: int|None}] oldest->newest."""
     sessions = db.get_recent_sessions(user_id, 200)
     by_day = {}
@@ -436,7 +300,7 @@ def _premium_trend(user_id):
     return out
 
 
-def _premium_weak_areas(user_id):
+def _weak_areas(user_id):
     """Weak topics below 70% w/ >=3 attempts across domains."""
     weak = []
     for slug, info in _DOMAIN_GETTERS.items():
@@ -521,16 +385,6 @@ def quiz_start(domain_slug):
     count = request.args.get("count", 5, type=int)
     count = min(count, 20)
 
-    rem = _questions_left_today()
-    if rem == 0:
-        flash(_FREE_LIMIT_MSG, "info")
-        return _limit_redirect()
-    if rem is not None:
-        count = min(count, rem)
-        if count < 1:
-            flash(_FREE_LIMIT_MSG, "info")
-            return _limit_redirect()
-
     questions = info["quiz"](count=count)
     if not questions:
         return redirect("/")
@@ -553,16 +407,6 @@ def quiz_start_mixed():
     user_id = session["user_id"]
     count = request.args.get("count", 10, type=int)
     count = min(count, 20)
-
-    rem = _questions_left_today()
-    if rem == 0:
-        flash(_FREE_LIMIT_MSG, "info")
-        return _limit_redirect()
-    if rem is not None:
-        count = min(count, rem)
-        if count < 1:
-            flash(_FREE_LIMIT_MSG, "info")
-            return _limit_redirect()
 
     questions = kb.get_mixed_quiz_questions(count=count)
 
@@ -617,12 +461,6 @@ def quiz_answer(domain_slug, quiz_id, q_index):
     quiz = db.load_quiz(quiz_id)
     if not quiz:
         return redirect("/")
-
-    # Safety net for pre-existing in-flight sessions: never let a free user
-    # bank answers past today's quota.
-    if _questions_left_today() == 0:
-        flash(_FREE_LIMIT_MSG, "info")
-        return _limit_redirect()
 
     user_id = quiz.get("user_id", session["user_id"])
     questions = quiz["questions"]
@@ -897,8 +735,8 @@ def stats():
         recent_quizzes=recent_quizzes,
         weekly_activity=weekly,
         current_streak=current_streak,
-        premium_trend=_premium_trend(user_id),
-        premium_weak=_premium_weak_areas(user_id),
+        trend=_readiness_trend(user_id),
+        weak=_weak_areas(user_id),
         active_nav="stats",
     )
 
@@ -1378,43 +1216,6 @@ def logout():
     return redirect("/login")
 
 
-@app.route("/pricing")
-@full_edition_only
-def pricing():
-    """Pricing / upgrade page — 3-card layout (Free · Sprint · Annual).
-    Square checkout is Phase 2 — buttons stay inert."""
-    user_id = session.get("user_id")
-    user = db.get_user(user_id) if user_id else None
-    plan = (user or {}).get("plan") or "free"
-    # All FCLE plans in catalog order (sprint then annual); template renders 3 cards
-    # (free is a static first card; paid cards loop over `plans`).
-    fcle_keys = platform_lib.plans_for_app("fcle")
-    fcle_plans = []
-    for key in fcle_keys:
-        info = platform_lib.PRICING[key]
-        fcle_plans.append({
-            "key": key,
-            "name": info["name"],
-            "price_str": "${:,.0f}".format(info["price_cents"] / 100),
-            "duration_label": _plan_duration_label(info),
-            "best_value": info.get("duration_days", 0) >= 365,
-        })
-    # Current paid plan (only if the user genuinely holds a PRICING key)
-    current_key = plan if plan in platform_lib.PRICING else None
-    return render_template(
-        "premium.html",
-        plan=plan,
-        is_premium=_premium_active(user),
-        current_plan_key=current_key,
-        current_plan_label=platform_lib.PRICING[current_key]["name"] if current_key else None,
-        current_expiry_note=_expiry_note(user) if current_key else None,
-        free_daily=platform_lib.FREE_DAILY_QUESTIONS,
-        free_daily_ai=platform_lib.FREE_DAILY_AI,
-        plans=fcle_plans,
-        launch_free=FREE_LAUNCH,
-    )
-
-
 # ---------------------------------------------------------------------------
 # Study Coach
 #
@@ -1480,15 +1281,9 @@ def coach():
 @app.route("/account")
 @login_required
 def account():
-    """Student account portal — shared portal.html (see exam-prep-lms/platform)."""
+    """Student account portal — one free OER app, no plan and no cap."""
     user_id = session["user_id"]
     user = _get_current_user() or {}
-    plan = user.get("plan") or "free"
-    is_premium = _premium_active(user)
-    plan_key = user.get("plan") if user.get("plan") in platform_lib.PRICING else platform_lib.plan_for_app("fcle")
-    pinfo = platform_lib.PRICING[plan_key]
-    used = db.count_answers_today(user_id)
-    rem = _questions_remaining_for(user)
     stats = db.get_overall_stats(user_id)
     total = db.get_total_answered(user_id)
 
@@ -1501,24 +1296,9 @@ def account():
               for s in _build_recent_sessions(user_id)]
     created = user.get("created_at", "") or ""
 
-    # One-time expiry copy (FCLE): portal premium badge shows plan + expiry.
-    # Monthly apps (TEAS/NCLEX) omit these → shared template falls back to
-    # the generic thanks line + "/month" suffix (unchanged rendering).
-    expiry_note = _expiry_note(user)
-    plan_expiry_note = (expiry_note[:1].upper() + expiry_note[1:]) if expiry_note else None
-
     return render_template("portal.html",
         app_name="Sabal FCLE Exam Prep",
         app_slug="fcle",
-        plan=plan,
-        is_premium=is_premium,
-        plan_label=pinfo["name"],
-        plan_price_str="${:,.2f}".format(pinfo["price_cents"] / 100),
-        plan_expiry_note=plan_expiry_note,
-        plan_period="",  # FCLE sells one-time plans — no "/month" suffix
-        free_daily=platform_lib.FREE_DAILY_QUESTIONS,
-        questions_used_today=used,
-        questions_remaining=rem,
         total_answered=total,
         overall_pct=int(stats.get("overall_readiness", 0) or 0),
         exam_days=_exam_countdown(user.get("exam_date") if user else None),
@@ -1526,10 +1306,6 @@ def account():
         areas=areas,
         chips=[{"label": "Total answered", "value": total}],
         recent_sessions=recent,
-        siblings=[
-            {"name": "TEAS Study", "note": "Nursing school entrance exam prep."},
-            {"name": "NCLEX Study", "note": "Passed the TEAS? Next stop: licensure prep."},
-        ],
         active_nav="account",
     )
 
@@ -1746,13 +1522,17 @@ def stimulus_practice_results(quiz_id):
 
 
 # ---------------------------------------------------------------------------
-# Socratic Tutor — dual-model local AI tutor
+# Socratic Tutor — optional "bring your own model" AI tutor.
+#
+# This is NOT a paid feature and NOT gated. It is plumbing: point the router
+# and teacher at any OpenAI-compatible endpoint (a local llama-server or a
+# cloud model) via the FCLE_TUTOR_ROUTER_URL / FCLE_TUTOR_TEACHER_URL env
+# vars, or leave them unset and the tutor simply reports its models offline.
 # ---------------------------------------------------------------------------
 
 _tutor = tutor_engine.TutorEngine()
 
 @app.route('/tutor')
-@full_edition_only
 @login_required
 def tutor_page():
     user_id = session["user_id"]
@@ -1821,7 +1601,6 @@ def tutor_page():
     )
 
 @app.route('/tutor/chat', methods=['POST'])
-@full_edition_only
 @login_required
 def tutor_chat():
     data = request.get_json(force=True)
@@ -1858,13 +1637,11 @@ def tutor_chat():
     return jsonify(result)
 
 @app.route('/tutor/status')
-@full_edition_only
 def tutor_status():
     return jsonify(_tutor.check_servers())
 
 
 @app.route('/tutor/history')
-@full_edition_only
 @login_required
 def tutor_history():
     """Load persistent chat history for the current user."""

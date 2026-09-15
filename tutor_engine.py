@@ -1,19 +1,25 @@
 """
-FCLE Tutor Engine — Local dual-model Socratic tutor
-Both models: Qwen3.5-4B Q4_K_M with --reasoning off
-Router (port 8082): intent classification + topic extraction
-Teacher (port 8083): Socratic response generation with KB context
+FCLE Tutor Engine — optional "bring your own model" Socratic tutor.
+
+This is NOT a paid feature and NOT gated. It is plumbing: an OpenAI-compatible
+chat endpoint powers a router (intent classification) and a teacher (Socratic
+response grounded in the app's own knowledge base). Point them at a local
+llama-server or any cloud model via the FCLE_TUTOR_ROUTER_URL and
+FCLE_TUTOR_TEACHER_URL env vars. Defaults assume a local llama-server on ports
+8082 (router) and 8083 (teacher); leave them unset and the tutor reports its
+models offline.
 """
 
 import json
+import os
 import re
 import sqlite3
 import requests
 from pathlib import Path
 
 DB_PATH = Path(__file__).parent / "data" / "fcle.db"
-ROUTER_URL = "http://localhost:8082/v1/chat/completions"
-TEACHER_URL = "http://localhost:8083/v1/chat/completions"
+ROUTER_URL = os.environ.get("FCLE_TUTOR_ROUTER_URL", "http://localhost:8082/v1/chat/completions")
+TEACHER_URL = os.environ.get("FCLE_TUTOR_TEACHER_URL", "http://localhost:8083/v1/chat/completions")
 
 DOMAIN_MAP = {
     1: "American Democracy",

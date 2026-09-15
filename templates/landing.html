@@ -262,6 +262,7 @@
         <h2>Sabal was built the way a good professor teaches.</h2>
         <p>Most prep tells you which answer is right. Sabal explains <strong>why the wrong answers feel right</strong> &mdash; because that&rsquo;s where the FCLE actually gets you.</p>
         <p>The app comes from an educator who taught for more than 20 years in community college classrooms, then ran the tutoring center where Florida students who failed this exam walked in for help. He watched capable students miss by a few questions &mdash; not because they were unprepared, but because they&rsquo;d been practicing the wrong things.</p>
+        <p>He built it with AI &mdash; using the tools others treat as a threat to make a genuinely free study aid for the students who can&rsquo;t afford the paid ones. Sabal is an open educational resource: free to use, free to adapt, and free to share. It&rsquo;s the first of several open resources coming from Mu2 Solutions.</p>
         <p>The name is Florida&rsquo;s own. Sabal is the state tree &mdash; the sabal palmetto, the palm Florida law names in its Great Seal. It bends in a hurricane instead of breaking: it drops what it doesn&rsquo;t need and keeps its core. That&rsquo;s the standard this app is held to. Not a prettier way to cram &mdash; a way to hold up on the day that counts.</p>
         <div class="sig">
           <div class="n">&mdash; Professor K</div>
@@ -355,11 +356,11 @@
 </div></div>
       </div>
       <div class="zz-row">
-        <div class="zz-copy"><h3>Practice the way you learn best</h3>{% if free_edition %}<p>Quick drills, a timed Diagnostic, Mixed Review, and a Study Coach that reads your results and tells you what to work on next.</p>{% else %}<p>Quick drills, timed Diagnostic, Mixed Review, or ask the AI Tutor to explain a concept until it clicks.</p>{% endif %}</div>
+        <div class="zz-copy"><h3>Practice the way you learn best</h3><p>Quick drills, a timed Diagnostic, Mixed Review, and a Study Coach that reads your results and tells you what to work on next.</p></div>
         <div class="zz-mock">
 <div class="mk mk-modes" aria-hidden="true">
   <span class="chip on">Quick drills</span><span class="chip">Timed Diagnostic</span>
-  <span class="chip">Mixed Review</span><span class="chip">{% if free_edition %}Study Coach{% else %}AI Tutor{% endif %}</span>
+  <span class="chip">Mixed Review</span><span class="chip">Study Coach</span>
   <div class="mk-line"><i style="--w:1"></i></div>
 </div></div>
       </div>
@@ -390,11 +391,7 @@
   <div class="wrap">
     <div class="price">
       <h2>Free. Every feature.</h2>
-      {% if free_edition %}
       <p>Every feature is free &mdash; the full question bank, all practice modes, progress tracking, and the Study Coach that tells you what to work on next. There is nothing to buy and nothing that gets taken away. Start now and your progress carries with you.</p>
-      {% else %}
-      <p>Right now, every feature is free &mdash; full question bank, all practice modes, AI tutor, progress tracking. There is a one-time, no-subscription option planned to keep your access later. Start now and your progress carries with you.</p>
-      {% endif %}
       <a class="btn btn-gold" href="/signup{% if src %}?src={{ src }}{% endif %}">Start Practicing Free &rarr;</a>
     </div>
   </div>
