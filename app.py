@@ -1278,8 +1278,8 @@ def _coach_plan(user_id, refresh=False):
 
 def _next_action(user_id):
     """The single 'what should I do right now' step, derived from the coach plan."""
-    plan = _coach_plan(user_id)
-    if not plan.has_data:
+    # Entry point: no diagnostic yet → start there before anything else.
+    if not db.has_diagnostic(user_id):
         return {
             "eyebrow": "Start here",
             "title": "Take the 20-question diagnostic",
@@ -1288,6 +1288,7 @@ def _next_action(user_id):
             "cta_url": "/diagnostic",
             "kind": "diagnostic",
         }
+    plan = _coach_plan(user_id)
     slug = _DOMAIN_ID_TO_SLUG.get(plan.focus_domain) or "mixed"
     block = plan.blocks[0] if plan.blocks else None
     if block is not None:
