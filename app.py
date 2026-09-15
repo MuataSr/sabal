@@ -1091,10 +1091,8 @@ def signup():
             if not user:
                 flash("Account could not be created. Please try again.", "error")
                 return render_template("signup.html")
-            # Account is provisioned & ready the moment registration completes —
-            # the dashboard link IS the entry. Personalization (exam date, target)
-            # stays optional in /settings; nothing blocks the dashboard.
-            db.update_user(user["id"], onboarding_done=1)
+            # New users land in onboarding first (onboarding_done defaults to 0):
+            # set exam date + target score, see the path, then start the loop.
             session["user_id"] = user["id"]
             session.permanent = True
             # ORDER-faithful: registration completes → user is issued their
@@ -1409,6 +1407,14 @@ def onboarding():
         return redirect("/")
 
     return render_template("onboarding.html", user=user)
+
+
+@app.route("/onboarding/skip")
+@login_required
+def onboarding_skip():
+    """Skip personalization for now — mark onboarding done and continue."""
+    db.update_user(session["user_id"], onboarding_done=1)
+    return redirect("/")
 
 
 # ---------------------------------------------------------------------------

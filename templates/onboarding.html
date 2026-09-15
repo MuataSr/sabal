@@ -3,10 +3,30 @@
 {% block title %}Welcome — Sabal FCLE Exam Prep{% endblock %}
 {% block bottom_nav %}{% endblock %}
 
+{% block head %}
+<style>
+  .onboard-path { text-align: left; margin: 18px 0 22px; padding: 16px 18px; background: var(--a-navy-50); border: 1px solid var(--a-navy-100); border-radius: var(--a-radius); }
+  .onboard-path h2 { font-size: 0.95rem; font-weight: 700; color: var(--a-navy-700); margin-bottom: 10px; }
+  .onboard-path ol { margin: 0; padding-left: 18px; }
+  .onboard-path li { font-size: 0.86rem; color: var(--a-gray-600); line-height: 1.5; margin-bottom: 7px; }
+  .onboard-path li strong { color: var(--a-navy-700); }
+</style>
+{% endblock %}
+
 {% block content %}
 <div class="auth-card">
   <h1>Let's Get Started</h1>
-  <p class="subtitle">A few quick questions to personalize your FCLE study plan.</p>
+  <p class="subtitle">Here's how Sabal works — then a couple of quick questions to personalize your plan.</p>
+
+  <div class="onboard-path">
+    <h2>Your path to passing</h2>
+    <ol>
+      <li><strong>Diagnose</strong> — a 20-question assessment finds your starting point.</li>
+      <li><strong>Plan</strong> — your Coach builds a paced plan around your weak spots.</li>
+      <li><strong>Practice</strong> — drill what matters most, most-missed first.</li>
+      <li><strong>Re-check</strong> — watch your readiness climb toward test day.</li>
+    </ol>
+  </div>
 
   <form method="POST" action="/onboarding">
     <div class="form-group">
@@ -30,6 +50,6 @@
     <button type="submit" class="submit-btn" style="margin-top: 8px;">Get Started</button>
   </form>
 
-  <p class="auth-link"><a href="/">Skip for now</a></p>
+  <p class="auth-link"><a href="/onboarding/skip">Skip for now</a></p>
 </div>
 {% endblock %}
