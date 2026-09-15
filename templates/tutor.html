@@ -344,6 +344,12 @@
   <p>Ask anything about Florida civic literacy</p>
 </div>
 
+{% if not tutor_connected %}
+<div class="tutor-offline-banner">
+  <strong>AI Tutor is offline.</strong> No language model is connected yet &mdash; this feature unlocks once an LLM is linked to Sabal.
+</div>
+{% endif %}
+
 <!-- Tabs -->
 <div class="tutor-tabs">
   <div class="tutor-tab active" data-tab="chat">💬 Chat</div>

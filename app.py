@@ -112,6 +112,28 @@ def login_required(f):
     return decorated
 
 
+# AI Tutor availability — grey the tutor out in the shell when no LLM is wired.
+# check_servers() probes two /health endpoints (up to 3s each), so cache it.
+_tutor_conn = {"value": False, "ts": 0.0}
+_TUTOR_CONN_TTL = 60.0
+
+
+def _tutor_connected():
+    import time
+    now = time.time()
+    if now - _tutor_conn["ts"] < _TUTOR_CONN_TTL:
+        return _tutor_conn["value"]
+    value = False
+    try:
+        s = _tutor.check_servers()  # module-global TutorEngine, defined below
+        value = bool(s.get("router")) and bool(s.get("teacher"))
+    except Exception:
+        value = False
+    _tutor_conn["value"] = value
+    _tutor_conn["ts"] = now
+    return value
+
+
 @app.context_processor
 def inject_globals():
     """Expose the current user and shell state to all templates.
@@ -132,6 +154,7 @@ def inject_globals():
             "stimulus_practice_question", "stimulus_practice_results",
         },
         "standalone_auth": request.endpoint in {"login", "signup", "registered", "onboarding"},
+        "tutor_connected": _tutor_connected(),
     }
 
 

@@ -48,9 +48,10 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
           Stimulus Hub
         </a>
-        <a href="/tutor" class="nav-link{% if request.path == '/tutor' %} active{% endif %}">
+        <a href="/tutor" class="nav-link{% if request.path == '/tutor' %} active{% endif %}{% if not tutor_connected %} nav-link--offline{% endif %}"{% if not tutor_connected %} aria-disabled="true" title="AI Tutor is offline — no model connected"{% endif %}>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l1.9 4.8L18.8 9.7l-4.9 1.9L12 16.4l-1.9-4.8-4.9-1.9 4.9-1.9L12 3z"/></svg>
           AI Tutor
+          {% if not tutor_connected %}<span class="nav-offline-badge">offline</span>{% endif %}
         </a>
       </div>
 
