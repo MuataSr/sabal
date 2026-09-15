@@ -864,6 +864,7 @@
   --bg:          var(--a-gray-100);    /* was #FAFAF7 cream */
   --surface:        #ffffff;
   --text-secondary: var(--a-gray-500);
+  --radius:        var(--a-radius);    /* was 4px editorial — unify to Template A */
 }
 
 /* ——— Global overrides (A look everywhere) ——— */
