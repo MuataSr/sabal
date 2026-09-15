@@ -120,6 +120,20 @@ def init_db():
             )
         """)
 
+        # Socratic Tutor chat history — persisted across sessions so the
+        # unified Coach page can hydrate the student's prior conversation.
+        conn.execute("""
+            CREATE TABLE IF NOT EXISTS tutor_messages (
+                id          INTEGER PRIMARY KEY AUTOINCREMENT,
+                user_id     INTEGER NOT NULL DEFAULT 1,
+                role        TEXT NOT NULL,
+                content     TEXT NOT NULL,
+                domain      TEXT,
+                created_at  TEXT NOT NULL DEFAULT (datetime('now')),
+                FOREIGN KEY (user_id) REFERENCES users(id)
+            )
+        """)
+
         # FCLE one-time pricing flip (Sep 6, 2026): map any legacy fcle_monthly
         # grants to annual for goodwill (expect 0 — free-launch shipped no grants).
         legacy = conn.execute("SELECT id FROM users WHERE plan='fcle_monthly'").fetchall()
