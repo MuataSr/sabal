@@ -1153,40 +1153,45 @@ def admin_waitlist():
 
 
 def _try_email_dashboard_link(user, link):
-    """Email the user their dashboard link — ONLY if SMTP creds are configured.
+    """Email the user their dashboard link via the Resend API (HTTPS).
 
-    FCLE has no email infrastructure yet (no SMTP creds, no .env). Until Mister K
-    supplies creds at deploy time this returns False and the on-screen link is the
-    only delivery channel. Never pretend an email was sent.
+    The droplet blocks outbound SMTP (25/465/587), so delivery goes over HTTPS via
+    Resend. Returns False when no API key is set or a send fails, so the on-screen
+    link remains the fallback. Never pretend an email was sent.
     """
-    host = os.environ.get("SMTP_HOST")
-    if not host:
+    api_key = os.environ.get("RESEND_API_KEY")
+    if not api_key:
         return False
     try:
-        import smtplib
-        from email.mime.text import MIMEText
-        port = int(os.environ.get("SMTP_PORT", "587"))
-        sender = os.environ.get("SMTP_FROM") or os.environ.get("SMTP_USER")
+        import json
+        import urllib.request
         recipient = (user or {}).get("email")
+        sender = os.environ.get("RESEND_FROM") or "Sabal FCLE Exam Prep <muata@mu2.solutions>"
         if not sender or not recipient:
             return False
-        msg = MIMEText(
+        body = (
             f"Hi {(user or {}).get('display_name') or 'Student'},\n\n"
             f"Your Sabal dashboard link:\n\n{link}\n\n"
             f"Open it and you'll land straight on your dashboard. Keep it safe — "
-            f"it's how you log in.\n\n— Sabal FCLE Exam Prep (Mu2 Solutions)",
-            "plain", "utf-8",
+            f"it's how you log in.\n\n— Sabal FCLE Exam Prep (Mu2 Solutions)"
         )
-        msg["Subject"] = "Your Sabal dashboard link"
-        msg["From"] = sender
-        msg["To"] = recipient
-        with smtplib.SMTP(host, port, timeout=15) as s:
-            s.starttls()
-            user_env = os.environ.get("SMTP_USER")
-            pwd = os.environ.get("SMTP_PASS")
-            if user_env:
-                s.login(user_env, pwd or "")
-            s.sendmail(sender, [recipient], msg.as_string())
+        payload = {
+            "from": sender,
+            "to": [recipient],
+            "subject": "Your Sabal dashboard link",
+            "text": body,
+        }
+        req = urllib.request.Request(
+            "https://api.resend.com/emails",
+            data=json.dumps(payload).encode(),
+            headers={
+                "Authorization": f"Bearer {api_key}",
+                "Content-Type": "application/json",
+                "User-Agent": "sabal-fcle/1.0",
+            },
+            method="POST",
+        )
+        urllib.request.urlopen(req, timeout=15).read()
         return True
     except Exception:
         return False
