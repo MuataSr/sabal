@@ -4,7 +4,7 @@
 
 Sabal is a complete, self-paced study app for the Florida Civic Literacy Exam
 (FCLE) — the exam every Florida college student must pass to graduate. It covers
-all 36 tested standards with 2,300+ practice questions, and it does what free
+all 36 tested standards with 2,000+ practice questions, and it does what free
 flashcards and YouTube videos can't: it explains **why the right answer is right**
 and **why each tempting wrong answer is wrong**.
 
@@ -38,7 +38,7 @@ the "pay to pass" racket.
 
 ## What's inside
 
-- **Full coverage** — all 36 FCLE benchmarks, 2,300+ questions across the four
+- **Full coverage** — all 36 FCLE benchmarks, 2,000+ questions across the four
   domains: American Democracy, US Constitution, Founding Documents, and Landmark
   Impact.
 - **Explanations, not just answers** — every wrong answer carries its own "why
