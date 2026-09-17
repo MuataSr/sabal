@@ -1,8 +1,8 @@
 # FCLE Study Buddy — Project Status
 
-**Last Updated:** 2026-09-06 by Ann-E
+**Last Updated:** 2026-09-17 by Ann-E
 **Project Path:** `/home/muatasr/.nanobot/workspace/fcle-study-app/`
-**Current Phase:** Pre-deployment (feature-complete MVP) — ORDER-faithful auth live in code (ee5ef9f), not yet deployed
+**Current Phase:** **Live** — deployed at https://fcle.mu2.solutions (Sabal droplet, gunicorn)
 
 ---
 
@@ -14,18 +14,19 @@ A web-based study app for the Florida Civic Literacy Exam (FCLE). Students pract
 
 ## Database Status
 
-**Question DB:** `data/fcle.db` — 2,175 questions, zero nulls, zero duplicates
+**Question DB:** `data/fcle.db` — 2,350 questions, zero nulls, zero duplicates
 
 | Domain | Count |
 |--------|-------|
-| D1 — American Democracy | 675 |
-| D2 — U.S. Constitution | 496 |
-| D3 — Federal Government | 503 |
-| D4 — Rights & Responsibilities | 501 |
+| D1 — American Democracy | 779 |
+| D2 — U.S. Constitution | 556 |
+| D3 — Founding Documents | 515 |
+| D4 — Landmark Impact | 500 |
 
-- All 2,175 questions have `wrong_explanations` populated (per-choice "why this is wrong" text)
+- All 2,350 questions have `wrong_explanations` populated (per-choice "why this is wrong" text)
 - All explanations verified clean (68 mismatched explanations fixed May 14)
 - Question types: MCQ with A/B/C/D, distractors grounded in real misconceptions
+- **Distractor rebalance (Sep 17):** every question now has ≥1 distractor length-matched to the correct answer — eliminates the "longest answer is correct" test-taking heuristic (previously exploitable on ~66% of items). 40 compound/overlong correct answers (>400 chars) trimmed to single-idea form.
 
 **User Progress DB:** `data/user_progress.db`
 - Tables: users, quiz_sessions, answers, topic_mastery, review_queue, diagnostic_baselines, tutor_messages, active_quizzes
@@ -68,6 +69,12 @@ A web-based study app for the Florida Civic Literacy Exam (FCLE). Students pract
 
 ## Recent Changes
 
+### Sep 17, 2026 — Distractor rebalance + production deploy
+
+- **Distractor length rebalance:** regenerated wrong answers so every question has ≥1 distractor reaching the correct answer's length — removes the "pick the longest answer" heuristic (~66% of items previously exploitable). ~1,510 questions rebalanced via DeepSeek Flash.
+- **Compound-answer trim:** 40 correct answers >400 chars (worst 734) rewritten to single-idea form (~250-350 chars).
+- **Deployed to production** (https://fcle.mu2.solutions) with a pre-write DB backup; verified 2,350 questions live, max answer length now 399.
+
 ### Sep 15, 2026 — UI regression fixes + drop redundant legacy.css — commits `e794d25` `5fa030b` `4daa6a3`
 
 - **Fixed invisible primary buttons** (`.btn-a-primary` navy-on-navy): the `.a-shell a` global link color was overriding button text (specificity 0,1,1 vs 0,1,0). Scoped to `.a-shell a:not([class*="btn"])`.
@@ -102,10 +109,10 @@ Mister K directive: no anonymous users; visitors must register, then get a perso
 ## Remaining Roadmap
 
 - [ ] **PWA support** — service worker + manifest.json for install-to-homescreen
-- [ ] **Cloud deployment** — move off dev server to production hosting
+- [x] **Cloud deployment** — live on the Sabal droplet (https://fcle.mu2.solutions)
 - [ ] **Mobile polish** — verify responsive layout on small screens
-- [ ] **Data cleanup** — archive generation scripts in `data/` that are no longer needed
-- [ ] **Production WSGI** — swap Flask dev server for gunicorn/waitress before deployment
+- [x] **Data cleanup** — stray generation/diagnostic scripts removed (Sep 17)
+- [x] **Production WSGI** — gunicorn via systemd `fcle-study-app`
 
 ---
 
@@ -122,5 +129,5 @@ Mister K directive: no anonymous users; visitors must register, then get a perso
 | `templates/quiz.html` | Quiz UI + feedback breakdown |
 | `templates/results.html` | Quiz results summary |
 | `static/css/fcle.css` | Main stylesheet (editorial style) |
-| `data/fcle.db` | Question database (2,175 questions) |
+| `data/fcle.db` | Question database (2,350 questions) |
 | `data/user_progress.db` | User accounts + progress tracking |
