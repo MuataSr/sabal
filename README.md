@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/sabal-card.png" alt="Sabal — FCLE Exam Prep" width="720">
+  <img src="docs/sabal-logo-card.png" alt="Sabal — Free FCLE Exam Prep" width="720">
 </p>
 
 # Sabal — Free FCLE Exam Prep
