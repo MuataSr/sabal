@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="docs/sabal-card.png" alt="Sabal — FCLE Exam Prep" width="720">
+</p>
+
 # Sabal — Free FCLE Exam Prep
 
 **Pass the Florida Civic Literacy Exam. Free, forever.**
