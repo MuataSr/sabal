@@ -126,7 +126,7 @@ from the app.
   ("we don't sell or share anyone's information") still holds.
 
 
-## Crawl surfaces — search and link previews (2026-10-14)
+## Crawl surfaces — search and link previews (2026-10-15)
 
 - `/robots.txt` and `/sitemap.xml` are served by the app. The public origin is
   **pinned** (`PUBLIC_BASE_URL`, env override `SABAL_PUBLIC_BASE_URL`, default

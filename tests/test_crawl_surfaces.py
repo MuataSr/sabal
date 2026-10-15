@@ -1,6 +1,6 @@
 """Crawl surfaces: can a search engine find the page, and does a shared link look like anything?
 
-Written after a live audit on 2026-10-14 found `/robots.txt` and `/sitemap.xml` both
+Written after a live audit on 2026-10-15 found `/robots.txt` and `/sitemap.xml` both
 404, the landing page carrying no canonical, no Open Graph tags and no structured
 data, and the top-ranking competitors ranking on phrases the page never used.
 
@@ -89,6 +89,26 @@ class TestSitemap(unittest.TestCase):
     def test_lastmod_is_a_date(self):
         for el in self.root.iter(SITEMAP_NS + "lastmod"):
             self.assertRegex(el.text or "", r"^\d{4}-\d{2}-\d{2}$")
+
+    def test_lastmod_is_not_stale(self):
+        """It must never claim the site is older than the files that build it.
+
+        The first shipped version read MAX(created_at) from the bank and reported
+        2026-09-13 while the bank had been rebuilt and the page changed since.
+        """
+        from datetime import datetime
+        bank = os.path.join(ROOT, "data", "fcle.db")
+        landing = os.path.join(ROOT, "templates", "landing.html")
+        today = datetime.utcnow().date().isoformat()
+        newest = max(datetime.utcfromtimestamp(os.path.getmtime(p)).date().isoformat()
+                     for p in (bank, landing))
+        dates = {el.text for el in self.root.iter(SITEMAP_NS + "lastmod")}
+        self.assertTrue(dates)
+        for value in dates:
+            self.assertLessEqual(value, today, "lastmod %s is in the future" % value)
+            if newest <= today:      # only meaningful when the clock is not skewed
+                self.assertGreaterEqual(value, newest,
+                                        "lastmod %s is older than the newest source file" % value)
 
 
 class TestLandingHead(unittest.TestCase):
@@ -242,7 +262,7 @@ class TestLicenceIsStatedOnTheSite(unittest.TestCase):
 
 class TestThePageSaysWhatStudentsSearch(unittest.TestCase):
     """The ranking gap: competitors own "Florida Civic Literacy Exam practice test"
-    and the page never used the phrase at all. Approved by Mister K 2026-10-14."""
+    and the page never used the phrase at all. Approved by Mister K 2026-10-15."""
 
     @classmethod
     def setUpClass(cls):

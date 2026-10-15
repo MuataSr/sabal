@@ -1203,16 +1203,25 @@ def robots_txt():
 
 @app.route("/sitemap.xml")
 def sitemap_xml():
-    """Public URLs only. lastmod tracks the question bank, the thing that moves."""
-    lastmod = None
-    try:
-        con = kb._get_conn()
-        row = con.execute("SELECT MAX(date(created_at)) FROM questions").fetchone()
-        con.close()
-        lastmod = row[0] if row else None
-    except Exception as exc:            # noqa: BLE001 - a sitemap must never 500
-        app.logger.warning("sitemap lastmod unavailable: %s", exc)
-    lastmod = lastmod or datetime.utcnow().date().isoformat()
+    """Public URLs only. lastmod is the newest REAL modification time we have.
+
+    It used to read `MAX(created_at)` from the question bank, which reported
+    2026-09-13 while the bank was rebuilt in October and the landing page changed
+    today. A lastmod that lies is worse than none: it tells a crawler there is
+    nothing new to fetch.
+    """
+    def _mtime_date(path):
+        try:
+            return datetime.utcfromtimestamp(os.path.getmtime(path)).date().isoformat()
+        except OSError:
+            return None
+
+    candidates = [d for d in (_mtime_date(kb.DB_PATH),
+                              _mtime_date(os.path.join(app.root_path, "templates", "landing.html")))
+                  if d]
+    today = datetime.utcnow().date().isoformat()
+    # Never future-dated: a lastmod ahead of today is invalid and gets ignored.
+    lastmod = min(max(candidates), today) if candidates else today
 
     parts = ['<?xml version="1.0" encoding="UTF-8"?>',
              '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
