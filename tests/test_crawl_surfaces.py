@@ -210,5 +210,67 @@ class TestNothingElseRegressed(unittest.TestCase):
             self.assertNotIn(secret, body)
 
 
+class TestLicenceIsStatedOnTheSite(unittest.TestCase):
+    """OER Commons marks this Required: the site itself must state licensing/usage rights.
+
+    Before 2026-10-14 the licence lived only in the repo (`LICENSE`,
+    `LICENSE-CONTENT`, `ATTRIBUTION.md`): a student reading "free to use, adapt
+    and share" was never told the terms, and an OER Commons submission that fails
+    a Required criterion is disqualified automatically.
+    """
+
+    @classmethod
+    def setUpClass(cls):
+        import app as module
+        cls.html = module.app.test_client().get("/").get_data(as_text=True)
+
+    def test_the_page_names_both_licences_and_links_them(self):
+        for token in ("CC BY-NC-SA 4.0", "Apache-2.0",
+                      "creativecommons.org/licenses/by-nc-sa/4.0",
+                      "apache.org/licenses/LICENSE-2.0"):
+            self.assertIn(token, self.html, "%r must be stated on the site" % token)
+
+    def test_it_states_what_the_app_is_not(self):
+        self.assertIn("Not affiliated with the Florida Department of Education", self.html)
+
+    def test_the_structured_data_carries_the_same_licence(self):
+        m = re.search(r'<script[^>]+application/ld\+json[^>]*>(.*?)</script>', self.html, re.S | re.I)
+        data = json.loads(m.group(1))
+        node = [n for n in data["@graph"] if n["@type"] == "WebApplication"][0]
+        self.assertEqual(node.get("license"), "https://creativecommons.org/licenses/by-nc-sa/4.0/")
+
+
+class TestThePageSaysWhatStudentsSearch(unittest.TestCase):
+    """The ranking gap: competitors own "Florida Civic Literacy Exam practice test"
+    and the page never used the phrase at all. Approved by Mister K 2026-10-14."""
+
+    @classmethod
+    def setUpClass(cls):
+        import app as module
+        cls.html = module.app.test_client().get("/").get_data(as_text=True)
+        cls.low = cls.html.lower()
+
+    def test_the_exam_is_named_in_full_on_the_page(self):
+        self.assertGreaterEqual(self.low.count("florida civic literacy exam"), 2,
+                                "the exam name must appear more than once")
+
+    def test_the_title_leads_with_what_students_type(self):
+        title = re.search(r"<title>([^<]*)</title>", self.html).group(1)
+        self.assertTrue(title.startswith("FCLE Practice Test"), title)
+        self.assertIn("Florida Civic Literacy Exam", title)
+
+    def test_the_hero_carries_the_lede_sentence(self):
+        self.assertIn("Free FCLE practice test questions for the Florida Civic Literacy Exam.",
+                      self.html)
+
+    def test_the_two_new_faqs_are_visible(self):
+        for question in ("Is there a free FCLE practice test?", "How many questions are on the FCLE?"):
+            self.assertIn(question, self.html)
+
+    def test_the_faq_answer_states_the_publicly_documented_exam_facts(self):
+        self.assertIn("80 multiple-choice questions", self.html)
+        self.assertIn("48 correct answers to pass", self.html)
+
+
 if __name__ == "__main__":
     unittest.main()
