@@ -126,6 +126,28 @@ from the app.
   ("we don't sell or share anyone's information") still holds.
 
 
+## Crawl surfaces — search and link previews (2026-10-14)
+
+- `/robots.txt` and `/sitemap.xml` are served by the app. The public origin is
+  **pinned** (`PUBLIC_BASE_URL`, env override `SABAL_PUBLIC_BASE_URL`, default
+  `https://fcle.mu2.solutions`) instead of read from the request, because nginx
+  terminates TLS and the app itself sees `http`.
+- Every student page is `Disallow`ed on purpose and the sitemap lists only `/`,
+  `/signup` and `/login`. **Never add a student, results or admin path** to
+  either surface.
+- The landing head carries canonical + Open Graph + twitter card +
+  `WebApplication`/`FAQPage` JSON-LD. **`og:title` and `og:description` must stay
+  byte-identical to the approved `<title>` and meta description**: a share tag is
+  not a place to smuggle in a new claim or a new number, and a test enforces that
+  along with the "FCLE-style" wording rule and the floor-not-exact count rule.
+- `og:image` is `static/img/sabal-og-card.png` (1200x630), derived from the
+  approved logo card. The source card is 1280x640 with a portrait mark, so the
+  mark is centred on the card's own background rather than re-drawn.
+- **Indexing itself is not done by any of this.** Submitting the sitemap to
+  Google Search Console needs Mister K's own account (or a DNS TXT record on the
+  domain), and that is his call.
+
+
 ## OER posture (2026-10-14)
 
 Sabal is 100% open educational resource, permanently: no paid edition, no

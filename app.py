@@ -1163,6 +1163,71 @@ def admin_waitlist():
     return html
 
 
+# ---------------------------------------------------------------------------
+# Crawl surfaces — how a student finds this at all
+#
+# Before this existed the site had no robots.txt, no sitemap, no canonical and
+# no Open Graph tags: nothing told a crawler the page existed, and a link shared
+# into a Facebook group or a subreddit rendered as a bare URL. Everything past
+# registration is login-gated on purpose and belongs to exactly one student, so
+# only the door is offered to an index.
+# ---------------------------------------------------------------------------
+
+_DISALLOWED_PATHS = (
+    "/admin/", "/quiz/", "/results/", "/stats", "/settings", "/diagnostic",
+    "/registered", "/logout", "/onboarding", "/coach", "/account", "/stimulus",
+    "/tutor", "/waitlist", "/report-question",
+)
+
+PUBLIC_BASE_URL = (os.environ.get("SABAL_PUBLIC_BASE_URL") or "https://fcle.mu2.solutions").rstrip("/")
+
+
+def _public_base():
+    """The canonical public origin, pinned rather than sniffed.
+
+    Behind nginx the app sees plain http and the host depends on proxy headers
+    being forwarded correctly, so the sitemap and robots file must not derive
+    their URLs from the request. Override with SABAL_PUBLIC_BASE_URL if the app
+    ever moves to another origin.
+    """
+    return PUBLIC_BASE_URL
+
+
+@app.route("/robots.txt")
+def robots_txt():
+    lines = ["User-agent: *", "Allow: /$", "Allow: /signup", "Allow: /login"]
+    lines += ["Disallow: %s" % path for path in _DISALLOWED_PATHS]
+    lines += ["", "Sitemap: %s/sitemap.xml" % _public_base(), ""]
+    return "\n".join(lines), 200, {"Content-Type": "text/plain; charset=utf-8"}
+
+
+@app.route("/sitemap.xml")
+def sitemap_xml():
+    """Public URLs only. lastmod tracks the question bank, the thing that moves."""
+    lastmod = None
+    try:
+        con = kb._get_conn()
+        row = con.execute("SELECT MAX(date(created_at)) FROM questions").fetchone()
+        con.close()
+        lastmod = row[0] if row else None
+    except Exception as exc:            # noqa: BLE001 - a sitemap must never 500
+        app.logger.warning("sitemap lastmod unavailable: %s", exc)
+    lastmod = lastmod or datetime.utcnow().date().isoformat()
+
+    parts = ['<?xml version="1.0" encoding="UTF-8"?>',
+             '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+    base = _public_base()
+    for path, priority, changefreq in (("/", "1.0", "weekly"),
+                                       ("/signup", "0.6", "monthly"),
+                                       ("/login", "0.3", "yearly")):
+        parts.append(
+            "  <url><loc>%s%s</loc><lastmod>%s</lastmod>"
+            "<changefreq>%s</changefreq><priority>%s</priority></url>"
+            % (base, path, lastmod, changefreq, priority))
+    parts.append("</urlset>")
+    return "\n".join(parts), 200, {"Content-Type": "application/xml; charset=utf-8"}
+
+
 def _admin_ok():
     """Gate for the unlinked admin views: PILOT_ADMIN_KEY in the query string."""
     key = (os.environ.get("PILOT_ADMIN_KEY") or "").strip()
