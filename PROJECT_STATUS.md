@@ -164,3 +164,42 @@ student-facing product.
 - Tests: `tests/test_oer_instrumentation.py`, 16 new. Full suite 174 passed,
   1 skipped.
 - Docs: DEPLOY.md updated (cap default, admin surfaces, counters, OER posture).
+
+---
+
+## 2026-10-15 — Findability: crawl surfaces, share cards, and the searching language
+
+**Why:** after the OER reframe, the goal is usage rather than conversion, and a live audit showed
+the site was crawlable in name only. `/robots.txt` and `/sitemap.xml` both 404, no canonical, no
+Open Graph or Twitter tags, no structured data, and **the page never once said "Florida Civic
+Literacy Exam"** (zero occurrences) or "practice test" while the pages outranking it say both.
+SERP reality at the time: `fclepracticetest.com` first, `civicliteracyprep.com` third with
+"100% Free & Open Access. No account creation required", plus FLDOE and a wall of college library guides.
+
+- **Shipped `b1ee06a`:** `/robots.txt` (allows the door, Disallows every student surface by name),
+  `/sitemap.xml` (three public URLs only), canonical + Open Graph + Twitter card + WebApplication and
+  FAQPage JSON-LD, and `static/img/sabal-og-card.png` (1200x630) so a shared link is not a bare URL.
+  The public origin is **pinned** (`PUBLIC_BASE_URL`), not sniffed, because nginx terminates TLS and
+  the app sees http behind it. `og:title`/`og:description` are the approved title and description
+  verbatim, enforced by test, so a share tag cannot smuggle in a claim.
+- **Shipped `b1fbb4b` (copy approved by Mister K):** title now leads with "FCLE Practice Test", a hero
+  lede sentence names the exam, the meta description names it, and two FAQ entries answer real search
+  questions ("Is there a free FCLE practice test?", "How many questions are on the FCLE?" with the
+  publicly documented 80-question / 48-to-pass facts). Exam-name mentions went 0 to 8. No outcome
+  promises, no invented precision, "FCLE-style" and the 2,000+ floor intact.
+- **Shipped `25dfed7`:** the sitemap's `lastmod` was reporting 2026-09-13 (it read
+  `MAX(created_at)` from the bank) while the bank had been rebuilt and the page had changed. It is
+  now the newest real mtime of the files that build the page, capped at today, with tests for both
+  the stale and the future-dated failure modes.
+- **Licence now stated on the site** (footer + JSON-LD `license`): CC BY-NC-SA 4.0 content,
+  Apache-2.0 code, plus the no-affiliation line. This was **Required** by OER Commons and previously
+  the licence existed only in the repo, where neither a student nor a reviewer looks.
+- All three deployed to the droplet and verified live (robots 200, sitemap with the right lastmod,
+  eight exam-name mentions on the landing, Tupelo untouched, zero journal errors). Suite 205 passed,
+  1 skipped.
+- **Date note:** this work happened 2026-10-15; the session's context header read 2026-10-14 and was a
+  day stale. Verified against NTP, Google's HTTP Date header and the droplet, which agree.
+- **Open:** indexing itself (Search Console submission or a DNS TXT record) needs Mister K's account;
+  the OER directory submissions are prepared in `~/.hermes/workspace/sabal-oer-submissions/LISTING-KIT.md`
+  (MERLOT and OER Commons ready, FLVC passed by Mister K, LibreTexts is the wrong shape); the two
+  font families still load from Google's CDN, which the app's own privacy promise argues against.
