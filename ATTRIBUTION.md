@@ -25,6 +25,27 @@ indicate any changes. Commercial use requires written permission from Mu2 Soluti
 
 # Third-party attribution
 
+## Fonts — self-hosted, both SIL Open Font License 1.1
+
+The app ships its own copies of the two type families it uses. Nothing is loaded from a
+third-party font service, so no visitor's IP address leaves this site to render a page.
+Both families are open-source fonts, redistributed here under the same licence they carry
+upstream, unmodified except for subsetting to the Latin and Latin Extended ranges.
+
+| Family | Used for | Copyright | Licence | Upstream |
+|---|---|---|---|---|
+| **Libre Baskerville** | headings, wordmark | © 2012 Pablo Impallari, © 2012 Rodrigo Fuenzalida | SIL OFL 1.1 | <https://github.com/impallari/Libre-Baskerville> |
+| **Source Sans 3** | body text, UI | © Adobe | SIL OFL 1.1 | <https://github.com/adobe-fonts/source-sans> |
+
+Files: `static/fonts/*.woff2` (six files: Latin and Latin Extended, roman and italic for
+Libre Baskerville, roman for Source Sans 3). Declarations: `static/css/fonts.css`, generated
+from the upstream stylesheet with every URL rewritten to a local path.
+
+The OFL permits use, study, modification and redistribution, including bundled with
+software, provided the font software is not sold on its own and no modified version uses a
+Reserved Font Name. Subsetting for web delivery is a permitted modification; these files
+keep their upstream names and are not sold. Full text: <https://scripts.sil.org/OFL>.
+
 ## OpenStax — *American Government 2e*
 
 Study material in this project is derived from an OpenStax textbook. Required attribution:

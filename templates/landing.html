@@ -85,9 +85,9 @@
 <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='img/favicon-32.png') }}">
 <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='img/favicon-16.png') }}">
 <link rel="apple-touch-icon" href="{{ url_for('static', filename='img/apple-touch-icon.png') }}">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+{# Fonts are served from this server: Libre Baskerville + Source Sans 3, both SIL OFL 1.1,
+   so no visitor's IP leaves the site to load them. Files and attribution: ATTRIBUTION.md. #}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/fonts.css') }}?v=1">
 <style>
   :root{
     --navy:#1B3A5C; --navy-deep:#142C47; --navy-ink:#0F2136;
