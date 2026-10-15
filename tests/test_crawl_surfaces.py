@@ -132,6 +132,17 @@ class TestLandingHead(unittest.TestCase):
         self.assertEqual(self._content(r'<meta[^>]+name=["\']robots["\'][^>]*content=["\']([^"\']+)'),
                          "index, follow")
 
+    def test_the_search_console_verification_tag_is_still_there(self):
+        """Removing it silently breaks the Search Console property.
+
+        The token belongs to Mister K's account; if it is ever re-issued, update
+        it here rather than deleting the tag.
+        """
+        token = self._content(
+            r'<meta[^>]+name=["\']google-site-verification["\'][^>]*content=["\']([^"\']+)')
+        self.assertIsNotNone(token, "the homepage must carry the verification tag")
+        self.assertEqual(len(token), 43, "that does not look like a Search Console token")
+
     def test_open_graph_block_is_complete_and_absolute(self):
         for prop in ("og:type", "og:site_name", "og:url", "og:title",
                      "og:description", "og:image"):
