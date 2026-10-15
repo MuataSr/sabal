@@ -1547,3 +1547,58 @@ input:focus, select:focus, textarea:focus { border-color: var(--a-navy-500); box
   font-size: 0.95rem;
   line-height: 1.55;
 }
+
+/* ── Question report (OER wrinkle loop) ───────────────────────────────── */
+.qreport {
+  margin: 26px 0 6px;
+  border-top: 1px solid var(--border, #e6e6e6);
+  padding-top: 12px;
+}
+.qreport summary {
+  cursor: pointer;
+  font-size: 0.85rem;
+  color: var(--text-muted, #667);
+  list-style: revert;
+}
+.qreport summary:hover { color: var(--navy, #1B3A5C); }
+.qreport-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-top: 12px;
+}
+.qreport-form label {
+  width: 100%;
+  font-size: 0.82rem;
+  color: var(--text-muted, #667);
+}
+.qreport-form select,
+.qreport-form input[type="text"] {
+  flex: 1 1 240px;
+  min-width: 0;
+  padding: 9px 11px;
+  border: 1px solid var(--border, #ddd);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  background: #fff;
+  color: inherit;
+}
+.qreport-form button {
+  flex: 0 0 auto;
+  padding: 9px 15px;
+  border: 1px solid var(--border, #ddd);
+  border-radius: 8px;
+  background: #fff;
+  font-size: 0.88rem;
+  font-family: inherit;
+  cursor: pointer;
+}
+.qreport-form button:hover { border-color: var(--navy, #1B3A5C); }
+.qreport-note {
+  font-size: 0.78rem;
+  color: var(--text-muted, #667);
+  margin-top: 10px;
+  line-height: 1.5;
+}

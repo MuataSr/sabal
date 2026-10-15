@@ -22,6 +22,25 @@ def _get_conn():
 
 
 # ---------------------------------------------------------------------------
+# Single-question lookup (admin triage of student reports)
+# ---------------------------------------------------------------------------
+
+def get_question_by_id(question_id):
+    """One bank question by primary key. None when the id is absent."""
+    try:
+        qid = int(question_id)
+    except (TypeError, ValueError):
+        return None
+    with _get_conn() as conn:
+        row = conn.execute(
+            "SELECT id, fcle_domain, topic, difficulty, question, correct_answer, "
+            "wrong_answers, explanation, stimulus, wrong_explanations "
+            "FROM questions WHERE id = ?", (qid,)
+        ).fetchone()
+    return dict(row) if row else None
+
+
+# ---------------------------------------------------------------------------
 # Domain Metadata
 # ---------------------------------------------------------------------------
 

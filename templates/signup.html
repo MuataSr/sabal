@@ -1,18 +1,18 @@
 {% extends "base.html" %}
 
-{% block title %}{% if pilot_full %}Pilot Full — Sabal FCLE Exam Prep{% else %}Sign Up — Sabal FCLE Exam Prep{% endif %}{% endblock %}
+{% block title %}{% if pilot_full %}Registration paused — Sabal FCLE Exam Prep{% else %}Sign Up — Sabal FCLE Exam Prep{% endif %}{% endblock %}
 {% block bottom_nav %}{% endblock %}
 
 {% block content %}
 {% if pilot_full %}
 <div class="auth-card">
-  <h1>Our first pilot cohort is full</h1>
-  <p class="subtitle">Sabal&rsquo;s first pilot is limited to {{ pilot_cap }} students so everyone in it gets a fast, dependable study experience. We&rsquo;ve reached that limit.</p>
+  <h1>Registration is paused for a moment</h1>
+  <p class="subtitle">Sabal is free and open, with no seat limits in normal operation. The server is briefly at its capacity right now, so new registrations are paused.</p>
 
   {% if waitlist_done %}
     <div class="pilot-note">
       <strong>You&rsquo;re on the list.</strong><br>
-      We saved <em>{{ waitlist_email }}</em>. When a seat opens in the next cohort we&rsquo;ll email you there &mdash; nothing else you need to do.
+      We saved <em>{{ waitlist_email }}</em>. We&rsquo;ll email you there the moment registration reopens &mdash; nothing else you need to do.
     </div>
   {% elif waitlist_existing %}
     <div class="pilot-note">
@@ -21,9 +21,9 @@
     </div>
   {% else %}
     {% if waitlist_dupe %}
-      <div class="pilot-note"><strong>You&rsquo;re already on the list</strong> &mdash; we&rsquo;ll be in touch when a seat opens.</div>
+      <div class="pilot-note"><strong>You&rsquo;re already on the list</strong> &mdash; we&rsquo;ll email you when registration reopens.</div>
     {% endif %}
-    <p class="subtitle" style="margin-bottom:16px">We&rsquo;re opening more seats soon. Leave your email and we&rsquo;ll tell you the moment one does.</p>
+    <p class="subtitle" style="margin-bottom:16px">Leave your email and we&rsquo;ll tell you the moment it reopens.</p>
     <form method="POST" action="/waitlist">
       <input type="hidden" name="src" value="{{ src|default('') }}">
       <div class="form-group">

@@ -180,6 +180,30 @@
 {% endif %}
 {% endif %}
 
+{# ── Question report (the wrinkle loop) ────────────────────────────────
+   Students find a bad item faster than any review pass. This is
+   deliberately quiet: collapsed by default, below the explanation. #}
+<details class="qreport">
+  <summary>Something wrong with this question?</summary>
+  <form method="POST" action="/report-question" class="qreport-form">
+    <input type="hidden" name="question_id" value="{{ question_id|default('') }}">
+    <input type="hidden" name="selected" value="{{ selected|default('') }}">
+    <input type="hidden" name="domain" value="{{ domain_slug|default('') }}">
+    <input type="hidden" name="next" value="{{ next_url|default('/') }}">
+    <label for="qreport-reason">What looks wrong?</label>
+    <select id="qreport-reason" name="reason">
+      <option value="wrong-answer">The marked correct answer looks wrong</option>
+      <option value="unclear-explanation">The explanation is confusing</option>
+      <option value="typo">Typo or broken formatting</option>
+      <option value="other">Something else</option>
+    </select>
+    <input type="text" name="note" maxlength="400" placeholder="Optional: tell us what you see">
+    <button type="submit">Send report</button>
+  </form>
+  <p class="qreport-note">Reports go straight to the people maintaining the question
+    bank. Your progress is not affected.</p>
+</details>
+
 <!-- Next / See Results -->
 <div style="margin-top: 20px;">
   {% if next_url %}

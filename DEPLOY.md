@@ -68,15 +68,21 @@ curl -s -o /dev/null -w "HTTP %{http_code}\n" https://fcle.mu2.solutions/
 - Deploy Key (read-only) on GitHub: Settings → Deploy keys → paste droplet `~/.ssh/id_ed25519.pub`.
 
 
-## Pilot signup cap (RC #1)
+## Signup cap — OFF by default (Sabal is 100% OER)
 
-The first release candidate is intentionally capped so the $6 droplet can never be
-overrun. All knobs live in `/opt/fcle-study-app/.env` — no code change needed to
-adjust, just edit and `systemctl restart fcle-study-app`.
+Sabal is a free, openly licensed educational resource with no revenue model, so
+**no student is ever refused a seat.** `PILOT_SIGNUP_CAP` defaults to unset/`0`
+(uncapped) and production runs uncapped. The seat machinery survives only as an
+emergency brake for the $6 droplet, and the page it shows when it is on speaks
+about server capacity — never about pilot cohorts or reserved seats.
+
+All knobs live in `/opt/fcle-study-app/.env` — no code change needed to
+adjust, just edit and `systemctl restart fcle-study-app`. Setting a cap is a
+deliberate, temporary act during an incident, not a normal operating state.
 
 | Variable | Purpose |
 |---|---|
-| `PILOT_SIGNUP_CAP` | Max real students. `0` or unset = uncapped. Pilot value: `125`. |
+| `PILOT_SIGNUP_CAP` | Max real students. `0` or unset = uncapped, which is the OER default and the prod setting. |
 | `PILOT_INTERNAL_EMAILS` | Comma-separated emails that never consume a seat (founder + our test accounts). |
 | `PILOT_BYPASS_KEY` | Secret; `?bypass=<key>` on `/signup` lets us register past the cap. |
 | `PILOT_ADMIN_KEY` | Secret; `/admin/waitlist?key=<key>` lists the waitlist (`&format=csv` to export). |
@@ -86,8 +92,43 @@ Behaviour:
   `PILOT_INTERNAL_EMAILS`. Anonymous/test rows never count.
 - The check runs **server-side and race-safe** (single `BEGIN IMMEDIATE` lock), so
   two simultaneous signups cannot both take the last seat.
-- When full, `/signup` shows the pilot-full state with a waitlist form
-  (`POST /waitlist`) instead of the registration form. No dead end.
+- When (and only when) a cap is set and reached, `/signup` shows a capacity
+  notice with a waitlist form (`POST /waitlist`) instead of the registration
+  form. No dead end.
 - Waitlist entries are stored in the `waitlist` table; outreach is manual.
 
 Deploy: mirror → M7 (`git commit`/`push`) → droplet `git pull && systemctl restart fcle-study-app`.
+
+
+## Instrumentation — the wrinkle loop and the funnel
+
+Both views are gated by `PILOT_ADMIN_KEY` in the query string and are unlinked
+from the app.
+
+| Route | What it shows |
+|---|---|
+| `/admin/reports?key=<key>` | Student-reported question problems. `&status=open\|resolved\|all`, `&format=csv` exports. `POST` with `resolve=<id>` marks one resolved. |
+| `/admin/funnel?key=<key>` | Discovery-to-product funnel: page counts, accounts, onboarding, first quiz, first answer, returns, 7-day actives, `?src=` attribution, open reports. |
+| `/admin/waitlist?key=<key>` | Waitlist entries (only meaningful while a cap is set). |
+
+- **Question reports** come from the collapsible "Something wrong with this
+  question?" control on the quiz feedback page (`POST /report-question`, login
+  required). Each row stores the reason, the student's note, the domain and
+  **the option the student picked** — a "the marked answer looks wrong" report
+  cannot be diagnosed afterwards without it. Table: `question_reports`.
+- **The funnel is derived, never tracked.** Every number is computed from rows
+  the app already writes (`users`, `quiz_sessions`, `answers`); no new
+  per-student tracking was added.
+- **Page counters are aggregate and identifier-free:** `page_views` holds only
+  `(day, page, hits)` for `landing`, `signup` and `registered`. No IP, no
+  cookie, no user id, nothing per visitor. This is what makes "nobody came"
+  separable from "they came, hit a wall, and left". The in-app privacy promise
+  ("we don't sell or share anyone's information") still holds.
+
+
+## OER posture (2026-10-14)
+
+Sabal is 100% open educational resource, permanently: no paid edition, no
+paywall, no revenue. Code is Apache-2.0, content is CC BY-NC-SA 4.0. Any public
+copy that describes a paid tier, a pilot cohort, a seat count or a "limited
+time" frame is wrong and must be corrected on sight.

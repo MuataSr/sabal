@@ -356,6 +356,9 @@ def _weak_areas(user_id):
 def dashboard():
     user = _get_current_user()
     if user is None:
+        # Aggregate, identifier-free counter: this is the only way to tell
+        # "nobody came" apart from "they came, hit a wall, and left".
+        db.bump_page_view("landing")
         return render_template("landing.html", src=_signup_source())
     user_id = user["id"]
     stats = db.get_overall_stats(user_id)
@@ -602,6 +605,8 @@ def quiz_answer(domain_slug, quiz_id, q_index):
 
     render_kwargs = dict(
         question=question,
+        question_id=question.get("id", q_index),
+        topic=topic,
         current_q=q_index + 1,
         total_q=len(questions),
         domain_name=domain_name,
@@ -1105,8 +1110,10 @@ def signup():
             return render_template("signup.html")
 
     if _pilot_is_full() and not _pilot_bypass_ok():
+        db.bump_page_view("signup")
         return render_template("signup.html", pilot_full=True, pilot_cap=_pilot_cap(),
                                src=_signup_source())
+    db.bump_page_view("signup")
     return render_template("signup.html", src=_signup_source())
 
 
@@ -1140,16 +1147,205 @@ def admin_waitlist():
             "%s,%s,%s\n" % (r["email"], r["source"] or "", r["created_at"]) for r in rows)
         return out, 200, {
             "Content-Type": "text/csv; charset=utf-8",
-            "Content-Disposition": "attachment; filename=sabal-pilot-waitlist.csv",
+            "Content-Disposition": "attachment; filename=sabal-waitlist.csv",
         }
     lines = "\n".join("%s  (%s)" % (r["email"], (r["created_at"] or "")[:19]) for r in rows) or "(empty)"
+    cap = _pilot_cap()
+    seats = ("<p>Seats used: %d of %d</p>" % (_pilot_seats_used(), cap)) if cap else (
+        "<p>%d waitlist entr%s. No signup cap is set &mdash; Sabal is open.</p>"
+        % (len(rows), "y" if len(rows) == 1 else "ies"))
     html = (
         "<!doctype html><meta name=viewport content='width=device-width,initial-scale=1'>"
-        "<h2>Sabal pilot waitlist &mdash; %d</h2>"
-        "<p>Seats used: %d of %d</p><pre>%s</pre>"
+        "<h2>Sabal waitlist &mdash; %d</h2>"
+        "%s<pre>%s</pre>"
         "<p><a href='?key=%s&amp;format=csv'>Download CSV</a></p>"
-    ) % (len(rows), _pilot_seats_used(), _pilot_cap(), lines, key)
+    ) % (len(rows), seats, lines, key)
     return html
+
+
+def _admin_ok():
+    """Gate for the unlinked admin views: PILOT_ADMIN_KEY in the query string."""
+    key = (os.environ.get("PILOT_ADMIN_KEY") or "").strip()
+    return bool(key) and (request.args.get("key") or "") == key
+
+
+def _esc(value, limit=400):
+    """Minimal HTML escape for admin views that render student-supplied text."""
+    text = "" if value is None else str(value)
+    text = text.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+    return text[:limit] + ("..." if len(text) > limit else "")
+
+
+def _admin_shell(title, body):
+    css = (
+        "body{font:15px/1.55 -apple-system,Segoe UI,Roboto,sans-serif;margin:24px;"
+        "max-width:1100px;color:#1B3A5C}table{border-collapse:collapse;width:100%;margin:10px 0}"
+        "th,td{border-bottom:1px solid #e2e2e2;padding:6px 8px;text-align:left;vertical-align:top;"
+        "font-size:14px}code{background:#f4f4f4;padding:1px 4px;border-radius:3px}"
+        "h1{font-size:20px}h2{font-size:16px;margin-top:26px}details{margin-top:4px}"
+        ".n{font-variant-numeric:tabular-nums}"
+    )
+    return (
+        "<!doctype html><meta name=viewport content='width=device-width,initial-scale=1'>"
+        "<style>" + css + "</style>"
+        "<h1>" + _esc(title, 120) + "</h1>" + body
+    )
+
+
+@app.route("/report-question", methods=["POST"])
+@login_required
+def report_question():
+    """A student flags a problem with the question they just answered.
+
+    This is the wrinkle loop for a generated bank: it stores the option the
+    student picked alongside the complaint, because "the correct answer looks
+    wrong" cannot be diagnosed later without knowing what they chose.
+    """
+    user = _get_current_user()
+    try:
+        question_id = int(request.form.get("question_id") or 0)
+    except (TypeError, ValueError):
+        question_id = 0
+    if question_id:
+        db.add_question_report(
+            user["id"] if user else None,
+            question_id,
+            reason=request.form.get("reason") or "other",
+            note=request.form.get("note"),
+            selected=request.form.get("selected"),
+            domain=request.form.get("domain"),
+        )
+    nxt = request.form.get("next") or "/"
+    if not nxt.startswith("/"):
+        nxt = "/"
+    return (
+        "<!doctype html><meta name=viewport content='width=device-width,initial-scale=1'>"
+        "<style>body{font:16px/1.6 -apple-system,Segoe UI,Roboto,sans-serif;margin:0;"
+        "display:flex;min-height:100vh;align-items:center;justify-content:center;color:#1B3A5C}"
+        ".c{max-width:460px;padding:28px;text-align:center}h1{font-size:20px}"
+        "a.btn{display:inline-block;margin-top:14px;padding:10px 18px;border-radius:10px;"
+        "background:#1B3A5C;color:#fff;text-decoration:none}</style>"
+        "<div class=c><h1>Thank you &mdash; report sent</h1>"
+        "<p>It goes straight to the people maintaining the question bank. "
+        "Your progress is not affected.</p>"
+        "<a class=btn href='%s'>Continue &rarr;</a></div>" % _esc(nxt, 200)
+    )
+
+
+@app.route("/admin/reports", methods=["GET", "POST"])
+def admin_reports():
+    """Student question reports. Key-protected, unlinked (PILOT_ADMIN_KEY)."""
+    if not _admin_ok():
+        return "Not found", 404
+    key = request.args.get("key") or ""
+    if request.method == "POST":
+        try:
+            db.resolve_question_report(int(request.form.get("resolve") or 0))
+        except (TypeError, ValueError):
+            pass
+        return redirect("/admin/reports?key=%s&status=%s"
+                        % (key, request.form.get("status") or "open"))
+
+    status = (request.args.get("status") or "open").strip().lower()
+    rows = db.list_question_reports(status=status)
+    if (request.args.get("format") or "") == "csv":
+        import csv
+        import io
+        buf = io.StringIO()
+        w = csv.writer(buf)
+        w.writerow(["id", "created_at_utc", "reason", "question_id", "domain",
+                    "student_picked", "note", "reporter", "status"])
+        for r in rows:
+            w.writerow([r["id"], r["created_at"], r["reason"], r["question_id"],
+                        r["domain"] or "", r["selected"] or "", r["note"] or "",
+                        r["reporter"] or "", r["status"]])
+        return buf.getvalue(), 200, {
+            "Content-Type": "text/csv; charset=utf-8",
+            "Content-Disposition": "attachment; filename=sabal-question-reports.csv",
+        }
+
+    body = (
+        "<p>View: <a href='?key={k}'>open</a> &middot; "
+        "<a href='?key={k}&amp;status=resolved'>resolved</a> &middot; "
+        "<a href='?key={k}&amp;status=all'>all</a> &middot; "
+        "<a href='?key={k}&amp;status={s}&amp;format=csv'>download CSV</a> &middot; "
+        "<a href='/admin/funnel?key={k}'>funnel</a></p>"
+        "<p class=n>{n} report(s) in this view &middot; {o} open in total.</p>"
+    ).format(k=_esc(key, 80), s=_esc(status, 20), n=len(rows),
+             o=db.count_question_reports("open"))
+    if rows:
+        body += ("<table><tr><th>id</th><th>when (UTC)</th><th>reason</th><th>question</th>"
+                 "<th>student picked</th><th>note</th><th>reporter</th><th>status</th></tr>")
+        for r in rows:
+            q = kb.get_question_by_id(r["question_id"]) or {}
+            qtext = _esc(q.get("question"), 180)
+            answer = _esc(q.get("correct_answer"), 200)
+            btn = "" if r["status"] != "open" else (
+                "<form method=post style='margin-top:6px'>"
+                "<input type=hidden name=key value='%s'>"
+                "<input type=hidden name=status value='%s'>"
+                "<input type=hidden name=resolve value='%s'>"
+                "<button type=submit>mark resolved</button></form>"
+            ) % (_esc(key, 80), _esc(status, 20), r["id"])
+            body += (
+                "<tr><td class=n>{id}</td><td class=n>{when}</td><td>{reason}</td>"
+                "<td><code>#{qid}</code> [{dom}] {qtext}"
+                "<details><summary>answer the app calls correct</summary>{answer}</details></td>"
+                "<td>{sel}</td><td>{note}</td><td>{rep}</td><td>{st}{btn}</td></tr>"
+            ).format(id=r["id"], when=_esc(r["created_at"], 19), reason=_esc(r["reason"], 40),
+                     qid=_esc(r["question_id"], 12), dom=_esc(r["domain"], 40), qtext=qtext,
+                     answer=answer, sel=_esc(r["selected"], 200), note=_esc(r["note"], 400),
+                     rep=_esc(r["reporter"], 80), st=_esc(r["status"], 20), btn=btn)
+        body += "</table>"
+    else:
+        body += "<p><em>No reports in this view.</em></p>"
+    return _admin_shell("Sabal &mdash; question reports", body)
+
+
+@app.route("/admin/funnel")
+def admin_funnel():
+    """Discovery-to-product funnel. Every number is derived; nothing new tracked."""
+    if not _admin_ok():
+        return "Not found", 404
+    key = request.args.get("key") or ""
+    f = db.funnel_counts(internal_emails=_pilot_internal_emails())
+    views30 = db.page_view_totals(days=30)
+    views7 = {v["page"]: v["hits"] for v in db.page_view_totals(days=7)}
+
+    def cell(label, value, note=""):
+        return ("<tr><td>%s</td><td class=n><strong>%s</strong></td><td>%s</td></tr>"
+                % (_esc(label, 90), _esc(value, 20), _esc(note, 200)))
+
+    body = "<h2>Arrivals (page counts, last 30 days)</h2><table>"
+    body += "<tr><th>page</th><th>30d hits</th><th>7d hits</th></tr>"
+    for v in views30:
+        body += ("<tr><td>%s</td><td class=n>%s</td><td class=n>%s</td></tr>"
+                 % (_esc(v["page"], 40), v["hits"], views7.get(v["page"], 0)))
+    body += "</table>"
+    if not views30:
+        body += "<p><em>The counter begins recording at the first visit after deploy.</em></p>"
+
+    body += "<h2>Students (internal addresses excluded)</h2><table>"
+    body += "<tr><th>step</th><th>count</th><th>what it means</th></tr>"
+    body += cell("Accounts registered", f["registered"], "walked through the door and signed up")
+    body += cell("Finished onboarding", f["onboarding_done"], "set exam date and target score")
+    body += cell("Started a quiz", f["with_quiz_session"], "began drilling")
+    body += cell("Answered a question", f["with_answer"], "answered at least one item")
+    body += cell("Came back another day", f["returning"], "sessions on 2 or more distinct days")
+    body += cell("Active in the last 7 days", f["active_7d"], "any session inside the window")
+    body += cell("Quiz sessions", f["quiz_sessions"], "total, all time")
+    body += cell("Answers recorded", f["answers"], "total, all time")
+    body += cell("Open question reports", db.count_question_reports("open"),
+                 "wrinkles students flagged")
+    body += "</table>"
+
+    body += "<h2>Where students came from (?src= attribution)</h2><table>"
+    body += "<tr><th>source</th><th>accounts</th></tr>"
+    for s in f["by_source"] or []:
+        body += "<tr><td>%s</td><td class=n>%s</td></tr>" % (_esc(s["source"], 40), s["n"])
+    body += "</table><p><a href='/admin/reports?key=%s'>question reports</a> &middot; " \
+            "<a href='/admin/waitlist?key=%s'>waitlist</a></p>" % (_esc(key, 80), _esc(key, 80))
+    return _admin_shell("Sabal &mdash; funnel", body)
 
 
 def _try_email_dashboard_link(user, link):
@@ -1208,6 +1404,7 @@ def registered():
     link = request.url_root.rstrip("/") + "/?token=" + user["access_token"]
     nxt = request.args.get("next") or "/"
     email_sent = _try_email_dashboard_link(user, link)
+    db.bump_page_view("registered")
     return render_template("registered.html", user=user, dashboard_link=link,
                            returning=request.args.get("r") == "1", next=nxt,
                            email_sent=email_sent)

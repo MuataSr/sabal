@@ -1,6 +1,6 @@
 # FCLE Study Buddy — Project Status
 
-**Last Updated:** 2026-09-17 by Ann-E
+**Last Updated:** 2026-10-14 by Ann-E-Hermes
 **Project Path:** `/home/muatasr/.nanobot/workspace/fcle-study-app/`
 **Current Phase:** **Live** — deployed at https://fcle.mu2.solutions (Sabal droplet, gunicorn)
 
@@ -131,3 +131,36 @@ Mister K directive: no anonymous users; visitors must register, then get a perso
 | `static/css/fcle.css` | Main stylesheet (editorial style) |
 | `data/fcle.db` | Question database (2,350 questions) |
 | `data/user_progress.db` | User accounts + progress tracking |
+
+---
+
+## 2026-10-14 — OER posture locked, signup gate removed, instrumentation added
+
+**Mister K's ruling:** Sabal is 100% OER, permanently — no paid edition, no
+paywall, no revenue. Everything that smelled like a paid pilot came out of the
+student-facing product.
+
+- **No student is refused a seat.** `PILOT_SIGNUP_CAP` defaults to unset (uncapped)
+  and prod now runs uncapped. The seat machinery is kept only as an emergency
+  brake for the $6 droplet, and its page was rewritten to talk about server
+  capacity rather than a "pilot cohort". No student-facing template mentions a
+  pilot cohort any more (pinned by test).
+- **Wrinkle loop (`POST /report-question`).** A collapsed "Something wrong with
+  this question?" control on the quiz feedback page. Reports land in
+  `question_reports` with the reason, the note, the domain and **the option the
+  student picked** — the field that makes a "the marked answer looks wrong"
+  report diagnosable. Read and triage at `/admin/reports?key=...` (CSV export,
+  mark-resolved).
+- **Funnel (`/admin/funnel?key=...`).** Discovery-to-product counts derived
+  entirely from existing rows: registered, onboarding done, started a quiz,
+  answered a question, returned on another day, active in 7 days, plus `?src=`
+  attribution and open reports.
+- **Aggregate page counters.** `page_views(day, page, hits)` for `landing`,
+  `signup`, `registered` only. No IP, no cookie, no user id — this is what
+  separates "nobody came" from "they came, hit a wall, and left".
+- **Base for the next decision:** 2,350 questions, 7 accounts, 137 answers all
+  time. The question the instrumentation answers is whether that is a discovery
+  problem or a product problem.
+- Tests: `tests/test_oer_instrumentation.py`, 16 new. Full suite 174 passed,
+  1 skipped.
+- Docs: DEPLOY.md updated (cap default, admin surfaces, counters, OER posture).

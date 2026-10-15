@@ -120,6 +120,35 @@ def init_db():
             )
         """)
 
+        # OER instrumentation (2026-10-14): student-reported question problems,
+        # the wrinkle loop for a 2,350-question generated bank. Plus aggregate,
+        # identifier-free page counters so "nobody came" and "they came, hit a
+        # wall, and left" stop looking identical.
+        conn.execute("""
+            CREATE TABLE IF NOT EXISTS question_reports (
+                id          INTEGER PRIMARY KEY AUTOINCREMENT,
+                user_id     INTEGER,
+                question_id INTEGER,
+                domain      TEXT,
+                reason      TEXT NOT NULL DEFAULT 'other',
+                note        TEXT,
+                selected    TEXT,
+                created_at  TEXT NOT NULL,
+                status      TEXT NOT NULL DEFAULT 'open',
+                FOREIGN KEY (user_id) REFERENCES users(id)
+            )
+        """)
+        conn.execute("CREATE INDEX IF NOT EXISTS idx_question_reports_status ON question_reports(status)")
+
+        conn.execute("""
+            CREATE TABLE IF NOT EXISTS page_views (
+                day   TEXT NOT NULL,
+                page  TEXT NOT NULL,
+                hits  INTEGER NOT NULL DEFAULT 0,
+                PRIMARY KEY (day, page)
+            )
+        """)
+
         # Socratic Tutor chat history — persisted across sessions so the
         # unified Coach page can hydrate the student's prior conversation.
         conn.execute("""
@@ -752,3 +781,143 @@ def list_waitlist():
             "SELECT email, source, created_at FROM waitlist ORDER BY id"
         ).fetchall()
         return [dict(r) for r in rows]
+
+
+# ---------------------------------------------------------------------------
+# OER instrumentation — question reports + funnel (see DEPLOY.md)
+# ---------------------------------------------------------------------------
+
+REPORT_REASONS = (
+    ("wrong-answer", "The marked correct answer looks wrong"),
+    ("unclear-explanation", "The explanation is confusing"),
+    ("typo", "Typo or broken formatting"),
+    ("other", "Something else"),
+)
+
+
+def add_question_report(user_id, question_id, reason="other", note=None,
+                        selected=None, domain=None):
+    """Record one student report about one bank question. Returns the new id.
+
+    The answer the student picked is stored alongside the complaint: a
+    "the right answer is wrong" report is undiagnosable after the fact without
+    knowing which option they chose.
+    """
+    reason = (reason or "").strip().lower()[:40] or "other"
+    note = (note or "").strip()[:600] or None
+    selected = (selected or "").strip()[:300] or None
+    domain = (domain or "").strip()[:60] or None
+    now = datetime.utcnow().isoformat()
+    with _get_conn() as conn:
+        cur = conn.execute(
+            "INSERT INTO question_reports "
+            "(user_id, question_id, domain, reason, note, selected, created_at, status) "
+            "VALUES (?, ?, ?, ?, ?, ?, ?, 'open')",
+            (user_id, question_id, domain, reason, note, selected, now),
+        )
+        conn.commit()
+        return cur.lastrowid
+
+
+def list_question_reports(status="open", limit=300):
+    """Reports, newest first, with the reporter's email for follow-up."""
+    q = ("SELECT r.id, r.user_id, r.question_id, r.domain, r.reason, r.note, "
+         "r.selected, r.created_at, r.status, u.email AS reporter "
+         "FROM question_reports r LEFT JOIN users u ON u.id = r.user_id ")
+    params = []
+    if status and status != "all":
+        q += "WHERE r.status = ? "
+        params.append(status)
+    q += "ORDER BY r.id DESC LIMIT ?"
+    params.append(int(limit))
+    with _get_conn() as conn:
+        return [dict(r) for r in conn.execute(q, params).fetchall()]
+
+
+def count_question_reports(status="open"):
+    with _get_conn() as conn:
+        if status and status != "all":
+            return conn.execute(
+                "SELECT COUNT(*) FROM question_reports WHERE status = ?", (status,)
+            ).fetchone()[0]
+        return conn.execute("SELECT COUNT(*) FROM question_reports").fetchone()[0]
+
+
+def resolve_question_report(report_id, status="resolved"):
+    with _get_conn() as conn:
+        conn.execute("UPDATE question_reports SET status = ? WHERE id = ?",
+                     (status, int(report_id)))
+        conn.commit()
+
+
+def bump_page_view(page, day=None):
+    """Aggregate hit counter. No IP, no cookie and no user id is stored."""
+    page = "".join(ch for ch in (page or "").lower() if ch.isalnum() or ch in "-_")[:24] or "unknown"
+    day = day or datetime.utcnow().strftime("%Y-%m-%d")
+    with _get_conn() as conn:
+        conn.execute(
+            "INSERT INTO page_views (day, page, hits) VALUES (?, ?, 1) "
+            "ON CONFLICT(day, page) DO UPDATE SET hits = hits + 1",
+            (day, page),
+        )
+        conn.commit()
+
+
+def page_view_totals(days=30):
+    """[{page, hits}] over the trailing window, busiest first."""
+    with _get_conn() as conn:
+        rows = conn.execute(
+            "SELECT page, SUM(hits) AS hits FROM page_views "
+            "WHERE day >= date('now', ?) GROUP BY page ORDER BY hits DESC",
+            ("-%d day" % int(days),),
+        ).fetchall()
+        return [dict(r) for r in rows]
+
+
+def funnel_counts(internal_emails=(), active_days=7):
+    """Discovery-to-product funnel, computed only from rows the app already writes.
+
+    No new per-student tracking: every count is derived from users,
+    quiz_sessions and answers. Internal addresses (the founder and our test
+    accounts) are excluded from every student count.
+    """
+    excl = [e.strip().lower() for e in internal_emails if e and e.strip()]
+    where = "u.is_anonymous = 0 AND u.email IS NOT NULL"
+    params = []
+    if excl:
+        where += " AND lower(u.email) NOT IN (%s)" % ",".join("?" * len(excl))
+        params = list(excl)
+
+    def one(sql, extra=()):
+        with _get_conn() as conn:
+            return conn.execute(sql, list(params) + list(extra)).fetchone()[0]
+
+    with _get_conn() as conn:
+        by_source = [dict(r) for r in conn.execute(
+            "SELECT COALESCE(u.signup_source, '(none)') AS source, COUNT(*) AS n "
+            "FROM users u WHERE " + where + " GROUP BY source ORDER BY n DESC", params).fetchall()]
+
+    out = {
+        "registered": one("SELECT COUNT(*) FROM users u WHERE " + where),
+        "onboarding_done": one("SELECT COUNT(*) FROM users u WHERE " + where + " AND u.onboarding_done = 1"),
+        "with_quiz_session": one(
+            "SELECT COUNT(DISTINCT u.id) FROM users u "
+            "JOIN quiz_sessions s ON s.user_id = u.id WHERE " + where),
+        "with_answer": one(
+            "SELECT COUNT(DISTINCT u.id) FROM users u "
+            "JOIN answers a ON a.user_id = u.id WHERE " + where),
+        "returning": one(
+            "SELECT COUNT(*) FROM (SELECT s.user_id FROM quiz_sessions s "
+            "JOIN users u ON u.id = s.user_id WHERE " + where +
+            " GROUP BY s.user_id HAVING COUNT(DISTINCT date(s.started_at)) >= 2)"),
+        "quiz_sessions": one(
+            "SELECT COUNT(*) FROM quiz_sessions s JOIN users u ON u.id = s.user_id WHERE " + where),
+        "answers": one(
+            "SELECT COUNT(*) FROM answers a JOIN users u ON u.id = a.user_id WHERE " + where),
+        "by_source": by_source,
+    }
+    out["active_%dd" % int(active_days)] = one(
+        "SELECT COUNT(DISTINCT u.id) FROM users u JOIN quiz_sessions s ON s.user_id = u.id "
+        "WHERE " + where + " AND s.started_at >= date('now', ?)",
+        ("-%d day" % int(active_days),))
+    return out
