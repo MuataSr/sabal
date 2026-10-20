@@ -47,10 +47,10 @@ D
 {w3}
 
 Write:
-1. "explanation": 2 to 3 sentences, at most 70 words total. Say why A is correct,
+1. "explanation": 2 to 3 sentences, at most 60 words total. Say why A is correct,
    then say why B, C and D are wrong, referring to what each option actually says.
 2. "wrong_explanations": exactly three strings, in the order B, C, D. Each ONE
-   sentence, at most 30 words: why a student might choose it, and why it is wrong.
+   sentence, at most 25 words: why a student might choose it, and why it is wrong.
 
 Hard rules:
 - Rebut only text that appears in B, C or D above. Never answer a distractor that is
@@ -66,7 +66,7 @@ Return exactly:
 {{"explanation": "...", "wrong_explanations": ["...", "...", "..."]}}"""
 
 
-def chat(endpoint, prompt, max_tokens=900, timeout=240):
+def chat(endpoint, prompt, max_tokens=1500, timeout=240):
     body = json.dumps({
         "messages": [{"role": "system", "content": SYSTEM},
                      {"role": "user", "content": prompt}],
