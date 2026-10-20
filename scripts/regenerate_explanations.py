@@ -20,6 +20,7 @@ written to the database here; apply after review and after the audit re-run.
 import argparse
 import json
 import os
+import re
 import sqlite3
 import time
 import urllib.request
@@ -66,6 +67,27 @@ Return exactly:
 {{"explanation": "...", "wrong_explanations": ["...", "...", "..."]}}"""
 
 
+ORD = ("First Second Third Fourth Fifth Sixth Seventh Eighth Ninth Tenth Eleventh Twelfth "
+       "Thirteenth Fourteenth Fifteenth Sixteenth Seventeenth Eighteenth Nineteenth Twentieth "
+       "Twenty-First Twenty-Second Twenty-Third Twenty-Fourth Twenty-Fifth Twenty-Sixth "
+       "Twenty-Seventh").split()
+ENTITY = re.compile(r"\b(?:%s)\s+Amendment\b|\b[A-Z][a-zA-Z]+\s+v\.?\s+[A-Z][a-zA-Z]+\b|"
+                    r"\b[A-Z][a-zA-Z]+\s+(?:Clause|Act)\b" % "|".join(ORD))
+
+
+def stray_entities(text, row):
+    """Case names, amendments and statutes the generated prose invents.
+
+    The prompt forbids this and the model does it anyway: one pilot row came back
+    naming 'Tinker v. Delaware', a case that does not exist. A rule in a prompt is
+    not a check, so this is checked after the fact against the row's own options.
+    """
+    known = " ".join([row["question"], row["correct_answer"],
+                      row["wrong_answers"] or ""]).lower()
+    found = {m.strip() for m in ENTITY.findall(text)}
+    return sorted(e for e in found if e.lower() not in known)
+
+
 def chat(endpoint, prompt, max_tokens=1500, timeout=240):
     body = json.dumps({
         "messages": [{"role": "system", "content": SYSTEM},
@@ -80,18 +102,63 @@ def chat(endpoint, prompt, max_tokens=1500, timeout=240):
     return (m.get("content") or "") + (m.get("reasoning_content") or "")
 
 
+def close_json(t):
+    """Append whatever closing braces/brackets the model forgot.
+
+    Observed on this model: it returns finish_reason "stop" with the array closed
+    and the outer object unterminated. Repairing that is safe; a response cut off
+    mid-string is not, and the caller rejects those on the punctuation check.
+    """
+    stack, in_str, esc = [], False, False
+    for ch in t:
+        if in_str:
+            if esc:
+                esc = False
+            elif ch == "\\":
+                esc = True
+            elif ch == '"':
+                in_str = False
+        else:
+            if ch == '"':
+                in_str = True
+            elif ch in "{[":
+                stack.append(ch)
+            elif ch in "}]":
+                if stack:
+                    stack.pop()
+    if in_str:
+        t += '"'
+    for ch in reversed(stack):
+        t += "}" if ch == "{" else "]"
+    return t
+
+
 def parse(raw):
     s, e = raw.find("{"), raw.rfind("}")
-    if s < 0 or e <= s:
+    if s < 0:
         return None
-    try:
-        d = json.loads(raw[s:e + 1])
-    except json.JSONDecodeError:
+    body = raw[s:e + 1] if e > s else raw[s:]
+    d = None
+    for candidate in (body, close_json(body)):
+        try:
+            d = json.loads(candidate, strict=False)
+            break
+        except json.JSONDecodeError:
+            continue
+    if d is None:
         return None
     ex, wx = d.get("explanation"), d.get("wrong_explanations")
-    if not isinstance(ex, str) or len(ex) < 80:
+    if not isinstance(ex, str) or len(ex) < 60:
         return None
-    if not isinstance(wx, list) or len(wx) != 3 or not all(isinstance(x, str) and len(x) > 40 for x in wx):
+    if not isinstance(wx, list) or len(wx) < 3:
+        return None
+    wx = [x for x in wx if isinstance(x, str) and len(x) > 20][:3]
+    if len(wx) != 3:
+        return None
+    # a repaired answer that stops mid-sentence is not publishable
+    if not ex.strip().endswith((".", "?", "!")):
+        return None
+    if not all(x.strip().endswith((".", "?", "!")) for x in wx):
         return None
     if "the claim that" in ex.lower()[:40]:
         return None
@@ -146,15 +213,23 @@ def main():
         prompt = PROMPT.format(question=row["question"], correct=row["correct_answer"],
                                w1=wrongs[0], w2=wrongs[1], w3=wrongs[2])
         t = time.time()
-        try:
-            raw = chat(args.endpoint, prompt)
-            got = parse(raw)
-            if got is None:
+        got = None
+        raw = ""
+        for attempt in range(3):
+            try:
                 raw = chat(args.endpoint, prompt)
-                got = parse(raw)
-        except Exception as ex:
-            got = None
-            raw = str(ex)[:120]
+                candidate = parse(raw)
+            except Exception as ex:
+                raw = str(ex)[:200]
+                candidate = None
+            if candidate is None:
+                continue
+            stray = stray_entities(candidate[0] + " " + " ".join(candidate[1]), row)
+            if stray:
+                raw = "STRAY ENTITIES %s :: %s" % (stray, raw[-200:])
+                continue
+            got = candidate
+            break
         rec = {"id": qid, "ok": got is not None, "secs": round(time.time() - t, 1),
                "before": {"explanation": row["explanation"],
                           "wrong_explanations": json.loads(row["wrong_explanations"] or "[]")}}

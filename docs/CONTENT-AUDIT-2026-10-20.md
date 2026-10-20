@@ -57,6 +57,38 @@ like any other authored item.
 - Broad auditors kept for future use: `scripts/audit_detached_explanations.py`,
   `scripts/audit_excess_rebuttals.py`.
 
+## Exhaustive sweep, same day
+
+The targeted pass above could not measure the class, so a semantic sweep followed.
+
+| Stage | Result |
+|---|---|
+| Questions judged by Qwen3.5-9B, one narrow question each | 2,350, zero parse failures |
+| Flagged | **413 (17.6%)**, spread 15-21% across all four domains |
+| Random 60 re-judged by gemma-4-12b | 72% agreement, so roughly 300 real |
+| Regenerated against their own four options | 413 of 413 |
+| Independent gate (gemma-4-12b re-judge) | **396 CLEAN, 17 held** |
+| Applied to the bank | 396 rows, backup `fcle.db.bak-20261020T195641Z` |
+
+Regeneration, not sentence deletion, because sentence-level patching provably failed: a
+mechanical proposal covering only 41 of 413 rows wanted to delete legitimate rebuttals
+(136, 267, 278). Prose written with the four options in view is the honest repair.
+
+The 17 held rows were not written to the bank. They carry a mix of judge noise and real
+generation faults, including one invented case name, "Tinker v. Delaware". A prompt rule
+does not enforce anything, so the generator now rejects any output naming a case, statute
+or amendment that is absent from the row, and retries.
+
+Two operational defects were found and fixed while running this:
+- output overran `max_tokens` and truncated mid-JSON (112 rows in one pass);
+- the model returns `finish_reason: stop` while omitting the final closing brace, which
+  discarded complete, valid answers. Brace repair recovered about 50 rows per pass, with
+  a punctuation check so a genuinely cut sentence is still refused.
+
+Scripts: `sweep_explanations.py`, `regenerate_explanations.py`, `verify_regeneration.py`,
+`apply_regeneration.py`, `propose_explanation_repairs.py` (the failed shortcut, kept as a
+record).
+
 ## Residual risk, stated plainly
 
 This was a targeted sweep, not an exhaustive one. Four rows are fixed because they carried a
