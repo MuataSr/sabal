@@ -104,6 +104,7 @@ def main():
     ap.add_argument("--ids-from", required=True)
     ap.add_argument("--out", required=True)
     ap.add_argument("--limit", type=int, default=20)
+    ap.add_argument("--shard", default=None, help="k/n: take only ids where id %% n == k")
     ap.add_argument("--db", default=DB)
     args = ap.parse_args()
 
@@ -114,6 +115,9 @@ def main():
                 rec = json.loads(line)
                 if rec.get("verdict") == "FLAG":
                     want.append(rec["id"])
+    if args.shard:
+        k, n = args.shard.split("/")
+        want = [w for w in want if w % int(n) == int(k)]
     want = want[:args.limit]
 
     conn = sqlite3.connect(args.db)
