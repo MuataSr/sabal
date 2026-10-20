@@ -1173,6 +1173,151 @@ def admin_waitlist():
 # only the door is offered to an index.
 # ---------------------------------------------------------------------------
 
+# ---------------------------------------------------------------------------
+# Public practice: no account, no email, no cookie, nothing stored
+#
+# This is the OER Commons openness criterion, implemented rather than argued:
+# a visitor can practise any domain without giving up an email address. The
+# tally lives in the URL and the question id names the question, so there is
+# no session, no cookie and no per-visitor row. Accounts keep their meaning
+# (saved scores, readiness, the coach) without being the price of admission.
+# ---------------------------------------------------------------------------
+
+_PUBLIC_PRACTICE = (
+    ("american-democracy", "American Democracy",
+     "Founding principles, citizenship, and political participation"),
+    ("us-constitution", "US Constitution",
+     "The structure of government, federalism, and individual rights"),
+    ("founding-documents", "Founding Documents",
+     "The Declaration, the Constitution, and the Federalist Papers"),
+    ("landmark-impact", "Landmark Impact on Society",
+     "The cases and laws that shaped American society"),
+    ("mixed", "Mixed Review",
+     "All four domains, in one sitting"),
+)
+
+
+def _practice_entry(slug):
+    """slug -> (domain_id or None for mixed, display name, blurb). None if unknown."""
+    for s, name, blurb in _PUBLIC_PRACTICE:
+        if s == slug:
+            return (None if s == "mixed" else _DOMAIN_GETTERS[s]["id"]), name, blurb
+    return None
+
+
+def _practice_tally(source):
+    """The visit tally, read from the query string or the posted form.
+
+    It lives in the URL and nowhere else: no cookie, no session, no row. A
+    visitor can edit it in the address bar, which is fine, because it is a
+    count for their own eyes and not a record of anything.
+    """
+    def _n(key):
+        try:
+            return max(0, min(int(source.get(key, 0)), 999))
+        except (TypeError, ValueError):
+            return 0
+    return _n("c"), _n("t")
+
+
+def _practice_serve(domain_slug, question, c, t, feedback=False, selected=None):
+    """Render one practice question, before or after it has been answered."""
+    entry = _practice_entry(domain_slug)
+    if not entry:
+        return redirect("/practice")
+    _, name, _ = entry
+    picked_explanation = None
+    if feedback and selected and selected != question["correct_answer"]:
+        try:
+            idx = question["wrong_answers"].index(selected)
+            if idx < len(question["wrong_explanations"]):
+                picked_explanation = question["wrong_explanations"][idx]
+        except ValueError:
+            picked_explanation = None
+    return render_template(
+        "practice.html",
+        question=question,
+        domain_slug=domain_slug,
+        domain_name=name,
+        feedback=feedback,
+        selected=selected,
+        is_correct=(selected == question["correct_answer"]) if feedback else None,
+        picked_explanation=picked_explanation,
+        tally_c=c,
+        tally_t=t,
+        canonical="%s/practice/%s" % (_public_base(), domain_slug),
+    )
+
+
+@app.route("/practice")
+def practice_hub():
+    """The public door. No account, no email, no cookie."""
+    db.bump_page_view("practice")
+    return render_template(
+        "practice_hub.html",
+        domains=[{"slug": s, "name": n, "blurb": b} for s, n, b in _PUBLIC_PRACTICE],
+        canonical="%s/practice" % _public_base(),
+    )
+
+
+@app.route("/practice/<domain_slug>")
+def practice_start(domain_slug):
+    """One question, served statelessly. The question id travels in the URL."""
+    entry = _practice_entry(domain_slug)
+    if not entry:
+        return redirect("/practice")
+    domain_id = entry[0]
+    c, t = _practice_tally(request.args)
+
+    question = None
+    qid = request.args.get("q", type=int)
+    if qid:
+        question = kb.get_shaped_question_by_id(qid, domain_id)
+    if not question:
+        if domain_id is None:
+            questions = kb.get_mixed_quiz_questions(count=1)
+        else:
+            questions = kb.get_domain_quiz_questions(domain_id=domain_id, count=1)
+        question = questions[0] if questions else None
+    if not question:
+        return redirect("/practice")
+
+    return _practice_serve(domain_slug, question, c, t)
+
+
+@app.route("/practice/<domain_slug>/answer", methods=["POST"])
+def practice_answer(domain_slug):
+    """Grade one answer and explain it. Nothing is written except the page counter."""
+    entry = _practice_entry(domain_slug)
+    if not entry:
+        return redirect("/practice")
+    domain_id = entry[0]
+
+    try:
+        qid = int(request.form.get("question_id") or 0)
+    except (TypeError, ValueError):
+        qid = 0
+    question = kb.get_shaped_question_by_id(qid, domain_id) if qid else None
+    if not question:
+        return redirect("/practice/%s" % domain_slug)
+
+    # Keep the option order the visitor actually saw, but only when the posted
+    # set is the real set: the order is presentation, the options come from the DB.
+    posted = [request.form.get("opt%d" % i) for i in range(4)]
+    if all(posted) and set(posted) == set(question["options"]):
+        question["options"] = posted
+
+    selected = (request.form.get("selected") or "").strip()
+    if not selected:
+        return redirect("/practice/%s" % domain_slug)
+
+    c, t = _practice_tally(request.form)
+    correct = selected == question["correct_answer"]
+    c, t = c + (1 if correct else 0), t + 1
+    db.bump_page_view("practice")
+    return _practice_serve(domain_slug, question, c, t, feedback=True, selected=selected)
+
+
 _DISALLOWED_PATHS = (
     "/admin/", "/quiz/", "/results/", "/stats", "/settings", "/diagnostic",
     "/registered", "/logout", "/onboarding", "/coach", "/account", "/stimulus",
@@ -1195,7 +1340,7 @@ def _public_base():
 
 @app.route("/robots.txt")
 def robots_txt():
-    lines = ["User-agent: *", "Allow: /$", "Allow: /signup", "Allow: /login"]
+    lines = ["User-agent: *", "Allow: /$", "Allow: /practice", "Allow: /signup", "Allow: /login"]
     lines += ["Disallow: %s" % path for path in _DISALLOWED_PATHS]
     lines += ["", "Sitemap: %s/sitemap.xml" % _public_base(), ""]
     return "\n".join(lines), 200, {"Content-Type": "text/plain; charset=utf-8"}
@@ -1217,7 +1362,9 @@ def sitemap_xml():
             return None
 
     candidates = [d for d in (_mtime_date(kb.DB_PATH),
-                              _mtime_date(os.path.join(app.root_path, "templates", "landing.html")))
+                              _mtime_date(os.path.join(app.root_path, "templates", "landing.html")),
+                              _mtime_date(os.path.join(app.root_path, "templates", "practice.html")),
+                              _mtime_date(os.path.join(app.root_path, "templates", "practice_hub.html")))
                   if d]
     today = datetime.utcnow().date().isoformat()
     # Never future-dated: a lastmod ahead of today is invalid and gets ignored.
@@ -1226,9 +1373,13 @@ def sitemap_xml():
     parts = ['<?xml version="1.0" encoding="UTF-8"?>',
              '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     base = _public_base()
-    for path, priority, changefreq in (("/", "1.0", "weekly"),
-                                       ("/signup", "0.6", "monthly"),
-                                       ("/login", "0.3", "yearly")):
+    public_paths = [("/", "1.0", "weekly"),
+                    ("/practice", "0.9", "weekly")]
+    public_paths += [("/practice/%s" % s, "0.8", "weekly")
+                     for s, _name, _blurb in _PUBLIC_PRACTICE if s != "mixed"]
+    public_paths += [("/signup", "0.6", "monthly"), ("/login", "0.3", "yearly")]
+
+    for path, priority, changefreq in public_paths:
         parts.append(
             "  <url><loc>%s%s</loc><lastmod>%s</lastmod>"
             "<changefreq>%s</changefreq><priority>%s</priority></url>"
@@ -1267,20 +1418,23 @@ def _admin_shell(title, body):
 
 
 @app.route("/report-question", methods=["POST"])
-@login_required
 def report_question():
     """A student flags a problem with the question they just answered.
 
     This is the wrinkle loop for a generated bank: it stores the option the
     student picked alongside the complaint, because "the correct answer looks
-    wrong" cannot be diagnosed later without knowing what they chose.
+    wrong" cannot be diagnosable later without knowing what they chose.
+
+    Open to anonymous visitors on purpose. Public practice is only useful if a
+    student who never registers can still tell us a question is broken, and
+    user_id is nullable for exactly that case.
     """
     user = _get_current_user()
     try:
         question_id = int(request.form.get("question_id") or 0)
     except (TypeError, ValueError):
         question_id = 0
-    if question_id:
+    if question_id and kb.get_question_by_id(question_id):
         db.add_question_report(
             user["id"] if user else None,
             question_id,

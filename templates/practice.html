@@ -1,0 +1,141 @@
+{% extends "base.html" %}
+
+{% block title %}
+{%- if feedback %}{% if is_correct %}Correct{% else %}Answer explained{% endif %} — {% endif -%}
+{{ domain_name }} Practice — Sabal{% endblock %}
+{% block crumb %}Practice{% endblock %}
+
+{% block head %}
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="{{ canonical }}">
+<style>
+  .pp-wrap{max-width:760px;margin:0 auto;padding:10px 0 48px}
+  .pp-bar{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+  .pp-tag{font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;color:#5B6572}
+  .pp-tally{font-size:14px;font-weight:600;color:#0F2136}
+  .pp-why{margin-top:14px;padding:14px 16px;border-left:3px solid #1B3A5C;background:#F7F5EF;
+          border-radius:8px;font-size:15.5px;line-height:1.6;color:#1F2937}
+  .pp-why b{display:block;margin-bottom:4px;color:#0F2136}
+  .pp-actions{display:flex;gap:14px;align-items:center;margin-top:20px;flex-wrap:wrap}
+  .pp-next{display:inline-block;padding:12px 20px;border-radius:10px;background:#1B3A5C;color:#fff;
+           text-decoration:none;font-weight:600}
+  .pp-hub{font-size:15px;color:#5B6572}
+  .pp-submit{margin-top:16px;width:100%}
+  .pp-note{margin-top:18px;font-size:14.5px;color:#5B6572;line-height:1.6}
+  .pp-wrap .choice input[type=radio]{position:absolute;opacity:0;pointer-events:none}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="pp-wrap">
+
+  <div class="pp-bar">
+    <span class="pp-tag">{{ domain_name }}</span>
+    {% if tally_t %}<span class="pp-tally">{{ tally_c }} of {{ tally_t }} correct this visit</span>{% endif %}
+  </div>
+
+  {% if question.stimulus %}
+  <div class="stimulus-block">
+    <div class="stimulus-label">Read the following passage</div>
+    {{ question.stimulus|safe }}
+  </div>
+  {% endif %}
+
+  <div class="question-text">{{ question.question_text|safe }}</div>
+
+  {% set letters = ['A', 'B', 'C', 'D'] %}
+
+  {% if feedback %}
+
+  <div class="choices feedback-locked">
+    {% for i in range(question.options|length) %}
+    {% set is_selected = (question.options[i] == selected) %}
+    {% set is_right = (question.options[i] == question.correct_answer) %}
+    <label class="choice{% if is_right %} correct{% elif is_selected and not is_correct %} wrong{% endif %}">
+      <span class="choice-letter">{{ letters[i] }}</span>
+      <span class="choice-text">{{ question.options[i]|safe }}</span>
+      {% if is_right %}
+      <span class="choice-letter" style="background:var(--correct);border-color:var(--correct);color:#fff;">✓</span>
+      {% elif is_selected and not is_correct %}
+      <span class="choice-letter" style="background:var(--wrong);border-color:var(--wrong);color:#fff;">✗</span>
+      {% endif %}
+    </label>
+    {% endfor %}
+  </div>
+
+  <div class="feedback-banner {% if is_correct %}feedback-correct{% else %}feedback-wrong{% endif %}">
+    {% if is_correct %}
+    <span class="feedback-icon">✓</span><span>Correct.</span>
+    {% else %}
+    <span class="feedback-icon">✗</span><span>Not quite. The answer is <strong>{{ question.correct_answer }}</strong></span>
+    {% endif %}
+  </div>
+
+  {% if picked_explanation %}
+  <div class="pp-why"><b>Why your choice was tempting</b>{{ picked_explanation }}</div>
+  {% endif %}
+
+  {% if question.explanation %}
+  <div class="pp-why"><b>Why the answer is right</b>{{ question.explanation }}</div>
+  {% endif %}
+
+  <div class="pp-actions">
+    <a class="pp-next" href="/practice/{{ domain_slug }}?c={{ tally_c }}&t={{ tally_t }}">Next question &rarr;</a>
+    <a class="pp-hub" href="/practice">All domains</a>
+  </div>
+
+  <details class="qreport">
+    <summary>Something wrong with this question?</summary>
+    <form method="POST" action="/report-question" class="qreport-form">
+      <input type="hidden" name="question_id" value="{{ question.id }}">
+      <input type="hidden" name="selected" value="{{ selected|default('') }}">
+      <input type="hidden" name="domain" value="{{ domain_slug }}">
+      <input type="hidden" name="next" value="/practice/{{ domain_slug }}?c={{ tally_c }}&t={{ tally_t }}">
+      <label for="pp-reason">What looks wrong?</label>
+      <select id="pp-reason" name="reason">
+        <option value="wrong_answer">The marked answer looks wrong</option>
+        <option value="typo">Typo or broken formatting</option>
+        <option value="confusing">The wording is confusing</option>
+        <option value="other">Something else</option>
+      </select>
+      <input type="text" name="note" maxlength="600" placeholder="Optional: tell us more">
+      <button type="submit">Send report</button>
+    </form>
+  </details>
+
+  {% else %}
+
+  <form method="POST" action="/practice/{{ domain_slug }}/answer" class="choices" id="pp-form">
+    <input type="hidden" name="question_id" value="{{ question.id }}">
+    <input type="hidden" name="c" value="{{ tally_c }}">
+    <input type="hidden" name="t" value="{{ tally_t }}">
+    {% for i in range(question.options|length) %}
+    <input type="hidden" name="opt{{ i }}" value="{{ question.options[i] }}">
+    <label class="choice">
+      <input type="radio" name="selected" value="{{ question.options[i] }}">
+      <span class="choice-letter">{{ letters[i] }}</span>
+      <span class="choice-text">{{ question.options[i]|safe }}</span>
+    </label>
+    {% endfor %}
+    <button type="submit" class="submit-btn pp-submit" id="pp-submit" disabled>Check answer</button>
+  </form>
+
+  <p class="pp-note">No account needed, and nothing about this visit is stored.
+  <a href="/practice">Pick a different domain</a> &middot;
+  <a href="/signup">Keep my scores</a></p>
+
+  {% endif %}
+
+</div>
+
+<script>
+(function () {
+  var form = document.getElementById("pp-form");
+  if (!form) { return; }
+  var btn = document.getElementById("pp-submit");
+  form.addEventListener("change", function () {
+    if (form.querySelector("input[name='selected']:checked")) { btn.disabled = false; }
+  });
+})();
+</script>
+{% endblock %}

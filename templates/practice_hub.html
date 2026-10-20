@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}Free FCLE Practice Test, No Account Needed — Sabal{% endblock %}
+{% block crumb %}Practice{% endblock %}
+
+{% block head %}
+<meta name="description" content="Practice the Florida Civic Literacy Exam free, with no account and no email. FCLE-style questions with an explanation for every answer, across all four tested domains.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="{{ canonical }}">
+<style>
+  .pp-wrap{max-width:760px;margin:0 auto;padding:14px 0 48px}
+  .pp-wrap h1{font-size:30px;line-height:1.22;margin-bottom:10px}
+  .pp-lede{color:#5B6572;font-size:17px;margin-bottom:22px;line-height:1.6}
+  .pp-grid{display:grid;gap:12px;grid-template-columns:1fr}
+  @media(min-width:640px){.pp-grid{grid-template-columns:1fr 1fr}}
+  .pp-card{display:block;padding:18px;border:1px solid #E4DFD3;border-radius:12px;text-decoration:none;background:#fff;transition:border-color .12s ease,transform .06s ease}
+  .pp-card:hover{border-color:#1B3A5C;transform:translateY(-1px)}
+  .pp-card b{display:block;font-size:16.5px;color:#0F2136;margin-bottom:4px}
+  .pp-card span{color:#5B6572;font-size:14px;line-height:1.45}
+  .pp-note{margin-top:22px;font-size:15px;color:#5B6572;line-height:1.6}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="pp-wrap">
+  <h1>Free FCLE practice. No account, no email.</h1>
+  <p class="pp-lede">Pick a domain and start. Every answer explains why the right choice is right and
+  why the tempting wrong one feels right, which is where this exam actually catches students. Nothing
+  about your visit is stored.</p>
+
+  <div class="pp-grid">
+    {% for d in domains %}
+    <a class="pp-card" href="/practice/{{ d.slug }}">
+      <b>{{ d.name }}</b>
+      <span>{{ d.blurb }}</span>
+    </a>
+    {% endfor %}
+  </div>
+
+  <p class="pp-note">Want your scores kept? <a href="/signup">Create an account</a> and Sabal remembers
+  what you answered, shows readiness across all four domains, and picks up where you left off. It takes
+  an email address and no password.</p>
+</div>
+{% endblock %}

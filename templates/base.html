@@ -51,10 +51,13 @@
 
       <div class="nav-group">
         <div class="nav-label">Practice areas</div>
-        <a href="/quiz/american-democracy" class="nav-link{% if request.path == '/quiz/american-democracy' %} active{% endif %}">American Democracy</a>
-        <a href="/quiz/us-constitution" class="nav-link{% if request.path == '/quiz/us-constitution' %} active{% endif %}">US Constitution</a>
-        <a href="/quiz/founding-documents" class="nav-link{% if request.path == '/quiz/founding-documents' %} active{% endif %}">Founding Documents</a>
-        <a href="/quiz/landmark-impact" class="nav-link{% if request.path == '/quiz/landmark-impact' %} active{% endif %}">Landmark Impact</a>
+        {# Anonymous visitors get the public practice surface, never a login wall. #}
+        {% set pq = "/quiz" if (current_user and not current_user.is_anonymous) else "/practice" %}
+        <a href="{{ pq }}/american-democracy" class="nav-link{% if request.path in ['/quiz/american-democracy', '/practice/american-democracy'] %} active{% endif %}">American Democracy</a>
+        <a href="{{ pq }}/us-constitution" class="nav-link{% if request.path in ['/quiz/us-constitution', '/practice/us-constitution'] %} active{% endif %}">US Constitution</a>
+        <a href="{{ pq }}/founding-documents" class="nav-link{% if request.path in ['/quiz/founding-documents', '/practice/founding-documents'] %} active{% endif %}">Founding Documents</a>
+        <a href="{{ pq }}/landmark-impact" class="nav-link{% if request.path in ['/quiz/landmark-impact', '/practice/landmark-impact'] %} active{% endif %}">Landmark Impact</a>
+        <a href="/practice" class="nav-link{% if request.path == '/practice' %} active{% endif %}">All practice (no account)</a>
       </div>
 
       <div class="nav-group">

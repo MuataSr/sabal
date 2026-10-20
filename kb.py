@@ -40,6 +40,35 @@ def get_question_by_id(question_id):
     return dict(row) if row else None
 
 
+def get_shaped_question_by_id(question_id, domain_id=None):
+    """One bank question shaped exactly like a quiz question, by primary key.
+
+    Used by the public practice surface, which serves one question at a time
+    with no quiz row, no session and no write. Returns None when the id is
+    absent, or when it belongs to a different domain than the one asked for.
+    """
+    raw = get_question_by_id(question_id)
+    if not raw:
+        return None
+    if domain_id is not None and raw.get("fcle_domain") != domain_id:
+        return None
+    options, correct_index = _build_options(raw["correct_answer"], raw["wrong_answers"])
+    return {
+        "id": raw["id"],
+        "domain_id": raw["fcle_domain"],
+        "topic": raw["topic"],
+        "difficulty": raw["difficulty"],
+        "question_text": raw["question"],
+        "stimulus": raw["stimulus"],
+        "options": options,
+        "correct_index": correct_index,
+        "correct_answer": options[correct_index],
+        "explanation": raw["explanation"],
+        "wrong_answers": json.loads(raw["wrong_answers"]) if raw["wrong_answers"] else [],
+        "wrong_explanations": json.loads(raw["wrong_explanations"]) if raw["wrong_explanations"] else [],
+    }
+
+
 # ---------------------------------------------------------------------------
 # Domain Metadata
 # ---------------------------------------------------------------------------

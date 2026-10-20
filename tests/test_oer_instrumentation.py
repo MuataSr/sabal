@@ -113,11 +113,24 @@ class TestNoSeatLimit(_Base):
 
 
 class TestQuestionReports(_Base):
-    def test_reporting_requires_a_session(self):
-        resp = self.client.post("/report-question", data={"question_id": 5})
-        self.assertEqual(resp.status_code, 302)
-        self.assertIn("/login", resp.headers["Location"])
-        self.assertEqual(self.mod.db.count_question_reports("all"), 0)
+    def test_reporting_needs_no_session_by_design(self):
+        """Reversed on purpose, 2026-10-16.
+
+        OER Commons rejected Sabal because a student had to register before
+        reaching the questions, and their policy governs the materials, not
+        just the front door. A visitor who never registers must still be able
+        to say a question is broken, so this route is public and the row it
+        writes carries no user.
+        """
+        import sqlite3
+        qid = self.mod.kb.get_all_quiz_questions(count=1)[0]["id"]
+        resp = self.client.post("/report-question", data={"question_id": qid})
+        self.assertEqual(resp.status_code, 200)
+        self.assertEqual(self.mod.db.count_question_reports("all"), 1)
+        conn = sqlite3.connect(self.mod.db.DB_PATH)
+        row = conn.execute("SELECT user_id FROM question_reports").fetchone()
+        conn.close()
+        self.assertIsNone(row[0], "an anonymous report must not record a user")
 
     def test_a_report_is_stored_with_the_option_the_student_picked(self):
         self._login()
@@ -209,8 +222,11 @@ class TestAdminSurfaces(_Base):
     def test_reports_list_csv_export_and_resolve(self):
         os.environ["PILOT_ADMIN_KEY"] = "k3y"
         self._login()
+        # A real bank id: reports for ids that do not exist are dropped on
+        # purpose, so a hardcoded id can silently stop producing a row.
+        real_qid = self.mod.kb.get_all_quiz_questions(count=1)[0]["id"]
         self.client.post("/report-question", data={
-            "question_id": "4242", "reason": "typo", "note": "stray bracket"})
+            "question_id": str(real_qid), "reason": "typo", "note": "stray bracket"})
 
         page = self.client.get("/admin/reports?key=k3y")
         self.assertEqual(page.status_code, 200)
