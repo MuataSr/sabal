@@ -1177,7 +1177,7 @@ def admin_waitlist():
 # Public practice: no account, no email, no cookie, nothing stored
 #
 # This is the OER Commons openness criterion, implemented rather than argued:
-# a visitor can practise any domain without giving up an email address. The
+# a visitor can practice any domain without giving up an email address. The
 # tally lives in the URL and the question id names the question, so there is
 # no session, no cookie and no per-visitor row. Accounts keep their meaning
 # (saved scores, readiness, the coach) without being the price of admission.

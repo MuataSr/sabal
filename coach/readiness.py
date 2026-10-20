@@ -119,7 +119,7 @@ def overall_coverage(per_domain):
 def projected_range(readiness_overall, coverage_overall):
     """Projected score range out of 80.
 
-    The margin grows as coverage falls, so an under-practised student gets an
+    The margin grows as coverage falls, so an under-practiced student gets an
     honest wide band instead of a confident wrong number.
     """
     mid = readiness_overall * rules.EXAM_TOTAL_ITEMS

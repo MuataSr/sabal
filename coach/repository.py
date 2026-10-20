@@ -79,7 +79,7 @@ def load_content_library(content_db):
                      "WHERE is_primary = 1 AND reviewed = 1")}
         except sqlite3.Error:
             # an older DB without the reviewed column: nothing is reviewed, so the
-            # keyword gate applies everywhere - the pre-review behaviour, and safe.
+            # keyword gate applies everywhere - the pre-review behavior, and safe.
             reviewed = set()
         try:
             external = {r["benchmark_code"]: {"title": r["reading_title"], "url": r["reading_url"]}

@@ -29,7 +29,7 @@ def headline(state):
 def confidence_note(state):
     if state == "MISCONCEPTION":
         return ("You were sure about this one, so it is worth fixing now rather "
-                "than practising around it.")
+                "than practicing around it.")
     if state == "FRAGILE":
         return "You were unsure, so this needs another pass before it sticks."
     if state == "MASTERED":
@@ -76,7 +76,7 @@ PHASE_BLURB = {
                     "sessions until the basics hold."),
     "CLEANUP": ("You are close. What is left is mostly questions that felt certain "
                 "and were not - fixing those is where the remaining points are."),
-    "LAST_MILE": ("Time to practise under pressure. Timed sets from here, with "
+    "LAST_MILE": ("Time to practice under pressure. Timed sets from here, with "
                   "review on top."),
     "TAPER": ("No new material between now and test day. Review what you already "
               "know so it stays available."),
