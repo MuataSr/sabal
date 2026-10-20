@@ -172,7 +172,9 @@ def calibrate(endpoint):
     return hits, total
 
 
-def run(endpoint, out_path, judge, workers=1, limit=None, shard=None, ids_from=None):
+def run(endpoint, out_path, judge, workers=1, limit=None, shard=None, ids_from=None,
+        db_path=None):
+    db_path = db_path or LIVE_DB
     os.makedirs(os.path.dirname(out_path), exist_ok=True)
     done = set()
     if os.path.exists(out_path):
@@ -197,9 +199,9 @@ def run(endpoint, out_path, judge, workers=1, limit=None, shard=None, ids_from=N
                     rec = json.loads(line)
                     if rec.get("verdict") in ("FLAG", "CLEAN"):
                         wanted.append(rec["id"])
-        rows = [r for r in read_rows(LIVE_DB) if r["id"] in set(wanted)]
+        rows = [r for r in read_rows(db_path) if r["id"] in set(wanted)]
     else:
-        rows = [r for r in read_rows(LIVE_DB) if r["id"] not in done]
+        rows = [r for r in read_rows(db_path) if r["id"] not in done]
     rows = [r for r in rows if r["id"] not in done]
     if shard:
         k, n = shard
@@ -244,6 +246,7 @@ def main():
     ap.add_argument("--judge", default=None, help="label recorded per row")
     ap.add_argument("--limit", type=int, default=None)
     ap.add_argument("--out", default=None)
+    ap.add_argument("--db", default=LIVE_DB, help="database to read (use a copy to verify edits)")
     ap.add_argument("--shard", default=None, help="k/n: process only ids where id %% n == k")
     ap.add_argument("--ids-from", action="append", default=None,
                     help="re-judge only ids appearing in this JSONL (repeatable)")
@@ -258,7 +261,8 @@ def main():
         calibrate(args.endpoint)
     if args.run:
         out = args.out or os.path.join(WORKDIR, "sweep-%s.jsonl" % judge)
-        run(args.endpoint, out, judge, limit=args.limit, shard=shard, ids_from=args.ids_from)
+        run(args.endpoint, out, judge, limit=args.limit, shard=shard,
+            ids_from=args.ids_from, db_path=args.db)
     if not (args.calibrate or args.run):
         ap.print_help()
 
