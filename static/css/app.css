@@ -1451,6 +1451,17 @@ input:focus, select:focus, textarea:focus { border-color: var(--a-navy-500); box
 }
 .sc-attrib a { color: #8A93A0; text-decoration: underline; }
 
+/* ——— Contrast repair: white-on-navy links ———
+   `.a-shell a:not([class*="btn"])` (0,2,1) outranks `.nav-link.active` (0,2,0),
+   so the label of the CURRENT sidebar item was painted navy on a navy pill and
+   disappeared. It had been invisible on every page since the shell was built.
+   The same rule also beat the white text of dark action links styled as <a>.
+   These selectors (0,3,0) win and restore the intended contrast. */
+.a-shell .nav-link.active,
+.a-shell .nav-link.active:hover,
+.a-shell .pp-wrap .pp-next,
+.a-shell .pp-wrap .pp-next:hover { color: #fff; }
+
 
 /* ---------------------------------------------------------------------------
    Per-answer coach note  (.coach-note-*)
