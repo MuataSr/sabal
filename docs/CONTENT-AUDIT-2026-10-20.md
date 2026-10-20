@@ -89,15 +89,64 @@ Scripts: `sweep_explanations.py`, `regenerate_explanations.py`, `verify_regenera
 `apply_regeneration.py`, `propose_explanation_repairs.py` (the failed shortcut, kept as a
 record).
 
+## Answer-key audit
+
+The explanation sweep cannot see a wrong key: a row can have flawless prose and still
+teach the wrong answer. `scripts/audit_keys.py` tests the key directly by showing the
+claimed answer and asking whether the claim holds, with an escape to name a better option
+or none. Options are shuffled per id and compared by text, so position cannot game it.
+
+| Stage | Result |
+|---|---|
+| Rows judged | 2,349 |
+| Key flags | **341 (14.5%)** |
+| Dismissed by text similarity to the key (paraphrase) | 43 |
+| Genuine disputes | 233 |
+| Hand-read | 90, then stopped |
+
+Confirmation by a second model failed in both framings. gemma-4-12b flagged keys that had
+been verified correct by hand and gave no reasoning; the forced-choice framing on Qwen
+failed the same hand-verified row as the claim test. **The model can flag but cannot
+adjudicate**, so disputes were split into objectively checkable defects and doctrinal
+disagreements, and only the former were acted on.
+
+## Quarantine, 2026-10-20
+
+248 rows removed from the served bank, payloads archived in `questions_quarantine` with the
+reason recorded. Reinsertion by id is a one-line operation.
+
+| Reason | Rows |
+|---|---|
+| Near-duplicate options (two options at 0.85 mean similarity) | 87 |
+| Option text is itself a rebuttal, or carries a baked-in letter | 36 |
+| No option answers the question | 34 |
+| Stem cites a text and no text exists in the row | 80 |
+| Wrong key, confidence recorded per row | 11 |
+
+Bank: **2,349 -> 2,101**. The 2,000+ public claim still holds.
+
+The 11 wrong keys, for the record: 'free riding' keyed for a concentrated-cost stem;
+legislative immunity keyed as a bill of attainder; Magna Carta keyed as the Declaration's
+model; Tinker conflated with segregation; municipalities keyed as the most common local
+government; general-welfare power keyed as a limit on press freedom; a **two-year**
+presidential term; *Darby* described as reducing federal power; Federalist No. 10 attributed
+to Hamilton; natural law keyed as common law; judicial doctrines keyed for a presidential
+directive.
+
+## Left open, stated plainly
+
+**255 rows still carry a key flag that no one has adjudicated.** They remain live. The
+auditor is wrong at least a third of the time on this bank, so quarantining them on its word
+would delete sound questions; the remainder are genuinely ambiguous, with two defensible
+answers. Clearing them needs subject-matter judgement, not another sweep.
+
 ## Residual risk, stated plainly
 
-This was a targeted sweep, not an exhaustive one. Four rows are fixed because they carried a
-decisive structural marker; rows where the phantom rebuttal happens to share vocabulary with a real
-option would not be caught this way. A complete pass needs a model judge over all 2,350 rows, the
-shape the September audit used (2,350 rows through a local model, results in `~/fcle_audit/`). That
-is hours of GPU time, not minutes, and it should be run before the next directory submission rather
-than claimed as done.
+This is no longer a targeted pass. Every one of the 2,350 rows was judged for explanation
+fidelity and for key correctness, by a local model, with the counts above. What remains
+unknown is not coverage but adjudication: 255 rows carry a key flag that only a human can
+settle, and a flagged row is not a wrong row.
 
-The new public practice page also makes this class visible to students for the first time, and its
-"something wrong with this question" route now accepts anonymous reports. That is the durable fix:
-the bank gets read by the people who will notice.
+The durable fix is unchanged and now live in the app: the public practice page makes this
+class visible to students for the first time, and its "something wrong with this question"
+route accepts anonymous reports. The bank gets read by the people who will notice.
