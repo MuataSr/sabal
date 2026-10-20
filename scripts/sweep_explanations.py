@@ -172,7 +172,7 @@ def calibrate(endpoint):
     return hits, total
 
 
-def run(endpoint, out_path, judge, workers=1, limit=None, shard=None):
+def run(endpoint, out_path, judge, workers=1, limit=None, shard=None, ids_from=None):
     os.makedirs(os.path.dirname(out_path), exist_ok=True)
     done = set()
     if os.path.exists(out_path):
@@ -187,7 +187,20 @@ def run(endpoint, out_path, judge, workers=1, limit=None, shard=None):
                 # permanent hole in the sweep.
                 if rec.get("verdict") in ("FLAG", "CLEAN"):
                     done.add(rec["id"])
-    rows = [r for r in read_rows(LIVE_DB) if r["id"] not in done]
+    if ids_from:
+        wanted = []
+        for path in ids_from:
+            with open(path) as f:
+                for line in f:
+                    if not line.strip():
+                        continue
+                    rec = json.loads(line)
+                    if rec.get("verdict") in ("FLAG", "CLEAN"):
+                        wanted.append(rec["id"])
+        rows = [r for r in read_rows(LIVE_DB) if r["id"] in set(wanted)]
+    else:
+        rows = [r for r in read_rows(LIVE_DB) if r["id"] not in done]
+    rows = [r for r in rows if r["id"] not in done]
     if shard:
         k, n = shard
         rows = [r for r in rows if r["id"] % n == k]
@@ -232,6 +245,8 @@ def main():
     ap.add_argument("--limit", type=int, default=None)
     ap.add_argument("--out", default=None)
     ap.add_argument("--shard", default=None, help="k/n: process only ids where id %% n == k")
+    ap.add_argument("--ids-from", action="append", default=None,
+                    help="re-judge only ids appearing in this JSONL (repeatable)")
     args = ap.parse_args()
 
     judge = args.judge or args.endpoint.rsplit("/", 1)[0].split("//")[-1].replace(".", "-")
@@ -243,7 +258,7 @@ def main():
         calibrate(args.endpoint)
     if args.run:
         out = args.out or os.path.join(WORKDIR, "sweep-%s.jsonl" % judge)
-        run(args.endpoint, out, judge, limit=args.limit, shard=shard)
+        run(args.endpoint, out, judge, limit=args.limit, shard=shard, ids_from=args.ids_from)
     if not (args.calibrate or args.run):
         ap.print_help()
 
