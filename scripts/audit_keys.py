@@ -121,6 +121,65 @@ def build(row):
     return prompt, shuffled, idx
 
 
+CHOICE_SYSTEM = (
+    "You are answering a civics question from a Florida question bank. Choose the single "
+    "option that best answers the question. The options are in a random order; do not "
+    "assume the first is correct. Reply with JSON only."
+)
+CHOICE_PROMPT = """Question: {question}
+
+A. {a}
+B. {b}
+C. {c}
+D. {d}
+
+Which option best answers the question? Reply with JSON only: {{"answer": "A"}}"""
+
+
+def parse_choice(raw):
+    s = raw.find("{")
+    if s < 0:
+        return None
+    for cand in (raw[s:], close_json(raw[s:])):
+        try:
+            d = json.loads(cand, strict=False)
+        except json.JSONDecodeError:
+            continue
+        ans = str(d.get("answer", "")).strip().upper()[:1]
+        if ans in "ABCD":
+            return ans
+    return None
+
+
+def judge_choice(endpoint, row):
+    """Independent framing: pick the best option, with no hint about which is keyed.
+
+    The claim-test invites the model to find fault and can talk itself into a 'better'
+    option. Asking it to simply answer removes that nudge. Agreement between the two
+    framings is the confirmation; disagreement goes to human triage.
+    """
+    opts = [row["correct_answer"]] + json.loads(row["wrong_answers"] or "[]")
+    order = list(range(4))
+    random.Random(row["id"]).shuffle(order)
+    shuffled = [opts[i] for i in order]
+    keyletter = "ABCD"[order.index(0)]
+    prompt = CHOICE_PROMPT.format(question=row["question"], a=shuffled[0], b=shuffled[1],
+                                  c=shuffled[2], d=shuffled[3])
+    for _ in range(3):
+        try:
+            letter = parse_choice(chat(endpoint, prompt))
+        except Exception:
+            letter = None
+        if letter:
+            picked = shuffled["ABCD".index(letter)]
+            return {"verdict": "KEY-OK" if letter == keyletter else "MIS-KEY",
+                    "keyed": keyletter, "better": letter,
+                    "better_text": picked, "reason": "chose %s" % letter}
+        time.sleep(1)
+    return {"verdict": "ERROR", "keyed": keyletter, "better": None,
+            "better_text": None, "reason": ""}
+
+
 def judge(endpoint, row):
     prompt, shuffled, keyletter = build(row)
     for _ in range(3):
@@ -139,8 +198,7 @@ def judge(endpoint, row):
             "better_text": None, "reason": ""}
 
 
-CALIBRATION = {94: False, 128: False, 990: False, 1944: False, 1967: False, 1970: False,
-               1000: True, 2256: True, 962: True}
+CALIBRATION = {1000: True, 2256: True, 962: True, 47: False, 113: False}
 
 
 def main():
@@ -152,7 +210,9 @@ def main():
     ap.add_argument("--ids-from", default=None)
     ap.add_argument("--limit", type=int, default=10000)
     ap.add_argument("--calibrate", action="store_true")
+    ap.add_argument("--framing", default="claim", choices=("claim", "choice"))
     args = ap.parse_args()
+    judge_row = judge_choice if args.framing == "choice" else judge
 
     conn = sqlite3.connect(args.db)
     conn.row_factory = sqlite3.Row
@@ -162,7 +222,10 @@ def main():
         print("%-6s %-10s %-10s %s" % ("id", "expected", "actual", "reason"))
         hit = 0
         for qid, expected in CALIBRATION.items():
-            got = judge(args.endpoint, rows[qid])
+            if qid not in rows:
+                print("%-6d skipped, not in the bank" % qid)
+                continue
+            got = judge_row(args.endpoint, rows[qid])
             actual = got["verdict"] == "KEY-OK"
             ok = actual == expected
             hit += ok
@@ -195,7 +258,7 @@ def main():
     t0 = time.time()
     for n, qid in enumerate(todo, 1):
         rec = {"id": qid}
-        rec.update(judge(args.endpoint, rows[qid]))
+        rec.update(judge_row(args.endpoint, rows[qid]))
         f.write(json.dumps(rec) + "\n")
         f.flush()
         if n % 25 == 0 or n == len(todo):
