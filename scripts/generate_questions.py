@@ -25,6 +25,9 @@ SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 DB_PATH = os.path.join(SCRIPT_DIR, "..", "data", "fcle.db")
 LOG_PATH = os.path.join(SCRIPT_DIR, "..", "data", "generate_log.jsonl")
 LLM_URL = "http://0.0.0.0:8082/v1/chat/completions"
+# Stamped on every draft row so a defect family can be traced to the prompt that made it,
+# instead of re-judging the whole bank (which is what the 2026-10 audit had to do).
+GENERATOR_PROMPT_VER = "gen-2026-10-21"
 TARGET_PER_DOMAIN = 500
 DELAY_BETWEEN = 0.5
 STIMULUS_CHANCE = 0.3  # 30% of questions include a stimulus passage
@@ -436,20 +439,45 @@ def main():
                 print(f"  ✗ [{i+1}/{len(queue)}] {topic} ({difficulty}) — parse error")
                 continue
 
-            # Insert into DB
+            # Insert into the DRAFT queue, never straight into the served bank.
+            # scripts/publish_drafts.py gates each row with scripts/qc_item.py first;
+            # a row only reaches `questions` after it passes. This is the fix for the
+            # 2026-10 audit, where 248 broken rows were inserted and served before
+            # anyone looked at them.
             conn.execute(
-                """INSERT INTO questions
-                   (fcle_domain, topic, difficulty, question, correct_answer,
-                    wrong_answers, explanation, stimulus)
-                   VALUES (?, ?, ?, ?, ?, ?, ?, ?)""",
-                (parsed["fcle_domain"], parsed["topic"], parsed["difficulty"],
-                 parsed["question"], parsed["correct_answer"], parsed["wrong_answers"],
-                 parsed["explanation"], parsed["stimulus"])
+                """CREATE TABLE IF NOT EXISTS questions_draft (
+                       id INTEGER PRIMARY KEY AUTOINCREMENT,
+                       payload TEXT NOT NULL,
+                       gen_model TEXT,
+                       prompt_ver TEXT,
+                       created_at TEXT,
+                       gate_status TEXT DEFAULT 'pending',
+                       gate_notes TEXT)"""
             )
+            draft_payload = {
+                "fcle_domain": parsed["fcle_domain"],
+                "topic": parsed["topic"],
+                "difficulty": parsed["difficulty"],
+                "question": parsed["question"],
+                "correct_answer": parsed["correct_answer"],
+                "wrong_answers": json.loads(parsed["wrong_answers"])
+                                 if isinstance(parsed["wrong_answers"], str)
+                                 else parsed["wrong_answers"],
+                "explanation": parsed["explanation"],
+                "stimulus": parsed.get("stimulus") or "",
+                "wrong_explanations": parsed.get("wrong_explanations") or [],
+            }
+            cur = conn.execute(
+                """INSERT INTO questions_draft (payload, gen_model, prompt_ver, created_at)
+                   VALUES (?, ?, ?, ?)""",
+                (json.dumps(draft_payload), "llama-8082", GENERATOR_PROMPT_VER,
+                 time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()))
+            )
+            draft_id = cur.lastrowid
             conn.commit()
 
             total_generated += 1
-            log_entry("generate", d, topic, difficulty, "ok", f"qid={conn.execute('SELECT last_insert_rowid()').fetchone()[0]}")
+            log_entry("generate", d, topic, difficulty, "ok", f"draft={draft_id} (awaiting gate)")
 
             # Progress
             current = conn.execute(
