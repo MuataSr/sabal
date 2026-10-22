@@ -203,3 +203,30 @@ SERP reality at the time: `fclepracticetest.com` first, `civicliteracyprep.com` 
   the OER directory submissions are prepared in `~/.hermes/workspace/sabal-oer-submissions/LISTING-KIT.md`
   (MERLOT and OER Commons ready, FLVC passed by Mister K, LibreTexts is the wrong shape); the two
   font families still load from Google's CDN, which the app's own privacy promise argues against.
+
+---
+
+## 2026-10-22 — OER Commons: barrier removed, re-review requested
+
+- **Oct 15:** submitted by Mister K through *Submit from Web*, using `OER-COMMONS-SUBMISSION.md`.
+- **Oct 16:** declined. **Chris Adcock** (Metadata Librarian, ISKME) named the reason: the Openness
+  section of their collection policy excludes resources that require personal information or an
+  account for access, "even when the resource is free and openly licensed." The barrier was the email
+  gate after two try-it questions.
+- **Fix shipped and live:** `/practice` is open to anyone (four domains plus `/mixed`) with no
+  account, no email address, no cookie and nothing stored. A free account remains but is optional and
+  only adds saved scores, the readiness view and the study coach. Licence stated in footer and JSON-LD.
+- **Oct 22:** Mister K sent the re-review request to `info@oercommons.org` (draft:
+  `2026-10-22-OER-COMMONS-EMAIL.md`), then replied in-thread to Chris
+  (`2026-10-22-REPLY-TO-CHRIS.md`, shortened to ~120 words on his KISS ruling). **Awaiting their
+  answer on resubmit vs reopen.**
+- **Verified live immediately before sending:** six practice routes 200; `Set-Cookie` on `/practice`
+  zero; anonymous `POST /practice/landmark-impact/answer` 200 and graded with the explanation; both
+  licence strings on the landing HTML; production bank 2,099 questions.
+- **MERLOT:** verified live from this box on 2026-10-16 and stands.
+- **Open:** the Quality section's **Portability** requirement (format usable without proprietary
+  tools; no downloadable or modifiable copy of the bank exists). No export built; decision with
+  Mister K.
+- **Correction on record:** the Oct 16 claim that the published listing carried a wrong GitHub URL was
+  inference about a page that could not be read (login shell, then 403); see
+  `2026-10-16-listing-verification-correction.md`.
