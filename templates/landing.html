@@ -129,6 +129,9 @@
   .hero .micro{margin-top:6px;font-size:14px;color:var(--muted)}
   .hero .micro:first-of-type{margin-top:14px}
   .hero .micro strong{color:var(--navy-ink);font-weight:600}
+  /* Secondary action under a primary button: its own line, never crowding it. */
+  .cta-alt{display:block;margin:14px 0 0;font-size:15px;line-height:1.4;color:#1B3A5C;font-weight:600;text-decoration:underline}
+  .cta-alt:hover{color:var(--gold-deep)}
   .hero-shot{position:relative;text-align:center}
   .hero-shot img{width:100%;height:auto;border-radius:16px;box-shadow:0 24px 60px -18px rgba(15,33,54,.38);border:1px solid rgba(255,255,255,.55);display:block}
   .hero-shot .cap{display:inline-block;margin-top:14px;background:rgba(15,33,54,.78);color:#fff;font-size:13px;padding:6px 12px;border-radius:999px;letter-spacing:.2px}
@@ -313,7 +316,7 @@
       <p class="hero-lede">Free FCLE practice test questions for the Florida Civic Literacy Exam.</p>
       <p class="sub">You&rsquo;ve done the coursework. You&rsquo;ve made it this far. One exam stands between you and graduation &mdash; and it&rsquo;s been years since civics class. That&rsquo;s okay. <strong>Sabal is the refresher that actually works.</strong></p>
       <a class="btn btn-gold" href="/practice">Start Practicing Free &rarr;</a>
-      <a href="/signup{% if src %}?src={{ src }}{% endif %}" style="display:inline-block;margin-left:16px;color:#1B3A5C;font-weight:600;text-decoration:underline">Or create a free account to save your progress &rarr;</a>
+      <a class="cta-alt" href="/signup{% if src %}?src={{ src }}{% endif %}">Or create a free account to save your progress &rarr;</a>
       <p class="micro"><strong>Free. No account, no email. No credit card.</strong></p>
       <p class="micro">No password. No download. Start in 30 seconds.</p>
     </div>
@@ -405,7 +408,7 @@
     <div class="sample-cta hidden" id="sample-cta">
       <p>That&rsquo;s how every answer works &mdash; 2,000+ questions across all four tested domains, plus a Diagnostic that shows your weak spots in minutes.</p>
       <a class="btn btn-gold" href="/practice">Keep Practicing Free &rarr;</a>
-      <a href="/signup{% if src %}?src={{ src }}{% endif %}" style="display:inline-block;margin-left:16px;color:#1B3A5C;font-weight:600;text-decoration:underline">Or create an account to save your progress &rarr;</a>
+      <a class="cta-alt" href="/signup{% if src %}?src={{ src }}{% endif %}">Or create an account to save your progress &rarr;</a>
     </div>
   </div>
 </section>
