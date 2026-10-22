@@ -8,6 +8,7 @@
 <div class="auth-card">
   <h1>Registration is paused for a moment</h1>
   <p class="subtitle">Sabal is free and open, and registration is uncapped in normal operation. The server is briefly at its capacity right now, so new registrations are paused.</p>
+  <p class="subtitle" style="margin-bottom:14px">You can still practice right now &mdash; <a href="/practice" style="color:#1B3A5C;font-weight:600;text-decoration:underline">start without an account &rarr;</a> No email needed.</p>
 
   {% if waitlist_done %}
     <div class="pilot-note">
@@ -45,6 +46,7 @@
 <div class="auth-card">
   <h1>Create your Sabal account</h1>
   <p class="subtitle">Free. No password. Register and get your personal dashboard link.</p>
+  <p class="subtitle" style="margin-bottom:14px">Just want to practice? <a href="/practice" style="color:#1B3A5C;font-weight:600;text-decoration:underline">Start without an account &rarr;</a> No email needed.</p>
 
   <form method="POST" action="/signup">
     <input type="hidden" name="src" value="{{ src|default('') }}">
