@@ -80,7 +80,13 @@ def domain_readiness(answers, domain, now=None):
     accuracy is weighted, not summed, so it stays in 0..1 and old answers fade
     rather than accumulating forever.
     """
-    mine = [a for a in answers if int(a.get("domain", 0)) == domain]
+    # An answer can name a question that is no longer in the bank: the
+    # quarantine moved 250 rows out of `questions` and every historical answer
+    # that pointed at one of them now resolves to domain=None. int(None) took
+    # /coach down with a 500 for any student with that history. Unresolvable
+    # answers are skipped rather than credited to a phantom domain 0.
+    mine = [a for a in answers
+            if a.get("domain") is not None and int(a["domain"]) == domain]
     if not mine:
         return DomainReadiness(domain, 0, 0, 0.0, 0.0, 0.0)
 
