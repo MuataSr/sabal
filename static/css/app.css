@@ -377,6 +377,8 @@
     }
     .choice:hover { border-color: var(--navy); }
     .choice.selected { border-color: var(--navy); background: #f0f4f8; }
+    /* practice.html hides its radios, so the pick needs :has to stay visible before submit */
+    .choice:has(input[type=radio]:checked) { border-color: var(--navy); background: #f0f4f8; }
     .choice.correct { border-color: var(--correct); background: #eef6ee; }
     .choice.wrong { border-color: var(--wrong); background: #f9eeef; }
     .choice.feedback-locked { cursor: default; }
@@ -394,6 +396,7 @@
       color: var(--text-muted);
     }
     .choice.selected .choice-letter { border-color: var(--navy); background: var(--navy); color: #fff; }
+    .choice:has(input[type=radio]:checked) .choice-letter { border-color: var(--navy); background: var(--navy); color: #fff; }
     .choice.correct .choice-letter { border-color: var(--correct); background: var(--correct); color: #fff; }
     .choice.wrong .choice-letter { border-color: var(--wrong); background: var(--wrong); color: #fff; }
     .choice-text { flex: 1; }
