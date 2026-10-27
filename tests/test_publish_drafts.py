@@ -8,6 +8,7 @@ reasons, and the bank unchanged for them.
 """
 import json
 import os
+import shutil
 import sqlite3
 import subprocess
 import sys
@@ -16,6 +17,27 @@ import pytest
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PUBLISH = os.path.join(ROOT, "scripts", "publish_drafts.py")
+
+
+def child_python():
+    """Interpreter to run the publisher with.
+
+    sys.executable is empty under stripped environments (cron, systemd units, some
+    sandboxes). Passing that empty string to subprocess fails with a bare
+    "PermissionError: [Errno 13] Permission denied: ''", which names nothing and
+    reads like a permissions bug in the pipeline. Resolve a real interpreter so the
+    suite reports on the publisher rather than on how the suite was started.
+    """
+    candidates = [
+        sys.executable,
+        shutil.which("python3"),
+        os.path.join(sys.exec_prefix, "bin", "python3"),
+        "/usr/bin/python3",
+    ]
+    for candidate in candidates:
+        if candidate and os.path.exists(candidate) and os.access(candidate, os.X_OK):
+            return candidate
+    return "python3"
 
 SCHEMA = """
 CREATE TABLE questions (
@@ -72,7 +94,7 @@ def db(tmp_path):
 
 
 def run(db, apply=False):
-    cmd = [sys.executable, PUBLISH, "--db", db] + (["--apply"] if apply else [])
+    cmd = [child_python(), PUBLISH, "--db", db] + (["--apply"] if apply else [])
     return subprocess.run(cmd, capture_output=True, text=True)
 
 
