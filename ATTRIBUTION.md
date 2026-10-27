@@ -1,24 +1,24 @@
 # Licensing and attribution
 
-This repository uses a **split licence**: the software and the educational content are
+This repository uses a **split license**: the software and the educational content are
 licensed differently on purpose.
 
-| What | Licence | File |
+| What | License | File |
 |---|---|---|
 | **Source code** — the Flask app, templates, scripts, tooling | **Apache License 2.0** | [`LICENSE`](LICENSE) |
 | **Educational content** — question bank, explanations, lessons, misconception library, key-term glossary | **CC BY-NC-SA 4.0** | [`LICENSE-CONTENT`](LICENSE-CONTENT) |
-| **Third-party material** | per its own licence | this file, below |
+| **Third-party material** | per its own license | this file, below |
 
 ## Why the split
 
 The code carries no competitive value — permissive licensing maximises adoption, which is
-the point of releasing it. The content is the asset, and a NonCommercial + ShareAlike licence
+the point of releasing it. The content is the asset, and a NonCommercial + ShareAlike license
 is what stops someone from taking the question bank behind a closed paywall. It is also the
 same posture OpenStax itself now uses, so there is no inconsistency between what we ship and
 what we build on.
 
 Under **CC BY-NC-SA 4.0** you may use, adapt and redistribute the content freely for
-non-commercial purposes, as long as you attribute it, keep it under the same licence, and
+non-commercial purposes, as long as you attribute it, keep it under the same license, and
 indicate any changes. Commercial use requires written permission from Mu2 Solutions, LLC.
 
 ---
@@ -29,10 +29,10 @@ indicate any changes. Commercial use requires written permission from Mu2 Soluti
 
 The app ships its own copies of the two type families it uses. Nothing is loaded from a
 third-party font service, so no visitor's IP address leaves this site to render a page.
-Both families are open-source fonts, redistributed here under the same licence they carry
+Both families are open-source fonts, redistributed here under the same license they carry
 upstream, unmodified except for subsetting to the Latin and Latin Extended ranges.
 
-| Family | Used for | Copyright | Licence | Upstream |
+| Family | Used for | Copyright | License | Upstream |
 |---|---|---|---|---|
 | **Libre Baskerville** | headings, wordmark | © 2012 Pablo Impallari, © 2012 Rodrigo Fuenzalida | SIL OFL 1.1 | <https://github.com/impallari/Libre-Baskerville> |
 | **Source Sans 3** | body text, UI | © Adobe | SIL OFL 1.1 | <https://github.com/adobe-fonts/source-sans> |
@@ -55,7 +55,7 @@ Study material in this project is derived from an OpenStax textbook. Required at
 > OpenStax, Rice University, 2019
 > <https://openstax.org/details/books/american-government-2e>
 >
-> Licensed under a **Creative Commons Attribution 4.0 International (CC BY 4.0)** licence.
+> Licensed under a **Creative Commons Attribution 4.0 International (CC BY 4.0)** license.
 > <https://creativecommons.org/licenses/by/4.0/>
 
 **Changes made.** Sections of the full text were excerpted and mapped to the four Florida
@@ -72,8 +72,8 @@ in this project are original work by Mu2 Solutions, LLC.
 
 OpenStax has since moved its library to **CC BY-NC-SA** for newly released and updated
 editions. *American Government 2e* was published under **CC BY 4.0**, and Creative Commons
-licences are irrevocable — so the grant above is the one that applies to this material. If
-this project ever refreshes its source material to a later edition, that edition's licence
+licenses are irrevocable — so the grant above is the one that applies to this material. If
+this project ever refreshes its source material to a later edition, that edition's license
 (and the NonCommercial restriction that comes with it) will apply and this file must be
 updated first. **Do not swap the source text without re-reading this section.**
 
@@ -106,7 +106,7 @@ headings or explanations surrounding them are licensed as content under CC BY-NC
 ## Mu2 Solutions original content
 
 Chapter 20 (*Mu2 Original Content*) is **written by Mu2 Solutions, LLC** and is **not derived
-from OpenStax** or from any other third party. It carries the same content licence as the rest
+from OpenStax** or from any other third party. It carries the same content license as the rest
 of the educational material: **CC BY-NC-SA 4.0** (see [`LICENSE-CONTENT`](LICENSE-CONTENT)).
 
 Published so far:
@@ -123,11 +123,11 @@ under `data/mu2-original/` so that the published text and its provenance can be 
 ## Everything else
 
 Fonts, icons and any other third-party assets remain the property of their respective owners
-and are governed by their own licences.
+and are governed by their own licenses.
 
 ---
 
 ## Reporting a problem
 
-If you believe material here is misattributed or used outside its licence, please open an
+If you believe material here is misattributed or used outside its license, please open an
 issue and it will be corrected promptly.
