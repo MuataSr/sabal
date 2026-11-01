@@ -54,6 +54,11 @@ db.init_active_quizzes_table()
 # serve a DB without the access_token column and signup crashes.
 db.init_db()
 
+# Same rule for the diagnostic table: init_diagnostic_table() used to live only
+# in __main__, so a wsgi-booted DB had no diagnostic_baselines and the dashboard
+# 500'd for every fresh user.
+db.init_diagnostic_table()
+
 # ---------------------------------------------------------------------------
 
 # ---------------------------------------------------------------------------
@@ -2139,7 +2144,5 @@ def tutor_history():
 
 
 if __name__ == "__main__":
-    db.init_db()
-    db.init_diagnostic_table()
     app.run(host="0.0.0.0", port=5002, debug=False)
 
