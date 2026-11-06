@@ -543,6 +543,7 @@ def quiz_answer(domain_slug, quiz_id, q_index):
             num_questions=len(questions),
         )
 
+    assisted = db.recent_tutor_help(user_id)
     db.record_answer(
         user_id=user_id,
         session_id=quiz["session_id"],
@@ -553,13 +554,16 @@ def quiz_answer(domain_slug, quiz_id, q_index):
         is_correct=is_correct,
         time_elapsed=int(time_elapsed),
         confidence=confidence,
+        assistance_used=assisted,
+        assistance_context="tutor_chat_15m" if assisted else "",
     )
 
     topic = question.get("topic", "")
-    if topic:
+    # Help-assisted answers are recorded, never counted as cold mastery.
+    if topic and not assisted:
         db.update_topic_mastery(user_id, quiz["domain"], topic, is_correct)
 
-    if confidence is not None:
+    if confidence is not None and not assisted:
         db.update_review_queue(
             user_id=user_id,
             question_id=question.get("id", q_index),

@@ -107,6 +107,14 @@ def init_db():
         _migrate_add_column(conn, "users", "access_token", "TEXT")
         _migrate_add_column(conn, "users", "signup_source", "TEXT")   # partner/channel attribution (?src=)
 
+        # Evidence provenance (2026-11-06): a result is three-state, and an answer
+        # given right after the tutor explained things is recorded but never counted
+        # as cold mastery. Existing rows backfill from is_correct.
+        _migrate_add_column(conn, "answers", "result", "TEXT NOT NULL DEFAULT 'incorrect'")
+        _migrate_add_column(conn, "answers", "assistance_used", "INTEGER NOT NULL DEFAULT 0")
+        _migrate_add_column(conn, "answers", "assistance_context", "TEXT NOT NULL DEFAULT ''")
+        conn.execute("UPDATE answers SET result='correct' WHERE is_correct=1 AND result!='correct'")
+
         # ORDER-style unique token index (registered-user dashboard links).
         conn.execute("CREATE UNIQUE INDEX IF NOT EXISTS idx_users_access_token ON users(access_token)")
 
@@ -198,17 +206,38 @@ def create_session(user_id, domain, num_questions):
         return cur.lastrowid
 
 
-def record_answer(user_id, session_id, question_id, question_text, selected, correct, is_correct, time_elapsed, confidence=None):
+def record_answer(user_id, session_id, question_id, question_text, selected, correct, is_correct, time_elapsed, confidence=None, result=None, assistance_used=0, assistance_context=""):
     now = datetime.utcnow().isoformat()
+    if result is None:
+        result = "correct" if is_correct else "incorrect"
+    # is_correct stays derived from result so every existing reader keeps working.
+    is_correct = result == "correct"
     with _get_conn() as conn:
         cur = conn.execute(
             """INSERT INTO answers
-               (user_id, session_id, question_id, question_text, selected_answer, correct_answer, is_correct, confidence, time_elapsed, answered_at)
-               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
-            (user_id, session_id, question_id, question_text, selected, correct, int(is_correct), confidence, time_elapsed, now),
+               (user_id, session_id, question_id, question_text, selected_answer, correct_answer, is_correct, confidence, time_elapsed, answered_at, result, assistance_used, assistance_context)
+               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+            (user_id, session_id, question_id, question_text, selected, correct, int(is_correct), confidence, time_elapsed, now, result, int(bool(assistance_used)), assistance_context),
         )
         conn.commit()
         return cur.lastrowid
+
+
+def recent_tutor_help(user_id, minutes=15):
+    """True when this learner talked to the tutor within the window.
+
+    shortcut: a time window, not a question link. The tutor chat sends a numeric
+    domain id while quiz domains are slugs, and no message carries a question_id,
+    so this can only see "help happened just now"; upgrade when the tutor records
+    the question it explained.
+    """
+    with _get_conn() as conn:
+        row = conn.execute(
+            "SELECT 1 FROM tutor_messages WHERE user_id=? AND role='student'"
+            " AND created_at >= datetime('now', ?) LIMIT 1",
+            (user_id, "-%d minutes" % int(minutes)),
+        ).fetchone()
+        return bool(row)
 
 
 def finish_session(session_id, score, total, pct):
@@ -238,7 +267,7 @@ def get_readiness(user_id, domain):
                       SUM(CASE WHEN is_correct THEN 1 ELSE 0 END) AS c
                FROM answers a2
                JOIN quiz_sessions s ON a2.session_id = s.id
-               WHERE a2.user_id=? AND s.domain = ?""",
+               WHERE a2.user_id=? AND s.domain = ? AND COALESCE(a2.assistance_used,0)=0""",
             (user_id, domain),
         ).fetchone()
         if row2["a"] and row2["a"] > 0:
