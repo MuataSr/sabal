@@ -224,6 +224,7 @@ Florida college students who must pass the FCLE to graduate. Many are first-gen,
 - **Distractor explanations** are the heaviest content lift (6,525 explanations) — plan as subagent batch generation over Day 5.
 - **Existing schemas are solid** — review_queue already has spaced repetition fields, topic_mastery already tracks per-topic accuracy. We're building on a good foundation.
 - **fcle.db has rich KB** — 354 misconceptions, 315 key terms, 77 content sections, all domain-tagged. These can power future features (glossary lookup, misconception flashcards).
+- **Tests run under pytest, not unittest discover:** `venv/bin/python -m pytest tests/ -q` (281 passed, 1 skipped as of 2026-11-06). Two modules are pytest-style and `discover` silently skips them; pytest is a dev-only venv install and is deliberately not in `requirements.txt`.
 
 ---
 
