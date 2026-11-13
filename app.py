@@ -844,6 +844,7 @@ def stats():
             "name": info["name"],
             "slug": slug,
             "icon": info["icon"],
+            "color": info["color"],
             "readiness_pct": int(d_stats.get("readiness_pct", 0) or 0),
             "strong_topics": strong,
             "total_topics": len(topics),

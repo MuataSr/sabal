@@ -122,6 +122,7 @@ class ReviewModeTest(unittest.TestCase):
         html = c.get("/stats").get_data(as_text=True)
         self.assertIn("due for review", html)
         self.assertIn('href="/quiz/review"', html)
+        self.assertNotIn("background: ;", html)   # domain colours must reach the template
 
     # diagnostic comparison -------------------------------------------------
     def test_since_diagnostic_compares_raw_to_raw(self):
