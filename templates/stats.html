@@ -51,6 +51,19 @@
   </div>
   {% endif %}
 
+  <!-- Due review -->
+  {% if due_reviews %}
+  <div style="margin-top: 20px; padding: 16px 18px; border: 1px solid var(--border); border-radius: 12px;">
+    <div style="font-family: var(--font-heading); font-weight: 700;">
+      {{ due_reviews }} question{{ "" if due_reviews == 1 else "s" }} due for review
+    </div>
+    <div class="text-muted" style="font-size: 0.85rem; margin: 4px 0 12px;">
+      Ones you have already seen. Spacing them out is what makes them stick.
+    </div>
+    <a href="/quiz/review" class="btn-a">Review now</a>
+  </div>
+  {% endif %}
+
   <!-- Domain Breakdown -->
   <div style="padding-top: 24px;">
     <h2 class="section-title">By Domain</h2>

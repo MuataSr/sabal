@@ -662,6 +662,30 @@ def update_review_queue(user_id, question_id, domain, topic, is_correct, confide
             )
 
         conn.commit()
+
+
+def get_due_review_ids(user_id, limit=20):
+    """Question ids whose next_review has passed, soonest first."""
+    now_iso = datetime.utcnow().isoformat()
+    with _get_conn() as conn:
+        rows = conn.execute(
+            "SELECT question_id FROM review_queue WHERE user_id=? AND next_review<=?"
+            " ORDER BY next_review LIMIT ?",
+            (user_id, now_iso, int(limit)),
+        ).fetchall()
+        return [r["question_id"] for r in rows]
+
+
+def count_due_reviews(user_id):
+    now_iso = datetime.utcnow().isoformat()
+    with _get_conn() as conn:
+        row = conn.execute(
+            "SELECT COUNT(*) AS c FROM review_queue WHERE user_id=? AND next_review<=?",
+            (user_id, now_iso),
+        ).fetchone()
+        return row["c"] or 0
+
+
 # ---- Append to db.py: Active Quiz State (SQLite-backed) ----
 
 import json as _json

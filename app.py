@@ -236,6 +236,15 @@ def _pretty_domain(slug):
     return info["name"] if info else (slug or "Quiz").title()
 
 
+def _quiz_display_name(slug):
+    """Name for the quiz surfaces. "review" is a route, not a domain."""
+    if slug == "review":
+        return "Review"
+    if slug == "mixed":
+        return "Mixed Review"
+    return _pretty_domain(slug)
+
+
 def _all_domains(user_id):
     domains = []
     for slug, info in _DOMAIN_GETTERS.items():
@@ -426,6 +435,8 @@ def quiz_start(domain_slug):
     user_id = session["user_id"]
     if domain_slug == "mixed":
         return quiz_start_mixed()
+    if domain_slug == "review":
+        return quiz_start_review()
 
     info = _get_domain_info(domain_slug)
     if not info:
@@ -476,6 +487,30 @@ def quiz_start_mixed():
     return redirect(f"/quiz/mixed/{quiz_id}/0")
 
 
+def quiz_start_review():
+    """Serve the cards the SRS says are due, through the normal quiz flow."""
+    user_id = session["user_id"]
+    ids = db.get_due_review_ids(user_id, limit=20)
+    # A quarantined question keeps its review row, so skip ids the bank no longer serves.
+    questions = [q for q in (kb.get_shaped_question_by_id(i) for i in ids) if q]
+    if not questions:
+        flash("Nothing is due for review right now. Answer a few new questions and they will come back here.")
+        return redirect("/stats")
+
+    quiz_id = uuid.uuid4().hex[:12]
+    db.save_quiz(quiz_id, {
+        "user_id": user_id,
+        "domain": "review",
+        "questions": questions,
+        "current_index": 0,
+        "answers": [],
+        "started_at": datetime.now().isoformat(),
+        "session_id": None,
+    })
+
+    return redirect(f"/quiz/review/{quiz_id}/0")
+
+
 @app.route("/quiz/<domain_slug>/<quiz_id>/<int:q_index>")
 @login_required
 def quiz_question(domain_slug, quiz_id, q_index):
@@ -489,10 +524,7 @@ def quiz_question(domain_slug, quiz_id, q_index):
 
     question = questions[q_index]
 
-    domain_name = "Mixed Review"
-    if domain_slug != "mixed":
-        info = _get_domain_info(domain_slug)
-        domain_name = info["name"] if info else domain_slug
+    domain_name = _quiz_display_name(domain_slug)
 
     return render_template("quiz.html",
         question=question,
@@ -559,15 +591,23 @@ def quiz_answer(domain_slug, quiz_id, q_index):
     )
 
     topic = question.get("topic", "")
+    # "review" is a route slug, not a domain: a review answer belongs to the domain
+    # of the question it came from, or topic_mastery grows a phantom domain.
+    mastery_domain = quiz["domain"]
+    if mastery_domain == "review":
+        mastery_domain = next(
+            (s for s, i in _DOMAIN_GETTERS.items() if i["id"] == question.get("domain_id")),
+            mastery_domain,
+        )
     # Help-assisted answers are recorded, never counted as cold mastery.
     if topic and not assisted:
-        db.update_topic_mastery(user_id, quiz["domain"], topic, is_correct)
+        db.update_topic_mastery(user_id, mastery_domain, topic, is_correct)
 
     if confidence is not None and not assisted:
         db.update_review_queue(
             user_id=user_id,
             question_id=question.get("id", q_index),
-            domain=quiz["domain"],
+            domain=mastery_domain,
             topic=topic,
             is_correct=is_correct,
             confidence=confidence,
@@ -601,10 +641,7 @@ def quiz_answer(domain_slug, quiz_id, q_index):
     elif confidence == 2:
         feedback_mode = "hint"
 
-    domain_name = "Mixed Review"
-    if domain_slug != "mixed":
-        info = _get_domain_info(domain_slug)
-        domain_name = info["name"] if info else domain_slug
+    domain_name = _quiz_display_name(domain_slug)
 
     # --- why the student picked what they picked -------------------------------
     # The page already explains the correct option and why each wrong option fails.
@@ -710,10 +747,7 @@ def quiz_results(domain_slug, quiz_id):
         for a in answers if not a["is_correct"]
     ]
 
-    domain_name = "Mixed Review"
-    if domain_slug != "mixed":
-        info = _get_domain_info(domain_slug)
-        domain_name = info["name"] if info else domain_slug
+    domain_name = _quiz_display_name(domain_slug)
 
     db.delete_quiz(quiz_id)
 
@@ -792,6 +826,7 @@ def stats():
         current_streak=current_streak,
         trend=_readiness_trend(user_id),
         weak=_weak_areas(user_id),
+        due_reviews=db.count_due_reviews(user_id),
         active_nav="stats",
     )
 
