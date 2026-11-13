@@ -1,8 +1,22 @@
 # FCLE Study Buddy — Project Status
 
-**Last Updated:** 2026-10-14 by Ann-E-Hermes
-**Project Path:** `/home/muatasr/.nanobot/workspace/fcle-study-app/`
+**Last Updated:** 2026-11-13 by Ann-E-Hermes
+**Project Path:** `/home/papichulo/sabal` (OG Rig), deployed at `/opt/fcle-study-app` (droplet)
 **Current Phase:** **Live** — deployed at https://fcle.mu2.solutions (Sabal droplet, gunicorn)
+
+---
+
+## Recent Changes
+
+- **2026-11-13 — review mode + since-diagnostic card (deployed 75f8b49).** `/quiz/review`
+  serves the cards `review_queue` says are due through the normal quiz flow; `/stats` shows the
+  due count and a raw diagnostic-vs-practice comparison. Both tables were written on every
+  answer and read by no page: 165 rows were due and unreachable. Review answers now credit the
+  question's real domain instead of a phantom `review` domain. Domain colours now reach the
+  progress page. Pre-deploy DB backup: `data/backups/pre-deploy-20261113.db`.
+- **Open item (not started):** `topic_mastery` files mixed-quiz answers under `domain='mixed'`,
+  which is 48% of all practice answers, so per-domain readiness understates mixed practice. The
+  fix is a write-path change plus a rebuild of `topic_mastery` from `answers`; needs approval.
 
 ---
 
