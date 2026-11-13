@@ -73,6 +73,19 @@ def get_shaped_question_by_id(question_id, domain_id=None):
 # Domain Metadata
 # ---------------------------------------------------------------------------
 
+def get_question_topics(question_ids):
+    """(fcle_domain, topic) per question id, for callers holding answer rows."""
+    ids = [int(i) for i in question_ids]
+    if not ids:
+        return {}
+    marks = ",".join("?" * len(ids))
+    with _get_conn() as conn:
+        rows = conn.execute(
+            f"SELECT id, fcle_domain, topic FROM questions WHERE id IN ({marks})", ids
+        ).fetchall()
+        return {r["id"]: (r["fcle_domain"], r["topic"]) for r in rows}
+
+
 def get_domains():
     """Return all FCLE domains with metadata."""
     with _get_conn() as conn:

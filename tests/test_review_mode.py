@@ -123,6 +123,36 @@ class ReviewModeTest(unittest.TestCase):
         self.assertIn("due for review", html)
         self.assertIn('href="/quiz/review"', html)
 
+    # diagnostic comparison -------------------------------------------------
+    def test_since_diagnostic_compares_raw_to_raw(self):
+        qids = self._real_question_ids(9)
+        meta = self.mod.kb.get_question_topics(qids)
+        slug_by_id = {i["id"]: s for s, i in self.mod._DOMAIN_GETTERS.items()}
+        topic_domain, topic_name = meta[qids[0]]
+        sid = self.mod.db.create_session(user_id=self.uid, domain="mixed", num_questions=9)
+        now = datetime.utcnow().isoformat()
+        with sqlite3.connect(self.mod.db.DB_PATH) as conn:
+            for i, qid in enumerate(qids):
+                conn.execute(
+                    "INSERT INTO answers (user_id, session_id, question_id, question_text,"
+                    " selected_answer, correct_answer, is_correct, confidence, time_elapsed, answered_at)"
+                    " VALUES (?, ?, ?, 'q', 'a', 'a', ?, 3, 5, ?)",
+                    (self.uid, sid, qid, 1 if i < 7 else 0, now))
+            conn.execute(
+                "INSERT INTO diagnostic_baselines (user_id, domain, topic, total, correct, pct, taken_at)"
+                " VALUES (?, ?, ?, 1, 0, 0.0, ?)",
+                (self.uid, slug_by_id[topic_domain], topic_name, now))
+            conn.execute(
+                "INSERT INTO diagnostic_baselines (user_id, domain, topic, total, correct, pct, taken_at)"
+                " VALUES (?, 'us-constitution', 'Topic aced at signup', 1, 1, 100.0, ?)", (self.uid, now))
+
+        html = self._login().get("/stats").get_data(as_text=True)
+        self.assertIn("Since your diagnostic", html)
+        # Tie each number to its own label: a 50% elsewhere on the page must not satisfy this.
+        self.assertRegex(html, r"Diagnostic on \S+: <strong>50%</strong>\s+of 2 questions")
+        self.assertRegex(html, r"Unassisted practice since: <strong>78%</strong>\s+of 9 answers")
+        self.assertIn(topic_name, html)
+
 
 if __name__ == "__main__":
     unittest.main()

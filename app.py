@@ -370,6 +370,61 @@ def _weak_areas(user_id):
     return weak[:8]
 
 
+def _since_diagnostic(user_id):
+    """Signup diagnostic vs current unassisted practice. Raw counts on both sides.
+
+    Readiness is confidence- and decay-weighted, so it is not comparable to a raw
+    diagnostic percentage; mixing them would show a regression that did not happen.
+    Practice comes from the answers table, not topic_mastery, because topic_mastery
+    files mixed-quiz answers under domain='mixed' and would silently drop them.
+    """
+    baselines = db.get_diagnostic_baseline(user_id)
+    if not baselines:
+        return None
+    b_total = sum(b["total"] for b in baselines)
+    b_correct = sum(b["correct"] for b in baselines)
+    if not b_total:
+        return None
+
+    records = db.get_answer_records(user_id)
+    meta = kb.get_question_topics({r["question_id"] for r in records})
+    slug_by_id = {info["id"]: slug for slug, info in _DOMAIN_GETTERS.items()}
+
+    topic_now = {}
+    for r in records:
+        domain_id, topic = meta.get(r["question_id"], (None, None))
+        slug = slug_by_id.get(domain_id)
+        if not slug or not topic:
+            continue
+        correct, total = topic_now.get((slug, topic), (0, 0))
+        topic_now[(slug, topic)] = (correct + (1 if r["is_correct"] else 0), total + 1)
+
+    rows = []
+    for b in baselines:
+        if (b["pct"] or 0) >= 80:
+            continue   # the card promises weak-at-signup topics; an aced one is not one
+        correct, total = topic_now.get((b["domain"], b["topic"]), (0, 0))
+        if total:
+            rows.append({
+                "topic": b["topic"],
+                "before": int(round(b["pct"])),
+                "after": int(round(100.0 * correct / total)),
+                "attempts": total,
+            })
+    rows.sort(key=lambda r: (r["before"], -r["attempts"]))
+
+    attempted = len(records)
+    earned = sum(1 for r in records if r["is_correct"])
+    return {
+        "taken_on": max(b["taken_at"] for b in baselines)[:10],
+        "before_pct": int(round(100.0 * b_correct / b_total)),
+        "before_total": b_total,
+        "after_pct": int(round(100.0 * earned / attempted)) if attempted else None,
+        "after_total": attempted,
+        "topics": rows[:6],
+    }
+
+
 # ---------------------------------------------------------------------------
 
 # ---------------------------------------------------------------------------
@@ -827,6 +882,7 @@ def stats():
         trend=_readiness_trend(user_id),
         weak=_weak_areas(user_id),
         due_reviews=db.count_due_reviews(user_id),
+        since_diagnostic=_since_diagnostic(user_id),
         active_nav="stats",
     )
 

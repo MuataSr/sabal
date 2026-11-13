@@ -64,6 +64,33 @@
   </div>
   {% endif %}
 
+  <!-- Since the diagnostic -->
+  {% if since_diagnostic %}
+  <div style="margin-top: 20px; padding: 16px 18px; border: 1px solid var(--border); border-radius: 12px;">
+    <h2 class="section-title" style="margin-bottom: 6px;">Since your diagnostic</h2>
+    <div class="text-muted" style="font-size: 0.85rem; margin-bottom: 10px;">
+      Diagnostic on {{ since_diagnostic.taken_on }}: <strong>{{ since_diagnostic.before_pct }}%</strong>
+      of {{ since_diagnostic.before_total }} questions.
+      {% if since_diagnostic.after_pct is not none %}
+      Unassisted practice since: <strong>{{ since_diagnostic.after_pct }}%</strong>
+      of {{ since_diagnostic.after_total }} answers.
+      {% endif %}
+    </div>
+    {% for t in since_diagnostic.topics %}
+    <div style="display: flex; align-items: center; gap: 8px; padding: 6px 0; border-top: 1px solid var(--border); font-size: 0.84rem;">
+      <span style="flex: 1;">{{ t.topic }}</span>
+      <span class="text-muted">{{ t.before }}%</span>
+      <span class="text-muted">-&gt;</span>
+      <span style="font-weight: 600;">{{ t.after }}%</span>
+      <span class="text-muted">({{ t.attempts }})</span>
+    </div>
+    {% endfor %}
+    <div class="text-muted" style="font-size: 0.78rem; margin-top: 10px;">
+      Topics you were weakest on at signup. Not a score prediction.
+    </div>
+  </div>
+  {% endif %}
+
   <!-- Domain Breakdown -->
   <div style="padding-top: 24px;">
     <h2 class="section-title">By Domain</h2>

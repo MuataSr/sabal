@@ -676,6 +676,21 @@ def get_due_review_ids(user_id, limit=20):
         return [r["question_id"] for r in rows]
 
 
+def get_answer_records(user_id):
+    """Every unassisted practice answer, oldest first: the raw record behind the rollups.
+
+    topic_mastery files "mixed" quiz answers under domain='mixed', so it cannot
+    answer per-domain questions. answers can, and the diagnostic never writes here.
+    """
+    with _get_conn() as conn:
+        rows = conn.execute(
+            "SELECT question_id, is_correct FROM answers"
+            " WHERE user_id=? AND assistance_used=0 ORDER BY id",
+            (user_id,),
+        ).fetchall()
+        return [dict(r) for r in rows]
+
+
 def count_due_reviews(user_id):
     now_iso = datetime.utcnow().isoformat()
     with _get_conn() as conn:
